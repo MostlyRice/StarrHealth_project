@@ -1,10 +1,17 @@
-# Name of Project
+# Project Starr Health Co.
 
-One Paragraph of project description goes here. Link to the live version of the app if it's hosted on Heroku.
+Starr Health Scheduling Web App is a full-stack web application with the purpose of helping Students connect with Starr Health Coaches who match their needs and connect with those Coaches. The application will include registration for Students, an algorithm that will match Students with Coaches, allow Students to connect with those Coaches and schedule meetings with Coaches to get the help they need.
+
 
 ## Built With
 
-List technologies and frameworks here
+- AngularJS
+- Node.js
+- Express
+- PostgreSQL
+- AngularJS Material
+- SweetAlert
+- Filestack
 
 ## Getting Started
 
@@ -57,8 +64,11 @@ Add additional notes about how to deploy this on a live system
 
 ## Authors
 
-* Name of author(s)
-
+- Alex Aspell
+- Dan Shugarts
+- Carter Schleif
+- James Nguyen
+- Renee Vorbeck
 
 ## Acknowledgments
 
