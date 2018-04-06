@@ -31,9 +31,12 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', functi
     };
 
     self.registerUser = function () {
-      if (self.user.username === '' || self.user.password === '') {
+      if (self.user.username === '' || self.user.passwordOne === '' || self.user.passwordTwo === '') {
         self.message = "Choose a username and password!";
-      } else {
+      } else if (self.user.passwordOne != self.user.passwordTwo) {
+        self.message = "Passwords do not match!";
+      } else if (self.user.passwordOne = self.user.passwordTwo) {
+        self.user.password = self.user.passwordOne;
         console.log('sending to server...', self.user);
         $http.post('/api/user/register', self.user).then(function (response) {
           console.log('success');
@@ -43,6 +46,8 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', functi
             console.log('error');
             self.message = "Something went wrong. Please try again."
           });
+      } else {
+          self.message = "Something went wrong. Please try again."
       }
     }
 }]);
