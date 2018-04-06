@@ -18,18 +18,44 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     .when('/user', {
       templateUrl: '/views/templates/user.html',
       controller: 'UserController as vm',
-      resolve: {
-        getuser : function(UserService){
-          return UserService.getuser();
-        }
-      }
     })
     .when('/info', {
       templateUrl: '/views/templates/info.html',
       controller: 'InfoController as vm',
+    })
+    .when('/julia_home', {
+      templateUrl: '/views/templates/julia_home.html',
+      controller: 'JuliaController as vm',
       resolve: {
-        getuser : function(UserService){
-          return UserService.getuser();
+        getJulia : function(UserService){
+          return UserService.getJulia();
+        }
+      }
+    })
+    .when('/admin_home', {
+      templateUrl: '/views/templates/admin_home.html',
+      controller: 'UserController as vm',
+      resolve: {
+        getAdmin : function(UserService){
+          return UserService.getAdmin();
+        }
+      }
+    })
+    .when('/coach_home', {
+      templateUrl: '/views/templates/coach_home.html',
+      controller: 'UserController as vm',
+      resolve: {
+        getCoach : function(UserService){
+          return UserService.getCoach();
+        }
+      }
+    })
+    .when('/student_home', {
+      templateUrl: '/views/templates/student_home.html',
+      controller: 'UserController as vm',
+      resolve: {
+        getStudent : function(UserService){
+          return UserService.getStudent();
         }
       }
     })
