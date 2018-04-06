@@ -7,9 +7,14 @@
         <input type="text" ng-model="vm.user.username" />
     </div>
     <div>
-        <label for="password">Password:</label>
-        <input type="password" ng-model="vm.user.password" />
+        <label for="passwordOne">Password:</label>
+        <input type="password" ng-model="vm.user.passwordOne" />
     </div>
+    <div>
+      <label for="passwordTwo">Confirm Password:</label>
+      <input type="password" ng-model="vm.user.passwordTwo" />
+  </div>
+  
     <input class="btn btn-default" type="submit" name="submit" value="Register" />
     <a href="#!home">Cancel</a>
   </form>
