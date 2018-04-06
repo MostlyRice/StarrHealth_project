@@ -3,7 +3,10 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', functi
     var self = this;
     self.user = {
       username: '',
-      password: ''
+      password: '',
+      passwordOne: '',
+      passwordTwo: '',
+      user_role: 1
     };
     self.message = '';
 
@@ -31,8 +34,10 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', functi
     };
 
     self.registerUser = function () {
-      if (self.user.username === '' || self.user.passwordOne === '' || self.user.passwordTwo === '') {
-        self.message = "Choose a username and password!";
+      if (self.user.username === '') {
+        self.message = "Choose a username!";
+      } else if (self.user.passwordOne === '' || self.user.passwordTwo === '' ) {
+        self.message = "Choose a password!";
       } else if (self.user.passwordOne != self.user.passwordTwo) {
         self.message = "Passwords do not match!";
       } else if (self.user.passwordOne = self.user.passwordTwo) {
