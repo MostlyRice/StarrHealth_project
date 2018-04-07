@@ -36,53 +36,6 @@ CREATE TABLE "users" (
   "password" varchar(240) not null,
   "user_role" INT
 );
-
-CREATE TABLE "student_bio" (
-	"student_id" serial primary key,
-	"id" int REFERENCES users ON DELETE CASCADE not null,
-	"coach_id" int REFERENCES coach_bio,
-	"disclaimer" boolean,
-	"first_name" char(25),
-	"last_name" char(30),
-	"date_of_birth" date,
-	"relationship_status" char(25),
-	"skype_id" varchar(40),
-	"email" varchar(50),
-	"phone_number" bigint,
-	"school_name" varchar(40),
-	"school_code" varchar(10),
-	"sessions_remaining" int,
-	"primary_goal" char(20),
-	"other_goals" varchar(500),
-	"other_professionals" boolean,
-	"other_professionals_explanation" varchar(250),
-	"other_information" boolean,
-	"other_information_explanation" varchar(500),
-    "student_bio" varchar(500)
-);
-
-CREATE TABLE "barriers" (
-	"barrier_id" serial primary key,
-	"barrier_name" varchar(100) not null
-);
-
-CREATE TABLE "user_barriers" (
-	"id" int REFERENCES users ON DELETE CASCADE not null,
-	"barrier_id" int REFERENCES barriers ON DELETE CASCADE not null
-);
-
-CREATE TABLE "coach_bio" (
-	"coach_id" serial primary key,
-	"id" int REFERENCES users ON DELETE CASCADE not null,
-	"first_name" char(25),
-    "last_name" char(30),
-	"email" varchar(50),
-	"job_title" char(30),
-	"specialties" varchar(500),
-	"certifications" varchar(500),
-	"coach_bio" varchar(500),
-	"coach_photo" varchar(75)
-);
 ```
 
 ## Screen Shot
@@ -91,18 +44,30 @@ Include one or two screen shots of your project here (optional). Remove if unuse
 
 ## Documentation
 
-Link to a read-only version of your scope document or other relevant documentation here (optional). Remove if unused.
+Link to a read-only version of your scope document or other relevant documentation here: https://docs.google.com/document/d/1gGTGabopz6QncbPzYBP0jFaSL_c1UE1eGZYKHAht12s/edit?usp=sharing
 
 ### Completed Features
 
 High level list of items completed.
 
-- [x] Feature a
-- [x] Feature b
+**Student user features:**
+- [ ] **Coach profile preview (modal):** Provides a brief summary of therapist's information.
+- [ ] **Coach full profile view:** Shows full details of coach profile and a link to schedule appointments.
+- [ ] **Appointment scheduler:** Displays a two week period of chosen therapist's availability. Prospective patient may click to request an appointment, add information, and an email will be sent to the therapist with the requested date, time and contact information.
+
+**Coach user features:**
+- [ ] **Coach profile dashboard:** Logged in coaches have access to an editable profile page where they can view edit any information including their photo, adding new areas of interest or certifications, and being able to change their password
+- [ ] **Coach schedule view:** The Coach will also be able to navigate to their appointments page. This will be specific
+to the Coach and will serve just as a snapshot of their upcoming schedule. The Coach will be able to navigate to the schedule page to set their availability.
 
 ### Next Steps
 
 Features that you would like to add at some point in the future.
+
+- [ ] The ability for coaches communicate notes from sessions to the students. These notes could be text posted onto the students’ profile or pdfs sent to the students through the site
+- [ ] A messaging function that allows students and coaches to send messages back and forth. This would be an individual message page that could only be viewed by the student and their coach. The hope is that this would take the place of any email and phone contact
+- [ ] The ability for the app to send email/text reminders for Students & Coaches.
+
 
 - [ ] Feature c
 
