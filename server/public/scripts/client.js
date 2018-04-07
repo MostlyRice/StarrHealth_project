@@ -59,6 +59,42 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
         }
       }
     })
+    .when('/disclaimer', {
+      templateUrl: '/views/student_signup/disclaimer.html',
+      controller: 'SignupController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/general_info', {
+      templateUrl: '/views/student_signup/general_info.html',
+      controller: 'SignupController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/student_goals', {
+      templateUrl: '/views/student_signup/student_goals.html',
+      controller: 'SignupController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/student_barriers', {
+      templateUrl: '/views/student_signup/student_barriers.html',
+      controller: 'SignupController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
     .otherwise({
       template: '<h1>404</h1>'
     });

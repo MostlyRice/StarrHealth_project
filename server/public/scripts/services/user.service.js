@@ -10,6 +10,7 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
             console.log('user service reponse', response.data);
             console.log('user service userObject', self.userObject);
             // user has a curret session on the server
+            self.userObject.id = response.data.id;
             self.userObject.userName = response.data.username;
             self.userObject.user_role = response.data.user_role;
             console.log('UserService -- getuser -- User Data: ', self.userObject.userName);
@@ -107,7 +108,7 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
         if(response.data.user_role === 1) {
             console.log('get Student reponse', response.data);
             console.log('get Student userObject', self.userObject);
-            // user has a curret session on the server
+            // user has a curret session on the server\
             self.userObject.userName = response.data.username;
             self.userObject.user_role = response.data.user_role;
             console.log('UserService -- getStudent -- User Data: ', self.userObject.userName);

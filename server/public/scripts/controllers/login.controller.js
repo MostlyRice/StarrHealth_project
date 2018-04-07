@@ -1,7 +1,11 @@
-myApp.controller('LoginController', ['$http', '$location', 'UserService', function($http, $location, UserService) {
+myApp.controller('LoginController', ['$http', '$location', 'UserService', 'SignupService', function($http, $location, UserService, SignupService) {
     console.log('LoginController created');
     var self = this;
     self.userService = UserService;
+    self.signupService = SignupService;
+    self.id = UserService.userObject.id;
+    self.disclaimer = SignupService.disclaimer;
+    self.letPass = SignupService.letPass;
     
    
 
@@ -12,6 +16,7 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', functi
       passwordTwo: '',
       user_role: 1
     };
+
     self.message = '';
 
     self.login = function () {
@@ -49,7 +54,8 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', functi
         console.log('sending to server...', self.user);
         $http.post('/api/user/register', self.user).then(function (response) {
           console.log('success');
-          $location.path('/home');
+          let user = self.user;
+        self.newLogin(user);
         },
           function (response) {
             console.log('error');
@@ -60,7 +66,24 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', functi
       }
     } // end register user
 
-
+    self.newLogin = function(user) {
+       console.log('sending to server...', user);
+        $http.post('/api/user/login', user).then(
+          function (response) {
+            if (response.status == 200) {
+              console.log('success: ', response.data);
+              // location works with SPA (ng-route)
+              self.disclaimer();
+            } else {
+              console.log('failure error: ', response);
+              self.message = "Incorrect credentials. Please try again.";
+            }
+          },
+          function (response) {
+            console.log('failure error: ', response);
+            self.message = "Incorrect credentials. Please try again.";
+          });
+    }; // end newLogin
 
     self.determineUser = function(user) {
       console.log('DU', user);
@@ -100,7 +123,6 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', functi
     self.determinePath = function(id, role) {
       console.log('DP', id, role);
       $location.url('/user');
-
     } // end determinePath
 
 }]); // end controller
