@@ -18,8 +18,11 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
 
     self.goals = function() {
         $location.path('/student_goals');
-    } // end general
+    } // end goals
 
+    self.barriers = function() {
+        $location.path('/student_barriers');
+    } // end goals
 
     self.letPass = function(id) {
         console.log('SS', id);
@@ -39,7 +42,12 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
 
     self.collectBarriers = function(barriers) {
         console.log('barriers', barriers);
+        $location.path('/additional_info');
+    }
 
+    self.collectExtraInfo = function(info) {
+        console.log('info', info);
+        $location.path('/student_coaches');
     }
 
 
