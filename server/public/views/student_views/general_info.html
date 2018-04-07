@@ -1,41 +1,43 @@
 <div class="container">
     <h2>General Info</h2>
-    <div>
+    <md-input-container>
         <label for="firstName">First Name:</label>
-        <input type="text" name="firstName" ng-model="vm.generalStudent.first_name" placeholder="First Name"/>
-    </div>
-    <div>
+        <input type="text" name="firstName" ng-model="vm.generalStudent.first_name">
+    </md-input-container>
+    <md-input-container>
         <label for="lastName">Last Name:</label>
-        <input type="text" name="lastName" ng-model="vm.generalStudent.last_name" placeholder="Last Name"/>
-    </div>
-    <div>
+        <input type="text" name="lastName" ng-model="vm.generalStudent.last_name"/>
+    </md-input-container>
+    <md-input-container>
         <label for="email">Email:</label>
-        <input type="email" name="emaIl" ng-model="vm.generalStudent.email" placeholder="example@xxxx.com"/>
-    </div>
-    <div>
-        <label for="dob">Date of Birth:</label>
-        <input type="date" name="dob" ng-model="vm.generalStudent.date_of_birth"/>
-    </div>
-    <div>
+        <input type="email" name="emaIl" ng-model="vm.generalStudent.email"/>
+    </md-input-container>
+    <md-input-container>
+            <label>Enter date</label>
+        <md-datepicker ng-model="vm.generalStudent.date_of_birth"></md-datepicker>
+    </md-input-container>
+    <md-input-container>
         <label for="relationship">Relationship Status:</label>
-        <input type="text" name="relationship" ng-model="vm.generalStudent.relationship_status" placeholder="Relationship Status"/>
-    </div>
-    <div>
+        <input type="text" name="relationship" ng-model="vm.generalStudent.relationship_status"/>
+    </md-input-container>
+    <md-input-container>
         <label for="phone">Phone Number:</label>
-        <input type="text" name="phone" ng-model="vm.generalStudent.phone_number" placeholder="Phone Number"/>
-    </div>
-    <div>
+        <input type="text" name="phone" ng-model="vm.generalStudent.phone_number"/>
+    </md-input-container>
+    <md-input-container>
         <label for="skype">Skype ID:</label>
-        <input type="text" name="skype" ng-model="vm.generalStudent.skype" placeholder="Skype ID"/>
-    </div>
+        <input type="text" name="skype" ng-model="vm.generalStudent.skype"/>
+    </md-input-container>
     <div>
         <label for="school">Name of School:</label>
         <select name="school" ng-model="vm.generalStudent.school_name" >
             <option value="placeholder school">Placeholder</option>
         </select>
         </div>
-    <div>
+    <md-input-container>
         <label for="code">School Code:</label>
+        <input type="text" name="code" ng-model="vm.generalStudent.code"/>
+    </md-input-container>
         <input type="text" name="code" ng-model="vm.generalStudent.school_code" placeholder="School Code"/>
     </div>
   </div>
