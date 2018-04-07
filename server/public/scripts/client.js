@@ -51,7 +51,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       }
     })
     .when('/student_home', {
-      templateUrl: '/views/templates/student_home.html',
+      templateUrl: '/views/student_views/student_home.html',
       controller: 'UserController as vm',
       resolve: {
         getStudent : function(UserService){
@@ -60,7 +60,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       }
     })
     .when('/disclaimer', {
-      templateUrl: '/views/student_signup/disclaimer.html',
+      templateUrl: '/views/student_views/disclaimer.html',
       controller: 'SignupController as vm',
       resolve: {
         getuser : function(UserService){
@@ -69,7 +69,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       }
     })
     .when('/general_info', {
-      templateUrl: '/views/student_signup/general_info.html',
+      templateUrl: '/views/student_views/general_info.html',
       controller: 'SignupController as vm',
       resolve: {
         getuser : function(UserService){
@@ -78,7 +78,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       }
     })
     .when('/student_goals', {
-      templateUrl: '/views/student_signup/student_goals.html',
+      templateUrl: '/views/student_views/student_goals.html',
       controller: 'SignupController as vm',
       resolve: {
         getuser : function(UserService){
@@ -87,8 +87,26 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       }
     })
     .when('/student_barriers', {
-      templateUrl: '/views/student_signup/student_barriers.html',
+      templateUrl: '/views/student_views/student_barriers.html',
       controller: 'SignupController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/additional_info', {
+      templateUrl: '/views/student_views/additional_info.html',
+      controller: 'SignupController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/student_coaches', {
+      templateUrl: '/views/student_views/student_coaches.html',
+      controller: 'MatchController as vm',
       resolve: {
         getuser : function(UserService){
           return UserService.getuser();

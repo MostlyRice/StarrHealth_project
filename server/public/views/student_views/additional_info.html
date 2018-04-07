@@ -1,0 +1,25 @@
+<div class="container">
+        <h2>Additional Information</h2>
+        <div>
+            <label>Are you currently working with any mental health or medical professionals?</label>
+            <input type="radio" ng-model="vm.info.medical_bool" value="false">No</label>
+            <input type="radio" ng-model="vm.info.medical_bool" value="true">Yes</label>
+        </div>
+      </div>
+      <div>
+            <label for="medical_explain">If yes, explain:</label>
+            <input type="text" name="medical_explain" ng-model="vm.info.medical_explain" placeholder="Explain.."/>
+      </div>
+      <div>
+            <label>Do you have anything else you would like us to know?</label>
+            <input type="radio" ng-model="vm.info.other_bool" value="false">No</label>
+            <input type="radio" ng-model="vm.info.other_bool" value="true">Yes</label>
+        </div>
+        <div>
+            <label for="other_explain">If yes, explain:</label>
+            <input type="text" name="other_explain" ng-model="vm.info.other_explain" placeholder="Explain.."/>
+        </div>
+      <div class="container">
+        <button ng-click="vm.collectExtraInfo(vm.info)">Next</button>
+        <button ng-click="vm.barriers()">Back</button>
+    </div>
