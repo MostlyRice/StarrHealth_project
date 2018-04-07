@@ -2,7 +2,6 @@
         <h2>Primary Goal</h2>
         <md-radio-group>
             <label>What is your primary goal:</label>
-            
             <md-radio-button ng-model="vm.goals.primary_goal" value="academic">Academic Goals</md-radio-button>
             <md-radio-button ng-model="vm.goals.primary_goal" value="social_life">Social Life Goals</md-radio-button>
             <md-radio-button ng-model="vm.goals.primary_goal" value="personal_health">Personal Health Goals</md-radio-button>
@@ -12,9 +11,9 @@
       </div>
       <div class="container">
             <label for="secondaryGoals">Do you have any secondary goals?:</label>
-            <input type="text" name="secondaryGoals" ng-model="vm.goals.secondary_goals" placeholder="Any secondary goals?"/>
+            <input type="text" name="secondaryGoals" ng-model="vm.student_goals.secondary_goals" placeholder="Any secondary goals?"/>
       </div>
       <div class="container">
-        <button ng-click="vm.collectGoals(vm.goals)">Next</button>
+        <button ng-click="vm.collectGoals(vm.student_goals)">Next</button>
         <button ng-click="vm.general()">Back</button>
     </div>

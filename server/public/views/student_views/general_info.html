@@ -30,14 +30,16 @@
     </md-input-container>
     <div>
         <label for="school">Name of School:</label>
-        <select name="school">
-            <option value="">Placeholder</option>
+        <select name="school" ng-model="vm.generalStudent.school_name" >
+            <option value="placeholder school">Placeholder</option>
         </select>
         </div>
     <md-input-container>
         <label for="code">School Code:</label>
         <input type="text" name="code" ng-model="vm.generalStudent.code"/>
     </md-input-container>
+        <input type="text" name="code" ng-model="vm.generalStudent.school_code" placeholder="School Code"/>
+    </div>
   </div>
   <div class="container">
     <button ng-click="vm.collectGeneral(vm.generalStudent)">Next</button>
