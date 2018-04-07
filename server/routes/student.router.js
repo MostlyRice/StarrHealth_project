@@ -59,5 +59,19 @@ router.put('/general/:id', (request, response) => {
       })
   }); // end barriers update
 
+  router.put('/extra/:id', (request, response) => {
+    const id = request.params.id;
+    const entry = request.body.entry;
+    let queryText = `UPDATE student_bio 
+    SET other_professionals=$2, other_professionals_explanation=$3, other_information=$4, other_information_explanation=$5 WHERE id=$1`;
+    pool.query(queryText, [id, entry.other_professionals, entry.other_professionals_explain, entry.other_information, entry.other_information_explain])
+      .then((result) => {
+        response.sendStatus(200);
+      })
+      .catch((err) => {
+        response.sendStatus(500);
+      })
+  }); // end extra update
+
 
 module.exports = router;

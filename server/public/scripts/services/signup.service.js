@@ -19,9 +19,6 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
         $location.path('/student_goals');
     } // end goals
 
-    self.backBarriers = function() {
-        $location.path('/student_barriers');
-    } // end goals
 
     self.letPass = function() {
         const disclaimer = true;
@@ -104,14 +101,43 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
             console.log('done');
             self.primaryBarriers(barriers);
         }).catch(function (error) {
-          console.log('goals put error', error);
+          console.log('barriers put error', error);
         })
     } // end collectBarriers
 
     self.collectExtraInfo = function(info) {
         console.log('info', info);
-        $location.path('/student_coaches');
-    }
+        const id = UserService.userObject.id;
+        let other_professionals_explain = 'N/A';
+        let other_information_explain = 'N/A';
+        if (info.medical_bool === "true") {
+            other_professionals_explain = info.medical_explain;
+        } else {
+            other_professionals_explain = 'N/A';
+        }
+        if (info.other_bool === "true") {
+            other_information_explain = info.other_explain;
+        } else {
+            other_information_explain = 'N/A';
+        }
+        const entry = {
+            id: id,
+            other_professionals: info.medical_bool,
+            other_professionals_explain: other_professionals_explain,
+            other_information: info.other_bool,
+            other_information_explain: other_information_explain
+        }
+        $http({
+            method: 'PUT',
+            url: `/student/extra/${id}`,
+            data: {entry: entry}
+        }).then(function(response) {
+            $location.path('/student_coaches');
+        }).catch(function (error) {
+          console.log('extra info put error', error);
+        })
+
+    } // end collect extra info
 
     self.primaryBarriers = function(barriers) {
         console.log(barriers);
