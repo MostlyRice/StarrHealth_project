@@ -24,20 +24,70 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
         $location.path('/student_barriers');
     } // end goals
 
-    self.letPass = function(id) {
-        console.log('SS', id);
+    self.letPass = function() {
         const disclaimer = true;
-        $location.path('/general_info');
+        const user = UserService.userObject;
+        console.log('user is ', user, disclaimer);
+        const entry = {
+            id: user.id,
+            disclaimer: disclaimer
+        }
+        $http({
+            method: 'POST',
+            url: '/student',
+            data: {entry: entry}
+        }).then(function(response) {
+            $location.path('/general_info');
+        }).catch(function(error) {
+            console.log('disclaimer error');
+        })
       } // end letPass
 
       self.collectGeneral = function(info) {
           console.log('general info', info);
+          const id = UserService.userObject.id;
+          const entry = {
+              id: id,
+              first_name: info.first_name,
+              last_name: info.last_name,
+              date_of_birth: info.date_of_birth,
+              relationship_status: info.relationship_status,
+              skype_id: info.skype,
+              email: info.email,
+              phone_number: info.phone_number,
+              school_name: info.school_name,
+              school_code: info.school_code
+          }
+          $http({
+            method: 'PUT',
+            url: `/student/general/${id}`,
+            data: {entry: entry}
+        }).then(function(response) {
           $location.path('/student_goals');
+        }).catch(function (error) {
+          console.log('general put error', error);
+        })
+
       }
 
-      self.collectGoals = function(goals) {
-        console.log('goals', goals);
-        $location.path('/student_barriers');
+      self.collectGoals = function(goal) {
+        console.log('goal', goal);
+        const id = UserService.userObject.id;
+        const entry = {
+            id: id,
+            primary_goal: goal.primary_goal,
+            other_goals: goal.secondary_goals
+        }
+        $http({
+            method: 'PUT',
+            url: `/student/goals/${id}`,
+            data: {entry: entry}
+        }).then(function(response) {
+            $location.path('/student_barriers');
+        }).catch(function (error) {
+          console.log('goals put error', error);
+        })
+
     }
 
     self.collectBarriers = function(barriers) {
