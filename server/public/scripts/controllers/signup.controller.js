@@ -13,8 +13,7 @@ myApp.controller('SignupController', ['UserService', '$location', 'SignupService
     self.collectBarriers = SignupService.collectBarriers;
     self.goals = SignupService.goals;
     self.collectExtraInfo = SignupService.collectExtraInfo;
-    self.backBarriers = SignupService.backBarriers;
-
+  
     console.log(self.userObject);
     console.log(self.id);
 
