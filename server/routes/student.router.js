@@ -45,5 +45,19 @@ router.put('/general/:id', (request, response) => {
       })
   }); // end goals update
 
+  router.put('/barriers/:id', (request, response) => {
+    const id = request.params.id;
+    const entry = request.body.entry;
+    let queryText = `UPDATE student_bio 
+    SET other_barriers=$2 WHERE id=$1`;
+    pool.query(queryText, [id, entry.other_barriers])
+      .then((result) => {
+        response.sendStatus(200);
+      })
+      .catch((err) => {
+        response.sendStatus(500);
+      })
+  }); // end barriers update
+
 
 module.exports = router;
