@@ -1,5 +1,8 @@
-<div class="container">
+<div layout="column" ng-cloak class="md-inline-form">
+    <md-content layout-padding>
+        <div>
     <h2>General Info</h2>
+    <form name="userForm">
     <md-input-container>
         <label for="firstName">First Name:</label>
         <input type="text" name="firstName" ng-model="vm.generalStudent.first_name">
@@ -28,6 +31,7 @@
         <label for="skype">Skype ID:</label>
         <input type="text" name="skype" ng-model="vm.generalStudent.skype"/>
     </md-input-container>
+    </form>
     <div>
         <label for="school">Name of School:</label>
         <select name="school" ng-model="vm.generalStudent.school_name" >
@@ -44,4 +48,7 @@
   <div class="container">
     <button ng-click="vm.collectGeneral(vm.generalStudent)">Next</button>
     <button ng-click="vm.disclaimer()">Back</button>
+
+</div>
+</md-content>
 </div>

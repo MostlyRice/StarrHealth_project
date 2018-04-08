@@ -18,12 +18,4 @@ router.get('/:name', (request, response) => {
       })
   });
 
-
-
-
-
-
-
-
-
 module.exports = router;
