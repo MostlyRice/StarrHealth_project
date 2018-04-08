@@ -51,7 +51,7 @@ Link to a read-only version of your scope document or other relevant documentati
 High level list of items completed.
 
 **Student user features:**
-- [ ] **Coach profile preview (modal):** Provides a brief summary of therapist's information.
+- [ ] **Coach profile preview:** Provides a brief summary of therapist's information.
 - [ ] **Coach full profile view:** Shows full details of coach profile and a link to schedule appointments.
 - [ ] **Appointment scheduler:** Displays a two week period of chosen therapist's availability. Prospective patient may click to request an appointment, add information, and an email will be sent to the therapist with the requested date, time and contact information.
 
@@ -60,6 +60,16 @@ High level list of items completed.
 - [ ] **Coach schedule view:** The Coach will also be able to navigate to their appointments page. This will be specific
 to the Coach and will serve just as a snapshot of their upcoming schedule. The Coach will be able to navigate to the schedule page to set their availability.
 
+**Admin user features:**
+- [ ] **Coach directory view:** Displays all Coaches that are currently part of Starr Health. Admin has the ability to update a Coach’s information, modify their schedule, add a new coach, as well as delete a Coach when needed.
+- [ ] **All schedule view:** Displays all the appointments scheduled across all the Starr Health Coaches. This view will have a filter search bar so the Admin could view all appointments by date, or specific Coach, etc.
+- [ ] **Add new school:** Ability for the Admin creates a new school, they will have to enter the name of the school and the number of Student accounts.
+- [ ] **School directory view:** The schools directory will give the Admin access to all schools that have accounts with
+Starr Health. It will list each school by name, show the total number of Student accounts for that school and how many are currently assigned to Students. 
+- [ ] **School directory view:** The Students directory will show the Admin a list of all Students that currently have
+accounts with Starr Health. The Admin will have the option to delete a Student Account if necessary.
+
+
 ### Next Steps
 
 Features that you would like to add at some point in the future.
@@ -67,9 +77,6 @@ Features that you would like to add at some point in the future.
 - [ ] The ability for coaches communicate notes from sessions to the students. These notes could be text posted onto the students’ profile or pdfs sent to the students through the site
 - [ ] A messaging function that allows students and coaches to send messages back and forth. This would be an individual message page that could only be viewed by the student and their coach. The hope is that this would take the place of any email and phone contact
 - [ ] The ability for the app to send email/text reminders for Students & Coaches.
-
-
-- [ ] Feature c
 
 ## Deployment
 
