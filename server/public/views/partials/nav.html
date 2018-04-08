@@ -1,8 +1,13 @@
-<div class="navbar">
-  <div class="container">
-    <ul>
-      <li><a href="#!user">User Home</a></li>
-      <li><a href="#!info">Info Page</a></li>
-    </ul>
-  </div>
+<div ng-controller="UserController as vm">
+    <md-nav-bar
+    md-no-ink-bar="disableInkBar"
+    md-selected-nav-item="currentNavItem"
+    nav-bar-aria-label="navigation links">
+    <md-nav-item md-nav-href="#!user" name="Home">
+        Home
+    </md-nav-item>
+    <md-nav-item md-nav-href="#!info" name="Info">
+        Info
+    </md-nav-item>
+    <md-button md-no-ink class="md-warn" ng-click="vm.userService.logout()">Log Out</md-button>
 </div>

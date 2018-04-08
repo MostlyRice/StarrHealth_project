@@ -1,7 +1,7 @@
-<div class="container">
+<div layout="column" ng-cloak class="md-inline-form">
+        <md-content layout="column" layout-padding> 
         <h2>Primary Barriers to Success</h2>
-        <div>
-            <label>What are your primary barriers to success?:</label>
+            <label>What are your primary barriers to success?</label>
             <md-checkbox id="stress" ng-model="vm.barriers.stress" value="stress">
                 <label for="stress">Stress</label>
             </md-checkbox>  
@@ -23,12 +23,12 @@
             <md-checkbox id="time" ng-model="vm.barriers.time" value="time">
                 <label for="time">Time</label>
             </md-checkbox>
+            </md-content>
         </div>
-      </div>
-      <div class="container">
-            <label for="otherBarriers">Do you have any other barriers?:</label>
-            <input type="text" name="otherBarriers" ng-model="vm.barriers.other_barriers" placeholder="Any other barriers to success?"/>
-      </div>
+      <md-input-container class="md-block">
+            <label for="otherBarriers">Do you have any other barriers?</label>
+            <textarea ng-model="vm.barriers.other_barriers" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+          </md-input-container>
       <div class="container">
         <button ng-click="vm.collectBarriers(vm.barriers)">Next</button>
         <button ng-click="vm.goals()">Back</button>

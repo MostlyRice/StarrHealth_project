@@ -1,19 +1,21 @@
-<div class="container">
+<div layout="column" ng-cloak class="md-inline-form">
+        <md-content layout-padding>
+            <div>
         <h2>Primary Goal</h2>
         <md-radio-group>
-            <label>What is your primary goal:</label>
+            <label>What is your primary goal</label>
             <md-radio-button ng-model="vm.goals.primary_goal" value="academic">Academic Goals</md-radio-button>
             <md-radio-button ng-model="vm.goals.primary_goal" value="social_life">Social Life Goals</md-radio-button>
             <md-radio-button ng-model="vm.goals.primary_goal" value="personal_health">Personal Health Goals</md-radio-button>
             <md-radio-button ng-model="vm.goals.primary_goal" value="professional">Professional Goals</md-radio-button>
             <md-radio-button ng-model="vm.goals.primary_goal" value="relationship">Relationship Goals</md-radio-button>
         </md-radio-group>
-      </div>
-      <div class="container">
-            <label for="secondaryGoals">Do you have any secondary goals?:</label>
-            <input type="text" name="secondaryGoals" ng-model="vm.student_goals.secondary_goals" placeholder="Any secondary goals?"/>
-      </div>
-      <div class="container">
+      <md-input-container class="md-block">
+            <label for="secondaryGoals">Do you have any secondary goals?</label>
+            <textarea ng-model="vm.student_goals.secondary_goals" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+          </md-input-container>
         <button ng-click="vm.collectGoals(vm.student_goals)">Next</button>
         <button ng-click="vm.general()">Back</button>
+    </div>
+      </md-content>
     </div>
