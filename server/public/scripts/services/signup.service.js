@@ -4,6 +4,7 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
     self.newStudent = {};
     self.userService = UserService;
     self.userObject = UserService.userObject;
+    self.schools = [];
 
 
 
@@ -33,15 +34,30 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
             url: '/student',
             data: {entry: entry}
         }).then(function(response) {
+            self.getSchools();
             $location.path('/general_info');
         }).catch(function(error) {
             console.log('disclaimer error');
         })
       } // end letPass
 
+      self.getSchools = function() {
+        $http({
+            method: 'GET',
+            url: '/admin/school'
+        }).then(function(response) {
+            console.log(response.data);
+            self.schools = response.data;
+            console.log('self.schools = ', self.schools);
+        }).catch(function(error) {
+            console.log('get schools error');
+        })
+    }
+
       self.collectGeneral = function(info) {
           console.log('general info', info);
           const id = UserService.userObject.id;
+          const sessions_used = 0;
           const entry = {
               id: id,
               first_name: info.first_name,
@@ -51,20 +67,52 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
               skype_id: info.skype,
               email: info.email,
               phone_number: info.phone_number,
-              school_name: info.school_name,
-              school_code: info.school_code
+              school_id: info.school_id,
+              school_code: info.school_code,
+              sessions_used: sessions_used
           }
           $http({
             method: 'PUT',
             url: `/student/general/${id}`,
             data: {entry: entry}
         }).then(function(response) {
-          $location.path('/student_goals');
+            const school_id = entry.school_id;
+            $http({
+                method: 'GET',
+                url: `/admin/school/${school_id}`
+            }).then(function(response) {
+                console.log(response.data);
+                const school_code = response.data[0].school_code;
+                const total_sessions = response.data[0].student_sessions;
+                const entry = {
+                    id: id,
+                    total_sessions: total_sessions
+                }
+                console.log(info.school_code, school_code);
+                if (info.school_code != school_code) {
+                    alert("School Code Incorrect");
+                    info.school_code = '';
+                } else if (info.school_code === school_code) {
+                    $http({
+                        method: 'PUT',
+                        url: `/student/sessions/${id}`,
+                        data: {entry: entry}
+                    }).then(function(response) {
+                        $location.path('/student_goals');
+                    }).catch(function (error) {
+                      console.log('sessions put error', error);
+                    })
+                } else {
+                    alert('error in school authentication');
+                    info.school_code = '';
+                }
+            }).catch(function(error) {
+                console.log('get schools error');
+            })
         }).catch(function (error) {
           console.log('general put error', error);
         })
-
-      }
+      } // end collectGeneral
 
       self.collectGoals = function(goal) {
         console.log('goal', goal);
