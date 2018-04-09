@@ -128,3 +128,15 @@ header {
   vertical-align: middle;
   padding: 0 10px 10px 0;
 }
+
+.group {
+  display: inline-flex;
+  vertical-align: middle;
+  padding: 0 10px 10px 0;
+}
+
+.person {
+  display: inline-flex;
+  vertical-align: middle;
+  padding: 0 10px 10px 0;
+}
