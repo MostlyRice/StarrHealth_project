@@ -1,8 +1,7 @@
 <div layout="column" ng-cloak class="md-inline-form">
-    <md-content layout-padding>
-        <div>
-    <h2>General Info</h2>
-    <form name="userForm">
+    <h2 layout-padding layout-gt-sm="row">General Info</h2>
+
+    <md-content layout-padding layout-gt-sm="row">
     <md-input-container>
         <label for="firstName">First Name:</label>
         <input type="text" name="firstName" ng-model="vm.generalStudent.first_name">
@@ -12,17 +11,23 @@
         <input type="text" name="lastName" ng-model="vm.generalStudent.last_name"/>
     </md-input-container>
     <md-input-container>
+        <label for="relationship">Relationship Status:</label>
+        <input type="text" name="relationship" ng-model="vm.generalStudent.relationship_status"/>
+        </md-input-container>
+    </md-content>
+
+    <md-content layout-padding layout-gt-sm="row">
+    <md-input-container>
         <label for="email">Email:</label>
         <input type="email" name="emaIl" ng-model="vm.generalStudent.email"/>
     </md-input-container>
     <md-input-container>
-            <label>Enter date</label>
+        <label>Enter date</label>
         <md-datepicker ng-model="vm.generalStudent.date_of_birth"></md-datepicker>
     </md-input-container>
-    <md-input-container>
-        <label for="relationship">Relationship Status:</label>
-        <input type="text" name="relationship" ng-model="vm.generalStudent.relationship_status"/>
-    </md-input-container>
+    </md-content>
+
+    <md-content layout-padding layout-gt-sm="row">
     <md-input-container>
         <label for="phone">Phone Number:</label>
         <input type="text" name="phone" ng-model="vm.generalStudent.phone_number"/>
@@ -31,6 +36,9 @@
         <label for="skype">Skype ID:</label>
         <input type="text" name="skype" ng-model="vm.generalStudent.skype"/>
     </md-input-container>
+    </md-content>
+
+    <md-content layout-padding layout-gt-sm="row">
     </form>
     <div>
         <label for="school">Name of School:</label>
@@ -42,11 +50,20 @@
         <label for="code">School Code:</label>
         <input type="text" name="code" ng-model="vm.generalStudent.school_code"/>
     </md-input-container>
-    </div>
+    <md-input-container>
+        <label for="school">Name of School:</label>
+        <md-select ng-model="vm.generalStudent.school_name">
+        <md-option value="None"><em>None</em></md-option>
+        <md-option value="Placeholder"><em>Placeholder</em></md-option>
+        </md-select>
+    </md-input-container>
+  
+    </md-content>
+
   </div>
   <div class="container">
-    <button ng-click="vm.collectGeneral(vm.generalStudent)">Next</button>
-    <button ng-click="vm.disclaimer()">Back</button>
+    <md-button class="md-raised md-primary" ng-click="vm.disclaimer()">Back</md-button>
+    <md-button class="md-raised md-primary" ng-click="vm.collectGeneral(vm.generalStudent)">Next</md-button>
 
 </div>
 </md-content>

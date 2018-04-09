@@ -31,6 +31,6 @@
             <textarea ng-model="vm.barriers.other_barriers" md-maxlength="150" rows="5" md-select-on-focus></textarea>
           </md-input-container>
       <div class="container">
-        <button ng-click="vm.collectBarriers(vm.barriers)">Next</button>
-        <button ng-click="vm.goals()">Back</button>
+        <md-button class="md-raised md-primary" ng-click="vm.goals()">Back</md-button>
+        <md-button class="md-raised md-primary" ng-click="vm.collectBarriers(vm.barriers)">Next</md-button>
     </div>
