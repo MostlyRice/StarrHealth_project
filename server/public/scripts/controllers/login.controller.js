@@ -113,16 +113,42 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', 'Signu
       } else if (role === 2) {
         $location.url('/coach_home');
       } else if (role === 1) {
-        $location.url('/student_home');
+        self.determineStudent(id, role);
       } else {
         self.message = "Something went wrong. Please try again."
         $location.url('/home');
       }
     } // end determineRole
 
-    self.determinePath = function(id, role) {
-      console.log('DP', id, role);
-      $location.url('/user');
-    } // end determinePath
+    self.determineStudent = function(id, role) {
+      console.log('STUDENT ALG', id, role);
+      $http({
+        method: 'GET',
+        url: `/path/student/${id}`
+      }).then(function(response){
+        console.log(response.data);
+        const student = response.data[0];
+        if (student.first_name === null || student.date_of_birth === null || student.email === null || student.phone_number === null || student.school_code === null || student.school_name === null) {
+          $location.url('/general_info');
+        } else if (student.primary_goal === null) {
+          $location.url('/student_goals');
+        } else if (student.other_professionals === null || student.other_information === null) {
+          $location.url('/additional_info');
+        } else if (student.coach_id === null) {
+          $location.url('/student_coaches');
+        } else if (student.coach_id != null) {
+          $location.url('/student_home');
+        } else {
+          self.message = "Something went wrong. Please contact the administrator."
+          $location.url('/home');
+        }
+        console.log('my STUDENT is: ', student);
+      }).catch(function(error){
+        console.log('Error getting data', error);
+      })
+  
+    } // end determineStudent
+
+
 
 }]); // end controller
