@@ -105,6 +105,10 @@ header {
   zoom: 50%;
 }
 
+.starr-text-header {
+  padding: 0 0 12px 0;
+}
+
 .exit-app {
   display: inline-flex;
   vertical-align: middle;
