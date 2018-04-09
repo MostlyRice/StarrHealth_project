@@ -40,14 +40,12 @@ router.get('/school', (request, response) => {
 
 router.post('/school/:school_id', (request, response) => {
   const school_id = request.params.school_id;
-  const man = request.body.man.man;
-  console.log('ROUTER ENTRY', man);
+  const secret = request.body.secret.secret;
   const sqlText = `SELECT * FROM schools WHERE school_id=$1`;
   pool.query(sqlText, [school_id])
     .then(function(result) {
       user = result.rows[0];
-      console.log("USER", user);
-      if(encryptLib.comparePassword(man, user.school_code)) {
+      if(encryptLib.comparePassword(secret, user.school_code)) {
         // all good!
         response.send(result.rows);
       } else {

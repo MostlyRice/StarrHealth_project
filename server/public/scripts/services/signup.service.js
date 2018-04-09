@@ -76,19 +76,16 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
             url: `/student/general/${id}`,
             data: {entry: entry}
         }).then(function(response) {
-            console.log('then post auth');
             const school_id = entry.school_id;
             const school_code = entry.school_code;
-            const man = {
-                man: school_code
+            const secret = {
+                secret: school_code
             }
             $http({
                 method: 'POST',
                 url: `/admin/school/${school_id}`,
-                data: {man: man}
+                data: {secret: secret}
             }).then(function(response) {
-                console.log(response.data);
-                const school_code = response.data[0].school_code;
                 const total_sessions = response.data[0].student_sessions;
                 const entry = {
                     id: id,
