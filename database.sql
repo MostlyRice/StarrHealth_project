@@ -40,8 +40,7 @@ CREATE TABLE "student_bio" (
     "skype_id" varchar(40),
     "email" varchar(50),
     "phone_number" bigint,
-    "school_name" varchar(40),
-    "school_code" varchar(10),
+    "school_id" int REFERENCES schools,
     "sessions_used" int,
     "total_sessions" int,
     "primary_goal" char(20),
@@ -52,4 +51,12 @@ CREATE TABLE "student_bio" (
     "other_information" boolean,
     "other_information_explanation" varchar(500),
     "student_bio" varchar(500)
+);
+
+CREATE TABLE "schools" (
+	"school_id" serial primary key,
+	"school_name" varchar(40),
+	"school_code" varchar(20),
+	"total_accounts" int,
+	"student_sessions" int
 );
