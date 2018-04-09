@@ -57,6 +57,7 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
       self.collectGeneral = function(info) {
           console.log('general info', info);
           const id = UserService.userObject.id;
+          const sessions_used = 0;
           const entry = {
               id: id,
               first_name: info.first_name,
@@ -67,19 +68,42 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
               email: info.email,
               phone_number: info.phone_number,
               school_id: info.school_id,
-              school_code: info.school_code
+              school_code: info.school_code,
+              sessions_used: sessions_used
           }
           $http({
             method: 'PUT',
             url: `/student/general/${id}`,
             data: {entry: entry}
         }).then(function(response) {
-          $location.path('/student_goals');
+            const school_id = entry.school_id;
+            $http({
+                method: 'GET',
+                url: `/admin/school/${school_id}`
+            }).then(function(response) {
+                console.log(response.data);
+                const total_sessions = response.data[0].student_sessions;
+                const entry = {
+                    id: id,
+                    total_sessions: total_sessions
+                }
+                $http({
+                    method: 'PUT',
+                    url: `/student/sessions/${id}`,
+                    data: {entry: entry}
+                }).then(function(response) {
+                    console.log('done');
+                    $location.path('/student_goals');
+                }).catch(function (error) {
+                  console.log('barriers put error', error);
+                })
+            }).catch(function(error) {
+                console.log('get schools error');
+            })
         }).catch(function (error) {
           console.log('general put error', error);
         })
-
-      }
+      } // end collectGeneral
 
       self.collectGoals = function(goal) {
         console.log('goal', goal);

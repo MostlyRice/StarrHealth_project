@@ -31,6 +31,19 @@ router.get('/school', (request, response) => {
     })
 });
 
+router.get('/school/:school_id', (request, response) => {
+  const school_id = request.params.school_id;
+  const sqlText = `SELECT * FROM schools WHERE school_id=$1`;
+  pool.query(sqlText, [school_id])
+    .then(function(result) {
+    //  console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function(error){
+    //  console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+});
 
 
 module.exports = router;

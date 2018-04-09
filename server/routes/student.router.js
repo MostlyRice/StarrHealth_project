@@ -21,8 +21,8 @@ router.put('/general/:id', (request, response) => {
     const id = request.params.id;
     const entry = request.body.entry;
     let queryText = `UPDATE student_bio 
-    SET first_name=$2, last_name=$3, date_of_birth=$4, relationship_status=$5, skype_id=$6, email=$7, phone_number=$8, school_id=$9 WHERE id=$1`;
-    pool.query(queryText, [id, entry.first_name, entry.last_name, entry.date_of_birth, entry.relationship_status, entry.skype_id, entry.email, entry.phone_number, entry.school_id])
+    SET first_name=$2, last_name=$3, date_of_birth=$4, relationship_status=$5, skype_id=$6, email=$7, phone_number=$8, school_id=$9, sessions_used=$10 WHERE id=$1`;
+    pool.query(queryText, [id, entry.first_name, entry.last_name, entry.date_of_birth, entry.relationship_status, entry.skype_id, entry.email, entry.phone_number, entry.school_id, entry.sessions_used])
       .then((result) => {
         response.sendStatus(200);
       })
@@ -58,6 +58,20 @@ router.put('/general/:id', (request, response) => {
         response.sendStatus(500);
       })
   }); // end barriers update
+
+  router.put('/sessions/:id', (request, response) => {
+    const id = request.params.id;
+    const entry = request.body.entry;
+    let queryText = `UPDATE student_bio 
+    SET total_sessions=$2 WHERE id=$1`;
+    pool.query(queryText, [id, entry.total_sessions])
+      .then((result) => {
+        response.sendStatus(200);
+      })
+      .catch((err) => {
+        response.sendStatus(500);
+      })
+  }); // end sessions update
 
   router.put('/extra/:id', (request, response) => {
     const id = request.params.id;
