@@ -5,6 +5,29 @@ CREATE TABLE "users" (
   "user_role" INT
 );
 
+CREATE TABLE "barriers" (
+	"barrier_id" serial primary key,
+	"barrier_name" varchar(100) not null
+);
+
+CREATE TABLE "user_barriers" (
+	"id" int REFERENCES users ON DELETE CASCADE not null,
+	"barrier_id" int REFERENCES barriers ON DELETE CASCADE not null
+);
+
+CREATE TABLE "coach_bio" (
+	"coach_id" serial primary key,
+	"id" int REFERENCES users ON DELETE CASCADE not null,
+	"first_name" char(25),
+    "last_name" char(30),
+	"email" varchar(50),
+	"job_title" char(30),
+	"specialties" varchar(500),
+	"certifications" varchar(500),
+	"coach_bio" varchar(500),
+	"coach_photo" varchar(75)
+);
+
 CREATE TABLE "student_bio" (
 	"student_id" serial primary key,
 	"id" int REFERENCES users ON DELETE CASCADE not null,
@@ -29,27 +52,4 @@ CREATE TABLE "student_bio" (
 	"other_information" boolean,
 	"other_information_explanation" varchar(500),
     "student_bio" varchar(500)
-);
-
-CREATE TABLE "barriers" (
-	"barrier_id" serial primary key,
-	"barrier_name" varchar(100) not null
-);
-
-CREATE TABLE "user_barriers" (
-	"id" int REFERENCES users ON DELETE CASCADE not null,
-	"barrier_id" int REFERENCES barriers ON DELETE CASCADE not null
-);
-
-CREATE TABLE "coach_bio" (
-	"coach_id" serial primary key,
-	"id" int REFERENCES users ON DELETE CASCADE not null,
-	"first_name" char(25),
-    "last_name" char(30),
-	"email" varchar(50),
-	"job_title" char(30),
-	"specialties" varchar(500),
-	"certifications" varchar(500),
-	"coach_bio" varchar(500),
-	"coach_photo" varchar(75)
 );
