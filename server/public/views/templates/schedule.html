@@ -28,7 +28,7 @@
           </div>
       </div> -->
       <h3>Datepicker</h3>
-      <h4>Standard date-picker</h4>
+      <h4>Coach date-picker</h4>
       <md-datepicker ng-model="schedule.date" md-placeholder="Enter date"></md-datepicker>
       <h3>Schedule Spike</h3>
         <div class="form-group">
@@ -49,12 +49,13 @@
         <button ng-click="vm.postAvailability(schedule)">Add</button>
 
         <h3>Student Schedule</h3>
-        
+        <h4>Student date-picker</h4>
+        <md-datepicker ng-model="vm.studentAppointment.date" md-placeholder="Enter date"></md-datepicker>
         <div class="form-group">
-                <div class="radio" ng-repeat="time in vm.coachTimes.list">
+                <div class="radio" ng-repeat="availability in vm.coachTimes.list | filter: date">
                     <label>
-                        <input type="radio" name="{{time}}" value="{{time}}" ng-model="vm.studentAppointment.time">
-                        {{time}}AM
+                        <input type="radio" name="{{availability}}" value="{{availability}}" ng-model="vm.studentAppointment.time">
+                        {{availability.time}}AM
                     </label>
                 </div>
         </div>
@@ -63,6 +64,6 @@
 
         <h3>Coach Appointments</h3>
         <div ng-repeat="appointment in vm.coachAppointments.list">
-            <p>{{appointment}}</p>
+            <p>{{appointment}}AM</p>
         </div>
 </div>

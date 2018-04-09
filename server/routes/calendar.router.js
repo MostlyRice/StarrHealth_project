@@ -28,7 +28,7 @@ router.post('/coach', (request, response) => {
 })
 
 router.get('/availability', (request, response) => {
-    const sqlText = "SELECT available_time, student_id FROM calendar WHERE coach_id = $1;";
+    const sqlText = "SELECT available_time, student_id, date FROM calendar WHERE coach_id = $1;";
     const coach_id = "5";
     pool.query(sqlText, [coach_id])
     .then(result => {

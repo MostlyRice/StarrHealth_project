@@ -26,7 +26,9 @@ myApp.controller('ScheduleController', ['$http', function($http) {
         let responseArray = response.data.filter(function(res){ 
             if(res.student_id == null){
             return res.available_time}});
-        self.coachTimes.list = responseArray.map(res => res.available_time);
+        self.coachTimes.list = responseArray.map(res => {
+            return {time: res.available_time, date: res.date}
+            });
         let appointmentArray = response.data.filter(function(res){
             return res.student_id != null
         })
