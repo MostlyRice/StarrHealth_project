@@ -36,6 +36,16 @@ CREATE TABLE "barriers" (
 	"barrier_name" varchar(100) not null
 );
 
+INSERT INTO barriers(barrier_name)
+VALUES
+('stress'),
+('lack of support'),
+('self-confidence'),
+('knowledge'),
+('lack of resources'),
+('health'),
+('time');
+
 CREATE TABLE "user_barriers" (
 	"id" int REFERENCES users ON DELETE CASCADE not null,
 	"barrier_id" int REFERENCES barriers ON DELETE CASCADE not null
