@@ -8,6 +8,15 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
 
 
     self.disclaimer = function() {
+        swal({
+            title: "Disclaimer",
+            text: `This application, and any information or materials provided in connection with it, is informational only and does not constitute medical advice, care, diagnosis or treatment.
+            The Starr Health Co. application is not intended to be a replacement or substitution to the medical advice, care, diagnosis or treatment of a licensed medical practitioner.
+            Starr Health Co. recommends that you consult your physician prior to beginning any new health initiative.`,
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,//sweetAlert in progress here
+          })
         $location.path('/disclaimer');
       } // end disclaimer
 
