@@ -61,8 +61,17 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
       }
     })
     .when('/admin_home', {
-      templateUrl: '/views/templates/admin_home.html',
+      templateUrl: '/views/admin_views/admin_home.html',
       controller: 'UserController as vm',
+      resolve: {
+        getAdmin: function (UserService) {
+          return UserService.getAdmin();
+        }
+      }
+    })
+    .when('/new_school', {
+      templateUrl: '/views/admin_views/new_school.html',
+      controller: 'SchoolController as vm',
       resolve: {
         getAdmin: function (UserService) {
           return UserService.getAdmin();
@@ -98,7 +107,7 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
     })
     .when('/general_info', {
       templateUrl: '/views/student_views/general_info.html',
-      controller: 'SignupController as vm',
+      controller: 'GeneralController as vm',
       resolve: {
         getuser: function (UserService) {
           return UserService.getuser();

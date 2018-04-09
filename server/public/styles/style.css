@@ -1,7 +1,13 @@
-body, html {
+@font-face {
+  font-family: CallunaSans;
+  src: url("./fonts/CallunaSans-Regular.woff") format("woff");
+}
+
+body,
+html {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: CallunaSans;
   font-size: 14px;
 }
 
@@ -24,8 +30,8 @@ body, html {
   margin-top: 10px;
 }
 
-.container p{
-  margin-top : 14px;
+.container p {
+  margin-top: 14px;
 }
 
 .message {
@@ -37,14 +43,14 @@ body, html {
 }
 
 .message:nth-child(odd) {
-   background-color: #eeeeee;
+  background-color: #eeeeee;
 }
 
 .message:nth-child(even) {
   background-color: #f8f8f8;
 }
 
-.btn-danger{
+.btn-danger {
   margin-left: 10px;
 }
 
@@ -74,6 +80,7 @@ li a {
 }
 
 /* Change the link color to #111 (black) on hover */
+
 li a:hover {
   text-decoration: underline;
   color: #eee;
@@ -86,12 +93,38 @@ header {
 
 .starr-sidenav {
   text-align: center;
-  min-height: 130px;
-  min-height: 130px;
   background-color: #1fa8ad;
   color: #FFF;
 }
 
 .menu {
   color: #FFF;
+}
+
+.starr-logo-header {
+  zoom: 50%;
+}
+
+.exit-app {
+  display: inline-flex;
+  vertical-align: middle;
+  padding: 0 10px 10px 0;
+}
+
+.home {
+  display: inline-flex;
+  vertical-align: middle;
+  padding: 0 10px 10px 0;
+}
+
+.list {
+  display: inline-flex;
+  vertical-align: middle;
+  padding: 0 10px 5px 0;
+}
+
+.date-range {
+  display: inline-flex;
+  vertical-align: middle;
+  padding: 0 10px 10px 0;
 }

@@ -1,23 +1,57 @@
-<div ng-include="'views/partials/nav.html'"></div>
-<div class="container">
-    <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
-        <div layout-padding class="starr-sidenav">
-            <img ng-src="./images/starrhealthlogo.png" />
-            <br />
-            <img ng-src="./images/starrhealthtext.png" />
-        </div>
-        <md-content layout-padding hide show-gt-md>
-            <p>
-                This sidenav is locked open on your device. To go back to the default behavior, narrow your display.
-            </p>
+<div layout="column" layout-fill ng-cloak>
+
+    <section layout="row" flex>
+
+        <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+            <div layout-padding class="starr-sidenav">
+                <img ng-src="./images/starrhealthlogo.png" />
+                <br />
+                <img ng-src="./images/starrhealthtext.png" />
+            </div>
+            <md-content layout-padding hide show-gt-md>
+                <p>
+                    This sidenav is locked open on your device. To go back to the default behavior, narrow your display.
+                </p>
+            </md-content>
+            <md-content layout-padding hide-gt-md>
+                <p>
+                    Click anywhere outside the SideNav to close the SideNav
+                </p>
+            </md-content>
+        </md-sidenav>
+
+        <md-content layout-padding>
+            <div layout="column" layout-align="top">
+                <p>in Admin view, adding new school</p>
+            </div>
+            <div flex></div>
         </md-content>
+
+    </section>
         <md-content layout-padding hide-gt-md>
             <p>
                 Click anywhere outside the SideNav to close the SideNav
             </p>
         </md-content>
     </md-sidenav>
-    <p>
-        in Admin view, adding new school
-    </p>
+</div>
+<div>
+        <label for="schoolName">School Name:</label>
+        <input type="text" name="schoolName" ng-model="vm.schoolInfo.school_name">
+</div>
+<div>
+        <label for="schoolCode">School Code:</label>
+        <input type="text" name="schoolCode" ng-model="vm.schoolInfo.school_code">
+</div>
+<div>
+        <label for="accounts">Number of Student Accounts:</label>
+        <input type="text" name="accounts" ng-model="vm.schoolInfo.total_accounts">
+</div>
+<div>
+        <label for="sessions">Number of Sessions per Student:</label>
+        <input type="text" name="sessions" ng-model="vm.schoolInfo.student_sessions">
+</div>
+<div>
+        <button ng-click="vm.collectSchool(vm.schoolInfo)">Next</button>
+        <button ng-click="vm.adminHome()">Back</button>
 </div>
