@@ -1,9 +1,9 @@
 <div class="container">
         <h2>Additional Information</h2>
-        <md-radio-group>
+        <md-radio-group ng-model="vm.info.medical_bool">
             <label>Are you currently working with any mental health or medical professionals?</label>
-            <md-radio-button ng-model="vm.info.medical_bool" value="false">No</md-radio-button>
-            <md-radio-button ng-model="vm.info.medical_bool" value="true">Yes</md-radio-button>
+            <md-radio-button value="false">No</md-radio-button>
+            <md-radio-button value="true">Yes</md-radio-button>
         </md-radio-group>
       </div>
       <div>
@@ -12,10 +12,10 @@
             <input type="text" name="medical_explain" ng-model="vm.info.medical_explain" placeholder="Explain.."/>
         </div>
       </div>
-      <md-radio-group>
+      <md-radio-group ng-model="vm.info.other_bool">
             <label>Do you have anything else you would like us to know?</label>
-            <md-radio-button ng-model="vm.info.other_bool" value="false">No</md-radio-button>
-            <md-radio-button ng-model="vm.info.other_bool" value="true">Yes</md-radio-button>
+            <md-radio-button value="false">No</md-radio-button>
+            <md-radio-button value="true">Yes</md-radio-button>
         </md-radio-group>
         <div>
             <label for="other_explain">If yes, explain:</label>
