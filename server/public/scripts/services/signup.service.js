@@ -82,21 +82,30 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
                 url: `/admin/school/${school_id}`
             }).then(function(response) {
                 console.log(response.data);
+                const school_code = response.data[0].school_code;
                 const total_sessions = response.data[0].student_sessions;
                 const entry = {
                     id: id,
                     total_sessions: total_sessions
                 }
-                $http({
-                    method: 'PUT',
-                    url: `/student/sessions/${id}`,
-                    data: {entry: entry}
-                }).then(function(response) {
-                    console.log('done');
-                    $location.path('/student_goals');
-                }).catch(function (error) {
-                  console.log('barriers put error', error);
-                })
+                console.log(info.school_code, school_code);
+                if (info.school_code != school_code) {
+                    alert("School Code Incorrect");
+                    info.school_code = '';
+                } else if (info.school_code === school_code) {
+                    $http({
+                        method: 'PUT',
+                        url: `/student/sessions/${id}`,
+                        data: {entry: entry}
+                    }).then(function(response) {
+                        $location.path('/student_goals');
+                    }).catch(function (error) {
+                      console.log('sessions put error', error);
+                    })
+                } else {
+                    alert('error in school authentication');
+                    info.school_code = '';
+                }
             }).catch(function(error) {
                 console.log('get schools error');
             })
