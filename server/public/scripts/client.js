@@ -1,8 +1,36 @@
-var myApp = angular.module('myApp', ['ngRoute','ngMaterial', 'ngAria', 'ngMessages']);
+const myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngAria', 'ngMessages'])
+  .controller('SideNav', function ($scope, $timeout, $mdSidenav, $log) {
+    $scope.toggleLeft = buildDelayedToggler("left");
+
+    function debounce(func, wait, context) {
+      var timer;
+
+      return function debounced() {
+        var context = $scope,
+          args = Array.prototype.slice.call(arguments);
+        $timeout.cancel(timer);
+        timer = $timeout(function () {
+          timer = undefined;
+          func.apply(context, args);
+        }, wait || 10);
+      };
+    }
+
+    function buildDelayedToggler(navID) {
+      return debounce(function () {
+        $mdSidenav(navID)
+          .toggle()
+          .then(function () {
+            $log.debug("toggle " + navID + " is done");
+          });
+      }, 200);
+    }
+  })
 
 /// Routes ///
-myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
   console.log('myApp -- config')
+
   $routeProvider
     .when('/', {
       redirectTo: 'home'
@@ -27,7 +55,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       templateUrl: '/views/templates/julia_home.html',
       controller: 'JuliaController as vm',
       resolve: {
-        getJulia : function(UserService){
+        getJulia: function (UserService) {
           return UserService.getJulia();
         }
       }
@@ -36,7 +64,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       templateUrl: '/views/templates/admin_home.html',
       controller: 'UserController as vm',
       resolve: {
-        getAdmin : function(UserService){
+        getAdmin: function (UserService) {
           return UserService.getAdmin();
         }
       }
@@ -45,7 +73,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       templateUrl: '/views/templates/coach_home.html',
       controller: 'UserController as vm',
       resolve: {
-        getCoach : function(UserService){
+        getCoach: function (UserService) {
           return UserService.getCoach();
         }
       }
@@ -54,7 +82,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       templateUrl: '/views/student_views/student_home.html',
       controller: 'UserController as vm',
       resolve: {
-        getStudent : function(UserService){
+        getStudent: function (UserService) {
           return UserService.getStudent();
         }
       }
@@ -63,7 +91,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       templateUrl: '/views/student_views/disclaimer.html',
       controller: 'SignupController as vm',
       resolve: {
-        getuser : function(UserService){
+        getuser: function (UserService) {
           return UserService.getuser();
         }
       }
@@ -72,7 +100,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       templateUrl: '/views/student_views/general_info.html',
       controller: 'SignupController as vm',
       resolve: {
-        getuser : function(UserService){
+        getuser: function (UserService) {
           return UserService.getuser();
         }
       }
@@ -81,7 +109,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       templateUrl: '/views/student_views/student_goals.html',
       controller: 'SignupController as vm',
       resolve: {
-        getuser : function(UserService){
+        getuser: function (UserService) {
           return UserService.getuser();
         }
       }
@@ -90,7 +118,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       templateUrl: '/views/student_views/student_barriers.html',
       controller: 'SignupController as vm',
       resolve: {
-        getuser : function(UserService){
+        getuser: function (UserService) {
           return UserService.getuser();
         }
       }
@@ -99,7 +127,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       templateUrl: '/views/student_views/additional_info.html',
       controller: 'SignupController as vm',
       resolve: {
-        getuser : function(UserService){
+        getuser: function (UserService) {
           return UserService.getuser();
         }
       }
@@ -108,7 +136,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       templateUrl: '/views/student_views/student_coaches.html',
       controller: 'MatchController as vm',
       resolve: {
-        getuser : function(UserService){
+        getuser: function (UserService) {
           return UserService.getuser();
         }
       }

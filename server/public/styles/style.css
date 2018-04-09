@@ -78,3 +78,20 @@ li a:hover {
   text-decoration: underline;
   color: #eee;
 }
+
+header {
+  background-color: #1fa8ad;
+  color: #FFF;
+}
+
+.starr-sidenav {
+  text-align: center;
+  min-height: 130px;
+  min-height: 130px;
+  background-color: #1fa8ad;
+  color: #FFF;
+}
+
+.menu {
+  color: #FFF;
+}
