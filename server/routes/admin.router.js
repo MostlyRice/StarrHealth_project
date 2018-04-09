@@ -46,11 +46,12 @@ router.post('/school/:school_id', (request, response) => {
   pool.query(sqlText, [school_id])
     .then(function(result) {
       user = result.rows[0];
+      console.log("USER", user);
       if(encryptLib.comparePassword(man, user.school_code)) {
         // all good!
         response.send(result.rows);
       } else {
-        console.log('password does not match');
+        response.sendStatus(500);
       }
     }).catch(function(error){
     //  console.log('Error on Get:', error);

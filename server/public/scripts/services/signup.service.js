@@ -76,6 +76,7 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
             url: `/student/general/${id}`,
             data: {entry: entry}
         }).then(function(response) {
+            console.log('then post auth');
             const school_id = entry.school_id;
             const school_code = entry.school_code;
             const man = {
