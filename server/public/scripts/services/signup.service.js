@@ -77,9 +77,14 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
             data: {entry: entry}
         }).then(function(response) {
             const school_id = entry.school_id;
+            const school_code = entry.school_code;
+            const man = {
+                man: school_code
+            }
             $http({
-                method: 'GET',
-                url: `/admin/school/${school_id}`
+                method: 'POST',
+                url: `/admin/school/${school_id}`,
+                data: {man: man}
             }).then(function(response) {
                 console.log(response.data);
                 const school_code = response.data[0].school_code;
@@ -88,11 +93,6 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
                     id: id,
                     total_sessions: total_sessions
                 }
-                console.log(info.school_code, school_code);
-                if (info.school_code != school_code) {
-                    alert("School Code Incorrect");
-                    info.school_code = '';
-                } else if (info.school_code === school_code) {
                     $http({
                         method: 'PUT',
                         url: `/student/sessions/${id}`,
@@ -102,12 +102,9 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
                     }).catch(function (error) {
                       console.log('sessions put error', error);
                     })
-                } else {
-                    alert('error in school authentication');
-                    info.school_code = '';
-                }
             }).catch(function(error) {
-                console.log('get schools error');
+                alert('School Code is Incorrect!');
+                info.school_code = '';
             })
         }).catch(function (error) {
           console.log('general put error', error);
