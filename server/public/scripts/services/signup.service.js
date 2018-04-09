@@ -142,13 +142,13 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
     self.primaryBarriers = function(barriers) {
         console.log(barriers);
         const id = UserService.userObject.id;
-        barriers.stress = 0;
-        barriers.support = 0;
-        barriers.confidence = 0;
-        barriers.knowledge = 0;
-        barriers.resources = 0;
-        barriers.health = 0;
-        barriers.time = 0;
+        stress = 0;
+        support = 0;
+        confidence = 0;
+        knowledge = 0;
+        resources = 0;
+        health = 0;
+        time = 0;
 
         if (barriers.stress === true) {
             stress = 1;
