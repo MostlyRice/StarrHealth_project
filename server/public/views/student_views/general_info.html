@@ -34,8 +34,8 @@
     </form>
     <div>
         <label for="school">Name of School:</label>
-        <select name="school" ng-model="vm.generalStudent.school_name" >
-            <option value="placeholder school">Placeholder</option>
+        <select name="school" ng-model="vm.generalStudent.school_id">
+            <option ng-repeat="school in vm.schools" value="{{school.school_id}}">{{school.school_name}}</option>
         </select>
         </div>
     <md-input-container>

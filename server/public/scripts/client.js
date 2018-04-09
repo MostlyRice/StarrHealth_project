@@ -107,7 +107,7 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
     })
     .when('/general_info', {
       templateUrl: '/views/student_views/general_info.html',
-      controller: 'SignupController as vm',
+      controller: 'GeneralController as vm',
       resolve: {
         getuser: function (UserService) {
           return UserService.getuser();

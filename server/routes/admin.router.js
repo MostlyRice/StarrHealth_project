@@ -18,5 +18,19 @@ router.post('/school', (request, response) => {
   })
 }); // end POST
 
+router.get('/school', (request, response) => {
+  const sqlText = `SELECT * FROM schools`;
+  pool.query(sqlText)
+    .then(function(result) {
+    //  console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function(error){
+    //  console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+});
+
+
 
 module.exports = router;

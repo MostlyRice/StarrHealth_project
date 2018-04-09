@@ -4,6 +4,7 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
     self.newStudent = {};
     self.userService = UserService;
     self.userObject = UserService.userObject;
+    self.schools = [];
 
 
 
@@ -33,11 +34,25 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
             url: '/student',
             data: {entry: entry}
         }).then(function(response) {
+            self.getSchools();
             $location.path('/general_info');
         }).catch(function(error) {
             console.log('disclaimer error');
         })
       } // end letPass
+
+      self.getSchools = function() {
+        $http({
+            method: 'GET',
+            url: '/admin/school'
+        }).then(function(response) {
+            console.log(response.data);
+            self.schools = response.data;
+            console.log('self.schools = ', self.schools);
+        }).catch(function(error) {
+            console.log('get schools error');
+        })
+    }
 
       self.collectGeneral = function(info) {
           console.log('general info', info);
@@ -51,7 +66,7 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
               skype_id: info.skype,
               email: info.email,
               phone_number: info.phone_number,
-              school_name: info.school_name,
+              school_id: info.school_id,
               school_code: info.school_code
           }
           $http({
