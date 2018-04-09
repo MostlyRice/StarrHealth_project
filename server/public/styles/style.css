@@ -1,8 +1,13 @@
+@font-face {
+  font-family: CallunaSans;
+  src: url("./fonts/CallunaSans-Regular.woff") format("woff");
+}
+
 body,
 html {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: CallunaSans;
   font-size: 14px;
 }
 
@@ -97,5 +102,29 @@ header {
 }
 
 .starr-logo-header {
-  zoom:50%;
+  zoom: 50%;
+}
+
+.exit-app {
+  display: inline-flex;
+  vertical-align: middle;
+  padding: 0 10px 10px 0;
+}
+
+.home {
+  display: inline-flex;
+  vertical-align: middle;
+  padding: 0 10px 10px 0;
+}
+
+.list {
+  display: inline-flex;
+  vertical-align: middle;
+  padding: 0 10px 5px 0;
+}
+
+.date-range {
+  display: inline-flex;
+  vertical-align: middle;
+  padding: 0 10px 10px 0;
 }
