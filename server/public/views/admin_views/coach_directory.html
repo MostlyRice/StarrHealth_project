@@ -1,23 +1,31 @@
-<div ng-include="'views/partials/nav.html'"></div>
-<div class="container">
-    <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
-        <div layout-padding class="starr-sidenav">
-            <img ng-src="./images/starrhealthlogo.png" />
-            <br />
-            <img ng-src="./images/starrhealthtext.png" />
-        </div>
-        <md-content layout-padding hide show-gt-md>
-            <p>
-                This sidenav is locked open on your device. To go back to the default behavior, narrow your display.
-            </p>
+<div layout="column" layout-fill ng-cloak>
+
+    <section layout="row" flex>
+
+        <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+            <div layout-padding class="starr-sidenav">
+                <img ng-src="./images/starrhealthlogo.png" />
+                <br />
+                <img ng-src="./images/starrhealthtext.png" />
+            </div>
+            <md-content layout-padding hide show-gt-md>
+                <p>
+                    This sidenav is locked open on your device. To go back to the default behavior, narrow your display.
+                </p>
+            </md-content>
+            <md-content layout-padding hide-gt-md>
+                <p>
+                    Click anywhere outside the SideNav to close the SideNav
+                </p>
+            </md-content>
+        </md-sidenav>
+
+        <md-content layout-padding>
+            <div layout="column" layout-align="top">
+                <p>in Admin view, coach directory</p>
+            </div>
+            <div flex></div>
         </md-content>
-        <md-content layout-padding hide-gt-md>
-            <p>
-                Click anywhere outside the SideNav to close the SideNav
-            </p>
-        </md-content>
-    </md-sidenav>
-    <p>
-        in Admin view, coach directory
-    </p>
+
+    </section>
 </div>
