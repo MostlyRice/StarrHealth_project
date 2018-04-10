@@ -1,4 +1,9 @@
 <div class="container">
         <h2>Recommended Coaches</h2>
+        <div ng-repeat="coach in vm.allCoaches.list">
+            {{coach.first_name}} {{coach.last_name}} </br>
+            {{coach.job_title}}: {{coach.specialties}}
+
+        </div>
    
     </div>

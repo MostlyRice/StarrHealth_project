@@ -7,20 +7,22 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
     self.schools = {
         list: []
     }
+    self.allCoaches = {
+        list: []
+    }
 
 
 
     self.disclaimer = function() {
-        swal({
-            title: "Disclaimer",
-            text: `This application, and any information or materials provided in connection with it, is informational only and does not constitute medical advice, care, diagnosis or treatment.
-            The Starr Health Co. application is not intended to be a replacement or substitution to the medical advice, care, diagnosis or treatment of a licensed medical practitioner.
-            Starr Health Co. recommends that you consult your physician prior to beginning any new health initiative.`,
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,//sweetAlert in progress here
-          })
-        $location.path('/disclaimer');
+        // swal({
+        //     title: "Disclaimer",
+        //     text: `This application, and any information or materials provided in connection with it, is informational only and does not constitute medical advice, care, diagnosis or treatment.
+        //     The Starr Health Co. application is not intended to be a replacement or substitution to the medical advice, care, diagnosis or treatment of a licensed medical practitioner.
+        //     Starr Health Co. recommends that you consult your physician prior to beginning any new health initiative.`,
+        //     icon: "warning",
+        //     buttons: true,
+        //     dangerMode: true,//sweetAlert in progress here
+            $location.path('/disclaimer');
       } // end disclaimer
 
     self.general = function() {
@@ -185,7 +187,7 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
             url: `/student/extra/${id}`,
             data: {entry: entry}
         }).then(function(response) {
-            $location.path('/student_coaches');
+            self.findCoach(id);
         }).catch(function (error) {
           console.log('extra info put error', error);
         })
@@ -331,9 +333,33 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
         }
     $location.path('/additional_info');
     } // end primary Barriers
-
-
+    
     self.getSchools();
 
+    self.findCoach = function(id) {
+        console.log('find coach', id);
+        $http({
+            method: 'GET',
+            url: `/match/student/${id}`
+        }).then(function(response) {
+            console.log(response.data);
+            const thisStudent = response.data[0].primary_goal;
+            console.log('thisStudent ', thisStudent);
+            $http({
+                method: 'GET',
+                url: `/match/coaches/${thisStudent}`
+            }).then(function(response) {
+                console.log(response.data);
+                self.allCoaches.list = response.data;
+                console.log('All Coaches = ', self.allCoaches.list);
+                console.log('thisStudent = ', thisStudent);
+                $location.path('/student_coaches');
+            }).catch(function(error) {
+                console.log('coach match error');
+            })
+        }).catch(function(error) {
+            console.log('find student goal error');
+        })
+    }
 
 }]); // end signup service

@@ -22,7 +22,7 @@
         <input type="email" name="emaIl" ng-model="vm.generalStudent.email"/>
     </md-input-container>
     <md-input-container>
-        <label>Enter date</label>
+        <label>Date of Birth</label>
         <md-datepicker ng-model="vm.generalStudent.date_of_birth"></md-datepicker>
     </md-input-container>
     </md-content>
@@ -40,22 +40,15 @@
 
     <md-content layout-padding layout-gt-sm="row">
     </form>
-    <div>
-        <label for="school">Name of School:</label>
-        <select name="school" ng-model="vm.generalStudent.school_id">
-            <option ng-repeat="school in vm.schools.list" value="{{school.school_id}}">{{school.school_name}}</option>
-        </select>
-        </div>
     <md-input-container>
-        <label for="code">School Code:</label>
-        <input type="text" name="code" ng-model="vm.generalStudent.school_code"/>
+        <label for="school">Name of School:</label>
+        <md-select name="school" ng-model="vm.generalStudent.school_id">
+        <md-option ng-repeat="school in vm.schools.list" value="{{school.school_id}}"><em>{{school.school_name}}</em></md-option>
+        </md-select>
     </md-input-container>
     <md-input-container>
-        <label for="school">Name of School:</label>
-        <md-select ng-model="vm.generalStudent.school_name">
-        <md-option value="None"><em>None</em></md-option>
-        <md-option value="Placeholder"><em>Placeholder</em></md-option>
-        </md-select>
+            <label for="code">School Code:</label>
+            <input type="text" name="code" ng-model="vm.generalStudent.school_code"/>
     </md-input-container>
   
     </md-content>
