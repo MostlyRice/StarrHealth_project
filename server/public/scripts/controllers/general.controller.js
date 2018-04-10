@@ -17,7 +17,7 @@ myApp.controller('GeneralController', ['$http', 'UserService', 'SignupService', 
     self.schools = SignupService.schools;
 
     console.log(self.userObject);
-    console.log('schools in controller', self.schools);
+    console.log('schools in controller', self.schools.list);
   
 
 
