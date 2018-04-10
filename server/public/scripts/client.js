@@ -83,7 +83,7 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
       }
     })
     .when('/coach_home', {
-      templateUrl: '/views/templates/coach_home.html',
+      templateUrl: '/views/coach_views/coach_home.html',
       controller: 'UserController as vm',
       resolve: {
         getCoach: function (UserService) {
