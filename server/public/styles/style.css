@@ -120,7 +120,16 @@ header {
 }
 
 .starr-text-header {
-  padding: 0 0 12px 0;
+  padding: 0 0 0 10px;
+  vertical-align: middle;
+  align-items: center;
+  display: flex;
+}
+
+.starr-header {
+  vertical-align: middle;
+  align-items: center;
+  display: flex;
 }
 
 .exit-app {
