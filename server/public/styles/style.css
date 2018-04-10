@@ -101,6 +101,20 @@ header {
   color: #FFF;
 }
 
+.starr-landing{
+  text-align: center;
+}
+.landingText{
+  text-align: center;
+  font-family: sans-serif;
+}
+.landingBtns{
+  text-align: center;
+}
+.landingPage{
+  background: url(../images/landingPageBackground.png) no-repeat center center fixed;
+}
+
 .starr-logo-header {
   zoom: 50%;
 }
