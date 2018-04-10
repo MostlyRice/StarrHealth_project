@@ -1,0 +1,18 @@
+<div class="container" ng-cloak>
+        <h1 class="lead">Login</h1>
+          <h1 class="lead alert alert-danger" role="alert" ng-if="vm.message != ''">{{vm.message}}</h2>
+          <form ng-submit="vm.login()">
+            <md-input-container>
+                <label for="username">Username:</label>
+                <input type="text" ng-model="vm.user.username" />
+            </md-input-container>
+            <md-input-container>
+                <label for="password">Password:</label>
+                <input type="password" ng-model="vm.user.password" />
+            </md-input-container>
+            <md-input-container>
+                <button>Log in</button>
+                <a href="#!register">Register</a>
+            </md-input-container>
+          </form>
+      </div>
