@@ -105,11 +105,12 @@ header {
   text-align: center;
   font-size: 35px;
   color: #FFF;
+  font-weight: bold;
 }
 .landingText{
   text-align: center;
   font-family: sans-serif;
-  color: rgba(0,0,0,0.6);
+  color: rgba(247 232 241);
   font-size: 20px;
 }
 .landingBtns{
@@ -120,6 +121,7 @@ header {
   height: auto;
   width: auto;
 }
+
 
 .starr-logo-header {
   zoom: 50%;
