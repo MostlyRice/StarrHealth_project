@@ -7,6 +7,11 @@ myApp.controller('CoachController', ['$http', 'UserService', '$location', 'Coach
     self.coachDir = CoachService.coachDir;
     self.collectCoach = CoachService.collectCoach;
 
+    self.coachHome = CoachService.coachHome;
+    self.coachAppointmenets = CoachService.coachAppointmenets;
+    self.coachSchedule = CoachService.coachSchedule;
+    self.coachStudents = CoachService.coachStudents;
+
 
 
 }]);
