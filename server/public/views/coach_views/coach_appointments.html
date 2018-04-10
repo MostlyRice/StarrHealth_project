@@ -1,6 +1,7 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
-  <p>
-    in Coach, all appointments
-  </p>
+  <h3>Coach Appointments</h3>
+        <div ng-repeat="appointment in vm.coachAppointments.list">
+            <p>{{appointment}}AM</p>
+        </div>
 </div>

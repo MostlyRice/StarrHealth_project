@@ -11,10 +11,6 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       templateUrl: '/views/templates/home.html',
       controller: 'LoginController as vm',
     })
-    .when('/schedule', {
-      templateUrl: '/views/templates/schedule.html',
-      controller: 'ScheduleController as vm',
-    })
     .when('/register', {
       templateUrl: '/views/templates/register.html',
       controller: 'LoginController as vm'
@@ -54,9 +50,36 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
         }
       }
     })
+    .when('/coach_schedule', {
+      templateUrl: '/views/coach_views/coach_schedule.html',
+      controller: 'ScheduleController as vm',
+      resolve: {
+        getCoach : function(UserService){
+          return UserService.getCoach();
+        }
+      }
+    })
+    .when('/coach_appointments', {
+      templateUrl: '/views/coach_views/coach_appointments.html',
+      controller: 'ScheduleController as vm',
+      resolve: {
+        getCoach : function(UserService){
+          return UserService.getCoach();
+        }
+      }
+    })
     .when('/student_home', {
       templateUrl: '/views/student_views/student_home.html',
       controller: 'UserController as vm',
+      resolve: {
+        getStudent : function(UserService){
+          return UserService.getStudent();
+        }
+      }
+    })
+    .when('/student_appointments', {
+      templateUrl: '/views/student_views/student_appointments.html',
+      controller: 'ScheduleController as vm',
       resolve: {
         getStudent : function(UserService){
           return UserService.getStudent();
