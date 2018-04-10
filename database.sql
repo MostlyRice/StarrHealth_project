@@ -24,6 +24,7 @@ CREATE TABLE "coach_bio" (
     "job_title" char(30),
     "specialties" varchar(500),
     "certifications" varchar(500),
+    "personal_interests" varchar(500),
     "coach_bio" varchar(500),
     "coach_photo" varchar(75)
 );
