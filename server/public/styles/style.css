@@ -116,7 +116,7 @@ header {
   text-align: center;
 }
 .landingPage{
-  background: url(https://s-media-cache-ak0.pinimg.com/originals/0d/2a/bd/0d2abd0a3067a76a11731cd2809ca2f9.jpg) no-repeat center center fixed;
+  background: url(../images/landingPageBackground.png) no-repeat center center fixed;
   height: auto;
   width: auto;
 }
