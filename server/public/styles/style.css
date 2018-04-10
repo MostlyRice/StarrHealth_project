@@ -103,10 +103,13 @@ header {
 
 .starr-landing{
   text-align: center;
+  font-size: 35px;
 }
 .landingText{
   text-align: center;
   font-family: sans-serif;
+  color: #FFF;
+  font-size: 20px;
 }
 .landingBtns{
   text-align: center;
