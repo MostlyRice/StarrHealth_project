@@ -4,7 +4,9 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
     self.newStudent = {};
     self.userService = UserService;
     self.userObject = UserService.userObject;
-    self.schools = [];
+    self.schools = {
+        list: []
+    }
 
 
 
@@ -43,7 +45,6 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
             url: '/student',
             data: {entry: entry}
         }).then(function(response) {
-            self.getSchools();
             $location.path('/general_info');
         }).catch(function(error) {
             console.log('disclaimer error');
@@ -56,8 +57,8 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
             url: '/admin/school'
         }).then(function(response) {
             console.log(response.data);
-            self.schools = response.data;
-            console.log('self.schools = ', self.schools);
+            self.schools.list = response.data;
+            console.log('self.schools = ', self.schools.list);
         }).catch(function(error) {
             console.log('get schools error');
         })
@@ -332,7 +333,7 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
     } // end primary Barriers
 
 
-
+    self.getSchools();
 
 
 }]); // end signup service
