@@ -87,6 +87,15 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
         }
       }
     })
+    .when('/create_coach', {
+      templateUrl: '/views/admin_views/create_coach.html',
+      controller: 'CoachController as vm',
+      resolve: {
+        getAdmin: function (UserService) {
+          return UserService.getAdmin();
+        }
+      }
+    })
     .when('/student_home', {
       templateUrl: '/views/student_views/student_home.html',
       controller: 'UserController as vm',
