@@ -57,6 +57,21 @@ router.post('/school/:school_id', (request, response) => {
     })
 });
 
+router.get('/finduser/:name', (request, response) => {
+  const name = request.params.name;
+  console.log('my name is', name);
+  const sqlText = `SELECT id, username FROM users WHERE username=$1`;
+  pool.query(sqlText, [name])
+    .then(function(result) {
+    //  console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function(error){
+    //  console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+});
+
 
 
 
