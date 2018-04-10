@@ -13,6 +13,7 @@ const adminRouter = require('./routes/admin.router');
 const calendarRouter = require('./routes/calendar.router');
 const pathRouter = require('./routes/path.router');
 const barriersRouter = require('./routes/barriers.router');
+const matchRouter = require('./routes/match.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -33,7 +34,7 @@ app.use('/admin', adminRouter);
 app.use('/calendar', calendarRouter);
 app.use('/path', pathRouter);
 app.use('/barriers', barriersRouter);
-
+app.use('/match', matchRouter);
 
 // Serve static files
 app.use(express.static('server/public'));

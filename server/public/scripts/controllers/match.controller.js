@@ -14,6 +14,9 @@ myApp.controller('MatchController', ['UserService', '$location', 'SignupService'
     self.goals = SignupService.goals;
     self.collectExtraInfo = SignupService.collectExtraInfo;
     self.barriers = SignupService.barriers;
+    self.allCoaches = SignupService.allCoaches;
+
+    console.log(self.allCoaches.list);
 
 
 

@@ -22,7 +22,7 @@ CREATE TABLE "coach_bio" (
     "last_name" char(30),
     "email" varchar(50),
     "job_title" char(30),
-    "specialties" varchar(500),
+    "specialties" char(20),
     "certifications" varchar(500),
     "personal_interests" varchar(500),
     "coach_bio" varchar(500),
