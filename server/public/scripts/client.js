@@ -84,7 +84,34 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
     })
     .when('/coach_home', {
       templateUrl: '/views/coach_views/coach_home.html',
-      controller: 'UserController as vm',
+      controller: 'CoachController as vm',
+      resolve: {
+        getCoach: function (UserService) {
+          return UserService.getCoach();
+        }
+      }
+    })
+    .when('/coach_schedule', {
+      templateUrl: '/views/coach_views/coach_schedule.html',
+      controller: 'CoachController as vm',
+      resolve: {
+        getCoach: function (UserService) {
+          return UserService.getCoach();
+        }
+      }
+    })
+    .when('/coach_appointments', {
+      templateUrl: '/views/coach_views/coach_appointments.html',
+      controller: 'CoachController as vm',
+      resolve: {
+        getCoach: function (UserService) {
+          return UserService.getCoach();
+        }
+      }
+    })
+    .when('/coach_students', {
+      templateUrl: '/views/coach_views/coach_students.html',
+      controller: 'CoachController as vm',
       resolve: {
         getCoach: function (UserService) {
           return UserService.getCoach();
