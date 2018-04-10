@@ -1,11 +1,12 @@
 <header ng-controller="SideNav">
-    <div class="md-toolbar-tools">
-      <md-button ng-click="toggleLeft()" class="md-icon-button md-primary hide-gt-md">
-        <i class="material-icons menu">menu</i>
-      </md-button>
-      <h2>
-        <img ng-src="./images/starrhealthtext.png" />
-      </h2>
-      <span flex></span>
-    </div>
-  </header>
+  <div class="md-toolbar-tools">
+    <md-button ng-click="toggleLeft()" class="md-icon-button md-primary hide-gt-md">
+      <i class="material-icons menu">menu</i>
+    </md-button>
+    <section class="hide-gt-md starr-header">
+      <img ng-src="./images/starrhealthlogo.png" class="starr-logo-header"/>
+      <img ng-src="./images/starrhealthtext.png" class="starr-text-header"/>
+    </section>
+    <span flex></span>
+  </div>
+</header>
