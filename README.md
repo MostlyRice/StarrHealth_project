@@ -51,7 +51,7 @@ Link to a read-only version of your scope document or other relevant documentati
 High level list of items completed.
 
 **Student user features:**
-- [ ] **Coach profile preview:** Provides a brief summary of therapist's information.
+- [ ] **Coach profile preview:** Provides a brief summary of coach's information.
 - [ ] **Coach full profile view:** Shows full details of coach profile and a link to schedule appointments.
 - [ ] **Appointment scheduler:** Displays a two week period of chosen therapist's availability. Prospective patient may click to request an appointment, add information, and an email will be sent to the therapist with the requested date, time and contact information.
 

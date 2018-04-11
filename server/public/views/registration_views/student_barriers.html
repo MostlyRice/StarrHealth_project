@@ -1,0 +1,36 @@
+<div layout="column" ng-cloak class="md-inline-form">
+        <md-content layout="column" layout-padding> 
+        <h2>Primary Barriers to Success</h2>
+            <label>What are your primary barriers to success?</label>
+            <md-checkbox ng-model="vm.barriers.stress" aria-label="stress">
+                Stress
+            </md-checkbox>  
+            <md-checkbox ng-model="vm.barriers.lack_of_support" aria-label="lack_of_support">
+                Lack of Support
+            </md-checkbox>  
+            <md-checkbox ng-model="vm.barriers.self_confidence" aria-label="self_confidence">
+                Self-Confidence
+            </md-checkbox>
+            <md-checkbox ng-model="vm.barriers.knowledge" aria-label="knowledge">
+                Knowledge
+            </md-checkbox>
+            </md-checkbox>
+            <md-checkbox ng-model="vm.barriers.resources" aria-label="resources">
+                Resources
+            </md-checkbox>
+            <md-checkbox ng-model="vm.barriers.physical_health" aria-label="physical_health">
+                Physical Health
+            </md-checkbox>
+            <md-checkbox ng-model="vm.barriers.time" aria-label="time">
+                Time
+            </md-checkbox>
+            </md-content>
+        </div>
+      <md-input-container class="md-block">
+            <label for="otherBarriers">Do you have any other barriers?</label>
+            <textarea ng-model="vm.barriers.other_barriers" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+          </md-input-container>
+      <div class="container">
+        <md-button class="md-raised md-primary" ng-click="vm.goals()">Back</md-button>
+        <md-button class="md-raised md-primary" ng-click="vm.collectBarriers(vm.barriers)">Next</md-button>
+    </div>

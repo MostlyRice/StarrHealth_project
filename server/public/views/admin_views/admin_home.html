@@ -44,7 +44,7 @@
             </md-content>
             <md-content layout-padding hide-gt-md>
                 <h1 id="welcome" class="lead">Welcome {{vm.userObject.userName}}!</h1>
-                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.adminHome()">
+                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.adminHome">
                     <i class="material-icons home">home</i>
                     <span>Home Page</span>
                 </md-button>
@@ -75,12 +75,12 @@
                 </md-button>
             </md-content>
         </md-sidenav>
-
-        <!-- Put Content In This Div! -->
+            <!-- Put Content In This Div! -->
             <div layout="column" layout-align="top">
             </div>
             <div flex></div>
-        <!-- Put Content In This Div! -->
+            <!-- End Put Content In This Div! -->
 
     </section>
+    </md-sidenav>
 </div>

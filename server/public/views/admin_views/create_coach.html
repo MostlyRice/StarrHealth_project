@@ -1,6 +1,138 @@
-<div ng-include="'views/partials/nav.html'"></div>
-<div class="container">
-  <p>
-    in Admin view, create coach function
-  </p>
+<header hide-gt-md ng-include="'/views/partials/header.html'"></header>
+
+<div layout="column" layout-fill ng-cloak>
+
+    <section layout="row" flex>
+
+        <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+            <div layout-padding class="starr-sidenav">
+                <img ng-src="./images/starrhealthlogo.png" />
+                <br />
+                <img ng-src="./images/starrhealthtext.png" />
+            </div>
+            <md-content layout-padding hide show-gt-md>
+                <h1 id="welcome" class="lead">Welcome {{vm.userObject.userName}}!</h1>
+                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.adminHome()">
+                    <i class="material-icons home">home</i>
+                    <span>Home Page</span>
+                </md-button>
+                <br />
+                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.studentDirectory()">
+                    <i class="material-icons list">list</i>
+                    <span>Student Directory</span>
+                </md-button>
+                <br />
+                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.coachDirectory()">
+                    <i class="material-icons list">list</i>
+                    <span>Coach Directory</span>
+                </md-button>
+                <br />
+                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.schoolDirectory()">
+                    <i class="material-icons list">list</i>
+                    <span>School Directory</span>
+                </md-button>
+                <br />
+                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.adminAllApointments()">
+                    <i class="material-icons date-range">date_range</i>
+                    <span>All Appointments</span>
+                </md-button>
+                <br />
+                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-warn" flex ng-click="vm.userService.logout()">
+                    <i class="material-icons exit-app">exit_to_app</i>
+                    <span>Log Out</span>
+                </md-button>
+            </md-content>
+            <md-content layout-padding hide-gt-md>
+                <h1 id="welcome" class="lead">Welcome {{vm.userObject.userName}}!</h1>
+                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.adminHome()">
+                    <i class="material-icons home">home</i>
+                    <span>Home Page</span>
+                </md-button>
+                <br />
+                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.studentDirectory()">
+                    <i class="material-icons list">list</i>
+                    <span>Student Directory</span>
+                </md-button>
+                <br />
+                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.coachDirectory()">
+                    <i class="material-icons list">list</i>
+                    <span>Coach Directory</span>
+                </md-button>
+                <br />
+                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.schoolDirectory()">
+                    <i class="material-icons list">list</i>
+                    <span>School Directory</span>
+                </md-button>
+                <br />
+                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.adminAllApointments()">
+                    <i class="material-icons date-range">date_range</i>
+                    <span>All Appointments</span>
+                </md-button>
+                <br />
+                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-warn" flex ng-click="vm.userService.logout()">
+                    <i class="material-icons exit-app">exit_to_app</i>
+                    <span>Log Out</span>
+                </md-button>
+            </md-content>
+        </md-sidenav>
+
+        <md-content layout-padding>
+            <div layout="column" layout-align="top">
+            </div>
+            <div flex></div>
+        </md-content>
+        <form>
+                <div>
+                    <label for="firstName">First Name:</label>
+                    <input type="text" name="firstName" ng-model="vm.coachInfo.first_name">
+                </div>
+                <div>
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" name="lastName" ng-model="vm.coachInfo.last_name">
+                </div>
+                <div>
+                    <label for="userName">Coach Username:</label>
+                    <input type="text" name="userName" ng-model="vm.coachInfo.username">
+                </div>
+                <div>
+                    <label for="passwordOne">Password:</label>
+                    <input type="password" ng-model="vm.coachInfo.passwordOne">
+                </div>
+                <div>
+                    <label for="passwordTwo">Confirm Password:</label>
+                    <input type="password" ng-model="vm.coachInfo.passwordTwo">
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" ng-model="vm.coachInfo.email"/>
+                </div>
+                <div>
+                <label for="jobTitle">Job Title:</label>
+                <select name="jobTitle" ng-model="vm.coachInfo.job_title">
+                    <option value="Life Coach">Life Coach</option>
+                    <option value="Health Coach">Health Coach</option>
+                    <option value="Nutritionist">Nutritionist</option>
+                </select>
+                </div>
+                <div>
+                <label for="specialty">Specialty:</label>
+                <select name="specialty" ng-model="vm.coachInfo.specialty">
+                    <option value="Academic">Academic Goal Setting</option>
+                    <option value="Social Life">Social Life</option>
+                    <option value="Personal Health">Health and Wellness</option>
+                    <option value="Professional">Professional Success</option>
+                    <option value="Relationships">Relationships</option>
+                </select> 
+                </div>
+                <div>
+                    <label for="interests">Personal Interests:</label>
+                    <input type="text" name="interests" ng-model="vm.coachInfo.interests">
+                </div>
+                <div>
+                    <md-button class="md-raised md-primary" ng-click="vm.coachDir()">Back</md-button>
+                    <md-button class="md-raised md-primary" ng-click="vm.collectCoach(vm.coachInfo)">Next</md-button>
+                </div>
+            </form>
+    </section>
+
 </div>

@@ -4,11 +4,25 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
     self.newStudent = {};
     self.userService = UserService;
     self.userObject = UserService.userObject;
+    self.schools = {
+        list: []
+    }
+    self.allCoaches = {
+        list: []
+    }
 
 
 
     self.disclaimer = function() {
-        $location.path('/disclaimer');
+        // swal({
+        //     title: "Disclaimer",
+        //     text: `This application, and any information or materials provided in connection with it, is informational only and does not constitute medical advice, care, diagnosis or treatment.
+        //     The Starr Health Co. application is not intended to be a replacement or substitution to the medical advice, care, diagnosis or treatment of a licensed medical practitioner.
+        //     Starr Health Co. recommends that you consult your physician prior to beginning any new health initiative.`,
+        //     icon: "warning",
+        //     buttons: true,
+        //     dangerMode: true,//sweetAlert in progress here
+            $location.path('/disclaimer');
       } // end disclaimer
 
     self.general = function() {
@@ -39,9 +53,23 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
         })
       } // end letPass
 
+      self.getSchools = function() {
+        $http({
+            method: 'GET',
+            url: '/admin/school'
+        }).then(function(response) {
+            console.log(response.data);
+            self.schools.list = response.data;
+            console.log('self.schools = ', self.schools.list);
+        }).catch(function(error) {
+            console.log('get schools error');
+        })
+    }
+
       self.collectGeneral = function(info) {
           console.log('general info', info);
           const id = UserService.userObject.id;
+          const sessions_used = 0;
           const entry = {
               id: id,
               first_name: info.first_name,
@@ -51,20 +79,47 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
               skype_id: info.skype,
               email: info.email,
               phone_number: info.phone_number,
-              school_name: info.school_name,
-              school_code: info.school_code
+              school_id: info.school_id,
+              school_code: info.school_code,
+              sessions_used: sessions_used
           }
           $http({
             method: 'PUT',
             url: `/student/general/${id}`,
             data: {entry: entry}
         }).then(function(response) {
-          $location.path('/student_goals');
+            const school_id = entry.school_id;
+            const school_code = entry.school_code;
+            const secret = {
+                secret: school_code
+            }
+            $http({
+                method: 'POST',
+                url: `/admin/school/${school_id}`,
+                data: {secret: secret}
+            }).then(function(response) {
+                const total_sessions = response.data[0].student_sessions;
+                const entry = {
+                    id: id,
+                    total_sessions: total_sessions
+                }
+                    $http({
+                        method: 'PUT',
+                        url: `/student/sessions/${id}`,
+                        data: {entry: entry}
+                    }).then(function(response) {
+                        $location.path('/student_goals');
+                    }).catch(function (error) {
+                      console.log('sessions put error', error);
+                    })
+            }).catch(function(error) {
+                alert('School Code is Incorrect!');
+                info.school_code = '';
+            })
         }).catch(function (error) {
           console.log('general put error', error);
         })
-
-      }
+      } // end collectGeneral
 
       self.collectGoals = function(goal) {
         console.log('goal', goal);
@@ -142,13 +197,13 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
     self.primaryBarriers = function(barriers) {
         console.log(barriers);
         const id = UserService.userObject.id;
-        let stress = 0;
-        let support = 0;
-        let confidence = 0;
-        let knowledge = 0;
-        let resources = 0;
-        let health = 0;
-        let time = 0;
+        stress = 0;
+        support = 0;
+        confidence = 0;
+        knowledge = 0;
+        resources = 0;
+        health = 0;
+        time = 0;
 
         if (barriers.stress === true) {
             stress = 1;
@@ -278,9 +333,35 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
         }
     $location.path('/additional_info');
     } // end primary Barriers
+    
+    self.getSchools();
 
+    self.findCoach = function() {
+        const id = UserService.userObject.id;
+        console.log('find coach', id);
+        $http({
+            method: 'GET',
+            url: `/match/student/${id}`
+        }).then(function(response) {
+            console.log(response.data);
+            const thisStudent = response.data[0].primary_goal;
+            console.log('thisStudent ', thisStudent);
+            $http({
+                method: 'GET',
+                url: `/match/coaches/${thisStudent}`
+            }).then(function(response) {
+                console.log(response.data);
+                self.allCoaches.list = response.data;
+                console.log('All Coaches = ', self.allCoaches.list);
+                console.log('thisStudent = ', thisStudent);
 
-
+            }).catch(function(error) {
+                console.log('coach match error');
+            })
+        }).catch(function(error) {
+            console.log('find student goal error');
+        })
+    }
 
 
 }]); // end signup service

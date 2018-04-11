@@ -1,18 +1,26 @@
-<div class="container" ng-cloak>
-    <h1 class="lead">Login</h1>
-      <h1 class="lead alert alert-danger" role="alert" ng-if="vm.message != ''">{{vm.message}}</h2>
-      <form ng-submit="vm.login()">
-        <md-input-container>
-            <label for="username">Username:</label>
-            <input type="text" ng-model="vm.user.username" />
-        </md-input-container>
-        <md-input-container>
-            <label for="password">Password:</label>
-            <input type="password" ng-model="vm.user.password" />
-        </md-input-container>
-        <md-input-container>
-            <button>Log in</button>
-            <a href="#!register">Register</a>
-        </md-input-container>
-      </form>
-  </div>
+<div class="container landingPage" ng-cloak layout-fill layout="column" layout-align="center center">
+    <md-card style="height:680px; width:280px; background:rgba(0, 0, 0, 0.3);">
+    <br>
+    <br>
+    <div layout-padding class="starr-landing">
+        <img style="height: 110px" ng-src="./images/starrhealthlogo.png" />
+        <p>Starr Health Co.</p>
+    </div>
+    <br>
+    <br>
+<div class="landingText">
+<p>ALL WOMEN ARE<br> ON<br> THE RISE,</p>
+<br>
+<p>LET US BE YOUR<br> CATALYST</p>
+</div>
+<br>
+<div class="landingBtns">
+    <md-input-container>
+        <md-button style="background-color:#1686B4; color: white;" class="md-raised landingBtn1" ng-href="/#!login">Log In</md-button>
+    </md-input-container>
+    <md-input-container>
+        <md-button style="background-color:#1686B4; color: white;" class="md-raised landingBtn2" ng-href="/#!register">I'm New</md-button>
+    </md-input-container>
+</div>
+</md-card>
+</div>
