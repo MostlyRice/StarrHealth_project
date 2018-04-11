@@ -12,9 +12,19 @@
             </div>
             <md-content layout-padding hide show-gt-md flex>
                 <h1 id="welcome" class="lead">Welcome {{vm.userObject.userName}}!</h1>
-                <md-button class="md-raised md-primary" flex ng-click="vm.adminHome">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminHome()">
                     <i class="material-icons home">home</i>
                     <span>Home Page</span>
+                </md-button>
+                <br />
+                <md-button class="md-raised md-primary" flex ng-click="">
+                    <i class="material-icons note-add">note_add</i>
+                    <span>Add Coach</span>
+                </md-button>
+                <br />
+                <md-button class="md-raised md-primary" flex ng-click="">
+                    <i class="material-icons note-add">note_add</i>
+                    <span>Add School</span>
                 </md-button>
                 <br />
                 <md-button class="md-raised md-primary" flex ng-click="vm.studentDirectory()">
@@ -49,6 +59,16 @@
                     <span>Home Page</span>
                 </md-button>
                 <br />
+                <md-button class="md-raised md-primary" flex ng-click="">
+                    <i class="material-icons note-add">note_add</i>
+                    <span>Add Coach</span>
+                </md-button>
+                <br />
+                <md-button class="md-raised md-primary" flex ng-click="">
+                    <i class="material-icons note-add">note_add</i>
+                    <span>Add School</span>
+                </md-button>
+                <br />
                 <md-button class="md-raised md-primary" flex ng-click="vm.studentDirectory()">
                     <i class="material-icons list">list</i>
                     <span>Student Directory</span>
@@ -75,12 +95,22 @@
                 </md-button>
             </md-content>
         </md-sidenav>
-
         <!-- Put Content In This Div! -->
         <div layout="column" layout-align="top">
             <div>
                 <label for="schoolName">School Name:</label>
                 <input type="text" name="schoolName" ng-model="vm.schoolInfo.school_name">
+            </div>
+            <div>
+                <label for="schoolCode">School Code:</label>
+                <input type="password" name="schoolCode" ng-model="vm.schoolInfo.school_code">
+            </div>
+            <div>
+                <label for="accounts">Number of Student Accounts:</label>
+                <input type="text" name="accounts" ng-model="vm.schoolInfo.total_accounts">
+            </div>
+            <div>
+
             </div>
             <div>
                 <label for="schoolCode">School Code:</label>
@@ -100,7 +130,8 @@
             </div>
         </div>
         <div flex></div>
+        <!-- End Put Content In This Div! -->
+    </section>
         <!-- Put Content In This Div! -->
-
     </section>
 </div>
