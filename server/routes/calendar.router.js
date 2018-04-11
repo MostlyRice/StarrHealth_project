@@ -30,18 +30,51 @@ router.post('/coach', (request, response) => {
     }
 })
 
+// router.get('/availability', (request, response) => {
+//     if (request.isAuthenticated()){
+//         const sqlText = "SELECT available_time, date FROM calendar WHERE coach_id = $1;";
+//         const studentID = request.user.id;
+//         pool.query(sqlText, [studentID])
+//         .then(result => {
+//             response.send(result.rows);
+//             cosole.log('availability', result.rows)
+//         })
+//         .catch(error => {
+//             response.sendStatus(500);
+//             console.log('get error', error); 
+//         })
+//     } else {
+//         response.sendStatus(403);
+//     }
+// })
+
 router.get('/availability', (request, response) => {
     if (request.isAuthenticated()){
-        const sqlText = "SELECT available_time,, date FROM calendar WHERE coach_id = $1;";
+        console.log('getting availability');
+        const SQLtext = `SELECT users.id FROM users
+        JOIN coach_bio ON coach_bio.id=users.id
+        JOIN student_bio ON student_bio.coach_id=coach_bio.coach_id
+        WHERE student_bio.id=$1;`;
         const studentID = request.user.id;
-        pool.query(sqlText, [studentID])
+        pool.query(SQLtext, [studentID])
         .then(result => {
-            response.send(result.rows);
-            cosole.log('availability', result.rows)
+            console.log('GET COACH ID', result.rows[0].id);
+            let coachID = result.rows[0].id;
+            console.log(result.rows);
+            let sqlText = "SELECT available_time, date FROM calendar WHERE coach_id = $1;";
+            pool.query(sqlText, [coachID])
+            .then(res => {
+                response.send(res.rows);
+                cosole.log('availability', res.rows)
+            })
+            .catch(error => {
+                response.sendStatus(500);
+                console.log('get error', error); 
+            })
         })
         .catch(error => {
             response.sendStatus(500);
-            console.log('get error', error); 
+            console.log('get error', error);
         })
     } else {
         response.sendStatus(403);
@@ -51,8 +84,8 @@ router.get('/availability', (request, response) => {
 router.get('/appointments', (request, response) => {
     if (request.isAuthenticated()){
         const sqlText = "SELECT available_time, student_id, date FROM calendar WHERE coach_id = $1;";
-        const coach_id = request.user.id;
-        pool.query(sqlText, [coach_id])
+        const coachID = request.user.id;
+        pool.query(sqlText, [coachID])
         .then(result => {
             response.send(result.rows);
             cosole.log('availability', result.rows)

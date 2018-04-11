@@ -22,7 +22,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', function($http, UserSe
     self.getCoachAppointments = function(){
         $http.get('/calendar/appointments')
         .then(function(response) {
-            console.log('times get', response.data);
+            console.log('appointments get', response.data);
             let appointmentArray = response.data.filter(function(res){
             return res.student_id != null
             })
