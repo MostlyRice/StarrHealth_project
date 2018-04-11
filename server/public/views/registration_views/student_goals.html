@@ -1,24 +1,24 @@
-<div layout="column" ng-cloak class="md-inline-form">
-
+<div layout="column" ng-cloak class="md-inline-form disclaimer" layout-fill layout-align="center center">
+<md-card layout-padding  style="height:600px; width:550px; background:rgba(0, 0, 0, 0.3);">
             <div>
-    <h2 layout-padding layout-gt-sm="row">Primary Goal</h2>
-    <md-content>
-            <label layout-padding layout-gt-sm="row">What is your primary goal</label>
-        <md-radio-group layout-padding layout="column" ng-model="vm.student_goals.primary_goal">
-            <md-radio-button value="Academic">Academic Goals</md-radio-button>
-            <md-radio-button value="Social Life">Social Life Goals</md-radio-button>
-            <md-radio-button value="Personal Health">Personal Health Goals</md-radio-button>
-            <md-radio-button value="Professional">Professional Goals</md-radio-button>
-            <md-radio-button value="Relationships">Relationship Goals</md-radio-button>
+    <h2 style="color:white; text-align:center; font-weight:bold;" layout-padding >Primary Goal</h2>
+    <md-container>
+            <label style="color:white;" layout-padding>What is your primary goal?</label>
+        <md-radio-group style="color:white;" layout-padding layout="column" ng-model="vm.student_goals.primary_goal">
+            <md-radio-button style="color:white;" class="radio" value="Academic">Academic Goals</md-radio-button>
+            <md-radio-button style="color:white;" class="radio" value="Social Life">Social Life Goals</md-radio-button>
+            <md-radio-button style="color:white;" class="radio" value="Personal Health">Personal Health Goals</md-radio-button>
+            <md-radio-button style="color:white;" class="radio" value="Professional">Professional Goals</md-radio-button>
+            <md-radio-button style="color:white;" class="radio" value="Relationships">Relationship Goals</md-radio-button>
         </md-radio-group>
-    </md-content>
+    </md-container>
       <md-input-container class="md-block">
-            <label for="secondaryGoals">Do you have any secondary goals?</label>
-        <textarea ng-model="vm.student_goals.secondary_goals" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+            <label style="color:white;" for="secondaryGoals">Do you have any secondary goals?</label>
+        <textarea style="color:white;" ng-model="vm.student_goals.secondary_goals" md-maxlength="150" rows="5" md-select-on-focus></textarea>
           </md-input-container>
-        <md-button class="md-raised md-primary" ng-click="vm.general()">Back</md-button>
-        <md-button class="md-raised md-primary" ng-click="vm.collectGoals(vm.student_goals)">Next</md-button>
+        <md-button style="color:white; background-color:#1686B4;" class="md-raised md-primary" ng-click="vm.general()">Back</md-button>
+        <md-button style="color:white; background-color:#1686B4;" class="md-raised md-primary" ng-click="vm.collectGoals(vm.student_goals)">Next</md-button>
 
     </div>
-
+</md-card>
     </div>
