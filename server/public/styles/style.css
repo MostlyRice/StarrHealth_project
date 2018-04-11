@@ -125,14 +125,17 @@ header {
   height: auto;
   width: auto;
 }
-.loginPage{
+
+.loginPage {
   background: url(https://i.pinimg.com/originals/88/6e/b5/886eb51b07c5ae6e8fe7b8db2317406c.jpg) no-repeat center center fixed;
   text-align: center;
 }
-.registerPage{
+
+.registerPage {
   background: url(https://i.pinimg.com/originals/88/6e/b5/886eb51b07c5ae6e8fe7b8db2317406c.jpg) no-repeat center center fixed;
   text-align: center;
 }
+
 .starr-logo-header {
   zoom: 50%;
 }
@@ -212,4 +215,18 @@ md-sidenav md-content {
   z-index: 1;
   height: 100%;
   width: 100%;
+}
+
+button.md-raised.md-warn.md-button.md-ink-ripple.flex {
+  min-height: 50px;
+  min-width: 255px;
+  text-align: left;
+  background-color: #d3394b;
+}
+
+button.md-raised.md-primary.md-button.md-ink-ripple.flex {
+  min-height: 50px;
+  min-width: 255px;
+  text-align: left;
+  background-color: #1686B4;
 }
