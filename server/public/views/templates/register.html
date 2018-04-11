@@ -1,4 +1,5 @@
-<div class="container">
+<div class="container registerPage" ng-cloak layout-fill layout="column" layout-align="center center">
+    <md-card style="height:420px; width:300px; background:rgba(247, 232, 241, 0.8);">
   <h1 class="lead">Register User</h1>
   <h1 class="lead alert alert-danger" role="alert" ng-if="vm.message != ''">{{vm.message}}</h2>
   <form ng-submit="vm.registerUser()">
@@ -14,9 +15,9 @@
       <label for="passwordTwo">Confirm Password:</label>
       <input type="password" ng-model="vm.user.passwordTwo" />
   </md-input-container>
-  
-    <input class="btn btn-default" type="submit" name="submit" value="Register" />
-    <a href="#!home">Cancel</a>
+  <br>
+    <md-button class="btn btn-default" type="submit" name="submit" value="Register">Register</md-button>
+    <md-button ng-href="/#!home">Cancel</md-button>
   </form>
-
+</md-card>
 </div>
