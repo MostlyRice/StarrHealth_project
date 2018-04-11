@@ -172,7 +172,7 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
       }
     })
     .when('/disclaimer', {
-      templateUrl: '/views/student_views/disclaimer.html',
+      templateUrl: '/views/registration_views/disclaimer.html',
       controller: 'SignupController as vm',
       resolve: {
         getuser: function (UserService) {
@@ -181,7 +181,7 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
       }
     })
     .when('/general_info', {
-      templateUrl: '/views/student_views/general_info.html',
+      templateUrl: '/views/registration_views/general_info.html',
       controller: 'GeneralController as vm',
       resolve: {
         getuser: function (UserService) {
@@ -190,7 +190,7 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
       }
     })
     .when('/student_goals', {
-      templateUrl: '/views/student_views/student_goals.html',
+      templateUrl: '/views/registration_views/student_goals.html',
       controller: 'SignupController as vm',
       resolve: {
         getuser: function (UserService) {
@@ -199,7 +199,7 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
       }
     })
     .when('/student_barriers', {
-      templateUrl: '/views/student_views/student_barriers.html',
+      templateUrl: '/views/registration_views/student_barriers.html',
       controller: 'SignupController as vm',
       resolve: {
         getuser: function (UserService) {
@@ -208,7 +208,7 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
       }
     })
     .when('/additional_info', {
-      templateUrl: '/views/student_views/additional_info.html',
+      templateUrl: '/views/registration_views/additional_info.html',
       controller: 'SignupController as vm',
       resolve: {
         getuser: function (UserService) {
