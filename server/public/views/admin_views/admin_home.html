@@ -10,11 +10,21 @@
                 <br />
                 <img ng-src="./images/starrhealthtext.png" />
             </div>
-            <md-content layout-padding hide show-gt-md flex> 
+            <md-content layout-padding hide show-gt-md flex>
                 <h1 id="welcome" class="lead">Welcome {{vm.userObject.userName}}!</h1>
                 <md-button class="md-raised md-primary" flex ng-click="vm.adminHome()">
                     <i class="material-icons home">home</i>
                     <span>Home Page</span>
+                </md-button>
+                <br />
+                <md-button class="md-raised md-primary" flex ng-click="">
+                    <i class="material-icons note-add">note_add</i>
+                    <span>Add Coach</span>
+                </md-button>
+                <br />
+                <md-button class="md-raised md-primary" flex ng-click="">
+                    <i class="material-icons note-add">note_add</i>
+                    <span>Add School</span>
                 </md-button>
                 <br />
                 <md-button class="md-raised md-primary" flex ng-click="vm.studentDirectory()">
@@ -44,9 +54,19 @@
             </md-content>
             <md-content layout-padding hide-gt-md flex>
                 <h1 id="welcome" class="lead">Welcome {{vm.userObject.userName}}!</h1>
-                <md-button class="md-raised md-primary" flex ng-click="vm.adminHome">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminHome()">
                     <i class="material-icons home">home</i>
                     <span>Home Page</span>
+                </md-button>
+                <br />
+                <md-button class="md-raised md-primary" flex ng-click="">
+                    <i class="material-icons note-add">note_add</i>
+                    <span>Add Coach</span>
+                </md-button>
+                <br />
+                <md-button class="md-raised md-primary" flex ng-click="">
+                    <i class="material-icons note-add">note_add</i>
+                    <span>Add School</span>
                 </md-button>
                 <br />
                 <md-button class="md-raised md-primary" flex ng-click="vm.studentDirectory()">
@@ -75,11 +95,11 @@
                 </md-button>
             </md-content>
         </md-sidenav>
-            <!-- Put Content In This Div! -->
-            <div layout="column" layout-align="top">
-            </div>
-            <div flex></div>
-            <!-- End Put Content In This Div! -->
+        <!-- Put Content In This Div! -->
+        <div layout="column" layout-align="top">
+        </div>
+        <div flex></div>
+        <!-- End Put Content In This Div! -->
 
     </section>
     </md-sidenav>

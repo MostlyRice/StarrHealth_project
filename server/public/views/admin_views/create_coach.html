@@ -17,6 +17,16 @@
                     <span>Home Page</span>
                 </md-button>
                 <br />
+                <md-button class="md-raised md-primary" flex ng-click="">
+                    <i class="material-icons note-add">note_add</i>
+                    <span>Add Coach</span>
+                </md-button>
+                <br />
+                <md-button class="md-raised md-primary" flex ng-click="">
+                    <i class="material-icons note-add">note_add</i>
+                    <span>Add School</span>
+                </md-button>
+                <br />
                 <md-button class="md-raised md-primary" flex ng-click="vm.studentDirectory()">
                     <i class="material-icons list">list</i>
                     <span>Student Directory</span>
@@ -49,6 +59,16 @@
                     <span>Home Page</span>
                 </md-button>
                 <br />
+                <md-button class="md-raised md-primary" flex ng-click="">
+                    <i class="material-icons note-add">note_add</i>
+                    <span>Add Coach</span>
+                </md-button>
+                <br />
+                <md-button class="md-raised md-primary" flex ng-click="">
+                    <i class="material-icons note-add">note_add</i>
+                    <span>Add School</span>
+                </md-button>
+                <br />
                 <md-button class="md-raised md-primary" flex ng-click="vm.studentDirectory()">
                     <i class="material-icons list">list</i>
                     <span>Student Directory</span>
@@ -76,12 +96,9 @@
             </md-content>
         </md-sidenav>
 
-        <md-content layout-padding>
-            <div layout="column" layout-align="top">
-            </div>
-            <div flex></div>
-        </md-content>
-        <form>
+        <!-- Put Content In This Div! -->
+        <div layout="column" layout-align="top">
+            <form>
                 <div>
                     <label for="firstName">First Name:</label>
                     <input type="text" name="firstName" ng-model="vm.coachInfo.first_name">
@@ -104,25 +121,25 @@
                 </div>
                 <div>
                     <label for="email">Email:</label>
-                    <input type="email" name="email" ng-model="vm.coachInfo.email"/>
+                    <input type="email" name="email" ng-model="vm.coachInfo.email" />
                 </div>
                 <div>
-                <label for="jobTitle">Job Title:</label>
-                <select name="jobTitle" ng-model="vm.coachInfo.job_title">
-                    <option value="Life Coach">Life Coach</option>
-                    <option value="Health Coach">Health Coach</option>
-                    <option value="Nutritionist">Nutritionist</option>
-                </select>
+                    <label for="jobTitle">Job Title:</label>
+                    <select name="jobTitle" ng-model="vm.coachInfo.job_title">
+                        <option value="Life Coach">Life Coach</option>
+                        <option value="Health Coach">Health Coach</option>
+                        <option value="Nutritionist">Nutritionist</option>
+                    </select>
                 </div>
                 <div>
-                <label for="specialty">Specialty:</label>
-                <select name="specialty" ng-model="vm.coachInfo.specialty">
-                    <option value="Academic">Academic Goal Setting</option>
-                    <option value="Social Life">Social Life</option>
-                    <option value="Personal Health">Health and Wellness</option>
-                    <option value="Professional">Professional Success</option>
-                    <option value="Relationships">Relationships</option>
-                </select> 
+                    <label for="specialty">Specialty:</label>
+                    <select name="specialty" ng-model="vm.coachInfo.specialty">
+                        <option value="Academic">Academic Goal Setting</option>
+                        <option value="Social Life">Social Life</option>
+                        <option value="Personal Health">Health and Wellness</option>
+                        <option value="Professional">Professional Success</option>
+                        <option value="Relationships">Relationships</option>
+                    </select>
                 </div>
                 <div>
                     <label for="interests">Personal Interests:</label>
@@ -133,6 +150,10 @@
                     <md-button class="md-raised md-primary" ng-click="vm.collectCoach(vm.coachInfo)">Next</md-button>
                 </div>
             </form>
+        </div>
+        <div flex></div>
+        <!-- Put Content In This Div! -->
+
     </section>
 
 </div>

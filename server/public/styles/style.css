@@ -182,6 +182,12 @@ header {
   padding: 0 10px 10px 0;
 }
 
+.note-add {
+  display: inline-flex;
+  vertical-align: middle;
+  padding: 0 10px 10px 0;
+}
+
 .group {
   display: inline-flex;
   vertical-align: middle;
