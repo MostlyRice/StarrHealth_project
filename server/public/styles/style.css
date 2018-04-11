@@ -127,11 +127,13 @@ header {
   height: auto;
   width: auto;
 }
-.loginPage{
+
+.loginPage {
   background: url(../images/landingPageBackground.png) no-repeat center center fixed;
   text-align: center;
 }
-.registerPage{
+
+.registerPage {
   background: url(../images/landingPageBackground.png) no-repeat center center fixed;
   text-align: center;
 }
@@ -210,6 +212,7 @@ md-sidenav,
 md-sidenav.md-default-theme md-content,
 md-sidenav md-content {
   background-color: rgba(0, 0, 0, 0.3);
+  overflow: hidden;
 }
 
 .layout-fill {

@@ -2,7 +2,6 @@
 
 <div layout="column" layout-fill ng-cloak>
 
-
     <section layout="row" flex>
         <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
             <div layout-padding class="starr-sidenav">
@@ -56,26 +55,20 @@
             </md-content>
         </md-sidenav>
 
-        <md-content layout-padding>
-            <div layout="column" layout-align="top">
+
+
+        <!-- Put Content In This Div! -->
+        <div layout="column" layout-align="top">
+            <div ng-repeat="student in vm.student.list">
+                {{student.first_name}} {{student.last_name}}
             </div>
-            <div flex></div>
-        </md-content>
-
-        <div ng-repeat="student in vm.student.list">
-            {{student.first_name}} {{student.last_name}}
+            <div>
+                <button ng-click="vm.newPassword()">Change Password:</button>
+            </div>
         </div>
-        <div>
-            <button ng-click="vm.newPassword()">Change Password:</button>
-        </div>
-
-
-
-
-
-
-
-
+        <div flex></div>
+        <!-- End Put Content In This Div! -->
 
     </section>
+
 </div>

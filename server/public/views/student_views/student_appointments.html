@@ -3,12 +3,11 @@
     <h3>Schedule</h3>
     <md-datepicker ng-model="date" md-placeholder="Enter date"></md-datepicker>
     <div class="form-group">
-            <div class="radio" ng-repeat="availability in vm.coachTimes.list">
-                <label>
-                    <input type="radio" name="{{availability}}" value="{{availability}}" ng-model="vm.studentAppointment.time">
-                    {{availability.time}}AM
-                </label>
-            </div>
+        <div class="radio" ng-repeat="availability in vm.coachTimes.list">
+            <label>
+                <input type="radio" name="{{availability}}" value="{{availability}}" ng-model="vm.studentAppointment.time"> {{availability.time}}AM
+            </label>
+        </div>
     </div>
     <button ng-click="vm.postStudentSchedule(vm.studentAppointment)">Add</button>
 </div>

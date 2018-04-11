@@ -66,18 +66,18 @@
       </md-content>
     </md-sidenav>
 
-    <md-content layout-padding>
-      <div layout="column" layout-align="top">
+    <!-- Put Content In This Div! -->
+    <div layout="column" layout-align="top">
+      <div class="container">
+        <h3>Coach Appointments</h3>
+        <div ng-repeat="appointment in vm.coachAppointments.list">
+          <p>{{appointment}}AM</p>
+        </div>
       </div>
-      <div flex></div>
-    </md-content>
+    </div>
+    <div flex></div>
+    <!-- End Put Content In This Div! -->
 
   </section>
-</div>
-<div class="container">
-  <h3>Coach Appointments</h3>
-        <div ng-repeat="appointment in vm.coachAppointments.list">
-            <p>{{appointment}}AM</p>
-        </div>
-</div>
 
+</div>
