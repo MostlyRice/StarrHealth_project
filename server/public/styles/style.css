@@ -229,7 +229,6 @@ md-sidenav,
 md-sidenav.md-default-theme md-content,
 md-sidenav md-content {
   background-color: rgba(0, 0, 0, 0.3);
-  overflow: hidden;
 }
 
 .layout-fill {
@@ -255,3 +254,7 @@ button.md-raised.md-primary.md-button.md-ink-ripple.flex {
   text-align: left;
   background-color: #1686B4;
 }
+
+::-webkit-scrollbar {
+  display: none;
+  }
