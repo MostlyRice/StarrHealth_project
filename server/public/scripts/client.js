@@ -173,7 +173,7 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
     })  
     .when('/create_coach', {
       templateUrl: '/views/admin_views/create_coach.html',
-      controller: 'CoachController as vm',
+      controller: 'AdminController as vm',
       resolve: {
         getAdmin: function (UserService) {
           return UserService.getAdmin();
