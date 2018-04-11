@@ -49,7 +49,7 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', 'Signu
         self.message = "Choose a password!";
       } else if (self.user.passwordOne != self.user.passwordTwo) {
         self.message = "Passwords do not match!";
-      } else if (self.user.passwordOne = self.user.passwordTwo) {
+      } else if (self.user.passwordOne === self.user.passwordTwo) {
         self.user.password = self.user.passwordOne;
         console.log('sending to server...', self.user);
         $http.post('/api/user/register', self.user).then(function (response) {
