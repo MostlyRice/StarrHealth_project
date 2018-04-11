@@ -1,36 +1,40 @@
-<div layout="column" ng-cloak class="md-inline-form">
-        <md-content layout="column" layout-padding> 
-        <h2>Primary Barriers to Success</h2>
-            <label>What are your primary barriers to success?</label>
-            <md-checkbox ng-model="vm.barriers.stress" aria-label="stress">
+<div layout="column" ng-cloak class="md-inline-form disclaimer" layout-fill layout-align="center center">
+        <md-card layout-padding  style="height:850px; width:550px; background:rgba(0, 0, 0, 0.3);">
+        <md-container layout="column" layout-padding> 
+        <h2 style="color:white;">Primary Barriers to Success</h2>
+            <label style="color:white;">What are your primary barriers to success?</label>
+            <md-checkbox style="color:white;" ng-model="vm.barriers.stress" aria-label="stress">
                 Stress
             </md-checkbox>  
-            <md-checkbox ng-model="vm.barriers.lack_of_support" aria-label="lack_of_support">
+            <md-checkbox style="color:white;" ng-model="vm.barriers.lack_of_support" aria-label="lack_of_support">
                 Lack of Support
             </md-checkbox>  
-            <md-checkbox ng-model="vm.barriers.self_confidence" aria-label="self_confidence">
+            <md-checkbox style="color:white;" ng-model="vm.barriers.self_confidence" aria-label="self_confidence">
                 Self-Confidence
             </md-checkbox>
-            <md-checkbox ng-model="vm.barriers.knowledge" aria-label="knowledge">
+            <md-checkbox style="color:white;" ng-model="vm.barriers.knowledge" aria-label="knowledge">
                 Knowledge
             </md-checkbox>
             </md-checkbox>
-            <md-checkbox ng-model="vm.barriers.resources" aria-label="resources">
+            <md-checkbox style="color:white;" ng-model="vm.barriers.resources" aria-label="resources">
                 Resources
             </md-checkbox>
-            <md-checkbox ng-model="vm.barriers.physical_health" aria-label="physical_health">
+            <md-checkbox style="color:white;" ng-model="vm.barriers.physical_health" aria-label="physical_health">
                 Physical Health
             </md-checkbox>
-            <md-checkbox ng-model="vm.barriers.time" aria-label="time">
+            <md-checkbox style="color:white;" ng-model="vm.barriers.time" aria-label="time">
                 Time
             </md-checkbox>
-            </md-content>
-        </div>
+            
+        
       <md-input-container class="md-block">
-            <label for="otherBarriers">Do you have any other barriers?</label>
-            <textarea ng-model="vm.barriers.other_barriers" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+            <label style="color:white;" for="otherBarriers">Do you have any other barriers?</label>
+            <textarea style="color:white;" ng-model="vm.barriers.other_barriers" md-maxlength="150" rows="5" md-select-on-focus></textarea>
           </md-input-container>
       <div class="container">
-        <md-button class="md-raised md-primary" ng-click="vm.goals()">Back</md-button>
-        <md-button class="md-raised md-primary" ng-click="vm.collectBarriers(vm.barriers)">Next</md-button>
+        <md-button style="color:white; background-color:#1686B4;" class="md-raised md-primary" ng-click="vm.goals()">Back</md-button>
+        <md-button style="color:white; background-color:#1686B4;" class="md-raised md-primary" ng-click="vm.collectBarriers(vm.barriers)">Next</md-button>
+    </div>
+    </md-container>
+    </md-card>
     </div>

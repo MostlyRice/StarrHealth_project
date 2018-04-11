@@ -2,7 +2,9 @@
   font-family: CallunaSans;
   src: url("./fonts/CallunaSans-Regular.woff") format("woff");
 }
-
+body {
+  top: 0px !important;
+  }
 body,
 html {
   margin: 0;
@@ -125,13 +127,32 @@ header {
   height: auto;
   width: auto;
 }
-.loginPage{
+
+.loginPage {
   background: url(../images/landingPageBackground.png) no-repeat center center fixed;
   text-align: center;
 }
-.registerPage{
+
+.registerPage {
   background: url(../images/landingPageBackground.png) no-repeat center center fixed;
   text-align: center;
+}
+
+.disclaimer{
+  font-size: 18px;
+  text-align: center;
+}
+md-radio-button.radio .md-off{
+  border-color: white;
+}
+md-radio-button.md-checked.radio .md-on{
+  background-color: #d3394b;
+}
+md-checkbox .md-icon {
+  background: white;
+  }
+md-checkbox.md-checked .md-icon{
+  background: #d3394b;
 }
 .starr-logo-header {
   zoom: 50%;
@@ -181,6 +202,12 @@ header {
   padding: 0 10px 10px 0;
 }
 
+.note-add {
+  display: inline-flex;
+  vertical-align: middle;
+  padding: 0 10px 10px 0;
+}
+
 .group {
   display: inline-flex;
   vertical-align: middle;
@@ -202,6 +229,7 @@ md-sidenav,
 md-sidenav.md-default-theme md-content,
 md-sidenav md-content {
   background-color: rgba(0, 0, 0, 0.3);
+  overflow: hidden;
 }
 
 .layout-fill {
@@ -212,4 +240,18 @@ md-sidenav md-content {
   z-index: 1;
   height: 100%;
   width: 100%;
+}
+
+button.md-raised.md-warn.md-button.md-ink-ripple.flex {
+  min-height: 50px;
+  min-width: 255px;
+  text-align: left;
+  background-color: #d3394b;
+}
+
+button.md-raised.md-primary.md-button.md-ink-ripple.flex {
+  min-height: 50px;
+  min-width: 255px;
+  text-align: left;
+  background-color: #1686B4;
 }
