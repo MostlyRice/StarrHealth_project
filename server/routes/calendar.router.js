@@ -8,10 +8,10 @@ router.post('/coach', (request, response) => {
         let coachAvailability = request.body;
         let availabilityArray = [];
         console.log('coachAvailability', coachAvailability);
-        const date = request.body.date;
+        const date = request.body.day;
         const coachID = request.user.id;
         for(let value in coachAvailability){
-        if(value != 'date' && value != 'coach_id'){
+        if(value != 'date' && value != 'coach_id' && value != 'day'){
             availabilityArray.push(coachAvailability[value])};
         }
         console.log('availability array', availabilityArray);
@@ -48,9 +48,11 @@ router.post('/coach', (request, response) => {
 //     }
 // })
 
-router.get('/availability', (request, response) => {
+router.get('/availability/:date', (request, response) => {
     if (request.isAuthenticated()){
         console.log('getting availability');
+        const date = request.params.date;
+        console.log('appointment date', request.params);
         const SQLtext = `SELECT users.id FROM users
         JOIN coach_bio ON coach_bio.id=users.id
         JOIN student_bio ON student_bio.coach_id=coach_bio.coach_id
@@ -60,12 +62,12 @@ router.get('/availability', (request, response) => {
         .then(result => {
             console.log('GET COACH ID', result.rows[0].id);
             let coachID = result.rows[0].id;
-            console.log(result.rows);
-            let sqlText = "SELECT available_time, date, student_id FROM calendar WHERE coach_id = $1;";
-            pool.query(sqlText, [coachID])
+            let sqlText = "SELECT available_time, student_id FROM calendar WHERE coach_id = $1 AND date=$2;";
+            console.log('date for get from db', date);
+            pool.query(sqlText, [coachID, date])
             .then(res => {
                 response.send(res.rows);
-                cosole.log('availability', res.rows)
+                console.log('availability', res.rows)
             })
             .catch(error => {
                 response.sendStatus(500);
