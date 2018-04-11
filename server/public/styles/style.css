@@ -87,36 +87,40 @@ li a:hover {
 }
 
 header {
-  background-color: #1fa8ad;
+  background-color: #1686B4;
   color: #FFF;
 }
 
 .starr-sidenav {
   text-align: center;
-  background-color: #1fa8ad;
   color: #FFF;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .menu {
   color: #FFF;
 }
 
-.starr-landing{
+.starr-sidenav-text {
   text-align: center;
   font-size: 35px;
   color: #FFF;
   font-weight: bold;
+  margin: 10px 0 10px 0;
 }
-.landingText{
+
+.landingText {
   text-align: center;
   font-family: sans-serif;
   color: rgba(247 232 241);
   font-size: 20px;
 }
-.landingBtns{
+
+.landingBtns {
   text-align: center;
 }
-.landingPage{
+
+.landingPage {
   background: url(../images/landingPageBackground.png) no-repeat center center fixed;
   height: auto;
   width: auto;
@@ -126,9 +130,15 @@ header {
   text-align: center;
 
 }
-
 .starr-logo-header {
   zoom: 50%;
+}
+
+.starr-landing {
+  text-align: center;
+  font-size: 35px;
+  color: #FFF;
+  font-weight: bold;
 }
 
 .starr-text-header {
@@ -178,4 +188,25 @@ header {
   display: inline-flex;
   vertical-align: middle;
   padding: 0 10px 10px 0;
+}
+
+.lead {
+  color: white;
+}
+
+md-sidenav.md-default-theme,
+md-sidenav,
+md-sidenav.md-default-theme md-content,
+md-sidenav md-content {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.layout-fill {
+  content: "";
+  background: url(/images/landingPageBackground.png) no-repeat center center fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
 }
