@@ -24,4 +24,4 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function($ht
         $location.path('/admin_AllApointments');
     }
 
-}]); // end coach service
+}]); // end Admin service
