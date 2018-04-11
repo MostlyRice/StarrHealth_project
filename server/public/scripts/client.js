@@ -53,9 +53,9 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
       templateUrl: '/views/templates/info.html',
       controller: 'InfoController as vm',
     })
-    .when('/julia_home', {
-      templateUrl: '/views/templates/julia_home.html',
-      controller: 'JuliaController as vm',
+    .when('/super_AdminHome', {
+      templateUrl: '/views/super_admin/super_AdminHome.html',
+      controller: 'SuperAdminController as vm',
       resolve: {
         getJulia: function (UserService) {
           return UserService.getJulia();
