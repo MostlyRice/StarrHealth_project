@@ -81,7 +81,7 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
       }
     })
     .when('/admin_AllApointments', {
-      templateUrl: '/views/admin_views/admin_AllApointments.html',
+      templateUrl: '/views/admin_views/admin_AllAppointments.html',
       controller: 'AdminController as vm',
       resolve: {
         getAdmin: function (UserService) {
