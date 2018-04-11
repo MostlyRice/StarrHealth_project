@@ -142,7 +142,18 @@ header {
   font-size: 18px;
   text-align: center;
 }
-
+md-radio-button.radio .md-off{
+  border-color: white;
+}
+md-radio-button.md-checked.radio .md-on{
+  background-color: #d3394b;
+}
+md-checkbox .md-icon {
+  background: white;
+  }
+md-checkbox.md-checked .md-icon{
+  background: #d3394b;
+}
 .starr-logo-header {
   zoom: 50%;
 }
