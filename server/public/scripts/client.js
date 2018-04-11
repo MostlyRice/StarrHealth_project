@@ -53,9 +53,9 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
       templateUrl: '/views/templates/info.html',
       controller: 'InfoController as vm',
     })
-    .when('/julia_home', {
-      templateUrl: '/views/templates/julia_home.html',
-      controller: 'JuliaController as vm',
+    .when('/super_AdminHome', {
+      templateUrl: '/views/super_admin/super_AdminHome.html',
+      controller: 'SuperAdminController as vm',
       resolve: {
         getJulia: function (UserService) {
           return UserService.getJulia();
@@ -81,7 +81,7 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
       }
     })
     .when('/admin_AllApointments', {
-      templateUrl: '/views/admin_views/admin_AllApointments.html',
+      templateUrl: '/views/admin_views/admin_AllAppointments.html',
       controller: 'AdminController as vm',
       resolve: {
         getAdmin: function (UserService) {
@@ -153,12 +153,31 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
         }
       }
     })
+    .when('/coach_schedule', {
+      templateUrl: '/views/coach_views/coach_schedule.html',
+      controller: 'ScheduleController as vm',
+      resolve: {
+        getCoach : function(UserService){
+          return UserService.getCoach();
+        }
+      }
+    })
+    .when('/coach_appointments', {
+      templateUrl: '/views/coach_views/coach_appointments.html',
+      controller: 'ScheduleController as vm',
+      resolve: {
+        getCoach : function(UserService){
+          return UserService.getCoach();
+        }
+      }
+    })  
     .when('/create_coach', {
       templateUrl: '/views/admin_views/create_coach.html',
       controller: 'CoachController as vm',
       resolve: {
         getAdmin: function (UserService) {
           return UserService.getAdmin();
+
         }
       }
     })
@@ -171,8 +190,17 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
         }
       }
     })
+    .when('/student_appointments', {
+      templateUrl: '/views/student_views/student_appointments.html',
+      controller: 'ScheduleController as vm',
+      resolve: {
+        getStudent : function(UserService){
+          return UserService.getStudent();
+        }
+      }
+    })
     .when('/disclaimer', {
-      templateUrl: '/views/student_views/disclaimer.html',
+      templateUrl: '/views/registration_views/disclaimer.html',
       controller: 'SignupController as vm',
       resolve: {
         getuser: function (UserService) {
@@ -181,7 +209,7 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
       }
     })
     .when('/general_info', {
-      templateUrl: '/views/student_views/general_info.html',
+      templateUrl: '/views/registration_views/general_info.html',
       controller: 'GeneralController as vm',
       resolve: {
         getuser: function (UserService) {
@@ -190,7 +218,7 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
       }
     })
     .when('/student_goals', {
-      templateUrl: '/views/student_views/student_goals.html',
+      templateUrl: '/views/registration_views/student_goals.html',
       controller: 'SignupController as vm',
       resolve: {
         getuser: function (UserService) {
@@ -199,7 +227,7 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
       }
     })
     .when('/student_barriers', {
-      templateUrl: '/views/student_views/student_barriers.html',
+      templateUrl: '/views/registration_views/student_barriers.html',
       controller: 'SignupController as vm',
       resolve: {
         getuser: function (UserService) {
@@ -208,7 +236,7 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
       }
     })
     .when('/additional_info', {
-      templateUrl: '/views/student_views/additional_info.html',
+      templateUrl: '/views/registration_views/additional_info.html',
       controller: 'SignupController as vm',
       resolve: {
         getuser: function (UserService) {

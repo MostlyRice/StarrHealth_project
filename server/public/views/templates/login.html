@@ -1,19 +1,19 @@
 <div class="container loginPage" ng-cloak layout-fill layout="column" layout-align="center center">
-        <md-card style="height:350px; width:280px; background:rgba(247, 232, 241, 0.8);">
-        <h1 class="lead">Login</h1>
+        <md-card style="height:350px; width:280px; background:rgba(0, 0, 0, 0.3);">
+        <h1 style="color:white; font-weight: bold;" class="lead">Login</h1>
           <h1 class="lead alert alert-danger" role="alert" ng-if="vm.message != ''">{{vm.message}}</h2>
           <form ng-submit="vm.login()">
             <md-input-container>
-                <label for="username">Username:</label>
-                <input type="text" ng-model="vm.user.username" />
+                <label style="color:white;" for="username">Username:</label>
+                <input style="color:white;" type="text" ng-model="vm.user.username" />
             </md-input-container>
             <md-input-container>
-                <label for="password">Password:</label>
-                <input type="password" ng-model="vm.user.password" />
+                <label style="color:white;" for="password">Password:</label>
+                <input style="color:white;" type="password" ng-model="vm.user.password" />
             </md-input-container>
             <md-input-container>
-                <md-button type="submit" name="submit" value="Log In">Log in</md-button>
-                <md-button ng-href="/#!register">Register</md-button>
+                <md-button style="background-color: #1686B4; color: white;" type="submit" name="submit" value="Log In">Log in</md-button>
+                <md-button style="background-color: #1686B4; color: white;" ng-href="/#!home">Back</md-button>
             </md-input-container>
           </form>
         </md-card>

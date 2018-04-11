@@ -187,7 +187,7 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
             url: `/student/extra/${id}`,
             data: {entry: entry}
         }).then(function(response) {
-            self.findCoach(id);
+            $location.path('/student_coaches');
         }).catch(function (error) {
           console.log('extra info put error', error);
         })
@@ -336,7 +336,8 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
     
     self.getSchools();
 
-    self.findCoach = function(id) {
+    self.findCoach = function() {
+        const id = UserService.userObject.id;
         console.log('find coach', id);
         $http({
             method: 'GET',
@@ -353,7 +354,7 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
                 self.allCoaches.list = response.data;
                 console.log('All Coaches = ', self.allCoaches.list);
                 console.log('thisStudent = ', thisStudent);
-                $location.path('/student_coaches');
+
             }).catch(function(error) {
                 console.log('coach match error');
             })
@@ -361,5 +362,6 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
             console.log('find student goal error');
         })
     }
+
 
 }]); // end signup service
