@@ -12,5 +12,7 @@ myApp.controller('AdminController', ['$http', 'UserService', '$location', 'Admin
     self.schoolDirectory = AdminService.schoolDirectory;
     self.studentDirectory = AdminService.studentDirectory;
     self.adminAllApointments = AdminService.adminAllApointments;
+    self.coachDir = AdminService.coachDir;
+    self.collectCoach = AdminService.collectCoach;
 
 }]);
