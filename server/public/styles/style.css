@@ -135,10 +135,12 @@ header {
   background: url(../images/landingPageBackground.png) no-repeat center center fixed;
   text-align: center;
 }
+
 .disclaimer{
   font-size: 18px;
   text-align: center;
 }
+
 .starr-logo-header {
   zoom: 50%;
 }
@@ -218,4 +220,18 @@ md-sidenav md-content {
   z-index: 1;
   height: 100%;
   width: 100%;
+}
+
+button.md-raised.md-warn.md-button.md-ink-ripple.flex {
+  min-height: 50px;
+  min-width: 255px;
+  text-align: left;
+  background-color: #d3394b;
+}
+
+button.md-raised.md-primary.md-button.md-ink-ripple.flex {
+  min-height: 50px;
+  min-width: 255px;
+  text-align: left;
+  background-color: #1686B4;
 }

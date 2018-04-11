@@ -10,56 +10,56 @@
         <br />
         <img ng-src="./images/starrhealthtext.png" />
       </div>
-      <md-content layout-padding hide show-gt-md>
+      <md-content layout-padding hide show-gt-md flex>
         <h1 id="welcome" class="lead">Welcome {{vm.userObject.userName}}!</h1>
-        <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.coachHome()">
+        <md-button class="md-raised md-primary" flex ng-click="vm.coachHome()">
           <i class="material-icons home">home</i>
           <span>Home Page</span>
         </md-button>
         <br />
-        <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.coachSchedule()">
+        <md-button class="md-raised md-primary" flex ng-click="vm.coachSchedule()">
           <i class="material-icons date-range">date_range</i>
           <span>Scheduling</span>
         </md-button>
         <br />
-        <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.coachAppointmenets()">
+        <md-button class="md-raised md-primary" flex ng-click="vm.coachAppointmenets()">
           <i class="material-icons date-range">date_range</i>
           <span>All Appointments</span>
         </md-button>
         <br />
-        <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.coachStudents()">
+        <md-button class="md-raised md-primary" flex ng-click="vm.coachStudents()">
           <i class="material-icons group">group</i>
           <span>Students</span>
         </md-button>
         <br />
-        <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-warn" flex ng-click="vm.userService.logout()">
+        <md-button class="md-raised md-warn" flex ng-click="vm.userService.logout()">
           <i class="material-icons exit-app">exit_to_app</i>
           <span>Log Out</span>
         </md-button>
       </md-content>
-      <md-content layout-padding hide-gt-md>
+      <md-content layout-padding hide-gt-md flex>
         <h1 id="welcome" class="lead">Welcome {{vm.userObject.userName}}!</h1>
-        <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.coachHome()">
+        <md-button class="md-raised md-primary" flex ng-click="vm.coachHome()">
           <i class="material-icons home">home</i>
           <span>Home Page</span>
         </md-button>
         <br />
-        <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.coachSchedule()">
+        <md-button class="md-raised md-primary" flex ng-click="vm.coachSchedule()">
           <i class="material-icons date-range">date_range</i>
           <span>Scheduling</span>
         </md-button>
         <br />
-        <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.coachAppointmenets()">
+        <md-button class="md-raised md-primary" flex ng-click="vm.coachAppointmenets()">
           <i class="material-icons date-range">date_range</i>
           <span>All Appointments</span>
         </md-button>
         <br />
-        <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.coachStudents()">
+        <md-button class="md-raised md-primary" flex ng-click="vm.coachStudents()">
           <i class="material-icons group">group</i>
           <span>Students</span>
         </md-button>
         <br />
-        <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-warn" flex ng-click="vm.userService.logout()">
+        <md-button class="md-raised md-warn" flex ng-click="vm.userService.logout()">
           <i class="material-icons exit-app">exit_to_app</i>
           <span>Log Out</span>
         </md-button>
@@ -74,3 +74,10 @@
 
   </section>
 </div>
+<div class="container">
+  <h3>Coach Appointments</h3>
+        <div ng-repeat="appointment in vm.coachAppointments.list">
+            <p>{{appointment}}AM</p>
+        </div>
+</div>
+

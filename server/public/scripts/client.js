@@ -81,7 +81,7 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
       }
     })
     .when('/admin_AllApointments', {
-      templateUrl: '/views/admin_views/admin_AllApointments.html',
+      templateUrl: '/views/admin_views/admin_AllAppointments.html',
       controller: 'AdminController as vm',
       resolve: {
         getAdmin: function (UserService) {
@@ -153,20 +153,57 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
         }
       }
     })
+    .when('/coach_schedule', {
+      templateUrl: '/views/coach_views/coach_schedule.html',
+      controller: 'ScheduleController as vm',
+      resolve: {
+        getCoach : function(UserService){
+          return UserService.getCoach();
+        }
+      }
+    })
+    .when('/coach_appointments', {
+      templateUrl: '/views/coach_views/coach_appointments.html',
+      controller: 'ScheduleController as vm',
+      resolve: {
+        getCoach : function(UserService){
+          return UserService.getCoach();
+        }
+      }
+    })  
     .when('/create_coach', {
       templateUrl: '/views/admin_views/create_coach.html',
       controller: 'CoachController as vm',
       resolve: {
         getAdmin: function (UserService) {
           return UserService.getAdmin();
+
         }
       }
     })
     .when('/student_home', {
       templateUrl: '/views/student_views/student_home.html',
-      controller: 'UserController as vm',
+      controller: 'StudentController as vm',
       resolve: {
         getStudent: function (UserService) {
+          return UserService.getStudent();
+        }
+      }
+    })
+    .when('/student_password', {
+      templateUrl: '/views/student_views/student_password.html',
+      controller: 'StudentController as vm',
+      resolve: {
+        getStudent: function (UserService) {
+          return UserService.getStudent();
+        }
+      }
+    })
+    .when('/student_appointments', {
+      templateUrl: '/views/student_views/student_appointments.html',
+      controller: 'ScheduleController as vm',
+      resolve: {
+        getStudent : function(UserService){
           return UserService.getStudent();
         }
       }

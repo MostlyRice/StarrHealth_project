@@ -10,77 +10,77 @@
                 <br />
                 <img ng-src="./images/starrhealthtext.png" />
             </div>
-            <md-content layout-padding hide show-gt-md>
+            <md-content layout-padding hide show-gt-md flex>
                 <h1 id="welcome" class="lead">Welcome {{vm.userObject.userName}}!</h1>
-                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.adminHome()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminHome()">
                     <i class="material-icons home">home</i>
                     <span>Home Page</span>
                 </md-button>
                 <br />
-                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.studentDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.studentDirectory()">
                     <i class="material-icons list">list</i>
                     <span>Student Directory</span>
                 </md-button>
                 <br />
-                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.coachDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.coachDirectory()">
                     <i class="material-icons list">list</i>
                     <span>Coach Directory</span>
                 </md-button>
                 <br />
-                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.schoolDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.schoolDirectory()">
                     <i class="material-icons list">list</i>
                     <span>School Directory</span>
                 </md-button>
                 <br />
-                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.adminAllApointments()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminAllApointments()">
                     <i class="material-icons date-range">date_range</i>
                     <span>All Appointments</span>
                 </md-button>
                 <br />
-                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-warn" flex ng-click="vm.userService.logout()">
+                <md-button class="md-raised md-warn" flex ng-click="vm.userService.logout()">
                     <i class="material-icons exit-app">exit_to_app</i>
                     <span>Log Out</span>
                 </md-button>
             </md-content>
-            <md-content layout-padding hide-gt-md>
+            <md-content layout-padding hide-gt-md flex>
                 <h1 id="welcome" class="lead">Welcome {{vm.userObject.userName}}!</h1>
-                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.adminHome()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminHome()">
                     <i class="material-icons home">home</i>
                     <span>Home Page</span>
                 </md-button>
                 <br />
-                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.studentDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.studentDirectory()">
                     <i class="material-icons list">list</i>
                     <span>Student Directory</span>
                 </md-button>
                 <br />
-                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.coachDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.coachDirectory()">
                     <i class="material-icons list">list</i>
                     <span>Coach Directory</span>
                 </md-button>
                 <br />
-                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.schoolDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.schoolDirectory()">
                     <i class="material-icons list">list</i>
                     <span>School Directory</span>
                 </md-button>
                 <br />
-                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-primary" flex ng-click="vm.adminAllApointments()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminAllApointments()">
                     <i class="material-icons date-range">date_range</i>
                     <span>All Appointments</span>
                 </md-button>
                 <br />
-                <md-button style="min-height:50px;min-width:255px;text-align:left;" class="md-raised md-warn" flex ng-click="vm.userService.logout()">
+                <md-button class="md-raised md-warn" flex ng-click="vm.userService.logout()">
                     <i class="material-icons exit-app">exit_to_app</i>
                     <span>Log Out</span>
                 </md-button>
             </md-content>
         </md-sidenav>
 
-        <md-content layout-padding>
+        <!-- Put Content In This Div! -->
             <div layout="column" layout-align="top">
             </div>
             <div flex></div>
-        </md-content>
+        <!-- Put Content In This Div! -->
 
     </section>
 </div>
