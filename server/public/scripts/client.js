@@ -15,7 +15,6 @@ const myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngAria', 'ngMes
         }, wait || 10);
       };
     }
-
     function buildDelayedToggler(navID) {
       return debounce(function () {
         $mdSidenav(navID)
@@ -26,7 +25,6 @@ const myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngAria', 'ngMes
       }, 200);
     }
   })
-
 /// Routes ///
 myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
   console.log('myApp -- config')
