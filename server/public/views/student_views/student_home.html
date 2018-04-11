@@ -4,9 +4,6 @@
 
 
     <section layout="row" flex>
-    <h1 id="welcome" class="lead">Welcome to STUDENT HOME, {{vm.userObject.userName}}!</h1>
-
-
         <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
             <div layout-padding class="starr-sidenav">
                 <img ng-src="./images/starrhealthlogo.png" />
@@ -64,6 +61,21 @@
             </div>
             <div flex></div>
         </md-content>
+
+        <div ng-repeat="student in vm.student.list">
+            {{student.first_name}} {{student.last_name}}
+        </div>
+        <div>
+            <button ng-click="vm.newPassword()">Change Password:</button>
+        </div>
+
+
+
+
+
+
+
+
 
     </section>
 </div>
