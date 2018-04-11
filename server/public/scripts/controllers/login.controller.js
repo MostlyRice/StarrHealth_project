@@ -107,7 +107,7 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', 'Signu
     self.determineRole = function(id, role) {
       console.log('DR', id, role);
       if (role === 4) {
-        $location.url('/julia_home');
+        $location.url('/super_AdminHome');
       } else if (role === 3) {
         $location.url('/admin_home');
       } else if (role === 2) {
