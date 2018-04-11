@@ -2,7 +2,9 @@
   font-family: CallunaSans;
   src: url("./fonts/CallunaSans-Regular.woff") format("woff");
 }
-
+body {
+  top: 0px !important;
+  }
 body,
 html {
   margin: 0;
@@ -131,6 +133,11 @@ header {
 }
 .registerPage{
   background: url(../images/landingPageBackground.png) no-repeat center center fixed;
+  text-align: center;
+}
+
+.disclaimer{
+  font-size: 18px;
   text-align: center;
 }
 

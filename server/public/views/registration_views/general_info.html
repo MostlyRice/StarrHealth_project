@@ -1,63 +1,64 @@
-<div layout="column" ng-cloak class="md-inline-form">
-    <h2 layout-padding layout-gt-sm="row">General Info</h2>
+<div layout="column" ng-cloak class="md-inline-form disclaimer" layout-fill layout-align="center center">
+    
 
-    <md-content layout-padding layout-gt-sm="row">
-    <md-input-container>
-        <label for="firstName">First Name:</label>
-        <input type="text" name="firstName" ng-model="vm.generalStudent.first_name">
+    <md-card layout-padding  style="height:770px; width:800px; background:rgba(0, 0, 0, 0.3);">
+            <h2 style="color:white; text-align:center; font-weight:bold;" layout-padding >General Info</h2>
+            
+    <md-input-container layout-gt-sm="row">
+        <label style="color:white;" for="firstName">First Name:</label>
+        <input style="color:white;" type="text" name="firstName" ng-model="vm.generalStudent.first_name">
     </md-input-container>
-    <md-input-container>
-        <label for="lastName">Last Name:</label>
-        <input type="text" name="lastName" ng-model="vm.generalStudent.last_name"/>
+    <md-input-container layout-gt-sm="row">
+        <label style="color:white;" for="lastName">Last Name:</label>
+        <input style="color:white;" type="text" name="lastName" ng-model="vm.generalStudent.last_name"/>
     </md-input-container>
-    <md-input-container>
-        <label for="relationship">Relationship Status:</label>
-        <input type="text" name="relationship" ng-model="vm.generalStudent.relationship_status"/>
+    <md-input-container layout-gt-sm="row">
+        <label style="color:white;" for="relationship">Relationship Status:</label>
+        <input style="color:white;" type="text" name="relationship" ng-model="vm.generalStudent.relationship_status"/>
         </md-input-container>
-    </md-content>
+   
+   
 
-    <md-content layout-padding layout-gt-sm="row">
-    <md-input-container>
-        <label for="email">Email:</label>
-        <input type="email" name="emaIl" ng-model="vm.generalStudent.email"/>
+
+    <md-input-container layout-gt-sm="row">
+        <label style="color:white;" for="email">Email:</label>
+        <input style="color:white;" type="email" name="emaIl" ng-model="vm.generalStudent.email"/>
     </md-input-container>
-    <md-input-container>
-        <label>Date of Birth</label>
+
+        <md-container>
+        <label style="color:white;">Date of Birth</label><br>
         <md-datepicker ng-model="vm.generalStudent.date_of_birth"></md-datepicker>
-    </md-input-container>
-    </md-content>
+    </md-container>
 
-    <md-content layout-padding layout-gt-sm="row">
-    <md-input-container>
-        <label for="phone">Phone Number:</label>
-        <input type="text" name="phone" ng-model="vm.generalStudent.phone_number"/>
+ 
+    <md-input-container layout-gt-sm="row">
+        <label style="color:white;" for="phone">Phone Number:</label>
+        <input style="color:white;" type="text" name="phone" ng-model="vm.generalStudent.phone_number"/>
     </md-input-container>
-    <md-input-container>
-        <label for="skype">Skype ID:</label>
-        <input type="text" name="skype" ng-model="vm.generalStudent.skype"/>
+    <md-input-container layout-gt-sm="row">
+        <label style="color:white;" for="skype">Skype ID:</label>
+        <input style="color:white;" type="text" name="skype" ng-model="vm.generalStudent.skype"/>
     </md-input-container>
-    </md-content>
 
-    <md-content layout-padding layout-gt-sm="row">
-    </form>
-    <md-input-container>
-        <label for="school">Name of School:</label>
-        <md-select name="school" ng-model="vm.generalStudent.school_id">
-        <md-option ng-repeat="school in vm.schools.list" value="{{school.school_id}}"><em>{{school.school_name}}</em></md-option>
+
+
+    
+    <md-container>
+        <label style="color:white;" for="school">Name of School:</label>
+        <md-select style="color:white;" name="school" ng-model="vm.generalStudent.school_id">
+        <md-option style="color:black;" ng-repeat="school in vm.schools.list" value="{{school.school_id}}"><em>{{school.school_name}}</em></md-option>
         </md-select>
+    </md-container>
+    <md-input-container layout-gt-sm="row">
+            <label style="color:white;" for="code">School Code:</label>
+            <input style="color:white;" type="text" name="code" ng-model="vm.generalStudent.school_code"/>
     </md-input-container>
-    <md-input-container>
-            <label for="code">School Code:</label>
-            <input type="text" name="code" ng-model="vm.generalStudent.school_code"/>
-    </md-input-container>
-  
-    </md-content>
+  <br>
+  <br>
+  <md-container>
+    <md-button style="color:white; background-color:#1686B4;" class="md-raised md-primary" ng-click="vm.disclaimer()">Back</md-button>
+    <md-button style="color:white; background-color:#1686B4;" class="md-raised md-primary" ng-click="vm.collectGeneral(vm.generalStudent)">Next</md-button>
+</md-container>
 
-  </div>
-  <div class="container">
-    <md-button class="md-raised md-primary" ng-click="vm.disclaimer()">Back</md-button>
-    <md-button class="md-raised md-primary" ng-click="vm.collectGeneral(vm.generalStudent)">Next</md-button>
-
-</div>
-</md-content>
+</md-card>
 </div>
