@@ -164,7 +164,16 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
     })
     .when('/student_home', {
       templateUrl: '/views/student_views/student_home.html',
-      controller: 'UserController as vm',
+      controller: 'StudentController as vm',
+      resolve: {
+        getStudent: function (UserService) {
+          return UserService.getStudent();
+        }
+      }
+    })
+    .when('/student_password', {
+      templateUrl: '/views/student_views/student_password.html',
+      controller: 'StudentController as vm',
       resolve: {
         getStudent: function (UserService) {
           return UserService.getStudent();

@@ -87,5 +87,20 @@ router.put('/general/:id', (request, response) => {
       })
   }); // end extra update
 
+  router.get('/:id', (request, response) => {
+    const id = request.params.id;
+    const sqlText = `SELECT * FROM student_bio WHERE id=$1`;
+    pool.query(sqlText, [id])
+      .then(function(result) {
+      //  console.log('Get result:', result);
+        response.send(result.rows);
+      })
+      .catch(function(error){
+      //  console.log('Error on Get:', error);
+        response.sendStatus(500);
+      })
+  });
+
+
 
 module.exports = router;
