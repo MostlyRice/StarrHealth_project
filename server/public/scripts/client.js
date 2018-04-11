@@ -153,12 +153,31 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
         }
       }
     })
+    .when('/coach_schedule', {
+      templateUrl: '/views/coach_views/coach_schedule.html',
+      controller: 'ScheduleController as vm',
+      resolve: {
+        getCoach : function(UserService){
+          return UserService.getCoach();
+        }
+      }
+    })
+    .when('/coach_appointments', {
+      templateUrl: '/views/coach_views/coach_appointments.html',
+      controller: 'ScheduleController as vm',
+      resolve: {
+        getCoach : function(UserService){
+          return UserService.getCoach();
+        }
+      }
+    })  
     .when('/create_coach', {
       templateUrl: '/views/admin_views/create_coach.html',
       controller: 'CoachController as vm',
       resolve: {
         getAdmin: function (UserService) {
           return UserService.getAdmin();
+
         }
       }
     })
@@ -167,6 +186,15 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
       controller: 'UserController as vm',
       resolve: {
         getStudent: function (UserService) {
+          return UserService.getStudent();
+        }
+      }
+    })
+    .when('/student_appointments', {
+      templateUrl: '/views/student_views/student_appointments.html',
+      controller: 'ScheduleController as vm',
+      resolve: {
+        getStudent : function(UserService){
           return UserService.getStudent();
         }
       }
