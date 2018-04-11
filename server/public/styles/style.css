@@ -97,6 +97,7 @@ header {
   text-align: center;
   color: #FFF;
   background-color: rgba(0, 0, 0, 0.3);
+  padding: 8px 4px 4px 4px;
 }
 
 .menu {
@@ -222,6 +223,7 @@ md-checkbox.md-checked .md-icon{
 
 .lead {
   color: white;
+  padding: 4px;
 }
 
 md-sidenav.md-default-theme,
@@ -229,6 +231,7 @@ md-sidenav,
 md-sidenav.md-default-theme md-content,
 md-sidenav md-content {
   background-color: rgba(0, 0, 0, 0.3);
+  text-align: center;
 }
 
 .layout-fill {
@@ -258,3 +261,7 @@ button.md-raised.md-primary.md-button.md-ink-ripple.flex {
 ::-webkit-scrollbar {
   display: none;
   }
+
+.main-container {
+  overflow: hidden;
+}
