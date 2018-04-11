@@ -61,3 +61,11 @@ CREATE TABLE "schools" (
     "total_accounts" int,
     "student_sessions" int
 );
+
+CREATE TABLE "calendar" (
+    "calendar_id" serial primary key,
+    "coach_id" int,
+	"student_id" int,
+	"available_time" varchar,
+	"date" varchar
+);

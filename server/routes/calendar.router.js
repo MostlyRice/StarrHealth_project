@@ -61,7 +61,7 @@ router.get('/availability', (request, response) => {
             console.log('GET COACH ID', result.rows[0].id);
             let coachID = result.rows[0].id;
             console.log(result.rows);
-            let sqlText = "SELECT available_time, date FROM calendar WHERE coach_id = $1;";
+            let sqlText = "SELECT available_time, date, student_id FROM calendar WHERE coach_id = $1;";
             pool.query(sqlText, [coachID])
             .then(res => {
                 response.send(res.rows);
@@ -103,10 +103,12 @@ router.put('/student', (request, response) => {
     if (request.isAuthenticated()){
         let studentAvailability = request.body.time;
         let studentID = request.user.id;
+        console.log('student id', request.user.id);
         const sqlText = "UPDATE calendar SET student_id=$1 WHERE available_time=$2;";
         pool.query(sqlText, [studentID, studentAvailability])
         .then((result) => {
             response.sendStatus(201);
+            console.log('student put', result);
         })
         .catch((error) => {
             response.sendStatus(500);
