@@ -43,6 +43,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', function($http, UserSe
             self.coachTimes.list = responseArray.map(res => {
                 return {time: res.available_time, date: res.date}
             });
+            console.log('available time', self.coachTimes.list);
         }).catch(function(error){
             console.log('Error getting times', error);
         })
