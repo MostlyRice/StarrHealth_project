@@ -66,7 +66,44 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
     })
     .when('/admin_home', {
       templateUrl: '/views/admin_views/admin_home.html',
-      controller: 'UserController as vm',
+      controller: 'AdminController as vm',
+      resolve: {
+        getAdmin: function (UserService) {
+          return UserService.getAdmin();
+        }
+      }
+    })
+    .when('/coach_directory', {
+      templateUrl: '/views/admin_views/coach_directory.html',
+      controller: 'AdminController as vm',
+      resolve: {
+        getAdmin: function (UserService) {
+          return UserService.getAdmin();
+        }
+      }
+    })
+    .when('/admin_AllApointments', {
+      templateUrl: '/views/admin_views/admin_AllApointments.html',
+      controller: 'AdminController as vm',
+      resolve: {
+        getAdmin: function (UserService) {
+          return UserService.getAdmin();
+        }
+      }
+    })
+    
+    .when('/school_directory', {
+      templateUrl: '/views/admin_views/school_directory.html',
+      controller: 'AdminController as vm',
+      resolve: {
+        getAdmin: function (UserService) {
+          return UserService.getAdmin();
+        }
+      }
+    })
+    .when('/student_directory', {
+      templateUrl: '/views/admin_views/student_directory.html',
+      controller: 'AdminController as vm',
       resolve: {
         getAdmin: function (UserService) {
           return UserService.getAdmin();
