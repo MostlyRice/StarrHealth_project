@@ -2,7 +2,9 @@
   font-family: CallunaSans;
   src: url("./fonts/CallunaSans-Regular.woff") format("woff");
 }
-
+body {
+  top: 0px !important;
+  }
 body,
 html {
   margin: 0;
