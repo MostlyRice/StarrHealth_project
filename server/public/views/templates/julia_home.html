@@ -10,7 +10,7 @@
                 <br />
                 <p class="starr-sidenav-text">Starr Health Co.</p>
             </div>
-            <md-content layout-padding hide show-gt-md>
+            <md-content layout-padding hide show-gt-md flex>
                 <h1 id="welcome" class="lead">Welcome {{vm.userObject.userName}}!</h1>
                 <md-button class="md-raised md-primary"
                     flex ng-click="">
@@ -54,13 +54,13 @@
                     <span>Coach - All Appointments</span>
                 </md-button>
                 <br />
-                <md-buttonclass="md-raised md-warn" flex
+                <md-button class="md-raised md-warn" flex
                     ng-click="vm.userService.logout()">
                     <i class="material-icons exit-app">exit_to_app</i>
                     <span>Log Out</span>
                 </md-button>
             </md-content>
-            <md-content layout-padding hide-gt-md>
+            <md-content layout-padding hide-gt-md flex>
                 <h1 id="welcome" class="lead">Welcome {{vm.userObject.userName}}!</h1>
                 <md-button class="md-raised md-primary"
                     flex ng-click="">
