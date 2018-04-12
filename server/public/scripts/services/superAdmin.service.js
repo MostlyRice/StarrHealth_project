@@ -1,33 +1,33 @@
 myApp.service('SuperAdminService', ['$http', '$location', 'UserService', function($http, $location, UserService){
-    console.log('AdminService Loaded');
+    console.log('SuperAdminService Loaded');
     var self = this;
 
     self.superAdminHome = function() {
-        $location.path('/admin_home');
+        $location.path('/super_AdminHome');
     }
-    self.studentDirectory = function() {
-        $location.path('/student_directory');
+    self.superAdminStudentDirectory = function() {
+        $location.path('/super_AdminStudentDirectory');
     }
-    self.coachDirectory = function() {
-        $location.path('/coach_directory');
+    self.superCoachDirectory = function() {
+        $location.path('/super_AdminCoachDirectory');
     }
-    self.schoolDirectory = function() {
-        $location.path('/school_directory');
+    self.superSchoolDirectory = function() {
+        $location.path('/super_AdminSchoolDirectory');
     }
-    self.adminCreateCoach = function() {
-        $location.path('/create_coach');
+    self.superAdminCreateCoach = function() {
+        $location.path('/super_AdminCreateCoach');
     }
-    self.newSchool = function() {
-        $location.path('/new_school');
+    self.superAdminNewSchool = function() {
+        $location.path('/super_AdminNewSchool');
     }
-    self.adminAllApointments = function() {
-        $location.path('/admin_AllApointments');
+    self.superAdminAllApointments = function() {
+        $location.path('/super_AdminCoachAllAppointments');
     }
-    self.coachSchedule = function() {
-        $location.path('/coach_schedule');
+    self.superCoachSchedule = function() {
+        $location.path('/super_AdminCoachSchedule');
     }
-    self.coachAppointmenets = function() {
-        $location.path('/coach_appointments');
+    self.super_AdminCoachAllApointments = function() {
+        $location.path('/super_AdminCoachAllApointments');
     }
 
     self.coachDir = function() {
