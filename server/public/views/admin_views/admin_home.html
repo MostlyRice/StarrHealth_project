@@ -16,27 +16,27 @@
                     <span>Home Page</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminCreateCoach()">
                     <i class="material-icons note-add">note_add</i>
                     <span>Add Coach</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminNewSchool()">
                     <i class="material-icons note-add">note_add</i>
                     <span>Add School</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.studentDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminStudentDirectory()">
                     <i class="material-icons list">list</i>
                     <span>Student Directory</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.coachDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminCoachDirectory()">
                     <i class="material-icons list">list</i>
                     <span>Coach Directory</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.schoolDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminSchoolDirectory()">
                     <i class="material-icons list">list</i>
                     <span>School Directory</span>
                 </md-button>
@@ -50,6 +50,11 @@
                     <i class="material-icons exit-app">exit_to_app</i>
                     <span>Log Out</span>
                 </md-button>
+                <br />
+                <md-button class="md-raised md-warn" flex ng-click="vm.userService.logout()">
+                    <i class="material-icons exit-app">exit_to_app</i>
+                    <span>Log Out</span>
+                </md-button>
             </md-content>
             <md-content layout-padding hide-gt-md flex>
                 <md-button class="md-raised md-primary" flex ng-click="vm.adminHome()">
@@ -57,27 +62,27 @@
                     <span>Home Page</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminCreateCoach()">
                     <i class="material-icons note-add">note_add</i>
                     <span>Add Coach</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminNewSchool()">
                     <i class="material-icons note-add">note_add</i>
                     <span>Add School</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.studentDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminStudentDirectory()">
                     <i class="material-icons list">list</i>
                     <span>Student Directory</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.coachDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminCoachDirectory()">
                     <i class="material-icons list">list</i>
                     <span>Coach Directory</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.schoolDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminSchoolDirectory()">
                     <i class="material-icons list">list</i>
                     <span>School Directory</span>
                 </md-button>
