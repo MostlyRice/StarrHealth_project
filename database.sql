@@ -77,3 +77,13 @@ CREATE TABLE "calendar" (
 	"date" varchar
 );
 
+CREATE TABLE specialties (
+	"specialty_id" serial primary key,
+	"specialty_name" char(40)
+);
+
+CREATE TABLE coach_specialties (
+	"coach_id" INT REFERENCES coach_bio ON DELETE CASCADE not null,
+	"specialty_id" INT REFERENCES specialties ON DELETE CASCADE not null
+);
+
