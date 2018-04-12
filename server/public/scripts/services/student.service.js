@@ -3,9 +3,9 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function($
     var self = this;
     self.userService = UserService;
     self.userObject = UserService.userObject;
-    self.student = {
-        list:[]
-    }
+    self.student = [
+        list = {}
+    ];
 
     self.getStudent = function() {
         const id = UserService.userObject.id;
@@ -13,7 +13,8 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function($
             method: 'GET',
             url: `/student/${id}`
         }).then(function(response) {
-            console.log(response.data);
+            console.log('DATA', response.data);
+
             self.student.list = response.data;
             console.log('thisStudent = ', self.student.list);
         }).catch(function(error) {
@@ -82,5 +83,23 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function($
             location.reload(true);
         }
     } // end postPassword
+
+    self.saveBio = function(id, bio) {
+        console.log(id, bio);
+        const entry = {
+            student_id: id,
+            student_bio: bio
+        }
+        $http({
+            method: 'PUT',
+            url: `/student/bio/${id}`,
+            data: {entry: entry}
+        }).then(function(response) {
+            alert('SUCCESS');
+            location.reload(true);
+        }).catch(function (error) {
+          console.log('update bio put error', error);
+        })
+    } // end saveBio
 
 }]); // end student service
