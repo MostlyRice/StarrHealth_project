@@ -13,7 +13,7 @@ myApp.controller('SuperAdminController', ['UserService', '$location', 'CoachServ
     self.adminAllApointments = AdminService.adminAllApointments;
     self.coachAppointmenets = CoachService.coachAppointmenets;
     self.coachSchedule = CoachService.coachSchedule;
-    self.coachDir = SuperAdminService.coachDir;
-    self.collectCoach = SuperAdminService.collectCoach;
+    // self.coachDir = SuperAdminService.coachDir;
+    // self.collectCoach = SuperAdminService.collectCoach;
 
   }]);
