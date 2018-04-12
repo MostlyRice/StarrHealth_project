@@ -11,7 +11,7 @@ myApp.service('SuperAdminService', ['$http', '$location', 'UserService', functio
     self.superCoachDirectory = function() {
         $location.path('/super_AdminCoachDirectory');
     }
-    self.superSchoolDirectory = function() {
+    self.superAdminSchoolDirectory = function() {
         $location.path('/super_AdminSchoolDirectory');
     }
     self.superAdminCreateCoach = function() {
@@ -20,13 +20,13 @@ myApp.service('SuperAdminService', ['$http', '$location', 'UserService', functio
     self.superAdminNewSchool = function() {
         $location.path('/super_AdminNewSchool');
     }
-    self.superAdminAllApointments = function() {
-        $location.path('/super_AdminCoachAllAppointments');
+    self.superAdminAllAppointments = function() {
+        $location.path('/super_AdminAllAppointments');
     }
-    self.superCoachSchedule = function() {
+    self.superAdminCoachSchedule = function() {
         $location.path('/super_AdminCoachSchedule');
     }
-    self.super_AdminCoachAllApointments = function() {
+    self.superAdminCoachAllAppointments = function() {
         $location.path('/super_AdminCoachAllApointments');
     }
 

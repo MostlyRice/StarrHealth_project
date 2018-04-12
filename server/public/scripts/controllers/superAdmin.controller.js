@@ -7,13 +7,14 @@ myApp.controller('SuperAdminController', ['UserService', '$location','SuperAdmin
     
     self.superAdminHome = SuperAdminService.superAdminHome;
     self.superAdminCreateCoach = SuperAdminService.superAdminCreateCoach;
-    self.superCoachDirectory = SuperAdminService.superCoachDirectory;
     self.superAdminNewSchool = SuperAdminService.superAdminNewSchool;
-    self.superSchoolDirectory = SuperAdminService.superSchoolDirectory;
     self.superAdminStudentDirectory = SuperAdminService.superAdminStudentDirectory;
-    self.superAdminAllApointments = SuperAdminService.superAdminAllApointments;
-    self.super_AdminCoachAllApointments = SuperAdminService.super_AdminCoachAllApointments;
-    self.superCoachSchedule = SuperAdminService.superCoachSchedule;
+    self.superCoachDirectory = SuperAdminService.superCoachDirectory;
+    self.superAdminSchoolDirectory = SuperAdminService.superAdminSchoolDirectory;
+    self.superAdminAllAppointments = SuperAdminService.superAdminAllAppointments;
+    self.superAdminCoachSchedule = SuperAdminService.superAdminCoachSchedule;
+    self.superAdminCoachAllAppointments = SuperAdminService.superAdminCoachAllAppointments;
+
     // self.coachDir = SuperAdminService.coachDir;
     // self.collectCoach = SuperAdminService.collectCoach;
 
