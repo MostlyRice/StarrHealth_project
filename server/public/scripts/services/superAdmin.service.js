@@ -31,7 +31,7 @@ myApp.service('SuperAdminService', ['$http', '$location', 'UserService', functio
     }
 
     self.coachDir = function() {
-        $location.path('/admin_home');
+        $location.path('/admin_Home');
     }
     
     self.collectCoach = function(coach) {

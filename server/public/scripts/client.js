@@ -134,8 +134,8 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
         }
       }
     })
-    .when('/admin_home', {
-      templateUrl: '/views/admin_views/admin_home.html',
+    .when('/admin_Home', {
+      templateUrl: '/views/admin_views/admin_Home.html',
       controller: 'AdminController as vm',
       resolve: {
         getAdmin: function (UserService) {
@@ -143,8 +143,44 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
         }
       }
     })
-    .when('/coach_directory', {
-      templateUrl: '/views/admin_views/coach_directory.html',
+    .when('/admin_CreateCoach', {
+      templateUrl: '/views/admin_views/admin_CreateCoach.html',
+      controller: 'AdminController as vm',
+      resolve: {
+        getAdmin: function (UserService) {
+          return UserService.getAdmin();
+        }
+      }
+    })
+    .when('/admin_NewSchool', {
+      templateUrl: '/views/admin_views/new_school.html',
+      controller: 'SchoolController as vm',
+      resolve: {
+        getAdmin: function (UserService) {
+          return UserService.getAdmin();
+        }
+      }
+    })
+    .when('/admin_StudentDirectory', {
+      templateUrl: '/views/admin_views/student_directory.html',
+      controller: 'AdminController as vm',
+      resolve: {
+        getAdmin: function (UserService) {
+          return UserService.getAdmin();
+        }
+      }
+    })
+    .when('/admin_CoachDirectory', {
+      templateUrl: '/views/admin_views/admin_CoachDirectory.html',
+      controller: 'AdminController as vm',
+      resolve: {
+        getAdmin: function (UserService) {
+          return UserService.getAdmin();
+        }
+      }
+    })
+    .when('/admin_SchoolDirectory', {
+      templateUrl: '/views/admin_views/admin_SchoolDirectory.html',
       controller: 'AdminController as vm',
       resolve: {
         getAdmin: function (UserService) {
@@ -162,33 +198,8 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
       }
     })
     
-    .when('/school_directory', {
-      templateUrl: '/views/admin_views/school_directory.html',
-      controller: 'AdminController as vm',
-      resolve: {
-        getAdmin: function (UserService) {
-          return UserService.getAdmin();
-        }
-      }
-    })
-    .when('/student_directory', {
-      templateUrl: '/views/admin_views/student_directory.html',
-      controller: 'AdminController as vm',
-      resolve: {
-        getAdmin: function (UserService) {
-          return UserService.getAdmin();
-        }
-      }
-    })
-    .when('/new_school', {
-      templateUrl: '/views/admin_views/new_school.html',
-      controller: 'SchoolController as vm',
-      resolve: {
-        getAdmin: function (UserService) {
-          return UserService.getAdmin();
-        }
-      }
-    })
+
+
     .when('/coach_home', {
       templateUrl: '/views/coach_views/coach_home.html',
       controller: 'CoachController as vm',

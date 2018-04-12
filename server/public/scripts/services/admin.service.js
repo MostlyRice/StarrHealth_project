@@ -3,29 +3,31 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function($ht
     var self = this;
 
     self.adminHome = function() {
-        $location.path('/admin_home');
+        $location.path('/admin_Home');
     }
     self.adminCreateCoach = function() {
-        $location.path('/create_coach');
+        $location.path('/admin_CreateCoach');
     }
-    self.coachDirectory = function() {
-        $location.path('/coach_directory');
+    self.adminNewSchool = function() {
+        $location.path('/admin_NewSchool');
     }
-    self.newSchool = function() {
-        $location.path('/new_school');
+    self.adminStudentDirectory = function() {
+        $location.path('/admin_StudentDirectory');
     }
-    self.schoolDirectory = function() {
-        $location.path('/school_directory');
+    self.adminCoachDirectory = function() {
+        $location.path('/admin_CoachDirectory');
     }
-    self.studentDirectory = function() {
-        $location.path('/student_directory');
+
+    self.adminSchoolDirectory = function() {
+        $location.path('/admin_SchoolDirectory');
     }
+
     self.adminAllApointments = function() {
         $location.path('/admin_AllApointments');
     }
 
     self.coachDir = function() {
-        $location.path('/admin_home');
+        $location.path('/admin_Home');
     }
 
     self.collectCoach = function(coach) {
@@ -186,7 +188,7 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function($ht
                         relationships = 0;
                     }
                     alert('Coach Added');
-                    $location.path('/admin_home');
+                    $location.path('/admin_Home');
                 }).catch(function(error) {
                     console.log('get schools error');
                 })
