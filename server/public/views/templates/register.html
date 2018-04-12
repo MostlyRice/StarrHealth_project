@@ -1,23 +1,23 @@
 <div class="container registerPage" ng-cloak layout-fill layout="column" layout-align="center center">
-    <md-card style="height:420px; width:300px; background:rgba(0, 0, 0, 0.3);">
-  <h1 style="color:white; font-weight: bold;" class="lead">Register User</h1>
+    <md-card style="height:420px; width:300px; background:rgba(255, 255, 255, 0.9);">
+  <h1 style="color:rgba(7, 61, 128, 0.8); font-weight: bold;" class="lead">Register User</h1>
   <h1 class="lead alert alert-danger" role="alert" ng-if="vm.message != ''">{{vm.message}}</h2>
   <form ng-submit="vm.registerUser()">
     <md-input-container>
-        <label style="color:white;" for="username">Username:</label>
-        <input style="color:white;" type="text" ng-model="vm.user.username" />
+        <label style="color:rgba(0, 0, 0, 0.7);" for="username">Username:</label>
+        <input style="color:rgba(0, 0, 0, 0.7);" type="text" ng-model="vm.user.username" />
     </md-input-container>
     <md-input-container>
-        <label style="color:white;" for="passwordOne">Password:</label>
-        <input style="color:white;" type="password" ng-model="vm.user.passwordOne" />
+        <label style="color:rgba(0, 0, 0, 0.7);" for="passwordOne">Password:</label>
+        <input style="color:rgba(0, 0, 0, 0.7);" type="password" ng-model="vm.user.passwordOne" />
     </md-input-container>
     <md-input-container>
-      <label style="color:white;" for="passwordTwo">Confirm Password:</label>
-      <input style="color:white;" type="password" ng-model="vm.user.passwordTwo" />
+      <label style="color:rgba(0, 0, 0, 0.7);" for="passwordTwo">Confirm Password:</label>
+      <input style="color:rgba(0, 0, 0, 0.7);" type="password" ng-model="vm.user.passwordTwo" />
   </md-input-container>
   <br>
-    <md-button style="background-color:#1686B4; color: white;" class="btn btn-default" type="submit" name="submit" value="Register">Register</md-button>
-    <md-button style="background-color:#1686B4; color: white;" ng-href="/#!home">Cancel</md-button>
+    <md-button style="background-color:rgba(7, 61, 128, 0.8); color: white;" class="btn btn-default" type="submit" name="submit" value="Register">Register</md-button>
+    <md-button style="background-color:rgba(7, 61, 128, 0.8); color: white;" ng-href="/#!home">Cancel</md-button>
   </form>
 </md-card>
 </div>

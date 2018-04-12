@@ -114,7 +114,7 @@ header {
 .landingText {
   text-align: center;
   font-family: sans-serif;
-  color: rgba(247 232 241);
+  color: rgba(0, 0, 0, 0.7);
   font-size: 20px;
 }
 
@@ -123,18 +123,18 @@ header {
 }
 
 .landingPage {
-  background: url(../images/landingPageBackground.png) no-repeat center center fixed;
+  background: url(../images/newLandingPage.png) no-repeat center center fixed;
   height: auto;
   width: auto;
 }
 
 .loginPage {
-  background: url(../images/landingPageBackground.png) no-repeat center center fixed;
+  background: url(../images/newLandingPage.png) no-repeat center center fixed;
   text-align: center;
 }
 
 .registerPage {
-  background: url(../images/landingPageBackground.png) no-repeat center center fixed;
+  background: url(../images/newLandingPage.png) no-repeat center center fixed;
   text-align: center;
 }
 
@@ -143,16 +143,16 @@ header {
   text-align: center;
 }
 md-radio-button.radio .md-off{
-  border-color: white;
+  border-color: rgba(0, 0, 0, 0.7);
 }
 md-radio-button.md-checked.radio .md-on{
-  background-color: #d3394b;
+  background-color: rgba(7, 61, 128, 0.8);
 }
-md-checkbox .md-icon {
+/* md-checkbox .md-icon {
   background: white;
-  }
+  } */
 md-checkbox.md-checked .md-icon{
-  background: #d3394b;
+  background: rgba(7, 61, 128, 0.8);
 }
 .starr-logo-header {
   zoom: 50%;
@@ -161,7 +161,7 @@ md-checkbox.md-checked .md-icon{
 .starr-landing {
   text-align: center;
   font-size: 35px;
-  color: #FFF;
+  color: rgba(7, 61, 128, 0.8);
   font-weight: bold;
 }
 
@@ -234,7 +234,7 @@ md-sidenav md-content {
 
 .layout-fill {
   content: "";
-  background: url(/images/landingPageBackground.png) no-repeat center center fixed;
+  background: url(https://images.unsplash.com/photo-1491772135384-20292e4b5ea1?ixlib=rb-0.3.5&s=0a21b04d656ccdff57fb15f094f75a72&auto=format&fit=crop&w=1936&q=80) no-repeat center center fixed;
   top: 0;
   left: 0;
   z-index: 1;
