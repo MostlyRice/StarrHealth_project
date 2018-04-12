@@ -74,7 +74,6 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function($ht
                 last_name: coach.last_name,
                 email: coach.email,
                 job_title: coach.job_title,
-                specialties: coach.specialty,
                 personal_interests: coach.interests
             }
             $http({
@@ -82,13 +81,126 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function($ht
                 url: '/coach',
                 data: {entry: entry}
             }).then(function(response) {
-                alert('coach added');
+                console.log('MY ID ++++ ', id);
+                $http({
+                    method: 'GET',
+                    url: `/admin/findcoach/${id}`
+                }).then(function(response) {
+                    console.log(response.data);
+                    coach_id = response.data[0].coach_id;
+                    console.log('CID', coach_id);
+                    academic = 0;
+                    social = 0;
+                    health = 0;
+                    professional = 0;
+                    relationships = 0;
+            
+                    if (coach.academic === true) {
+                        academic = 1;
+                        const entry = {
+                            coach_id: coach_id,
+                            specialty_id: academic
+                        }
+                        $http({
+                            method: 'POST',
+                            url: `/admin/academic`,
+                            data: {entry: entry}
+                        }).then(function(response) {
+                            console.log('academic posted');
+                        }).catch(function (error) {
+                          console.log('academic post error', error);
+                        })
+                    } else {
+                        academic = 0;
+                    }
+                    if (coach.social === true) {
+                        social = 2;
+                        const entry = {
+                            coach_id: coach_id,
+                            specialty_id: social
+                        }
+                        $http({
+                            method: 'POST',
+                            url: `/admin/social`,
+                            data: {entry: entry}
+                        }).then(function(response) {
+                            console.log('social posted');
+                        }).catch(function (error) {
+                          console.log('social post error', error);
+                        })
+                    } else {
+                        social = 0;
+                    }
+                    if (coach.health === true) {
+                        health = 3;
+                        const entry = {
+                            coach_id: coach_id,
+                            specialty_id: health
+                        }
+                        $http({
+                            method: 'POST',
+                            url: `/admin/health`,
+                            data: {entry: entry}
+                        }).then(function(response) {
+                            console.log('health posted');
+                        }).catch(function (error) {
+                          console.log('health post error', error);
+                        })
+                    } else {
+                        health = 0;
+                    }
+                    if (coach.professional === true) {
+                        professional = 4;
+                        const entry = {
+                            coach_id: coach_id,
+                            specialty_id: professional
+                        }
+                        $http({
+                            method: 'POST',
+                            url: `/admin/professional`,
+                            data: {entry: entry}
+                        }).then(function(response) {
+                            console.log('professional posted');
+                        }).catch(function (error) {
+                          console.log('professional post error', error);
+                        })
+                    } else {
+                        professional = 0;
+                    }
+                    if (coach.relationships === true) {
+                        relationships = 5;
+                        const entry = {
+                            coach_id: coach_id,
+                            specialty_id: relationships
+                        }
+                        $http({
+                            method: 'POST',
+                            url: `/admin/relationships`,
+                            data: {entry: entry}
+                        }).then(function(response) {
+                            console.log('relationships posted');
+                        }).catch(function (error) {
+                          console.log('relationships post error', error);
+                        })
+                    } else {
+                        relationships = 0;
+                    }
+                    alert('Coach Added');
+                    $location.path('/admin_home');
+                }).catch(function(error) {
+                    console.log('get schools error');
+                })
             }).catch(function(error) {
-                console.log('disclaimer error');
+                console.log('specialties error');
             })
 
         }).catch(function (error) {
-          console.log('goals put error', error);
+          console.log('specialties post error', error);
         })
     }
+
+
+
+
+
 }]); // end Admin service
