@@ -3,7 +3,7 @@ myApp.service('SchoolService', ['$http', '$location', 'UserService', function($h
     var self = this;
 
     self.adminHome = function() {
-        $location.path('/admin_home');
+        $location.path('/admin_Home');
     }
 
     self.collectSchool = function(school) {

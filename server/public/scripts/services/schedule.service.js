@@ -7,6 +7,8 @@ myApp.service('ScheduleService', ['$http', 'UserService', function($http, UserSe
     
     self.postAvailability = function(schedule){
         console.log('post availability', schedule);
+        schedule.day = moment(schedule.date).format('MMMM Do YYYY');
+        console.log('date', schedule.day);
         $http({
             method: 'POST',
             url: '/calendar/coach',
@@ -32,8 +34,9 @@ myApp.service('ScheduleService', ['$http', 'UserService', function($http, UserSe
         })
     }
 
-    self.getCoachTimes = function(){
-        $http.get('/calendar/availability')
+    self.getCoachTimes = function(input){
+        let date = moment(input).format('MMMM Do YYYY');
+        $http.get(`/calendar/availability/${date}`)
         .then(function(response) {
             console.log('times get', response.data);
             let responseArray = response.data.filter(function(res){ 

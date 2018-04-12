@@ -18,6 +18,7 @@ CREATE TABLE "user_barriers"
                     "barrier_id"    INT REFERENCES barriers ON DELETE CASCADE NOT NULL 
             );
 
+
 CREATE TABLE "schools" 
             (
                     "school_id"         SERIAL PRIMARY KEY,
@@ -35,7 +36,6 @@ CREATE TABLE "coach_bio"
                     "last_name"          CHAR(30), 
                     "email"              VARCHAR(50), 
                     "job_title"          CHAR(30), 
-                    "specialties"        CHAR(20), 
                     "certifications"     VARCHAR(500), 
                     "personal_interests" VARCHAR(500), 
                     "coach_bio"          VARCHAR(500), 
@@ -58,7 +58,7 @@ CREATE TABLE "student_bio"
                     "school_id"                         INT REFERENCES schools, 
                     "sessions_used"                     INT, 
                     "total_sessions"                    INT, 
-                    "primary_goal"                      CHAR(20), 
+                    "specialty_id"                      INT REFERENCES specialties, 
                     "other_goals"                       VARCHAR(500), 
                     "other_barriers"                    VARCHAR(500), 
                     "other_professionals"               BOOLEAN, 
@@ -66,4 +66,23 @@ CREATE TABLE "student_bio"
                     "other_information"                 BOOLEAN, 
                     "other_information_explanation"     VARCHAR(500), 
                     "student_bio"                       VARCHAR(500) 
-            );
+             );
+
+CREATE TABLE "calendar" (
+    "calendar_id" serial primary key,
+    "coach_id" int,
+	"student_id" int,
+	"available_time" varchar,
+	"date" varchar
+);
+
+CREATE TABLE specialties (
+	"specialty_id" serial primary key,
+	"specialty_name" char(40)
+);
+
+CREATE TABLE coach_specialties (
+	"coach_id" INT REFERENCES coach_bio ON DELETE CASCADE not null,
+	"specialty_id" INT REFERENCES specialties ON DELETE CASCADE not null
+);
+

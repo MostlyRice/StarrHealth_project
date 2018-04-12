@@ -5,13 +5,12 @@
     <section layout="row" flex>
 
         <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
-            <div layout-padding class="starr-sidenav">
+            <div class="starr-sidenav">
                 <img ng-src="./images/starrhealthlogo.png" />
-                <br />
-                <img ng-src="./images/starrhealthtext.png" />
+                <p class="starr-sidenav-text">Starr Health Co.</p>
+                <h1 class="lead">Welcome {{vm.userObject.userName}}!</h1>
             </div>
             <md-content layout-padding hide show-gt-md flex>
-                <h1 id="welcome" class="lead">Welcome {{vm.userObject.userName}}!</h1>
                 <md-button class="md-raised md-primary" flex ng-click="vm.adminHome()">
                     <i class="material-icons home">home</i>
                     <span>Home Page</span>
@@ -53,7 +52,6 @@
                 </md-button>
             </md-content>
             <md-content layout-padding hide-gt-md flex>
-                <h1 id="welcome" class="lead">Welcome {{vm.userObject.userName}}!</h1>
                 <md-button class="md-raised md-primary" flex ng-click="vm.adminHome()">
                     <i class="material-icons home">home</i>
                     <span>Home Page</span>
@@ -97,61 +95,41 @@
         </md-sidenav>
         <!-- Put Content In This Div! -->
         <div layout="column" layout-align="top">
-            <form>
-                <div>
-                    <label for="firstName">First Name:</label>
-                    <input type="text" name="firstName" ng-model="vm.coachInfo.first_name">
-                </div>
-                <div>
-                    <label for="lastName">Last Name:</label>
-                    <input type="text" name="lastName" ng-model="vm.coachInfo.last_name">
-                </div>
-                <div>
-                    <label for="userName">Coach Username:</label>
-                    <input type="text" name="userName" ng-model="vm.coachInfo.username">
-                </div>
-                <div>
-                    <label for="passwordOne">Password:</label>
-                    <input type="password" ng-model="vm.coachInfo.passwordOne">
-                </div>
-                <div>
-                    <label for="passwordTwo">Confirm Password:</label>
-                    <input type="password" ng-model="vm.coachInfo.passwordTwo">
-                </div>
-                <div>
-                    <label for="email">Email:</label>
-                    <input type="email" name="email" ng-model="vm.coachInfo.email" />
-                </div>
-                <div>
-                    <label for="jobTitle">Job Title:</label>
-                    <select name="jobTitle" ng-model="vm.coachInfo.job_title">
-                        <option value="Life Coach">Life Coach</option>
-                        <option value="Health Coach">Health Coach</option>
-                        <option value="Nutritionist">Nutritionist</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="specialty">Specialty:</label>
-                    <select name="specialty" ng-model="vm.coachInfo.specialty">
-                        <option value="Academic">Academic Goal Setting</option>
-                        <option value="Social Life">Social Life</option>
-                        <option value="Personal Health">Health and Wellness</option>
-                        <option value="Professional">Professional Success</option>
-                        <option value="Relationships">Relationships</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="interests">Personal Interests:</label>
-                    <input type="text" name="interests" ng-model="vm.coachInfo.interests">
-                </div>
-                <div>
-                    <md-button class="md-raised md-primary" ng-click="vm.coachDir()">Back</md-button>
-                    <md-button class="md-raised md-primary" ng-click="vm.collectCoach(vm.coachInfo)">Next</md-button>
-                </div>
-            </form>
+            <div>
+                <label for="schoolName">School Name:</label>
+                <input type="text" name="schoolName" ng-model="vm.schoolInfo.school_name">
+            </div>
+            <div>
+                <label for="schoolCode">School Code:</label>
+                <input type="password" name="schoolCode" ng-model="vm.schoolInfo.school_code">
+            </div>
+            <div>
+                <label for="accounts">Number of Student Accounts:</label>
+                <input type="text" name="accounts" ng-model="vm.schoolInfo.total_accounts">
+            </div>
+            <div>
+
+            </div>
+            <div>
+                <label for="schoolCode">School Code:</label>
+                <input type="password" name="schoolCode" ng-model="vm.schoolInfo.school_code">
+            </div>
+            <div>
+                <label for="accounts">Number of Student Accounts:</label>
+                <input type="text" name="accounts" ng-model="vm.schoolInfo.total_accounts">
+            </div>
+            <div>
+                <label for="sessions">Number of Sessions per Student:</label>
+                <input type="text" name="sessions" ng-model="vm.schoolInfo.student_sessions">
+            </div>
+            <div>
+                <button ng-click="vm.collectSchool(vm.schoolInfo)">Next</button>
+                <button ng-click="vm.adminHome()">Back</button>
+            </div>
         </div>
         <div flex></div>
-        <!-- Put Content In This Div! -->
+        <!-- End Put Content In This Div! -->
     </section>
-
+    <!-- Put Content In This Div! -->
+    </section>
 </div>
