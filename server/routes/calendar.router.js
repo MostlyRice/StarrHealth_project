@@ -3,7 +3,8 @@ const encryptLib = require('../modules/encryption');
 const pool = require('../modules/pool.js');
 const router = express.Router();
 
-router.post('/coach', (request, response) => {
+
+router.post('/calendar', (request, response) => {
     if (request.isAuthenticated()){
         let coachAvailability = request.body;
         let availabilityArray = [];
@@ -16,7 +17,7 @@ router.post('/coach', (request, response) => {
         }
         console.log('availability array', availabilityArray);
         for(let time of availabilityArray){
-            const sqlText = `INSERT INTO calendar (available_time, date, coach_id) VALUES ($1, $2, $3);`;
+            const sqlText = `INSERT INTO calendar (available_time, date, coach_id, selected) VALUES ($1, $2, $3, false);`;
             pool.query(sqlText, [time, date, coachID])
             .then((result) => {
                 response.sendStatus(201);
@@ -30,23 +31,34 @@ router.post('/coach', (request, response) => {
     }
 })
 
-// router.get('/availability', (request, response) => {
-//     if (request.isAuthenticated()){
-//         const sqlText = "SELECT available_time, date FROM calendar WHERE coach_id = $1;";
-//         const studentID = request.user.id;
-//         pool.query(sqlText, [studentID])
-//         .then(result => {
-//             response.send(result.rows);
-//             cosole.log('availability', result.rows)
-//         })
-//         .catch(error => {
-//             response.sendStatus(500);
-//             console.log('get error', error); 
-//         })
-//     } else {
-//         response.sendStatus(403);
-//     }
-// })
+router.put('/coach', (request, response) => {
+    if (request.isAuthenticated()){
+        let coachAvailability = request.body;
+        let availabilityArray = [];
+        console.log('coachAvailability', coachAvailability);
+        const date = request.body.day;
+        const coachID = request.user.id;
+        for(let value in coachAvailability){
+        if(value != 'date' && value != 'coach_id' && value != 'day'){
+            availabilityArray.push(coachAvailability[value])};
+        }
+        console.log('availability array', availabilityArray);
+        for(let time of availabilityArray){
+            const sqlText = `UPDATE calendar SET selected=true WHERE available_time=$1 AND date=$2 AND coach_id=$3;`;
+            pool.query(sqlText, [time, date, coachID])
+            .then((result) => {
+                response.sendStatus(201);
+                console.log('put new times', result);
+            })
+            .catch((error) => {
+                response.sendStatus(500);
+                console.log('put new times', error);
+            })
+        }
+    }else {
+        response.sendStatus(403);
+    }
+})
 
 router.get('/availability/:date', (request, response) => {
     if (request.isAuthenticated()){

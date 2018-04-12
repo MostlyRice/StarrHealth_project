@@ -69,14 +69,11 @@
     <md-content layout-padding>
       <div layout="column" layout-align="top">
       </div>
-      <div flex></div>
-    </md-content>
-
-  </section>
-</div>
-<div class="container">
-  <h4>Coach Schedule</h4>
-  <md-datepicker ng-model="schedule.date" md-placeholder="Enter date" ng-change="vm.getCoachSchedule()"></md-datepicker>
+      <div flex>
+        <h4>Coach Schedule</h4>
+  <md-datepicker ng-model="schedule.date" md-placeholder="Enter date" ng-change="vm.postCalendar(schedule)"></md-datepicker>
+  <div>
+  </div>
   <div class="form-group">
     <label class="checkbox">
       <input type="checkbox" ng-true-value="8" ng-model="schedule.timeOne"> 8am
@@ -113,4 +110,9 @@
     </label>
   </div>
   <button ng-click="vm.postAvailability(schedule)">Add</button>
+  <p>checkbox = {{schedule.timeOne}}</p>
+      </div>
+    </md-content>
+
+  </section>
 </div>
