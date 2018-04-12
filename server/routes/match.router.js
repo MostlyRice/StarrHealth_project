@@ -23,6 +23,7 @@ router.get('/student/:id', (request, response) => {
     console.log('WHO AM I? ', id);
     const sqlText = `SELECT * FROM coach_bio 
     JOIN coach_specialties ON coach_bio.coach_id=coach_specialties.coach_id 
+    JOIN specialties ON specialties.specialty_id=coach_specialties.specialty_id
     WHERE coach_specialties.specialty_id=$1`;
     pool.query(sqlText, [id])
       .then(function(result) {
