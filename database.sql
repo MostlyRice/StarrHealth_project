@@ -18,6 +18,7 @@ CREATE TABLE "user_barriers"
                     "barrier_id"    INT REFERENCES barriers ON DELETE CASCADE NOT NULL 
             );
 
+
 CREATE TABLE "schools" 
             (
                     "school_id"         SERIAL PRIMARY KEY,
@@ -66,4 +67,13 @@ CREATE TABLE "student_bio"
                     "other_information"                 BOOLEAN, 
                     "other_information_explanation"     VARCHAR(500), 
                     "student_bio"                       VARCHAR(500) 
-            );
+             );
+
+CREATE TABLE "calendar" (
+    "calendar_id" serial primary key,
+    "coach_id" int,
+	"student_id" int,
+	"available_time" varchar,
+	"date" varchar
+);
+

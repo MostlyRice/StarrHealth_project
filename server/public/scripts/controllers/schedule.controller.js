@@ -8,10 +8,9 @@ myApp.controller('ScheduleController', ['$http', 'ScheduleService', 'UserService
 
     self.coachTimes = ScheduleService.coachTimes;
     self.getCoachTimes = ScheduleService.getCoachTimes;
-   
 
     self.postStudentSchedule = ScheduleService.postStudentSchedule;
 
-    self.getCoachTimes();
+    // self.getCoachTimes();
     self.getCoachAppointments();
   }]);
