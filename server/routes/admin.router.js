@@ -72,6 +72,95 @@ router.get('/finduser/:name', (request, response) => {
     })
 });
 
+router.get('/findcoach/:id', (request, response) => {
+  const id = request.params.id;
+  console.log('my ID is', id);
+  const sqlText = `SELECT id, coach_id FROM coach_bio WHERE id=$1`;
+  pool.query(sqlText, [id])
+    .then(function(result) {
+    //  console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function(error){
+    //  console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+}); // end findCoach by ID
+
+router.post('/academic', (request, response) => {
+  const entry = request.body.entry;
+  let sqlText = `INSERT INTO coach_specialties
+  (coach_id, specialty_id)
+  VALUES ($1, $2)`;
+  pool.query(sqlText, [entry.coach_id, entry.specialty_id])
+  .then((result) => {
+ // console.log('Added entry:', result);
+  response.sendStatus(201);
+}).catch((error) => {
+//  console.log('Error posting entry:', error);
+  response.sendStatus(500);
+})
+}); // end academic post
+
+router.post('/social', (request, response) => {
+  const entry = request.body.entry;
+  let sqlText = `INSERT INTO coach_specialties
+  (coach_id, specialty_id)
+  VALUES ($1, $2)`;
+  pool.query(sqlText, [entry.coach_id, entry.specialty_id])
+  .then((result) => {
+ // console.log('Added entry:', result);
+  response.sendStatus(201);
+}).catch((error) => {
+//  console.log('Error posting entry:', error);
+  response.sendStatus(500);
+})
+}); // end social post
+
+router.post('/health', (request, response) => {
+  const entry = request.body.entry;
+  let sqlText = `INSERT INTO coach_specialties
+  (coach_id, specialty_id)
+  VALUES ($1, $2)`;
+  pool.query(sqlText, [entry.coach_id, entry.specialty_id])
+  .then((result) => {
+ // console.log('Added entry:', result);
+  response.sendStatus(201);
+}).catch((error) => {
+//  console.log('Error posting entry:', error);
+  response.sendStatus(500);
+})
+}); // end health post
+
+router.post('/professional', (request, response) => {
+  const entry = request.body.entry;
+  let sqlText = `INSERT INTO coach_specialties
+  (coach_id, specialty_id)
+  VALUES ($1, $2)`;
+  pool.query(sqlText, [entry.coach_id, entry.specialty_id])
+  .then((result) => {
+ // console.log('Added entry:', result);
+  response.sendStatus(201);
+}).catch((error) => {
+//  console.log('Error posting entry:', error);
+  response.sendStatus(500);
+})
+}); // end professional post
+
+router.post('/relationships', (request, response) => {
+  const entry = request.body.entry;
+  let sqlText = `INSERT INTO coach_specialties
+  (coach_id, specialty_id)
+  VALUES ($1, $2)`;
+  pool.query(sqlText, [entry.coach_id, entry.specialty_id])
+  .then((result) => {
+ // console.log('Added entry:', result);
+  response.sendStatus(201);
+}).catch((error) => {
+//  console.log('Error posting entry:', error);
+  response.sendStatus(500);
+})
+}); // end relationships post
 
 
 

@@ -36,7 +36,6 @@ CREATE TABLE "coach_bio"
                     "last_name"          CHAR(30), 
                     "email"              VARCHAR(50), 
                     "job_title"          CHAR(30), 
-                    "specialties"        CHAR(20), 
                     "certifications"     VARCHAR(500), 
                     "personal_interests" VARCHAR(500), 
                     "coach_bio"          VARCHAR(500), 
