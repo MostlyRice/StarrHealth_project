@@ -125,8 +125,8 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
         }
       }
     })
-    .when('/super_AdminCoachAllApointments', {
-      templateUrl: '/views/super_admin/super_AdminCoachAllApointments.html',
+    .when('/super_AdminCoachAllAppointments', {
+      templateUrl: '/views/super_admin/super_AdminCoachAllAppointments.html',
       controller: 'SuperAdminController as vm',
       resolve: {
         getJulia: function (UserService) {

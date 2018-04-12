@@ -27,7 +27,7 @@ myApp.service('SuperAdminService', ['$http', '$location', 'UserService', functio
         $location.path('/super_AdminCoachSchedule');
     }
     self.superAdminCoachAllAppointments = function() {
-        $location.path('/super_AdminCoachAllApointments');
+        $location.path('/super_AdminCoachAllAppointments');
     }
 
     self.coachDir = function() {
