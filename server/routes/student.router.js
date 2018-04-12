@@ -35,8 +35,8 @@ router.put('/general/:id', (request, response) => {
     const id = request.params.id;
     const entry = request.body.entry;
     let queryText = `UPDATE student_bio 
-    SET primary_goal=$2, other_goals=$3 WHERE id=$1`;
-    pool.query(queryText, [id, entry.primary_goal, entry.other_goals])
+    SET specialty_id=$2, other_goals=$3 WHERE id=$1`;
+    pool.query(queryText, [id, entry.specialty_id, entry.other_goals])
       .then((result) => {
         response.sendStatus(200);
       })

@@ -58,7 +58,7 @@ CREATE TABLE "student_bio"
                     "school_id"                         INT REFERENCES schools, 
                     "sessions_used"                     INT, 
                     "total_sessions"                    INT, 
-                    "primary_goal"                      CHAR(20), 
+                    "specialty_id"                      INT REFERENCES specialties, 
                     "other_goals"                       VARCHAR(500), 
                     "other_barriers"                    VARCHAR(500), 
                     "other_professionals"               BOOLEAN, 
