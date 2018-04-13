@@ -1,38 +1,38 @@
 <div layout="column" ng-cloak class="md-inline-form disclaimer" layout-fill layout-align="center center">
-        <md-card layout-padding  style="height:850px; width:550px; background:rgba(255, 255, 255, 0.9);">
-        <md-container layout="column" layout-padding> 
-        <h2 style="color:rgba(7, 61, 128, 0.8);">Additional Information</h2>
-        <md-container >
-                <label style="color:rgba(7, 61, 128, 0.8);">Are you currently working with any mental health or medical professionals?</label>
-        <md-radio-group layout="column" layout-padding ng-model="vm.info.medical_bool">
-                
-            <md-radio-button style="color:rgba(0, 0, 0, 0.7);" class="radio" value="false">No</md-radio-button>
-            <md-radio-button style="color:rgba(0, 0, 0, 0.7);" class="radio" value="true">Yes</md-radio-button>
-        </md-radio-group>
-    </md-container>
+    <md-card class="additional-info-card" layout-padding>
+        <md-container layout="column" layout-padding>
+            <h2 class="additional-info-title">Additional Information</h2>
+            <md-container>
+                <label class="label-items" >Are you currently working with any mental health or medical professionals?</label>
+                <md-radio-group layout="column" layout-padding ng-model="vm.info.medical_bool">
 
-    <label style="color:rgba(0, 0, 0, 0.7);" for="medical_explain">If yes, explain:</label>
-          <md-input-container>
-              <label style="color:rgba(0, 0, 0, 0.7);" for="explain">Explain..</label>
-            <input style="color:rgba(0, 0, 0, 0.7);" type="text" name="medical_explain" ng-model="vm.info.medical_explain"/>
-          </md-input-container>
-    </md-container>
+                    <md-radio-button class="label-items radio" value="false">No</md-radio-button>
+                    <md-radio-button class="label-items radio" value="true">Yes</md-radio-button>
+                </md-radio-group>
+            </md-container>
 
-    <md-container layout="column" layout-padding>
-            <label style="color:rgba(7, 61, 128, 0.8);">Do you have anything else you would like us to know?</label>
-      <md-radio-group layout="column" layout-padding ng-model="vm.info.other_bool">
+            <label class="label-items" for="medical_explain">If yes, explain:</label>
+            <md-input-container>
+                <label class="label-items" for="explain">Explain..</label>
+                <input class="label-items" type="text" name="medical_explain" ng-model="vm.info.medical_explain" />
+            </md-input-container>
+        </md-container>
 
-            <md-radio-button style="color:rgba(0, 0, 0, 0.7);" class="radio" value="false">No</md-radio-button>
-            <md-radio-button style="color:rgba(0, 0, 0, 0.7);" class="radio" value="true">Yes</md-radio-button>
-        </md-radio-group>
+        <md-container layout="column" layout-padding>
+            <label class="label-items" >Do you have anything else you would like us to know?</label>
+            <md-radio-group layout="column" layout-padding ng-model="vm.info.other_bool">
 
-    <label style="color:rgba(0, 0, 0, 0.7);" for="other_explain">If yes, explain:</label>
-        <md-input-container>
-            <label style="color:rgba(0, 0, 0, 0.7);" for="explain">Explain..</label>
-            <input style="color:rgba(0, 0, 0, 0.7);" type="text" name="other_explain" ng-model="vm.info.other_explain"/>
-        </md-input-container>
-    </md-container>
-      <div class="container">
-        <md-button style="color:white; background-color:rgba(7, 61, 128, 0.8);" class="md-raised md-primary" ng-click="vm.collectExtraInfo(vm.info)">Submit</md-button>
+                <md-radio-button class="label-items radio" value="false">No</md-radio-button>
+                <md-radio-button class="label-items radio" value="true">Yes</md-radio-button>
+            </md-radio-group>
+
+            <label class="label-items" for="other_explain">If yes, explain:</label>
+            <md-input-container>
+                <label class="label-items" for="explain">Explain..</label>
+                <input class="label-items" type="text" name="other_explain" ng-model="vm.info.other_explain" />
+            </md-input-container>
+        </md-container>
+        <div class="container">
+            <md-button class="md-raised md-primary LandingBtns" ng-click="vm.collectExtraInfo(vm.info)">Submit</md-button>
     </md-card>
     </div>
