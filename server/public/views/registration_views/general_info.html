@@ -1,59 +1,129 @@
-<div layout="column" ng-cloak class="md-inline-form disclaimer" layout-fill layout-align="center center">
+<div layout="column" ng-cloak class="md-inline-form registration-view-text" layout-fill layout-align="center center">
 
-    <md-card class="general-info-card" layout-padding>
+    <md-card class="general-info" hide show-gt-md layout-padding>
         <h2 class="general-title" layout-padding>General Info</h2>
-
-        <md-input-container layout-gt-sm="row">
-            <label class="text-label" for="firstName">First Name:</label>
-            <input class="text-label" type="text" name="firstName" ng-model="vm.generalStudent.first_name">
-        </md-input-container>
-        <md-input-container layout-gt-sm="row">
-            <label class="text-label" for="lastName">Last Name:</label>
-            <input class="text-label" type="text" name="lastName" ng-model="vm.generalStudent.last_name" />
-        </md-input-container>
-        <md-input-container layout-gt-sm="row">
-            <label class="text-label" for="relationship">Relationship Status:</label>
-            <input class="text-label" type="text" name="relationship" ng-model="vm.generalStudent.relationship_status" />
-        </md-input-container>
-
-        <md-input-container layout-gt-sm="row">
-            <label class="text-label" for="email">Email:</label>
-            <input class="text-label" type="email" name="emaIl" ng-model="vm.generalStudent.email" />
-        </md-input-container>
-
-        <md-container>
-            <label class="text-label">Date of Birth</label>
-            <br>
-            <md-datepicker ng-model="vm.generalStudent.date_of_birth"></md-datepicker>
-        </md-container>
-
-        <md-input-container layout-gt-sm="row">
-            <label class="text-label" for="phone">Phone Number:</label>
-            <input class="text-label" type="text" name="phone" ng-model="vm.generalStudent.phone_number" />
-        </md-input-container>
-        <md-input-container layout-gt-sm="row">
-            <label class="text-label" for="skype">Skype ID:</label>
-            <input class="text-label" type="text" name="skype" ng-model="vm.generalStudent.skype" />
-        </md-input-container>
-
-        <md-container>
-            <label class="text-label" for="school">Name of School:</label>
-            <md-select class="text-label" name="school" ng-model="vm.generalStudent.school_id">
-                <md-option class="text-label" ng-repeat="school in vm.schools.list" value="{{school.school_id}}">
-                    <em>{{school.school_name}}</em>
-                </md-option>
-            </md-select>
-        </md-container>
-        <md-input-container layout-gt-sm="row">
-            <label class="text-label" for="code">School Code:</label>
-            <input class="text-label" type="text" name="code" ng-model="vm.generalStudent.school_code" />
-        </md-input-container>
+        <div layout-gt-sm="row">
+            <md-input-container flex-gt-sm>
+                <label class="text-label" for="firstName">First Name:</label>
+                <input class="text-label" type="text" name="firstName" ng-model="vm.generalStudent.first_name">
+            </md-input-container>
+            <md-input-container flex-gt-sm>
+                <label class="text-label" for="lastName">Last Name:</label>
+                <input class="text-label" type="text" name="lastName" ng-model="vm.generalStudent.last_name" />
+            </md-input-container>
+        </div>
+        <br />
+        <br />
+        <div layout-gt-sm="row">
+            <md-input-container flex-gt-sm>
+                <label class="text-label" for="relationship">Relationship Status:</label>
+                <input class="text-label" type="text" name="relationship" ng-model="vm.generalStudent.relationship_status" />
+            </md-input-container>
+            <md-input-container flex-gt-sm>
+                <label class="text-label" for="email">Email:</label>
+                <input class="text-label" type="email" name="emaIl" ng-model="vm.generalStudent.email" />
+            </md-input-container>
+        </div>
+        <br />
+        <br />
+        <div layout-gt-sm="row">
+            <md-container flex-gt-sm>
+                <label class="text-label">Date of Birth</label>
+                <br>
+                <md-datepicker ng-model="vm.generalStudent.date_of_birth"></md-datepicker>
+            </md-container>
+        </div>
+        <br />
+        <br />
+        <div layout-gt-sm="row">
+            <md-input-container flex-gt-sm>
+                <label class="text-label" for="phone">Phone Number:</label>
+                <input class="text-label" type="text" name="phone" ng-model="vm.generalStudent.phone_number" />
+            </md-input-container>
+            <md-input-container flex-gt-sm>
+                <label class="text-label" for="skype">Skype ID:</label>
+                <input class="text-label" type="text" name="skype" ng-model="vm.generalStudent.skype" />
+            </md-input-container>
+        </div>
+        <br />
+        <br />
+        <div layout-gt-sm="row">
+            <md-container flex-gt-sm>
+                <md-select class="text-label" for="school" name="school" placeholder="Name of School:" ng-model="vm.generalStudent.school_id">
+                    <md-option class="text-label" ng-repeat="school in vm.schools.list" value="{{school.school_id}}">
+                        <em>{{school.school_name}}</em>
+                    </md-option>
+                </md-select>
+            </md-container>
+            <md-input-container flex-gt-sm>
+                <label class="text-label" for="code">School Code:</label>
+                <input class="text-label" type="text" for="code" name="code" ng-model="vm.generalStudent.school_code" />
+            </md-input-container>
+        </div>
         <br>
         <br>
         <md-container>
-            <md-button class="md-raised md-primary LandingBtns" ng-click="vm.disclaimer()">Back</md-button>
-            <md-button class="md-raised md-primary LandingBtns" ng-click="vm.collectGeneral(vm.generalStudent)">Next</md-button>
+            <md-button class="md-raised md-primary defaultBtn" ng-click="vm.disclaimer()">Back</md-button>
+            <md-button class="md-raised md-primary defaultBtn" ng-click="vm.collectGeneral(vm.generalStudent)">Next</md-button>
         </md-container>
-
     </md-card>
+
+    <md-card class="general-info-mobile" hide-gt-md layout-padding>
+        <h2 class="general-title" layout-padding>General Info</h2>
+        <div layout-gt-sm="row">
+            <md-input-container flex-gt-sm>
+                <label class="text-label" for="firstName">First Name:</label>
+                <input class="text-label" type="text" name="firstName" ng-model="vm.generalStudent.first_name">
+            </md-input-container>
+            <md-input-container flex-gt-sm>
+                <label class="text-label" for="lastName">Last Name:</label>
+                <input class="text-label" type="text" name="lastName" ng-model="vm.generalStudent.last_name" />
+            </md-input-container>
+        </div>
+        <div layout-gt-sm="row">
+            <md-input-container flex-gt-sm>
+                <label class="text-label" for="relationship">Relationship Status:</label>
+                <input class="text-label" type="text" name="relationship" ng-model="vm.generalStudent.relationship_status" />
+            </md-input-container>
+            <md-input-container flex-gt-sm>
+                <label class="text-label" for="email">Email:</label>
+                <input class="text-label" type="email" name="emaIl" ng-model="vm.generalStudent.email" />
+            </md-input-container>
+        </div>
+        <div layout-gt-sm="row">
+            <md-container flex-gt-sm>
+                <label class="text-label">Date of Birth</label>
+                <br>
+                <md-datepicker ng-model="vm.generalStudent.date_of_birth"></md-datepicker>
+            </md-container>
+        </div>
+        <div layout-gt-sm="row">
+            <md-input-container flex-gt-sm>
+                <label class="text-label" for="phone">Phone Number:</label>
+                <input class="text-label" type="text" name="phone" ng-model="vm.generalStudent.phone_number" />
+            </md-input-container>
+            <md-input-container flex-gt-sm>
+                <label class="text-label" for="skype">Skype ID:</label>
+                <input class="text-label" type="text" name="skype" ng-model="vm.generalStudent.skype" />
+            </md-input-container>
+        </div>
+        <div layout-gt-sm="row">
+            <md-container flex-gt-sm>
+                <md-select class="general-info-select" for="school" name="school" placeholder="Name of School:" ng-model="vm.generalStudent.school_id">
+                    <md-option class="text-label" ng-repeat="school in vm.schools.list" value="{{school.school_id}}">
+                        <em>{{school.school_name}}</em>
+                    </md-option>
+                </md-select>
+            </md-container>
+            <md-input-container flex-gt-sm>
+                <label class="text-label" for="code">School Code:</label>
+                <input class="text-label" type="text" for="code" name="code" ng-model="vm.generalStudent.school_code" />
+            </md-input-container>
+        </div>
+        <md-container>
+            <md-button class="md-raised md-primary defaultBtn" ng-click="vm.disclaimer()">Back</md-button>
+            <md-button class="md-raised md-primary defaultBtn" ng-click="vm.collectGeneral(vm.generalStudent)">Next</md-button>
+        </md-container>
+    </md-card>
+
 </div>
