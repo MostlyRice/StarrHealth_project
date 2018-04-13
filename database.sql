@@ -39,6 +39,27 @@ CREATE TABLE "coach_bio"
      "personal_interests" VARCHAR(500), 
      "coach_bio"          VARCHAR(500), 
      "coach_photo"        VARCHAR(75) 
+  );
+
+CREATE TABLE "calendar" 
+  ( 
+     "calendar_id"    SERIAL PRIMARY KEY, 
+     "coach_id"       INT, 
+     "student_id"     INT, 
+     "available_time" VARCHAR, 
+     "date"           VARCHAR 
+  ); 
+
+CREATE TABLE specialties 
+  ( 
+     "specialty_id"   SERIAL PRIMARY KEY, 
+     "specialty_name" CHAR(40) 
+  ); 
+
+CREATE TABLE coach_specialties 
+  ( 
+     "coach_id"     INT REFERENCES coach_bio ON DELETE CASCADE NOT NULL, 
+     "specialty_id" INT REFERENCES specialties ON DELETE CASCADE NOT NULL 
   ); 
 
 CREATE TABLE "student_bio" 
@@ -68,23 +89,16 @@ CREATE TABLE "student_bio"
      "student_bio"                     VARCHAR(500) 
   ); 
 
-CREATE TABLE "calendar" 
-  ( 
-     "calendar_id"    SERIAL PRIMARY KEY, 
-     "coach_id"       INT, 
-     "student_id"     INT, 
-     "available_time" VARCHAR, 
-     "date"           VARCHAR 
-  ); 
+INSERT INTO "public"."specialties"("specialty_id", "specialty_name") VALUES(1, 'Academic Goal Setting');
+INSERT INTO "public"."specialties"("specialty_id", "specialty_name") VALUES(2, 'Social Life');
+INSERT INTO "public"."specialties"("specialty_id", "specialty_name") VALUES(3, 'Health & Wellness')
+INSERT INTO "public"."specialties"("specialty_id", "specialty_name") VALUES(4, 'Professional Success');
+INSERT INTO "public"."specialties"("specialty_id", "specialty_name") VALUES(5, 'Relationships');
 
-CREATE TABLE specialties 
-  ( 
-     "specialty_id"   SERIAL PRIMARY KEY, 
-     "specialty_name" CHAR(40) 
-  ); 
-
-CREATE TABLE coach_specialties 
-  ( 
-     "coach_id"     INT REFERENCES coach_bio ON DELETE CASCADE NOT NULL, 
-     "specialty_id" INT REFERENCES specialties ON DELETE CASCADE NOT NULL 
-  ); 
+INSERT INTO "public"."barriers"("barrier_id", "barrier_name") VALUES(1, 'Stress');
+INSERT INTO "public"."barriers"("barrier_id", "barrier_name") VALUES(2, 'Lack of support');
+INSERT INTO "public"."barriers"("barrier_id", "barrier_name") VALUES(3, 'Self-confidence');
+INSERT INTO "public"."barriers"("barrier_id", "barrier_name") VALUES(4, 'Knowledge');
+INSERT INTO "public"."barriers"("barrier_id", "barrier_name") VALUES(5, 'Lack of resources');
+INSERT INTO "public"."barriers"("barrier_id", "barrier_name") VALUES(6, 'Health');
+INSERT INTO "public"."barriers"("barrier_id", "barrier_name") VALUES(7, 'Time');
