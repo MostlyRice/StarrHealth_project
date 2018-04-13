@@ -1,4 +1,4 @@
-myApp.service('SuperAdminService', ['$http', '$location', 'UserService', function($http, $location, UserService){
+myApp.service('SuperAdminService', ['$http', '$location', 'UserService', 'CoachService', function($http, $location, UserService, CoachService){
     console.log('SuperAdminService Loaded');
     var self = this;
 
@@ -30,10 +30,6 @@ myApp.service('SuperAdminService', ['$http', '$location', 'UserService', functio
         $location.path('/super_AdminCoachAllAppointments');
     }
 
-    self.coachDir = function() {
-        $location.path('/admin_Home');
-    }
-    
     self.collectCoach = function(coach) {
         console.log('COACH IS: ', coach);
         const user = {

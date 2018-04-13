@@ -1,4 +1,4 @@
-myApp.service('AdminService', ['$http', '$location', 'UserService', function($http, $location, UserService){
+myApp.service('AdminService', ['$http', '$location', 'UserService', 'CoachService', function($http, $location, UserService, CoachService){
     console.log('AdminService Loaded');
     var self = this;
 
