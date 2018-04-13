@@ -102,7 +102,7 @@ router.get('/availability/:date', (request, response) => {
         .then(result => {
             console.log('GET COACH ID', result.rows[0].id);
             let coachID = result.rows[0].id;
-            let sqlText = "SELECT available_time, student_id FROM calendar WHERE coach_id = $1 AND date=$2;";
+            let sqlText = "SELECT available_time, selected FROM calendar WHERE coach_id = $1 AND date=$2;";
             console.log('date for get from db', date);
             pool.query(sqlText, [coachID, date])
             .then(res => {
