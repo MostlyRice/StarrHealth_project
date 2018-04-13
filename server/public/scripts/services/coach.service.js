@@ -4,16 +4,16 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function($ht
 
 
     self.coachHome = function() {
-        $location.path('/coach_home');
+        $location.path('/coach_Home');
     }
     self.coachAppointmenets = function() {
-        $location.path('/coach_appointments');
+        $location.path('/coach_Appointments');
     }
     self.coachSchedule = function() {
-        $location.path('/coach_schedule');
+        $location.path('/coach_Schedule');
     }
     self.coachStudents = function() {
-        $location.path('/coach_students');
+        $location.path('/coach_Students');
     }
 
 

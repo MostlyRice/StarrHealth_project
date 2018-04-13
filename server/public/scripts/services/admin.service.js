@@ -17,7 +17,6 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function($ht
     self.adminCoachDirectory = function() {
         $location.path('/admin_CoachDirectory');
     }
-
     self.adminSchoolDirectory = function() {
         $location.path('/admin_SchoolDirectory');
     }

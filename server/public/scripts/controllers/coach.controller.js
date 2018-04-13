@@ -5,7 +5,6 @@ myApp.controller('CoachController', ['$http', 'UserService', '$location', 'Coach
     self.userObject = UserService.userObject;
     self.id = UserService.userObject.id;
 
-
     self.coachHome = CoachService.coachHome;
     self.coachAppointmenets = CoachService.coachAppointmenets;
     self.coachSchedule = CoachService.coachSchedule;
