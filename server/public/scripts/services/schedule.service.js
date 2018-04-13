@@ -105,7 +105,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', function($http, UserSe
         .then(function(response) {
             console.log('times get', response.data);
             let responseArray = response.data.filter(function(res){ 
-            if(res.student_id == null){
+            if(res.selected == 'true'){
                 return res.available_time}
             });
             self.coachTimes.list = responseArray.map(res => {
