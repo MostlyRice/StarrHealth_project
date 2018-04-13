@@ -3,6 +3,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', function($http, UserSe
     let self = this;
     self.coachAppointments = {list: []};
     self.coachTimes = {list: []};
+    self.schedule;
     
     self.postCalendar = function(schedule){
         schedule.timeOne = 8;
@@ -47,9 +48,26 @@ myApp.service('ScheduleService', ['$http', 'UserService', function($http, UserSe
         $http.get(`/calendar/coach/${day}`)
         .then(function(response) {
             console.log('get coach day times', response.data);
-            if(response.data = []){
+            if(response.data == []){
                 console.log('do the post here');
                 self.postCalendar(schedule);
+            }
+            let responseArray = response.data;
+            console.log(responseArray);
+            for(let response of responseArray){
+                let key = response.property;
+                schedule[key] = 0;
+            }
+            for(let response of responseArray){
+                if(response.selected == 'true'){
+                    console.log('getting chosen times', response.available_time);
+                    let key = response.property;
+                    schedule[key] = response.available_time;
+                    
+                    // console.log('our key', key);
+                    // let schedule = {key : response.available_time};
+                    // console.log('our schedule', schedule);
+                }
             }
             // need if elses that set schedule.whatever to the response.data.available_time
         }).catch(function(error) {

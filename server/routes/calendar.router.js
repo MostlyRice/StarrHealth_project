@@ -8,7 +8,7 @@ router.get('/coach/:day', (request, response) => {
         console.log('getting coach day times');
         let date = request.params.day;
         let coachID = request.user.id;
-        const sqlText = 'SELECT available_time, selected FROM calendar WHERE date=$1 AND coach_id=$2;';
+        const sqlText = 'SELECT available_time, property, selected FROM calendar WHERE date=$1 AND coach_id=$2;';
         pool.query(sqlText, [date, coachID])
         .then(result => {
             response.send(result.rows);
@@ -58,23 +58,48 @@ router.put('/coach', (request, response) => {
         console.log('coachAvailability', coachAvailability);
         const date = request.body.day;
         const coachID = request.user.id;
-        for(let value in coachAvailability){
-        if(value != 'date' && value != 'coach_id' && value != 'day'){
-            availabilityArray.push(coachAvailability[value])};
-        }
-        console.log('availability array', availabilityArray);
-        for(let time of availabilityArray){
-            const sqlText = `UPDATE calendar SET selected=true WHERE available_time=$1 AND date=$2 AND coach_id=$3;`;
-            pool.query(sqlText, [time, date, coachID])
-            .then((result) => {
-                response.sendStatus(201);
-                console.log('put new times', result);
-            })
-            .catch((error) => {
-                response.sendStatus(500);
-                console.log('put new times', error);
-            })
-        }
+        const SQLtext = 'UPDATE calendar SET selected=false WHERE date=$1 and coach_id=$2;';
+        pool.query(SQLtext, [date, coachID])
+        .then((result) => {
+            for(let value in coachAvailability){
+                if(value != 'date' && value != 'coach_id' && value != 'day'){
+                    availabilityArray.push(coachAvailability[value])};
+                }
+                console.log('availability array', availabilityArray);
+                for(let time of availabilityArray){
+                    const sqlText = `UPDATE calendar SET selected=true WHERE available_time=$1 AND date=$2 AND coach_id=$3;`;
+                    pool.query(sqlText, [time, date, coachID])
+                    .then((result) => {
+                        response.sendStatus(201);
+                        console.log('put new times', result);
+                    })
+                    .catch((error) => {
+                        response.sendStatus(500);
+                        console.log('put new times', error);
+                    })
+                }
+        })
+        .catch((error) => {
+            response.sendStatus(500);
+            console.log('put new times', error);
+        })
+        // for(let value in coachAvailability){
+        // if(value != 'date' && value != 'coach_id' && value != 'day'){
+        //     availabilityArray.push(coachAvailability[value])};
+        // }
+        // console.log('availability array', availabilityArray);
+        // for(let time of availabilityArray){
+        //     const sqlText = `UPDATE calendar SET selected=true WHERE available_time=$1 AND date=$2 AND coach_id=$3;`;
+        //     pool.query(sqlText, [time, date, coachID])
+        //     .then((result) => {
+        //         response.sendStatus(201);
+        //         console.log('put new times', result);
+        //     })
+        //     .catch((error) => {
+        //         response.sendStatus(500);
+        //         console.log('put new times', error);
+        //     })
+        // }
     }else {
         response.sendStatus(403);
     }
