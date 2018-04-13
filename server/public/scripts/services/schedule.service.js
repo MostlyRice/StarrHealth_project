@@ -3,14 +3,79 @@ myApp.service('ScheduleService', ['$http', 'UserService', function($http, UserSe
     let self = this;
     self.coachAppointments = {list: []};
     self.coachTimes = {list: []};
+    self.schedule;
     
-    
-    self.postAvailability = function(schedule){
-        console.log('post availability', schedule);
+    self.postCalendar = function(schedule){
+        schedule.timeOne = 8;
+        schedule.timeTwo = 9;
+        schedule.timeThree = 10;
+        schedule.timeFour = 11;
+        schedule.timeFive = 12;
+        schedule.timeSix = 1;
+        schedule.timeSeven = 2;
+        schedule.timeEight = 3;
+        schedule.timeNine = 4;
+        schedule.timeTen = 5;
+        schedule.timeEleven = 6;
+        console.log('post calendar', schedule);
         schedule.day = moment(schedule.date).format('MMMM Do YYYY');
-        console.log('date', schedule.day);
         $http({
             method: 'POST',
+            url: '/calendar/calendar',
+            data: schedule
+        })
+        .then(function(response) {
+            console.log('calendar added', response);
+            schedule.timeOne = 0;
+            schedule.timeTwo = 0;
+            schedule.timeThree = 0;
+            schedule.timeFour = 0;
+            schedule.timeFive = 0;
+            schedule.timeSix = 0;
+            schedule.timeSeven = 0;
+            schedule.timeEight = 0;
+            schedule.timeNine = 0;
+            schedule.timeTen = 0;
+            schedule.timeEleven = 0;
+        }).catch(function(error) {
+            console.log('add calendar error', error);
+        })
+    }
+
+    self.getCoachSchedule = function(schedule){
+        day = moment(schedule.date).format('MMMM Do YYYY');
+        console.log('getting coach day schedule')
+        $http.get(`/calendar/coach/${day}`)
+        .then(function(response) {
+            console.log('get coach day times', response.data);
+            if(response.data.length < 1){
+                console.log('do the post here');
+                self.postCalendar(schedule);
+            }
+            let responseArray = response.data;
+            console.log(responseArray);
+            for(let response of responseArray){
+                let key = response.property;
+                schedule[key] = 0;
+            }
+            for(let response of responseArray){
+                if(response.selected == 'true'){
+                    console.log('getting chosen times', response.available_time);
+                    let key = response.property;
+                    schedule[key] = response.available_time;
+                }
+            }
+        }).catch(function(error) {
+            console.log('get coach day times error', error);
+        })
+    }
+
+    self.postAvailability = function(schedule){
+        schedule.day = moment(schedule.date).format('MMMM Do YYYY');
+        console.log('date', schedule.day);
+        console.log('post availability', schedule);
+        $http({
+            method: 'PUT',
             url: '/calendar/coach',
             data: schedule
         })

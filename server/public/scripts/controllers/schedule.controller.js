@@ -9,6 +9,11 @@ myApp.controller('ScheduleController', ['$http', 'ScheduleService', 'UserService
     self.coachTimes = ScheduleService.coachTimes;
     self.getCoachTimes = ScheduleService.getCoachTimes;
 
+    self.postCalendar = ScheduleService.postCalendar;
+    self.getCoachSchedule = ScheduleService.getCoachSchedule;
+
+    self.schedule = ScheduleService.schedule;
+
     self.postStudentSchedule = ScheduleService.postStudentSchedule;
 
     // self.getCoachTimes();
