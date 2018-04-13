@@ -197,11 +197,8 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
         }
       }
     })
-    
-
-
-    .when('/coach_home', {
-      templateUrl: '/views/coach_views/coach_home.html',
+    .when('/coach_Home', {
+      templateUrl: '/views/coach_views/coach_Home.html',
       controller: 'CoachController as vm',
       resolve: {
         getCoach: function (UserService) {
@@ -209,8 +206,8 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
         }
       }
     })
-    .when('/coach_schedule', {
-      templateUrl: '/views/coach_views/coach_schedule.html',
+    .when('/coach_Schedule', {
+      templateUrl: '/views/coach_views/coach_Schedule.html',
       controller: 'CoachController as vm',
       resolve: {
         getCoach: function (UserService) {
@@ -218,8 +215,8 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
         }
       }
     })
-    .when('/coach_appointments', {
-      templateUrl: '/views/coach_views/coach_appointments.html',
+    .when('/coach_Appointments', {
+      templateUrl: '/views/coach_views/coach_Appointments.html',
       controller: 'CoachController as vm',
       resolve: {
         getCoach: function (UserService) {
@@ -227,40 +224,12 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
         }
       }
     })
-    .when('/coach_students', {
-      templateUrl: '/views/coach_views/coach_students.html',
+    .when('/coach_Students', {
+      templateUrl: '/views/coach_views/coach_Students.html',
       controller: 'CoachController as vm',
       resolve: {
         getCoach: function (UserService) {
           return UserService.getCoach();
-        }
-      }
-    })
-    .when('/coach_schedule', {
-      templateUrl: '/views/coach_views/coach_schedule.html',
-      controller: 'ScheduleController as vm',
-      resolve: {
-        getCoach : function(UserService){
-          return UserService.getCoach();
-        }
-      }
-    })
-    .when('/coach_appointments', {
-      templateUrl: '/views/coach_views/coach_appointments.html',
-      controller: 'ScheduleController as vm',
-      resolve: {
-        getCoach : function(UserService){
-          return UserService.getCoach();
-        }
-      }
-    })  
-    .when('/admin_createCoach', {
-      templateUrl: '/views/admin_views/admin_createCoach.html',
-      controller: 'AdminController as vm',
-      resolve: {
-        getAdmin: function (UserService) {
-          return UserService.getAdmin();
-
         }
       }
     })
