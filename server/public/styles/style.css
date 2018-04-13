@@ -266,7 +266,12 @@ button.md-raised.md-primary.md-button.md-ink-ripple.flex {
   background-color: #1686B4;
 }
 
-button.md-raised.md-primary.landingBtns.md-button.md-ink-ripple.flex {
+button.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple {
+  background-color: rgba(7, 61, 128, 0.8);
+  color: white;
+}
+
+a.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple {
   background-color: rgba(7, 61, 128, 0.8);
   color: white;
 }
