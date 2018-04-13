@@ -154,7 +154,7 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
     })
     .when('/admin_NewSchool', {
       templateUrl: '/views/admin_views/admin_NewSchool.html',
-      controller: 'SchoolController as vm',
+      controller: 'AdminController as vm',
       resolve: {
         getAdmin: function (UserService) {
           return UserService.getAdmin();
