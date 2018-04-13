@@ -16,27 +16,27 @@
                     <span>Home Page</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminCreateCoach()">
                     <i class="material-icons note-add">note_add</i>
                     <span>Add Coach</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminNewSchool()">
                     <i class="material-icons note-add">note_add</i>
                     <span>Add School</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.studentDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminStudentDirectory()">
                     <i class="material-icons list">list</i>
                     <span>Student Directory</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.coachDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminCoachDirectory()">
                     <i class="material-icons list">list</i>
                     <span>Coach Directory</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.schoolDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminSchoolDirectory()">
                     <i class="material-icons list">list</i>
                     <span>School Directory</span>
                 </md-button>
@@ -57,27 +57,27 @@
                     <span>Home Page</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminCreateCoach()">
                     <i class="material-icons note-add">note_add</i>
                     <span>Add Coach</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminNewSchool()">
                     <i class="material-icons note-add">note_add</i>
                     <span>Add School</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.studentDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminStudentDirectory()">
                     <i class="material-icons list">list</i>
                     <span>Student Directory</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.coachDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminCoachDirectory()">
                     <i class="material-icons list">list</i>
                     <span>Coach Directory</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.schoolDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminSchoolDirectory()">
                     <i class="material-icons list">list</i>
                     <span>School Directory</span>
                 </md-button>
@@ -95,39 +95,39 @@
         </md-sidenav>
         <!-- Put Content In This Div! -->
         <div layout="column" layout-align="top">
-            <div>
-                <label for="schoolName">School Name:</label>
-                <input type="text" name="schoolName" ng-model="vm.schoolInfo.school_name">
-            </div>
-            <div>
-                <label for="schoolCode">School Code:</label>
-                <input type="password" name="schoolCode" ng-model="vm.schoolInfo.school_code">
-            </div>
-            <div>
-                <label for="accounts">Number of Student Accounts:</label>
-                <input type="text" name="accounts" ng-model="vm.schoolInfo.total_accounts">
-            </div>
-            <div>
-
-            </div>
-            <div>
-                <label for="schoolCode">School Code:</label>
-                <input type="password" name="schoolCode" ng-model="vm.schoolInfo.school_code">
-            </div>
-            <div>
-                <label for="accounts">Number of Student Accounts:</label>
-                <input type="text" name="accounts" ng-model="vm.schoolInfo.total_accounts">
-            </div>
-            <div>
-                <label for="sessions">Number of Sessions per Student:</label>
-                <input type="text" name="sessions" ng-model="vm.schoolInfo.student_sessions">
-            </div>
-            <div>
-                <button ng-click="vm.collectSchool(vm.schoolInfo)">Next</button>
-                <button ng-click="vm.adminHome()">Back</button>
-            </div>
         </div>
-        <div flex></div>
+        <div flex><div>
+            <label for="schoolName">School Name:</label>
+            <input type="text" name="schoolName" ng-model="vm.schoolInfo.school_name">
+        </div>
+        <div>
+            <label for="schoolCode">School Code:</label>
+            <input type="password" name="schoolCode" ng-model="vm.schoolInfo.school_code">
+        </div>
+        <div>
+            <label for="accounts">Number of Student Accounts:</label>
+            <input type="text" name="accounts" ng-model="vm.schoolInfo.total_accounts">
+        </div>
+        <div>
+
+        </div>
+        <div>
+            <label for="schoolCode">School Code:</label>
+            <input type="password" name="schoolCode" ng-model="vm.schoolInfo.school_code">
+        </div>
+        <div>
+            <label for="accounts">Number of Student Accounts:</label>
+            <input type="text" name="accounts" ng-model="vm.schoolInfo.total_accounts">
+        </div>
+        <div>
+            <label for="sessions">Number of Sessions per Student:</label>
+            <input type="text" name="sessions" ng-model="vm.schoolInfo.student_sessions">
+        </div>
+        <div>
+            <button ng-click="vm.collectSchool(vm.schoolInfo)">Next</button>
+            <button ng-click="vm.adminHome()">Back</button>
+        </div>
+    </div>
         <!-- End Put Content In This Div! -->
     </section>
     <!-- Put Content In This Div! -->
