@@ -1,4 +1,4 @@
-myApp.service('SuperAdminService', ['$http', '$location', 'UserService', 'CoachService', function ($http, $location, UserService, CoachService) {
+myApp.service('SuperAdminService', ['$http', '$location', 'UserService', function ($http, $location, UserService) {
     console.log('SuperAdminService Loaded');
     var self = this;
 
