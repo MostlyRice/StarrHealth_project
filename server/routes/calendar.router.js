@@ -83,23 +83,6 @@ router.put('/coach', (request, response) => {
             response.sendStatus(500);
             console.log('put new times', error);
         })
-        // for(let value in coachAvailability){
-        // if(value != 'date' && value != 'coach_id' && value != 'day'){
-        //     availabilityArray.push(coachAvailability[value])};
-        // }
-        // console.log('availability array', availabilityArray);
-        // for(let time of availabilityArray){
-        //     const sqlText = `UPDATE calendar SET selected=true WHERE available_time=$1 AND date=$2 AND coach_id=$3;`;
-        //     pool.query(sqlText, [time, date, coachID])
-        //     .then((result) => {
-        //         response.sendStatus(201);
-        //         console.log('put new times', result);
-        //     })
-        //     .catch((error) => {
-        //         response.sendStatus(500);
-        //         console.log('put new times', error);
-        //     })
-        // }
     }else {
         response.sendStatus(403);
     }

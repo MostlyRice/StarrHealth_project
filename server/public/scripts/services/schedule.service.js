@@ -48,7 +48,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', function($http, UserSe
         $http.get(`/calendar/coach/${day}`)
         .then(function(response) {
             console.log('get coach day times', response.data);
-            if(response.data == []){
+            if(response.data.length < 1){
                 console.log('do the post here');
                 self.postCalendar(schedule);
             }
@@ -63,13 +63,8 @@ myApp.service('ScheduleService', ['$http', 'UserService', function($http, UserSe
                     console.log('getting chosen times', response.available_time);
                     let key = response.property;
                     schedule[key] = response.available_time;
-                    
-                    // console.log('our key', key);
-                    // let schedule = {key : response.available_time};
-                    // console.log('our schedule', schedule);
                 }
             }
-            // need if elses that set schedule.whatever to the response.data.available_time
         }).catch(function(error) {
             console.log('get coach day times error', error);
         })
