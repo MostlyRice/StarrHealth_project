@@ -42,13 +42,16 @@ CREATE TABLE "coach_bio"
   );
 
 CREATE TABLE "calendar" 
-  ( 
-     "calendar_id"    SERIAL PRIMARY KEY, 
-     "coach_id"       INT, 
-     "student_id"     INT, 
-     "available_time" VARCHAR, 
-     "date"           VARCHAR 
-  ); 
+    (
+        "calendar_id" serial primary key,
+        "coach_id" int,
+        "property" varchar,
+        "student_id" int,
+        "available_time" int,
+        "date" varchar,
+        "selected" varchar
+)   ;
+
 
 CREATE TABLE specialties 
   ( 
