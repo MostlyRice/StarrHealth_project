@@ -8,9 +8,19 @@ myApp.controller('StudentController', ['$http', 'UserService', '$location', 'Stu
     self.student = StudentService.student;
     self.newPassword = StudentService.newPassword;
     self.changePassword = StudentService.changePassword;
+    self.saveBio = StudentService.saveBio;
 
 
     StudentService.getStudent();
+    console.log('t', self.student);
+
+    self.cancelBio = function(){
+        self.editing = false;
+      }
+
+      self.editBio = function() {
+        self.editing = true;
+      }
 
 
 }]);

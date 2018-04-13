@@ -36,22 +36,22 @@
                     <span>Admin - Coach Directory</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superSchoolDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminSchoolDirectory()">
                     <i class="material-icons list">list</i>
                     <span>Admin - School Directory</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminAllApointments">
+                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminAllAppointments()">
                     <i class="material-icons date-range">date_range</i>
                     <span>Admin - All Appointments</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superCoachSchedule()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminCoachSchedule()">
                     <i class="material-icons date-range">date_range</i>
                     <span>Coach - Schedule</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.super_AdminCoachAllApointments()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminCoachAllAppointments()">
                     <i class="material-icons date-range">date_range</i>
                     <span>Coach - All Appointments</span>
                 </md-button>
@@ -87,22 +87,22 @@
                     <span>Admin - Coach Directory</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superSchoolDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminSchoolDirectory()">
                     <i class="material-icons list">list</i>
                     <span>Admin - School Directory</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminAllApointments">
+                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminAllAppointments()">
                     <i class="material-icons date-range">date_range</i>
                     <span>Admin - All Appointments</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superCoachSchedule()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminCoachSchedule()">
                     <i class="material-icons date-range">date_range</i>
                     <span>Coach - Schedule</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.super_AdminCoachAllApointments()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminCoachAllAppointments()">
                     <i class="material-icons date-range">date_range</i>
                     <span>Coach - All Appointments</span>
                 </md-button>
@@ -114,11 +114,44 @@
             </md-content>
         </md-sidenav>
 
-        <!-- Put Content In This Div! -->
-        <div layout="column" layout-align="top">
-        </div>
-        <div flex></div>
-        <!-- End Put Content In This Div! -->
+            <!-- Put Content In This Div! -->
+
+                <md-card class="create-coach">
+                <md-input-container>
+                    <label class="blackLabel" for="schoolName">School Name:</label>
+                    <input type="text" name="schoolName" ng-model="vm.schoolInfo.school_name">
+                </md-input-container>
+                
+                <md-input-container>
+                    <label class="blackLabel" for="schoolCode">School Code:</label>
+                    <input type="password" name="schoolCode" ng-model="vm.schoolInfo.school_code">
+                </md-input-container>
+                
+                <md-input-container>
+                    <label class="blackLabel" for="accounts">Number of Student Accounts:</label>
+                    <input type="text" name="accounts" ng-model="vm.schoolInfo.total_accounts">
+                </md-input-container>
+                
+                <md-input-container>
+                    <label class="blackLabel" for="schoolCode">School Code:</label>
+                    <input type="password" name="schoolCode" ng-model="vm.schoolInfo.school_code">
+                </md-input-container>
+                
+                <md-input-container>
+                    <label class="blackLabel" for="accounts">Number of Student Accounts:</label>
+                    <input type="text" name="accounts" ng-model="vm.schoolInfo.total_accounts">
+                </md-input-container>
+                
+                <md-input-container>
+                    <label class="blackLabel" for="sessions">Number of Sessions per Student:</label>
+                    <input type="text" name="sessions" ng-model="vm.schoolInfo.student_sessions">
+                </md-input-container>
+                <div>
+                    <md-button class="md-raised md-primary defaultBtn" ng-click="vm.collectSchool(vm.schoolInfo)">Next</md-button>
+                    <md-button class="md-raised md-primary defaultBtn" ng-click="vm.adminHome()">Back</md-button>
+                </div>
+            </md-card>
+            <!-- End Put Content In This Div! -->
 
     </section>
 

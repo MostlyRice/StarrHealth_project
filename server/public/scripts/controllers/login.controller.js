@@ -109,9 +109,9 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', 'Signu
       if (role === 4) {
         $location.url('/super_AdminHome');
       } else if (role === 3) {
-        $location.url('/admin_home');
+        $location.url('/admin_Home');
       } else if (role === 2) {
-        $location.url('/coach_home');
+        $location.url('/coach_Home');
       } else if (role === 1) {
         self.determineStudent(id, role);
       } else {

@@ -1,15 +1,15 @@
 <div class="container disclaimer" ng-cloak layout-fill layout="column" layout-align="center center">
-        <md-card style="height:270px; width:800px; background:rgba(0, 0, 0, 0.3);">
+        <md-card class="disclaimer-card">
 <div class="container">
-    <h2 style="color:white; font-size:30px;">Disclaimer</h2>
-    <h4 style="color:white;"><i>This application, and any information or materials provided in connection with it, is informational only and does not constitute medical advice, care, diagnosis or treatment.
+    <h2 class="disclaimer-title">Disclaimer</h2>
+    <h4 class="label-items"><i>This application, and any information or materials provided in connection with it, is informational only and does not constitute medical advice, care, diagnosis or treatment.
         The Starr Health Co. application is not intended to be a replacement or substitution to the medical advice, care, diagnosis or treatment of a licensed medical practitioner.
         Starr Health Co. recommends that you consult your physician prior to beginning any new health initiative.
     </i></h4>
   </div>
   <div class="container">
-    <md-button style="color:white; background-color:#1686B4;" ng-click="vm.userService.logout()">Reject</md-button>
-    <md-button style="color:white; background-color:#1686B4;" ng-click="vm.letPass()">Agree</md-button>
+    <md-button class="md-raised md-primary LandingBtns" ng-click="vm.userService.logout()">Reject</md-button>
+    <md-button class="md-raised md-primary LandingBtns" ng-click="vm.letPass()">Agree</md-button>
 </div>
 </md-card>
 </div>

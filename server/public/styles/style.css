@@ -2,9 +2,11 @@
   font-family: CallunaSans;
   src: url("./fonts/CallunaSans-Regular.woff") format("woff");
 }
+
 body {
   top: 0px !important;
-  }
+}
+
 body,
 html {
   margin: 0;
@@ -115,7 +117,7 @@ header {
 .landingText {
   text-align: center;
   font-family: sans-serif;
-  color: rgba(247 232 241);
+  color: rgba(0, 0, 0, 0.7);
   font-size: 20px;
 }
 
@@ -124,37 +126,43 @@ header {
 }
 
 .landingPage {
-  background: url(../images/landingPageBackground.png) no-repeat center center fixed;
+  background: url(../images/newLandingPage.png) no-repeat center center fixed;
   height: auto;
   width: auto;
 }
 
 .loginPage {
-  background: url(../images/landingPageBackground.png) no-repeat center center fixed;
+  background: url(../images/newLandingPage.png) no-repeat center center fixed;
   text-align: center;
 }
 
 .registerPage {
-  background: url(../images/landingPageBackground.png) no-repeat center center fixed;
+  background: url(../images/newLandingPage.png) no-repeat center center fixed;
   text-align: center;
 }
 
-.disclaimer{
+.disclaimer {
   font-size: 18px;
   text-align: center;
 }
-md-radio-button.radio .md-off{
-  border-color: white;
+
+md-radio-button.md-checked.my-radio .md-on {
+  color: rgba(0, 0, 0, 0.7);
 }
-md-radio-button.md-checked.radio .md-on{
-  background-color: #d3394b;
+
+md-radio-button.radio .md-off {
+  border-color: rgba(0, 0, 0, 0.7);
 }
-md-checkbox .md-icon {
-  background: white;
-  }
-md-checkbox.md-checked .md-icon{
-  background: #d3394b;
+
+*/ md-radio-button.md-checked.radio .md-on {
+  background-color: rgba(7, 61, 128, 0.8);
 }
+
+
+md-checkbox.md-checked .md-icon {
+  background: rgba(7, 61, 128, 0.8);
+}
+
 .starr-logo-header {
   zoom: 50%;
 }
@@ -162,7 +170,7 @@ md-checkbox.md-checked .md-icon{
 .starr-landing {
   text-align: center;
   font-size: 35px;
-  color: #FFF;
+  color: rgba(7, 61, 128, 0.8);
   font-weight: bold;
 }
 
@@ -236,7 +244,7 @@ md-sidenav md-content {
 
 .layout-fill {
   content: "";
-  background: url(/images/landingPageBackground.png) no-repeat center center fixed;
+  background: url(../images/landingPageBackground2.png) no-repeat center center fixed;
   top: 0;
   left: 0;
   z-index: 1;
@@ -258,10 +266,146 @@ button.md-raised.md-primary.md-button.md-ink-ripple.flex {
   background-color: #1686B4;
 }
 
+button.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple {
+  background-color: rgba(7, 61, 128, 0.8);
+  color: white;
+}
+
+a.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple {
+  background-color: rgba(7, 61, 128, 0.8);
+  color: white;
+}
+
 ::-webkit-scrollbar {
   display: none;
-  }
+}
 
 .main-container {
   overflow: hidden;
+}
+
+.student-goals-title {
+  color: rgba(7, 61, 128, 0.8);
+  text-align: center;
+  font-weight: bold;
+}
+
+.label-items {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.label-items2 {
+  color:rgba(126, 63, 63, 0.7);
+}
+
+.student-goals-card {
+  height: 600px;
+  width: 550px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.home-card {
+  height: 680px;
+  width: 280px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.login-card {
+  height: 350px;
+  width: 280px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.login-title {
+  color: rgba(7, 61, 128, 0.8);
+  font-weight: bold;
+}
+
+.text-label {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.general-title {
+  color:rgba(7, 61, 128, 0.8); 
+  text-align:center; 
+  font-weight:bold;
+}
+
+.additional-info-title {
+  color:rgba(7, 61, 128, 0.8);
+}
+
+.general-info-card {
+  height:770px; 
+  width:800px; 
+  background:rgba(255, 255, 255, 0.9);
+}
+
+.additional-info {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.additional-info-card {
+  height:850px; 
+  width:550px; 
+  background:rgba(255, 255, 255, 0.9);
+}
+
+.student-barriers-card {
+  height:850px; 
+  width:550px; 
+  background:rgba(255, 255, 255, 0.9);
+}
+
+.student-barriers-title {
+  color:rgba(7, 61, 128, 0.8);
+}
+
+.register-card {
+  height:420px; 
+  width:300px; 
+  background:rgba(255, 255, 255, 0.9);
+}
+
+.register-title {
+  color:rgba(7, 61, 128, 0.8); 
+  font-weight: bold;
+}
+
+.disclaimer-card {
+  height:270px; 
+  width:800px; 
+  background:rgba(255, 255, 255, 0.9);
+}
+
+.disclaimer-title {
+  color:rgba(7, 61, 128, 0.8); 
+  font-size:30px;
+}
+
+.specialties-items {
+  color: white;
+}
+.create-coach {
+  font-size: 13px;
+  height: 700px;
+  width: 350px;
+  background: rgba(255, 255, 255, 0.9);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom:auto;
+  padding: 15px;
+  text-align: center;
+  color:black;
+}
+.blackLabel{
+  color:rgba(0, 0, 0, 0.85);
+}
+md-select span{
+  color: rgba(0, 0, 0, 0.85);
+}
+
+button.md-raised.md-primary.defaultBtn.md-button.md-ink-ripple {
+  background-color: #1686B4;
 }

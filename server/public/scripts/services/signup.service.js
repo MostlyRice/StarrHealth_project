@@ -126,7 +126,7 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
         const id = UserService.userObject.id;
         const entry = {
             id: id,
-            primary_goal: goal.primary_goal,
+            specialty_id: goal.primary_goal,
             other_goals: goal.secondary_goals
         }
         $http({
@@ -344,7 +344,7 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function($h
             url: `/match/student/${id}`
         }).then(function(response) {
             console.log(response.data);
-            const thisStudent = response.data[0].primary_goal;
+            const thisStudent = response.data[0].specialty_id;
             console.log('thisStudent ', thisStudent);
             $http({
                 method: 'GET',
