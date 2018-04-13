@@ -41,6 +41,21 @@ myApp.service('ScheduleService', ['$http', 'UserService', function($http, UserSe
         })
     }
 
+    self.getCoachSchedule = function(schedule){
+        day = moment(schedule.date).format('MMMM Do YYYY');
+        console.log('getting coach day schedule')
+        $http.get(`/calendar/coach/${day}`)
+        .then(function(response) {
+            console.log('get coach day times', response.data);
+            if(response.data = []){
+                console.log('do the post here');
+                self.postCalendar(schedule);
+            }
+            // need if elses that set schedule.whatever to the response.data.available_time
+        }).catch(function(error) {
+            console.log('get coach day times error', error);
+        })
+    }
 
     self.postAvailability = function(schedule){
         schedule.day = moment(schedule.date).format('MMMM Do YYYY');

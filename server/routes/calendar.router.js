@@ -3,6 +3,25 @@ const encryptLib = require('../modules/encryption');
 const pool = require('../modules/pool.js');
 const router = express.Router();
 
+router.get('/coach/:day', (request, response) => {
+    if (request.isAuthenticated()){
+        console.log('getting coach day times');
+        let date = request.params.day;
+        let coachID = request.user.id;
+        const sqlText = 'SELECT available_time, selected FROM calendar WHERE date=$1 AND coach_id=$2;';
+        pool.query(sqlText, [date, coachID])
+        .then(result => {
+            response.send(result.rows);
+            cosole.log('get coach times', result.rows)
+        })
+        .catch(error => {
+            response.sendStatus(500);
+            console.log('get coach times error', error); 
+        })
+    } else {
+        response.sendStatus(403);
+    }
+})
 
 router.post('/calendar', (request, response) => {
     if (request.isAuthenticated()){
@@ -13,20 +32,21 @@ router.post('/calendar', (request, response) => {
         const coachID = request.user.id;
         for(let value in coachAvailability){
         if(value != 'date' && value != 'coach_id' && value != 'day'){
-            availabilityArray.push(coachAvailability[value])};
-        }
-        console.log('availability array', availabilityArray);
-        for(let time of availabilityArray){
-            const sqlText = `INSERT INTO calendar (available_time, date, coach_id, selected) VALUES ($1, $2, $3, false);`;
-            pool.query(sqlText, [time, date, coachID])
+            let property = value;
+            let available_time = coachAvailability[value];
+            const sqlText = `INSERT INTO calendar (available_time, date, coach_id, property, selected) VALUES ($1, $2, $3, $4, false);`;
+            pool.query(sqlText, [available_time, date, coachID, property])
             .then((result) => {
                 response.sendStatus(201);
+                console.log('post calendar', result);
             })
             .catch((error) => {
                 response.sendStatus(500);
+                console.log('post calendar error', error);
             })
         }
-    }else {
+        }
+    } else {
         response.sendStatus(403);
     }
 })
