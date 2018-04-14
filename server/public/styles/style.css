@@ -295,7 +295,7 @@ a.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple {
 }
 
 .label-items2 {
-  color:rgba(126, 63, 63, 0.7);
+  color: rgba(126, 63, 63, 0.7);
 }
 
 .student-goals-title {
@@ -303,8 +303,8 @@ a.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple {
 }
 
 .student-goals {
-  height: 600px;
-  width: 550px;
+  width: 50%;
+  overflow: scroll;
   background: rgba(255, 255, 255, 0.9);
 }
 
@@ -315,14 +315,10 @@ a.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple {
 }
 
 .home-card {
-  height: 680px;
-  width: 280px;
   background: rgba(255, 255, 255, 0.9);
 }
 
 .login-card {
-  height: 350px;
-  width: 280px;
   background: rgba(255, 255, 255, 0.9);
 }
 
@@ -336,103 +332,109 @@ a.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple {
 }
 
 .general-title {
-  color:rgba(7, 61, 128, 0.8); 
-  text-align:center; 
-  font-weight:bold;
+  color: rgba(7, 61, 128, 0.8);
+  text-align: center;
+  font-weight: bold;
 }
 
 .general-info {
-  height:770px; 
-  width:800px; 
-  background:rgba(255, 255, 255, 0.9);
+  width: 50%;
+  overflow: scroll;
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .general-info-mobile {
-  background:rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.9);
   overflow: scroll;
 }
 
 .additional-info-title {
-  color:rgba(7, 61, 128, 0.8);
-}
-
-.additional-info {
-  background:rgba(255, 255, 255, 0.9);
-  overflow: scroll;
+  color: rgba(7, 61, 128, 0.8);
 }
 
 .additional-info-mobile {
-  height:850px; 
-  width:550px; 
-  background:rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.9);
+  overflow: scroll;
+}
+
+.additional-info {
+  width: 50%;
+  overflow: scroll;
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .student-barriers {
-  height:850px; 
-  width:550px; 
-  background:rgba(255, 255, 255, 0.9);
+  width: 50%;
+  overflow: scroll;
+  background: rgba(255, 255, 255, 0.9);
 }
 
-.student-barriers-mobile { 
-  background:rgba(255, 255, 255, 0.9);
+.student-barriers-mobile {
+  background: rgba(255, 255, 255, 0.9);
   overflow: scroll;
   width: 95%;
 }
 
 .student-barriers-title {
-  color:rgba(7, 61, 128, 0.8);
+  color: rgba(7, 61, 128, 0.8);
 }
 
 .register-card {
-  height:420px; 
-  width:300px; 
-  background:rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .register-title {
-  color:rgba(7, 61, 128, 0.8); 
+  color: rgba(7, 61, 128, 0.8);
   font-weight: bold;
 }
 
-.disclaimer-card {
-  height:270px; 
-  width:800px; 
-  background:rgba(255, 255, 255, 0.9);
+.disclaimer {
+  width: 50%;
+  overflow: scroll;
+  background: rgba(255, 255, 255, 0.9);
 }
 
-.disclaimer-card-mobile {
-  background:rgba(255, 255, 255, 0.9);
+.disclaimer-mobile {
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .disclaimer-title {
-  color:rgba(7, 61, 128, 0.8); 
-  font-size:30px;
+  color: rgba(7, 61, 128, 0.8);
+  font-size: 30px;
 }
 
 .specialties-items {
   color: white;
 }
 
- md-select span{
+md-select span {
   color: rgba(0, 0, 0, 0.85);
- }
+}
 
- md-datepicker span{
+md-datepicker span {
   color: rgba(0, 0, 0, 0.85);
- }
+}
 
- .blackLabel {
-  color:rgba(0, 0, 0, 0.85);
- }
+.blackLabel {
+  color: rgba(0, 0, 0, 0.85);
+}
 
- .general-info-select {
+.general-info-select {
   max-width: 189px;
   max-height: 26px;
   margin-left: auto;
   margin-right: auto;
- }
-
-button.md-raised.md-primary.defaultBtn.md-button.md-ink-ripple {
- background-color: #1686B4;
 }
 
+button.md-raised.md-primary.defaultBtn.md-button.md-ink-ripple {
+  background-color: #1686B4;
+}
+
+a.md-raised.md-primary.defaultBtn.md-button.md-ink-ripple {
+  background-color: #1686B4;
+}
+
+md-input-container.other-barriers {
+  margin: 0 0 0 0;
+  padding: 0 8px 0 8px;
+}

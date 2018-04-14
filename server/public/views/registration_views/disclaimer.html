@@ -1,5 +1,6 @@
 <div class="container registration-view-text" ng-cloak layout-fill layout="column" layout-align="center center">
-    <md-card class="disclaimer-card" hide show-gt-md>
+
+    <md-card class="disclaimer" hide show-gt-md>
         <div class="container">
             <h2 class="disclaimer-title">Disclaimer</h2>
             <h4 class="label-items">
@@ -28,9 +29,10 @@
                 </i>
             </h4>
         </div>
-        <div class="container">
+        <md-input-container>
             <md-button class="md-raised md-primary defaultBtn" ng-click="vm.userService.logout()">Reject</md-button>
             <md-button class="md-raised md-primary defaultBtn" ng-click="vm.letPass()">Agree</md-button>
-        </div>
+        </md-input-container>
     </md-card>
+
 </div>

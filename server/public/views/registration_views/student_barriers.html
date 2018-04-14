@@ -26,10 +26,9 @@
                     Time
                 </md-checkbox>
             </md-input-container>
-
-            <md-input-container class="md-block">
+            <md-input-container class="other-barriers">
                 <label class="label-items" for="otherBarriers">Do you have any other barriers?</label>
-                <textarea class="label-items" ng-model="vm.barriers.other_barriers" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                <textarea class="label-items" ng-model="vm.barriers.other_barriers" md-maxlength="150" rows="3" md-select-on-focus></textarea>
             </md-input-container>
             <div class="container">
                 <md-button class="md-raised md-primary defaultBtn" ng-click="vm.goals()">Back</md-button>
@@ -65,15 +64,14 @@
                     Time
                 </md-checkbox>
             </md-input-container>
-
-            <md-input-container class="md-block">
+            <md-input-container class="other-barriers">
                 <label class="label-items" for="otherBarriers">Do you have any other barriers?</label>
-                <textarea class="label-items" ng-model="vm.barriers.other_barriers" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                <textarea class="label-items" ng-model="vm.barriers.other_barriers" md-maxlength="150" rows="3" md-select-on-focus></textarea>
             </md-input-container>
-            <div class="container">
+            <md-input-container>
                 <md-button class="md-raised md-primary defaultBtn" ng-click="vm.goals()">Back</md-button>
                 <md-button class="md-raised md-primary defaultBtn" ng-click="vm.collectBarriers(vm.barriers)">Next</md-button>
-            </div>
+            </md-input-container>
         </md-container>
     </md-card>
 
