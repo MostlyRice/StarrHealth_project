@@ -1,23 +1,34 @@
 <div class="container registerPage" ng-cloak layout-fill layout="column" layout-align="center center">
-    <md-card class="register-card">
-  <h1 class="register-title" class="lead">Register User</h1>
-  <h1 class="lead alert alert-danger" role="alert" ng-if="vm.message != ''">{{vm.message}}</h2>
-  <form ng-submit="vm.registerUser()">
-    <md-input-container>
-        <label class="label-items" for="username">Username:</label>
-        <input class="label-items" type="text" ng-model="vm.user.username" ng-required="true" />
-    </md-input-container>
-    <md-input-container>
-        <label class="label-items" for="passwordOne">Password:</label>
-        <input class="label-items" type="password" ng-model="vm.user.passwordOne" ng-required="true"/>
-    </md-input-container>
-    <md-input-container>
-      <label class="label-items" for="passwordTwo">Confirm Password:</label>
-      <input class="label-items2" type="password" ng-model="vm.user.passwordTwo" ng-required="true"/>
-  </md-input-container>
-  <br>
-    <md-button class="md-raised md-primary LandingBtns" type="submit" name="submit" value="Register">Register</md-button>
-    <md-button class="md-raised md-primary LandingBtns" ng-href="/#!home">Cancel</md-button>
-  </form>
-</md-card>
+
+  <md-card class="register-card">
+    <h1 class="register-title" class="lead">Register User</h1>
+    <h1 class="lead alert alert-danger" role="alert" ng-if="vm.message != ''">{{vm.message}}</h2>
+      <form ng-submit="vm.registerUser()">
+        <div class="container">
+          <md-input-container>
+            <label class="label-items" for="username">Username:</label>
+            <input class="label-items" type="text" ng-model="vm.user.username" ng-required="true" />
+          </md-input-container>
+        </div>
+        <div class="container">
+          <md-input-container>
+            <label class="label-items" for="passwordOne">Password:</label>
+            <input class="label-items" type="password" ng-model="vm.user.passwordOne" ng-required="true" />
+          </md-input-container>
+        </div>
+        <div class="container">
+          <md-input-container>
+            <label class="label-items" for="passwordTwo">Confirm Password:</label>
+            <input class="label-items2" type="password" ng-model="vm.user.passwordTwo" ng-required="true" />
+          </md-input-container>
+        </div>
+        <div class="landingBtns">
+          <md-input-container>
+            <md-button class="md-raised md-primary defaultBtn" type="submit" name="submit" value="Register">Register</md-button>
+            <md-button class="md-raised md-primary defaultBtn" ng-href="/#!home">Cancel</md-button>
+          </md-input-container>
+        </div>
+      </form>
+  </md-card>
+
 </div>
