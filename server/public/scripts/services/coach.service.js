@@ -1,22 +1,19 @@
-myApp.service('CoachService', ['$http', '$location', 'UserService', function($http, $location, UserService){
+myApp.service('CoachService', ['$http', '$location', 'UserService', function ($http, $location, UserService) {
     console.log('CoachService Loaded');
     var self = this;
 
 
-    self.coachHome = function() {
+    self.coachHome = function () {
         $location.path('/coach_Home');
     }
-    self.coachAppointmenets = function() {
+    self.coachAppointmenets = function () {
         $location.path('/coach_Appointments');
     }
-    self.coachSchedule = function() {
+    self.coachSchedule = function () {
         $location.path('/coach_Schedule');
     }
-    self.coachStudents = function() {
+    self.coachStudents = function () {
         $location.path('/coach_Students');
     }
-
-
-
 
 }]); // end coach service

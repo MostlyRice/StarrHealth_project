@@ -1,4 +1,4 @@
-myApp.controller('AdminController', ['$http', 'UserService', '$location', 'AdminService', function($http, UserService, $location, AdminService) {
+myApp.controller('AdminController', ['$http', 'UserService', '$location', 'AdminService', function ($http, UserService, $location, AdminService) {
     console.log('AdminController created');
     var self = this;
     self.userService = UserService;
@@ -12,4 +12,9 @@ myApp.controller('AdminController', ['$http', 'UserService', '$location', 'Admin
     self.adminCoachDirectory = AdminService.adminCoachDirectory;
     self.adminSchoolDirectory = AdminService.adminSchoolDirectory;
     self.adminAllApointments = AdminService.adminAllApointments;
+
+    self.coachDir = AdminService.coachDir;
+    self.collectCoach = AdminService.collectCoach;
+
+
 }]);

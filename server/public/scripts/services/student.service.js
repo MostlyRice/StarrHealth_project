@@ -1,4 +1,4 @@
-myApp.service('StudentService', ['$http', '$location', 'UserService', function($http, $location, UserService){
+myApp.service('StudentService', ['$http', '$location', 'UserService', function ($http, $location, UserService) {
     console.log('StudentService Loaded');
     var self = this;
     self.userService = UserService;
@@ -7,26 +7,26 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function($
         list = {}
     ];
 
-    self.getStudent = function() {
+    self.getStudent = function () {
         const id = UserService.userObject.id;
         $http({
             method: 'GET',
             url: `/student/${id}`
-        }).then(function(response) {
+        }).then(function (response) {
             console.log('DATA', response.data);
 
             self.student.list = response.data;
             console.log('thisStudent = ', self.student.list);
-        }).catch(function(error) {
+        }).catch(function (error) {
             console.log('coach match error');
         })
     } // end getStudent
 
-    self.newPassword = function() {
+    self.newPassword = function () {
         $location.path('/student_password');
     } // end newPassword
 
-    self.changePassword = function(auth) {
+    self.changePassword = function (auth) {
         console.log('AUTH = ', auth);
         console.log(self.userObject);
         self.user = {
@@ -36,28 +36,28 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function($
         }
         if (auth.currentPassword === '') {
             self.message = "Enter your current password!";
-          } else {
-           console.log('sending to server...', self.user);
+        } else {
+            console.log('sending to server...', self.user);
             $http.post('/api/user/login', self.user).then(
-              function (response) {
-                if (response.status == 200) {
-                  console.log('success: ', response.data);
-                  // location works with SPA (ng-route)
-                  self.postPassword(auth);
-                } else {
-                  console.log('failure error: ', response);
-                  alert('Current Password is Incorrect');
-                }
-              },
-              function (response) {
-                console.log('failure error: ', response);
-                alert('Current Password is Incorrect');
-                location.reload(true);
-              });
-          }
+                function (response) {
+                    if (response.status == 200) {
+                        console.log('success: ', response.data);
+                        // location works with SPA (ng-route)
+                        self.postPassword(auth);
+                    } else {
+                        console.log('failure error: ', response);
+                        alert('Current Password is Incorrect');
+                    }
+                },
+                function (response) {
+                    console.log('failure error: ', response);
+                    alert('Current Password is Incorrect');
+                    location.reload(true);
+                });
+        }
     } // end changePassword
 
-    self.postPassword = function(auth) {
+    self.postPassword = function (auth) {
         console.log('HOORAY for ', auth);
         const id = UserService.userObject.id;
         if (auth.newPasswordOne != auth.newPasswordTwo) {
@@ -71,12 +71,14 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function($
             $http({
                 method: 'PUT',
                 url: `/api/user/changePassword/${id}`,
-                data: {entry: entry}
-            }).then(function(response) {
+                data: {
+                    entry: entry
+                }
+            }).then(function (response) {
                 alert('SUCCESS');
                 $location.path('/student_home');
             }).catch(function (error) {
-              console.log('change password put error', error);
+                console.log('change password put error', error);
             })
         } else {
             alert('Something went wrong!');
@@ -84,7 +86,7 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function($
         }
     } // end postPassword
 
-    self.saveBio = function(id, bio) {
+    self.saveBio = function (id, bio) {
         console.log(id, bio);
         const entry = {
             student_id: id,
@@ -93,12 +95,14 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function($
         $http({
             method: 'PUT',
             url: `/student/bio/${id}`,
-            data: {entry: entry}
-        }).then(function(response) {
+            data: {
+                entry: entry
+            }
+        }).then(function (response) {
             alert('SUCCESS');
             location.reload(true);
         }).catch(function (error) {
-          console.log('update bio put error', error);
+            console.log('update bio put error', error);
         })
     } // end saveBio
 

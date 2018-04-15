@@ -1,10 +1,6 @@
-myApp.service('SchoolService', ['$http', '$location', 'UserService', function($http, $location, UserService){
+myApp.service('SchoolService', ['$http', '$location', 'UserService', function ($http, $location, UserService) {
     console.log('SchoolService Loaded');
     var self = this;
-
-    self.adminHome = function() {
-        $location.path('/admin_Home');
-    }
 
     self.addSchool = function(school) {
         console.log('school', school);
@@ -17,10 +13,12 @@ myApp.service('SchoolService', ['$http', '$location', 'UserService', function($h
         $http({
             method: 'POST',
             url: '/admin/school',
-            data: {entry: entry}
-        }).then(function(response) {
+            data: {
+                entry: entry
+            }
+        }).then(function (response) {
             console.log('schooln created');
-        }).catch(function(error) {
+        }).catch(function (error) {
             console.log('disclaimer error');
         })
     }

@@ -15,3 +15,4 @@ myApp.controller('SuperAdminController', ['UserService', '$location','SuperAdmin
     self.superAdminCoachSchedule = SuperAdminService.superAdminCoachSchedule;
     self.superAdminCoachAllAppointments = SuperAdminService.superAdminCoachAllAppointments;
   }]);
+

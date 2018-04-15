@@ -234,8 +234,4 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', 'CoachServic
         })
     }
 
-
-
-
-
 }]); // end Admin service
