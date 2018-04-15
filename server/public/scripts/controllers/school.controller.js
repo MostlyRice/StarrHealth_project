@@ -8,9 +8,6 @@ myApp.controller('SchoolController', ['UserService', '$location', 'SignupService
     self.id = UserService.userObject.id;
     
     self.adminHome = SchoolService.adminHome;
-    self.collectSchool = SchoolService.collectSchool;
+    self.addSchool = SchoolService.addSchool;
    
-
-
-
   }]);

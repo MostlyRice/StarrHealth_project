@@ -14,8 +14,4 @@ myApp.controller('SuperAdminController', ['UserService', '$location','SuperAdmin
     self.superAdminAllAppointments = SuperAdminService.superAdminAllAppointments;
     self.superAdminCoachSchedule = SuperAdminService.superAdminCoachSchedule;
     self.superAdminCoachAllAppointments = SuperAdminService.superAdminCoachAllAppointments;
-
-    self.coachDir = SuperAdminService.coachDir;
-    self.collectCoach = SuperAdminService.collectCoach;
-
   }]);

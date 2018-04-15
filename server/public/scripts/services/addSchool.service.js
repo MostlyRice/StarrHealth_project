@@ -6,7 +6,7 @@ myApp.service('SchoolService', ['$http', '$location', 'UserService', function($h
         $location.path('/admin_Home');
     }
 
-    self.collectSchool = function(school) {
+    self.addSchool = function(school) {
         console.log('school', school);
         const entry = {
             school_name: school.school_name,
