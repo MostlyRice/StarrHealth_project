@@ -407,6 +407,7 @@ a.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple {
   color: white;
 }
 
+
 md-select span {
   color: rgba(0, 0, 0, 0.85);
 }
@@ -437,4 +438,17 @@ a.md-raised.md-primary.defaultBtn.md-button.md-ink-ripple {
 md-input-container.other-barriers {
   margin: 0 0 0 0;
   padding: 0 8px 0 8px;
+
+  .create-coach {
+  font-size: 13px;
+  height: 700px;
+  width: 350px;
+  background: rgba(255, 255, 255, 0.9);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom:auto;
+  padding: 15px;
+  text-align: center;
+  color:black;
 }

@@ -1,35 +1,35 @@
-myApp.service('AdminService', ['$http', '$location', 'UserService', function($http, $location, UserService){
+myApp.service('AdminService', ['$http', '$location', 'UserService', 'CoachService', function ($http, $location, UserService, CoachService) {
     console.log('AdminService Loaded');
     var self = this;
 
-    self.adminHome = function() {
+    self.adminHome = function () {
         $location.path('/admin_Home');
     }
-    self.adminCreateCoach = function() {
+    self.adminCreateCoach = function () {
         $location.path('/admin_CreateCoach');
     }
-    self.adminNewSchool = function() {
+    self.adminNewSchool = function () {
         $location.path('/admin_NewSchool');
     }
-    self.adminStudentDirectory = function() {
+    self.adminStudentDirectory = function () {
         $location.path('/admin_StudentDirectory');
     }
-    self.adminCoachDirectory = function() {
+    self.adminCoachDirectory = function () {
         $location.path('/admin_CoachDirectory');
     }
-    self.adminSchoolDirectory = function() {
+    self.adminSchoolDirectory = function () {
         $location.path('/admin_SchoolDirectory');
     }
 
-    self.adminAllApointments = function() {
+    self.adminAllApointments = function () {
         $location.path('/admin_AllApointments');
     }
 
-    self.coachDir = function() {
+    self.coachDir = function () {
         $location.path('/admin_Home');
     }
 
-    self.collectCoach = function(coach) {
+    self.collectCoach = function (coach) {
         console.log('COACH IS: ', coach);
         const user = {
             username: coach.username,
@@ -40,34 +40,34 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function($ht
         }
         if (user.username === '') {
             alert("Choose a username!");
-          } else if (user.passwordOne === '' || user.passwordTwo === '' ) {
+        } else if (user.passwordOne === '' || user.passwordTwo === '') {
             alert("Choose a password!");
-          } else if (user.passwordOne != user.passwordTwo) {
+        } else if (user.passwordOne != user.passwordTwo) {
             alert("Passwords do not match!");
-          } else if (user.passwordOne === user.passwordTwo) {
+        } else if (user.passwordOne === user.passwordTwo) {
             user.password = user.passwordOne;
             console.log('sending to server...', user);
             $http.post('/api/user/register', user).then(function (response) {
-              console.log('success');
-            self.finishCoach(coach);
-            },
-              function (response) {
-                console.log('error');
-                alert("Something went wrong. Please try again.")
-              });
-          } else {
-              alert("Something went wrong. Please try again.")
-          }
+                    console.log('success');
+                    self.finishCoach(coach);
+                },
+                function (response) {
+                    console.log('error');
+                    alert("Something went wrong. Please try again.")
+                });
+        } else {
+            alert("Something went wrong. Please try again.")
+        }
     }
 
-    self.finishCoach = function(coach) {
+    self.finishCoach = function (coach) {
         console.log('coach', coach);
         const name = coach.username;
         console.log('my name is', name);
         $http({
             method: 'GET',
             url: `/admin/finduser/${name}`
-        }).then(function(response) {
+        }).then(function (response) {
             let id = response.data[0].id;
             const entry = {
                 id: id,
@@ -80,13 +80,15 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function($ht
             $http({
                 method: 'POST',
                 url: '/coach',
-                data: {entry: entry}
-            }).then(function(response) {
+                data: {
+                    entry: entry
+                }
+            }).then(function (response) {
                 console.log('MY ID ++++ ', id);
                 $http({
                     method: 'GET',
                     url: `/admin/findcoach/${id}`
-                }).then(function(response) {
+                }).then(function (response) {
                     console.log(response.data);
                     coach_id = response.data[0].coach_id;
                     console.log('CID', coach_id);
@@ -95,7 +97,7 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function($ht
                     health = 0;
                     professional = 0;
                     relationships = 0;
-            
+
                     if (coach.academic === true) {
                         academic = 1;
                         const entry = {
@@ -105,11 +107,13 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function($ht
                         $http({
                             method: 'POST',
                             url: `/admin/academic`,
-                            data: {entry: entry}
-                        }).then(function(response) {
+                            data: {
+                                entry: entry
+                            }
+                        }).then(function (response) {
                             console.log('academic posted');
                         }).catch(function (error) {
-                          console.log('academic post error', error);
+                            console.log('academic post error', error);
                         })
                     } else {
                         academic = 0;
@@ -123,11 +127,13 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function($ht
                         $http({
                             method: 'POST',
                             url: `/admin/social`,
-                            data: {entry: entry}
-                        }).then(function(response) {
+                            data: {
+                                entry: entry
+                            }
+                        }).then(function (response) {
                             console.log('social posted');
                         }).catch(function (error) {
-                          console.log('social post error', error);
+                            console.log('social post error', error);
                         })
                     } else {
                         social = 0;
@@ -141,11 +147,13 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function($ht
                         $http({
                             method: 'POST',
                             url: `/admin/health`,
-                            data: {entry: entry}
-                        }).then(function(response) {
+                            data: {
+                                entry: entry
+                            }
+                        }).then(function (response) {
                             console.log('health posted');
                         }).catch(function (error) {
-                          console.log('health post error', error);
+                            console.log('health post error', error);
                         })
                     } else {
                         health = 0;
@@ -159,11 +167,13 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function($ht
                         $http({
                             method: 'POST',
                             url: `/admin/professional`,
-                            data: {entry: entry}
-                        }).then(function(response) {
+                            data: {
+                                entry: entry
+                            }
+                        }).then(function (response) {
                             console.log('professional posted');
                         }).catch(function (error) {
-                          console.log('professional post error', error);
+                            console.log('professional post error', error);
                         })
                     } else {
                         professional = 0;
@@ -177,26 +187,50 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function($ht
                         $http({
                             method: 'POST',
                             url: `/admin/relationships`,
-                            data: {entry: entry}
-                        }).then(function(response) {
+                            data: {
+                                entry: entry
+                            }
+                        }).then(function (response) {
                             console.log('relationships posted');
                         }).catch(function (error) {
-                          console.log('relationships post error', error);
+                            console.log('relationships post error', error);
                         })
                     } else {
                         relationships = 0;
                     }
                     alert('Coach Added');
                     $location.path('/admin_Home');
-                }).catch(function(error) {
+                }).catch(function (error) {
                     console.log('get schools error');
                 })
-            }).catch(function(error) {
+            }).catch(function (error) {
                 console.log('specialties error');
             })
 
         }).catch(function (error) {
-          console.log('specialties post error', error);
+            console.log('specialties post error', error);
+        })
+    }
+
+
+    self.collectSchool = function (school) {
+        console.log('school', school);
+        const entry = {
+            school_name: school.school_name,
+            school_code: school.school_code,
+            total_accounts: school.total_accounts,
+            student_sessions: school.student_sessions
+        }
+        $http({
+            method: 'POST',
+            url: '/admin/school',
+            data: {
+                entry: entry
+            }
+        }).then(function (response) {
+            console.log('schooln created');
+        }).catch(function (error) {
+            console.log('disclaimer error');
         })
     }
 
