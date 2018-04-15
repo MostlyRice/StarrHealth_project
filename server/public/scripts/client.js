@@ -15,6 +15,7 @@ const myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngAria', 'ngMes
         }, wait || 10);
       };
     }
+
     function buildDelayedToggler(navID) {
       return debounce(function () {
         $mdSidenav(navID)
@@ -25,6 +26,7 @@ const myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngAria', 'ngMes
       }, 200);
     }
   })
+
 /// Routes ///
 myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
   console.log('myApp -- config')
@@ -255,7 +257,7 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
       templateUrl: '/views/student_views/student_appointments.html',
       controller: 'ScheduleController as vm',
       resolve: {
-        getStudent : function(UserService){
+        getStudent: function (UserService) {
           return UserService.getStudent();
         }
       }
@@ -317,4 +319,5 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
     .otherwise({
       template: '<h1>404</h1>'
     });
+
 }]);

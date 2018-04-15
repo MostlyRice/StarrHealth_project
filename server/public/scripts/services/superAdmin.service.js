@@ -116,4 +116,5 @@ myApp.service('SuperAdminService', ['$http', '$location', 'UserService', functio
             console.log('disclaimer error');
         })
     }
+
 }]); // end Admin service

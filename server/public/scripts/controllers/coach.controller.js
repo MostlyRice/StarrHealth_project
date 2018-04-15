@@ -1,4 +1,4 @@
-myApp.controller('CoachController', ['$http', 'UserService', '$location', 'CoachService', function($http, UserService, $location, CoachService) {
+myApp.controller('CoachController', ['$http', 'UserService', '$location', 'CoachService', function ($http, UserService, $location, CoachService) {
     console.log('CoachController created');
     var self = this;
     self.userService = UserService;
@@ -9,7 +9,5 @@ myApp.controller('CoachController', ['$http', 'UserService', '$location', 'Coach
     self.coachAppointmenets = CoachService.coachAppointmenets;
     self.coachSchedule = CoachService.coachSchedule;
     self.coachStudents = CoachService.coachStudents;
-
-
 
 }]);
