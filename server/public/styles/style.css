@@ -503,7 +503,7 @@ button.md-raised.md-primary.defaultBtn.md-button.md-ink-ripple {
 .cardBack{
   /* background-color: rgb(22, 134, 180, 0.4);  */
   background: rgba(255, 255, 255, 0.8);
-  padding: 7px;
+  padding: 9px;
 }
 button.md-raised.md-primary.defaultBtn.scheduleBtn.md-button.md-ink-ripple {
   background-color: #1686B4;
