@@ -102,7 +102,7 @@ router.get('/availability/:date', (request, response) => {
         .then(result => {
             console.log('GET COACH ID', result.rows[0].id);
             let coachID = result.rows[0].id;
-            let sqlText = "SELECT available_time, selected FROM calendar WHERE coach_id = $1 AND date=$2;";
+            let sqlText = "SELECT available_time, selected, coach_id, student_id, date FROM calendar WHERE coach_id = $1 AND date=$2;";
             console.log('date for get from db', date);
             pool.query(sqlText, [coachID, date])
             .then(res => {
@@ -143,18 +143,33 @@ router.get('/appointments', (request, response) => {
 
 router.put('/student', (request, response) => {
     if (request.isAuthenticated()){
-        let studentAvailability = request.body.time;
+        let appointmentTime = request.body.time;
+        let appointmentDate = request.body.day;
+        console.log('request body', appointmentDate, appointmentTime);
         let studentID = request.user.id;
         console.log('student id', request.user.id);
-        const sqlText = "UPDATE calendar SET student_id=$1 WHERE available_time=$2;";
-        pool.query(sqlText, [studentID, studentAvailability])
-        .then((result) => {
+        const SQLtext = `SELECT users.id FROM users
+        JOIN coach_bio ON coach_bio.id=users.id
+        JOIN student_bio ON student_bio.coach_id=coach_bio.coach_id
+        WHERE student_bio.id=$1;`;
+        pool.query(SQLtext, [studentID])
+        .then(result => {
+            console.log('GET COACH ID', result.rows[0].id);
+            let coachID = result.rows[0].id;
+            const sqlText = "UPDATE calendar SET student_id=$1 WHERE available_time=$2 AND coach_id=$3 AND date=$4;";
+            pool.query(sqlText, [studentID, appointmentTime, coachID, appointmentDate])
+            .then((result) => {
             response.sendStatus(201);
             console.log('student put', result);
+            })
+            .catch((error) => {
+                response.sendStatus(500);
+                console.log('post fail', error);
+            })
         })
-        .catch((error) => {
+        .catch(error => {
             response.sendStatus(500);
-            console.log('post fail', error);
+            console.log('get error', error);
         })
     } else {
         response.sendStatus(403);
