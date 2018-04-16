@@ -511,3 +511,16 @@ button.md-raised.md-primary.defaultBtn.scheduleBtn.md-button.md-ink-ripple {
   margin-right: auto;
   margin-left: auto;
 }
+.changePasswordCard{
+  font-size: 20px;
+  height: 500px;
+  width: 400px;
+  background: rgba(255, 255, 255, 0.9);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom:auto;
+  padding: 10px;
+  text-align: center;
+  color:black;
+}
