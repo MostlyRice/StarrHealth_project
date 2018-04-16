@@ -1,11 +1,11 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
     <h3>Schedule</h3>
-    <md-datepicker ng-model="vm.appointmentDate" md-placeholder="Enter date" ng-change="vm.getCoachTimes(vm.appointmentDate)"></md-datepicker>
+    <md-datepicker ng-model="vm.studentAppointment.date" md-placeholder="Enter date" ng-change="vm.getCoachTimes(vm.studentAppointment.date)"></md-datepicker>
     <div class="form-group">
         <div class="radio" ng-repeat="availability in vm.coachTimes.list">
             <label>
-                <input type="radio" name="{{availability}}" value="{{availability}}" ng-model="vm.studentAppointment.time"> {{availability.time}}AM
+                <input type="radio" name="{{availability}}" value="{{availability.time}}" ng-model="vm.studentAppointment.time"> {{availability.time}}AM
             </label>
         </div>
     </div>
