@@ -172,8 +172,7 @@ myApp.service('AddCoachService', ['$http', '$location', 'UserService', function 
                     } else {
                         relationships = 0;
                     }
-                    alert('Coach Added');
-                    $location.path('/admin_Home');
+                    swal('Coach Added');
                 }).catch(function (error) {
                     console.log('get schools error');
                 })

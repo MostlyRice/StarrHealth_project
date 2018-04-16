@@ -11,49 +11,39 @@
                 <h1 class="lead">Welcome {{vm.userObject.userName}}!</h1>
             </div>
             <md-content layout-padding hide show-gt-md flex>
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminHome()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminHome()">
                     <i class="material-icons home">home</i>
                     <span>Home Page</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminCreateCoach()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminCreateCoach()">
                     <i class="material-icons note-add">note_add</i>
-                    <span>Admin - Add Coach</span>
+                    <span>Add Coach</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminNewSchool()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminNewSchool()">
                     <i class="material-icons note-add">note_add</i>
-                    <span>Admin - Add School</span>
+                    <span>Add School</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminStudentDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminStudentDirectory()">
                     <i class="material-icons list">list</i>
-                    <span>Admin - Student Directory</span>
+                    <span>Student Directory</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superCoachDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminCoachDirectory()">
                     <i class="material-icons list">list</i>
-                    <span>Admin - Coach Directory</span>
+                    <span>Coach Directory</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminSchoolDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminSchoolDirectory()">
                     <i class="material-icons list">list</i>
-                    <span>Admin - School Directory</span>
+                    <span>School Directory</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminAllAppointments()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminAllApointments()">
                     <i class="material-icons date-range">date_range</i>
-                    <span>Admin - All Appointments</span>
-                </md-button>
-                <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminCoachSchedule()">
-                    <i class="material-icons date-range">date_range</i>
-                    <span>Coach - Schedule</span>
-                </md-button>
-                <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminCoachAllAppointments()">
-                    <i class="material-icons date-range">date_range</i>
-                    <span>Coach - All Appointments</span>
+                    <span>All Appointments</span>
                 </md-button>
                 <br />
                 <md-button class="md-raised md-warn" flex ng-click="vm.userService.logout()">
@@ -62,49 +52,39 @@
                 </md-button>
             </md-content>
             <md-content layout-padding hide-gt-md flex>
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminHome()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminHome()">
                     <i class="material-icons home">home</i>
                     <span>Home Page</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminCreateCoach()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminCreateCoach()">
                     <i class="material-icons note-add">note_add</i>
-                    <span>Admin - Add Coach</span>
+                    <span>Add Coach</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminNewSchool()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminNewSchool()">
                     <i class="material-icons note-add">note_add</i>
-                    <span>Admin - Add School</span>
+                    <span>Add School</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminStudentDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminStudentDirectory()">
                     <i class="material-icons list">list</i>
-                    <span>Admin - Student Directory</span>
+                    <span>Student Directory</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superCoachDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminCoachDirectory()">
                     <i class="material-icons list">list</i>
-                    <span>Admin - Coach Directory</span>
+                    <span>Coach Directory</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminSchoolDirectory()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminSchoolDirectory()">
                     <i class="material-icons list">list</i>
-                    <span>Admin - School Directory</span>
+                    <span>School Directory</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminAllAppointments()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.adminAllApointments()">
                     <i class="material-icons date-range">date_range</i>
-                    <span>Admin - All Appointments</span>
-                </md-button>
-                <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminCoachSchedule()">
-                    <i class="material-icons date-range">date_range</i>
-                    <span>Coach - Schedule</span>
-                </md-button>
-                <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminCoachAllAppointments()">
-                    <i class="material-icons date-range">date_range</i>
-                    <span>Coach - All Appointments</span>
+                    <span>All Appointments</span>
                 </md-button>
                 <br />
                 <md-button class="md-raised md-warn" flex ng-click="vm.userService.logout()">
