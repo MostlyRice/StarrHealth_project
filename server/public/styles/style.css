@@ -494,10 +494,11 @@ button.md-raised.md-primary.defaultBtn.md-button.md-ink-ripple {
   font-size:30px;
 }
 .timeSlot{
-  width: 75px;
+  width: 85px;
   margin-right: auto;
   margin-left: auto;
   /* display: inline-block; */
+  
 }
 .cardBack{
   /* background-color: rgb(22, 134, 180, 0.4);  */
@@ -506,8 +507,7 @@ button.md-raised.md-primary.defaultBtn.md-button.md-ink-ripple {
 }
 button.md-raised.md-primary.defaultBtn.scheduleBtn.md-button.md-ink-ripple {
   background-color: #1686B4;
-  width: 115px;
+  width: 125px;
   margin-right: auto;
   margin-left: auto;
-  color: black;
 }
