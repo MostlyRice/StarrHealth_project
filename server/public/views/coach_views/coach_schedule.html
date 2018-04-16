@@ -69,7 +69,7 @@
       <div flex>
         <h4 class="schedule-title">Coach Schedule</h4>
         <div layout="column" layout-align="top" ng-controller="ScheduleController as sc">
-        </div>
+        
         <div flex>
           <md-datepicker ng-model="sc.schedule.date" md-placeholder="Enter date" ng-change="sc.getCoachSchedule(sc.schedule)"></md-datepicker>
           <br>
@@ -133,9 +133,11 @@
           </div>
           
         </div>
+        <p>{{sc.schedule.timeOne}} - test</p>
   <br>
   <md-button class="md-raised md-primary defaultBtn scheduleBtn" ng-click="sc.postAvailability(sc.schedule)">Add</md-button>
       </div>
+    </div>
     </md-container>
   </md-card>
   </section>
