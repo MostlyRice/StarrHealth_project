@@ -5,13 +5,19 @@ Starr Health Scheduling Web App is a full-stack web application with the purpose
 
 ## Built With
 
-- AngularJS
-- Node.js
-- Express
-- PostgreSQL
-- AngularJS Material
-- SweetAlert
-- Filestack
+
+```
+,___________,         .----------,  _Request_    .------------,         .----------.
+|___________|       ,'_________,'|   -> | ->   ,'___________,'|        ( ~--------~ )
+| HTML5     |      | AngularJS | |      |      | Node.js    | |        | PostgreSQL |
+| CSS3      |      | SweetAlert| |      |      | Express.js | |        | ~--------~ |
+| Angular   | <--  | Angular   | |      |      |            | |        |            |        
+|  Material |      |  Material | |      |      |            | |        |            |
+|           |      | Filestack | ;   <- | <-   |            | ;        | ~--------~ |
+|___________|      |___________|'  _Response_  |____________|'         `.__________.'
+   Client           Client Logic            Server & Framework         Database
+           *Front End*                                     *Back End*    
+```
 
 ## Getting Started
 
@@ -19,36 +25,21 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-Link to software that is required to install the app (e.g. node).
-
 - [Node.js](https://nodejs.org/en/)
-- List other prerequisites here
+- PostgreSQL database
+  - Please see the database.sql file, it will give you the queries you need to create the database.
+  - The database name will have to be called "StarrHealth".
 
 
 ### Installing
 
 Steps to get the development environment running.
 
-```sql
-CREATE TABLE "users" (
-  "id" serial primary key,
-  "username" varchar(80) not null UNIQUE,
-  "password" varchar(240) not null,
-  "user_role" INT
-);
-```
+Once you clone the repo, you will want to run `npm i` to install all the modules so that the repo should function properly.
 
-## Screen Shot
-
-Include one or two screen shots of your project here (optional). Remove if unused.
-
-## Documentation
-
-Link to a read-only version of your scope document or other relevant documentation here: https://docs.google.com/document/d/1gGTGabopz6QncbPzYBP0jFaSL_c1UE1eGZYKHAht12s/edit?usp=sharing
+Then it will be as simple as typing `npm start` to start up the application and you can access it on your browser at `http://localhost:5000/`
 
 ### Completed Features
-
-High level list of items completed.
 
 **Student user features:**
 - [ ] **Coach profile preview:** Provides a brief summary of coach's information.
@@ -78,10 +69,6 @@ Features that you would like to add at some point in the future.
 - [ ] A messaging function that allows students and coaches to send messages back and forth. This would be an individual message page that could only be viewed by the student and their coach. The hope is that this would take the place of any email and phone contact
 - [ ] The ability for the app to send email/text reminders for Students & Coaches.
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
 ## Authors
 
 - Alex Aspell
@@ -89,7 +76,3 @@ Add additional notes about how to deploy this on a live system
 - Carter Schleif
 - James Nguyen
 - Renee Vorbeck
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used

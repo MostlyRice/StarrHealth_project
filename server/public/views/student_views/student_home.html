@@ -63,7 +63,7 @@
                 <div ng-hide="vm.editing" name="bio">
                     {{student.student_bio}}
                 </div>
-                <input ng-show="vm.editing" type="text" name="bio" ng-model="vm.newBio" placeholder="Enter a Bio"/>
+                <input ng-show="vm.editing" type="text" name="bio" ng-model="vm.newBio" placeholder="Enter a Bio" />
             </div>
             <div ng-repeat="student in vm.student.list">
                 <button ng-hide="vm.editing" ng-click="vm.editBio()">Update Bio</button>
@@ -78,5 +78,4 @@
         <!-- End Put Content In This Div! -->
 
     </section>
-
 </div>
