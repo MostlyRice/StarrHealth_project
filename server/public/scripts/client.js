@@ -210,16 +210,16 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
     })
     .when('/coach_Schedule', {
       templateUrl: '/views/coach_views/coach_Schedule.html',
-      controller: 'ScheduleController as vm',
+      controller: 'CoachController as vm',
       resolve: {
         getCoach: function (UserService) {
           return UserService.getCoach();
         }
       }
-    })
+    })//ScheduleController
     .when('/coach_Appointments', {
       templateUrl: '/views/coach_views/coach_Appointments.html',
-      controller: 'ScheduleController as vm',
+      controller: 'CoachController as vm',
       resolve: {
         getCoach: function (UserService) {
           return UserService.getCoach();
