@@ -115,64 +115,62 @@
         </md-sidenav>
 
         <!-- Put Content In This Div! -->
-        
-                <md-card class="create-coach">
-                <form>
-                        
-                        <md-input-container>
-                            <label class="blackLabel" for="firstName">First Name:</label>
-                            <input type="text" name="firstName" ng-model="vm.coachInfo.first_name">
-                        </md-input-container>
-                        
-                        <md-input-container>
-                            <label class="blackLabel" for="lastName">Last Name:</label>
-                            <input type="text" name="lastName" ng-model="vm.coachInfo.last_name">
-                        </md-input-container>
-                        <md-input-container>
-                            <label class="blackLabel" for="userName">Coach Username:</label>
-                            <input type="text" name="userName" ng-model="vm.coachInfo.username">
-                        </md-input-container>
-                        <br>
-                        <md-input-container>
-                            <label class="blackLabel" for="passwordOne">Password:</label>
-                            <input type="password" ng-model="vm.coachInfo.passwordOne">
-                        </md-input-container>
-                        <md-input-container>
-                            <label class="blackLabel" for="passwordTwo">Confirm Password:</label>
-                            <input type="password" ng-model="vm.coachInfo.passwordTwo">
-                        </md-input-container>
-                        <md-input-container>
-                            <label class="blackLabel" for="email">Email:</label>
-                            <input type="email" name="email" ng-model="vm.coachInfo.email" />
-                        </md-input-container>
-                        <br>
-                        <md-container>
-                            <md-select placeholder="Job Title:" name="jobTitle" ng-model="vm.coachInfo.job_title">
-                                <md-option value="Life Coach">Life Coach</md-option>
-                                <md-option value="Health Coach">Health Coach</md-option>
-                                <md-option value="Nutritionist">Nutritionist</md-option>
-                            </md-select>
-                        </md-container>
-                        <md-container>
-                            <md-select placeholder="Specialty:" name="specialty" ng-model="vm.coachInfo.specialty">
-                                <md-option value="Academic">Academic Goal Setting</md-option>
-                                <md-option value="Social Life">Social Life</md-option>
-                                <md-option value="Personal Health">Health and Wellness</md-option>
-                                <md-option value="Professional">Professional Success</md-option>
-                                <md-option value="Relationships">Relationships</md-option>
-                            </md-select>
-                        </md-container>
-                        <md-input-container>
-                            <label class="blackLabel" for="interests">Personal Interests:</label>
-                            <input type="text" name="interests" ng-model="vm.coachInfo.interests">
-                        </md-input-container>
-                        <div>
-                            <md-button class="md-raised md-primary defaultBtn" ng-click="vm.coachDir()">Back</md-button>
-                            <md-button class="md-raised md-primary defaultBtn" ng-click="vm.collectCoach(vm.coachInfo)">Next</md-button>
-                        </div>
-                    </form>
-                </md-card>
-                
-    </section>
+        <md-card class="create-coach">
+            <form>
 
+                <md-input-container>
+                    <label class="blackLabel" for="firstName">First Name:</label>
+                    <input type="text" name="firstName" ng-model="vm.coachInfo.first_name">
+                </md-input-container>
+
+                <md-input-container>
+                    <label class="blackLabel" for="lastName">Last Name:</label>
+                    <input type="text" name="lastName" ng-model="vm.coachInfo.last_name">
+                </md-input-container>
+                <md-input-container>
+                    <label class="blackLabel" for="userName">Coach Username:</label>
+                    <input type="text" name="userName" ng-model="vm.coachInfo.username">
+                </md-input-container>
+                <br>
+                <md-input-container>
+                    <label class="blackLabel" for="passwordOne">Password:</label>
+                    <input type="password" ng-model="vm.coachInfo.passwordOne">
+                </md-input-container>
+                <md-input-container>
+                    <label class="blackLabel" for="passwordTwo">Confirm Password:</label>
+                    <input type="password" ng-model="vm.coachInfo.passwordTwo">
+                </md-input-container>
+                <md-input-container>
+                    <label class="blackLabel" for="email">Email:</label>
+                    <input type="email" name="email" ng-model="vm.coachInfo.email" />
+                </md-input-container>
+                <br>
+                <md-container>
+                    <md-select placeholder="Job Title:" name="jobTitle" ng-model="vm.coachInfo.job_title">
+                        <md-option value="Life Coach">Life Coach</md-option>
+                        <md-option value="Health Coach">Health Coach</md-option>
+                        <md-option value="Nutritionist">Nutritionist</md-option>
+                    </md-select>
+                </md-container>
+                <md-container>
+                    <md-select placeholder="Specialty:" name="specialty" ng-model="vm.coachInfo.specialty">
+                        <md-option value="Academic">Academic Goal Setting</md-option>
+                        <md-option value="Social Life">Social Life</md-option>
+                        <md-option value="Personal Health">Health and Wellness</md-option>
+                        <md-option value="Professional">Professional Success</md-option>
+                        <md-option value="Relationships">Relationships</md-option>
+                    </md-select>
+                </md-container>
+                <md-input-container>
+                    <label class="blackLabel" for="interests">Personal Interests:</label>
+                    <input type="text" name="interests" ng-model="vm.coachInfo.interests">
+                </md-input-container>
+                <div>
+                    <md-button class="md-raised md-primary defaultBtn" ng-click="vm.coachDir()">Back</md-button>
+                    <md-button class="md-raised md-primary defaultBtn" ng-click="vm.addCoach(vm.coachInfo)">Next</md-button>
+                </div>
+            </form>
+        </md-card>
+
+    </section>
 </div>

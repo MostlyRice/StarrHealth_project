@@ -1,21 +1,22 @@
-myApp.controller('ScheduleController', ['$http', 'ScheduleService', 'UserService', function($http, ScheduleService, UserService) {
-    console.log('ScheduleController created');
-    let self = this;
-    self.postAvailability = ScheduleService.postAvailability;
+myApp.controller('ScheduleController', ['$http', 'ScheduleService', 'UserService', function ($http, ScheduleService, UserService) {
+  console.log('ScheduleController created');
+  let self = this;
+  self.postAvailability = ScheduleService.postAvailability;
 
-    self.coachAppointments = ScheduleService.coachAppointments;
-    self.getCoachAppointments = ScheduleService.getCoachAppointments;
+  self.coachAppointments = ScheduleService.coachAppointments;
+  self.getCoachAppointments = ScheduleService.getCoachAppointments;
 
-    self.coachTimes = ScheduleService.coachTimes;
-    self.getCoachTimes = ScheduleService.getCoachTimes;
+  self.coachTimes = ScheduleService.coachTimes;
+  self.getCoachTimes = ScheduleService.getCoachTimes;
 
-    self.postCalendar = ScheduleService.postCalendar;
-    self.getCoachSchedule = ScheduleService.getCoachSchedule;
+  self.postCalendar = ScheduleService.postCalendar;
+  self.getCoachSchedule = ScheduleService.getCoachSchedule;
 
-    self.schedule = ScheduleService.schedule;
+  self.schedule = ScheduleService.schedule;
 
-    self.postStudentSchedule = ScheduleService.postStudentSchedule;
+  self.postStudentSchedule = ScheduleService.postStudentSchedule;
 
-    // self.getCoachTimes();
-    self.getCoachAppointments();
-  }]);
+  // self.getCoachTimes();
+  self.getCoachAppointments();
+
+}]);
