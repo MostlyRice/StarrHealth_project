@@ -6,6 +6,7 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
     self.myself = {
         list: []
     }
+    self.newItem = {};
 
     self.coachHome = function () {
         $location.path('/coach_Home');
@@ -21,7 +22,7 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
     }
     
     //Instantiating dialog with Filestack
-    self.client = filestack.init("");
+    self.client = filestack.init("ASYgNuRdqTkmiELkrSnfIz");
 
     self.coachBio = {
         list: []
@@ -29,6 +30,7 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
 
     //Filestack API method 'pick()' that opens the file picker
     self.upload = function () {
+        const id = UserService.userObject.id;
         console.log('in upload');
         self.typeUrl = false;
         self.client.pick({
@@ -36,10 +38,27 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
             maxFiles: 1
         }).then(function (result) {
             // self.uploadSuccess.success = true;
-            alert("Successful Upload!");
             // console.log(JSON.stringify(result));
             self.newItem.itemUrl = result.filesUploaded[0].url;
             console.log('self.newItem.itemUrl', self.newItem.itemUrl);
+            let photo = self.newItem.itemUrl;
+            entry = {
+                id: id,
+                coach_photo: photo
+            }
+            console.log('ENTRAY', entry);
+            $http({
+                method: 'PUT',
+                url: `/coach/photo/${id}`,
+                data: {
+                    entry: entry
+                }
+            }).then(function (response) {
+                alert('Successful Update');
+                location.reload(true);
+            }).catch(function (error) {
+                console.log('photo change error');
+            })
 
         });
     }
