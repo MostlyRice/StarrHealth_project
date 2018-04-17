@@ -93,4 +93,18 @@ router.put('/username/:id', (request, response) => {
     })
 }); // end username update
 
+router.put('/photo/:id', (request, response) => {
+  const id = request.params.id;
+  const entry = request.body.entry;
+  let queryText = `UPDATE coach_bio 
+  SET coach_photo=$2 WHERE id=$1`;
+  pool.query(queryText, [id, entry.coach_photo])
+    .then((result) => {
+      response.sendStatus(200);
+    })
+    .catch((err) => {
+      response.sendStatus(500);
+    })
+}); // end username update
+
 module.exports = router;

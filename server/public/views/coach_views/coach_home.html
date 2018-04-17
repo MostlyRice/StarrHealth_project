@@ -113,7 +113,13 @@
                 </div>
               <input ng-show="coach.editing" class="text-label" type="text" name="bio" ng-model="coach.coach_bio" />
           </div>
-          
+          <div>
+              <label class="text-label" for="photo">Coach Photo:</label>
+                <div name="photo">
+                    <img ng-src="{{coach.coach_photo}}" width="180px">
+                </div>
+              <button ng-click="vm.upload()">Change Photo</button>
+          </div> 
 
 
         <div>
@@ -137,6 +143,8 @@
         <button ng-show="vm.editing" ng-click="vm.saveUserName(vm.id, vm.userName)">Save User Name</button>
         <button ng-show="vm.editing" ng-click="vm.cancelUserName()">Cancel Update</button>
     </div>
+
+
     <div flex></div>
     <!-- End Put Content In This Div! -->
 

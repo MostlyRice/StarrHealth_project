@@ -15,6 +15,7 @@ myApp.controller('CoachController', ['$http', 'UserService', '$location', 'Coach
     self.myself = CoachService.myself;
     self.saveCoach = CoachService.saveCoach;
     self.saveUserName = CoachService.saveUserName;
+    self.upload = CoachService.upload;
     
     CoachService.getMe();
     console.log('myself', self.myself);
