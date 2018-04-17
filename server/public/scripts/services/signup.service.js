@@ -10,6 +10,12 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
     self.allCoaches = {
         list: []
     }
+    self.myCoach = {
+        list: []
+    }
+    self.specialties = {
+        list: []
+    }
 
     self.disclaimer = function () {
         // swal({
@@ -30,6 +36,31 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
     self.goals = function () {
         $location.path('/student_goals');
     } // end goals
+
+    self.viewCoach = function(coach) {
+        console.log('coach', coach);
+        $http({
+            method: 'GET',
+            url: `/coach/viewcoach/${coach}`
+        }).then(function (response) {
+            console.log(response.data);
+            self.myCoach.list = response.data;
+            console.log('myCoach = ', self.myCoach.list);
+            $http({
+                method: 'GET',
+                url: `/coach/getspecialties/${coach}`
+            }).then(function (response) {
+                console.log(response.data);
+                self.specialties.list = response.data;
+                console.log('self.specialties = ', self.specialties.list);
+            }).catch(function (error) {
+                console.log('get specialties error');
+            })
+        }).catch(function (error) {
+            console.log('get myCoach error');
+        })
+        $location.path('/student_coach');
+    } // end viewCoach
 
 
     self.letPass = function () {
