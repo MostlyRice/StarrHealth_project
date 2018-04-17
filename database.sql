@@ -22,7 +22,7 @@ CREATE TABLE "schools"
   ( 
      "school_id"        SERIAL PRIMARY KEY, 
      "school_name"      VARCHAR(40), 
-     "school_code"      VARCHAR(20), 
+     "school_code"      VARCHAR(240), 
      "total_accounts"   INT, 
      "student_sessions" INT 
   ); 
