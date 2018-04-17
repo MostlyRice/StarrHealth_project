@@ -94,7 +94,7 @@ CREATE TABLE "student_bio"
 
 INSERT INTO "public"."specialties"("specialty_id", "specialty_name") VALUES(1, 'Academic Goal Setting');
 INSERT INTO "public"."specialties"("specialty_id", "specialty_name") VALUES(2, 'Social Life');
-INSERT INTO "public"."specialties"("specialty_id", "specialty_name") VALUES(3, 'Health & Wellness')
+INSERT INTO "public"."specialties"("specialty_id", "specialty_name") VALUES(3, 'Health & Wellness');
 INSERT INTO "public"."specialties"("specialty_id", "specialty_name") VALUES(4, 'Professional Success');
 INSERT INTO "public"."specialties"("specialty_id", "specialty_name") VALUES(5, 'Relationships');
 
