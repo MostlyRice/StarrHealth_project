@@ -2,6 +2,7 @@ const express = require('express');
 const encryptLib = require('../modules/encryption');
 const pool = require('../modules/pool.js');
 const router = express.Router();
+var moment = require('moment');
 
 router.get('/coach/:day', (request, response) => {
     if (request.isAuthenticated()){
@@ -46,6 +47,83 @@ router.post('/calendar', (request, response) => {
             })
         }
         }
+    } else {
+        response.sendStatus(403);
+    }
+})
+
+router.post('/weekly', (request, response) => {
+    if (request.isAuthenticated()){
+        console.log('getting weekly post', request.body.weeklyAppointments);
+        const coachAvailability = request.body;
+        const availabilityArray = [];
+        const coachID = request.user.id;
+        let appointmentArray = request.body.weeklyAppointments;
+        let weeklyAppointments = []; 
+        for (let appointment of appointmentArray){
+            weeklyAppointments.push(moment(appointment).format('L'));
+        }
+        console.log('weekly appointments', weeklyAppointments);
+        const SQLtext = 'SELECT * FROM calendar WHERE date=$1;';
+        for( let appointment of weeklyAppointments){
+            pool.query(SQLtext, [appointment])
+            .then((result) => {
+                console.log('post weekly times', result.rows);
+                let weekly = {};
+                    weekly.timeOne = 8;
+                    weekly.timeTwo = 9;
+                    weekly.timeThree = 10;
+                    weekly.timeFour = 11;
+                    weekly.timeFive = 12;
+                    weekly.timeSix = 1;
+                    weekly.timeSeven = 2;
+                    weekly.timeEight = 3;
+                    weekly.timeNine = 4;
+                    weekly.timeTen = 5;
+                    weekly.timeEleven = 6;
+                if(result.rows.length < 1){
+                    sqlText = `INSERT INTO calendar (available_time, date, coach_id, property, selected) VALUES ($1, $2, $3, $4, false);`
+                    for (let input in weekly){
+                        let property = input;
+                        let available_time = weekly[input];
+                    pool.query(sqlText, [available_time, appointment, coachID, property])
+                    .then((result) => {
+                        response.sendStatus(201);
+                        console.log('post weekly', result);
+                    })
+                    .catch((error) => {
+                        response.sendStatus(500);
+                        console.log('post weekly error', error);
+                    })
+                }
+            }
+            const SQLTEXT = 'UPDATE calendar SET selected=false WHERE date=$1 and coach_id=$2;';
+            pool.query(SQLtext, [appointment, coachID])
+            .then((result) => {
+                for(let value in coachAvailability){
+                    if(value != 'date' && value != 'coach_id' && value != 'day' && value != 'weeklyAppointments'){
+                        availabilityArray.push(coachAvailability[value])};
+                    }
+                    console.log('availability array', availabilityArray);
+                    for(let time of availabilityArray){
+                        const sqlText = `UPDATE calendar SET selected=true WHERE available_time=$1 AND date=$2 AND coach_id=$3;`;
+                        pool.query(sqlText, [time, appointment, coachID])
+                        .then((result) => {
+                            response.sendStatus(201);
+                            console.log('put new times', result);
+                        })
+                        .catch((error) => {
+                            response.sendStatus(500);
+                            console.log('put new times', error);
+                        })
+            }
+        })
+        })
+            .catch((error) => {
+                console.log('post weekly times', error);
+            })
+        }
+    
     } else {
         response.sendStatus(403);
     }

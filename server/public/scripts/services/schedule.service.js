@@ -18,15 +18,15 @@ myApp.service('ScheduleService', ['$http', 'UserService', function ($http, UserS
         schedule.timeNine = 4;
         schedule.timeTen = 5;
         schedule.timeEleven = 6;
-        console.log('post calendar', schedule);
-        schedule.day = moment(schedule.date).format('MMMM Do YYYY');
+        // console.log('post calendar', schedule);
+        schedule.day = moment(schedule.date).format('L');
         $http({
                 method: 'POST',
                 url: '/calendar/calendar',
                 data: schedule
             })
             .then(function (response) {
-                console.log('calendar added', response);
+                // console.log('calendar added', response);
                 schedule.timeOne = 0;
                 schedule.timeTwo = 0;
                 schedule.timeThree = 0;
@@ -44,37 +44,57 @@ myApp.service('ScheduleService', ['$http', 'UserService', function ($http, UserS
     }
 
     self.getCoachSchedule = function (schedule) {
-        day = moment(schedule.date).format('MMMM Do YYYY');
-        console.log('getting coach day schedule')
+        day = moment(schedule.date).format('L');
+        // console.log('getting coach day schedule')
         $http.get(`/calendar/coach/${day}`)
             .then(function (response) {
-                console.log('get coach day times', response.data);
+                // console.log('get coach day times', response.data);
                 if (response.data.length < 1) {
-                    console.log('do the post here');
+                    // console.log('do the post here');
                     self.postCalendar(schedule);
                 }
                 let responseArray = response.data;
-                console.log(responseArray);
+                // console.log(responseArray);
                 for (let response of responseArray) {
                     let key = response.property;
                     schedule[key] = 0;
                 }
                 for (let response of responseArray) {
                     if (response.selected == 'true') {
-                        console.log('getting chosen times', response.available_time);
+                        // console.log('getting chosen times', response.available_time);
                         let key = response.property;
                         schedule[key] = response.available_time;
                     }
                 }
             }).catch(function (error) {
-                console.log('get coach day times error', error);
+                // console.log('get coach day times error', error);
             })
     }
 
     self.postAvailability = function (schedule) {
-        schedule.day = moment(schedule.date).format('MMMM Do YYYY');
+        schedule.day = moment(schedule.date).format('L');
         console.log('date', schedule.day);
         console.log('post availability', schedule);
+        console.log('weekly appointment', schedule.weekly);
+        if(schedule.weekly == true){
+            let recurrence = moment(schedule.day).recur().every(7).days();
+            schedule.weeklyAppointments = recurrence.next(24);
+            // let recurrence = moment(schedule.date).format('MMMM Do YYYY').recur().every(7).days();
+            // schedule.weeklyAppointments = recurrence.next(24);
+            console.log('new weekly appointments', schedule.weeklyAppointments);
+            $http({
+
+                method: 'POST',
+                url: '/calendar/weekly',
+                data: schedule
+            })
+        .then(function(response) {
+            console.log('weekly times added', response);
+            swal("Schedule update!", "", "success");
+        }).catch(function(error) {
+            console.log('add weekly error', error);
+        })
+        } else {
         $http({
 
             method: 'PUT',
@@ -82,55 +102,56 @@ myApp.service('ScheduleService', ['$http', 'UserService', function ($http, UserS
             data: schedule
         })
     .then(function(response) {
-        console.log('times added', response);
+        // console.log('times added', response);
         swal("Schedule update!", "", "success");
     }).catch(function(error) {
-        console.log('add times error', error);
+        // console.log('add times error', error);
     })
+    }
     }
 
     self.getCoachAppointments = function () {
         $http.get('/calendar/appointments')
 
         .then(function(response) {
-            console.log('appointments get', response.data);
+            // console.log('appointments get', response.data);
             let appointmentArray = response.data.filter(function(res){
                 if(res.student_id != null){
                 return res
                 }
             })
-            console.log('appointment array', appointmentArray);
+            // console.log('appointment array', appointmentArray);
             self.coachAppointments.list = appointmentArray.map(function(res) {
                 return {time: res.available_time, student: res.student_id, date: res.date}
                 });
-            console.log('coach appointments', self.coachAppointments.list)
+            // console.log('coach appointments', self.coachAppointments.list)
         }).catch(function(error){
-            console.log('Error getting times', error);
+            // console.log('Error getting times', error);
         })
     }
 
     self.getCoachTimes = function (input) {
-        let date = moment(input).format('MMMM Do YYYY');
+        let date = moment(input).format('L');
         $http.get(`/calendar/availability/${date}`)
         .then(function(response) {
-            console.log('times get', response.data);
+            // console.log('times get', response.data);
             let responseArray = response.data.filter(function(res){ 
             if(res.selected == 'true' && res.student_id == null){
                 return res}
             });
-            console.log('times', responseArray);
+            // console.log('times', responseArray);
             self.coachTimes.list = responseArray.map(res => {
                 return {time: res.available_time}
             });
-            console.log('available time', self.coachTimes.list);
+            // console.log('available time', self.coachTimes.list);
         }).catch(function(error){
-            console.log('Error getting times', error);
+            // console.log('Error getting times', error);
         })
     }
 
         self.postStudentSchedule = function(studentAppointment){
-            studentAppointment.day = moment(studentAppointment.date).format('MMMM Do YYYY');
-            console.log('student appointment', studentAppointment);
+            studentAppointment.day = moment(studentAppointment.date).format('L');
+            // console.log('student appointment', studentAppointment);
             $http({
 
                 method: 'PUT',
@@ -138,12 +159,12 @@ myApp.service('ScheduleService', ['$http', 'UserService', function ($http, UserS
                 data: studentAppointment
             })
             .then(function (response) {
-                console.log('studend appointment added', response);
+                // console.log('studend appointment added', response);
 
                 swal("Appointment added!", "", "success");
             }).catch(function(error) {
 
-                console.log('student appointment error', error);
+                // console.log('student appointment error', error);
             })
     }
 

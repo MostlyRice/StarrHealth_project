@@ -133,7 +133,9 @@
           </div>
           
         </div>
-        <p>{{sc.schedule.timeOne}} - test</p>
+        <label>
+        <input type="checkbox" ng-model="sc.schedule.weekly"> Make Appointments Weekly
+        </label>
   <br>
   <md-button class="md-raised md-primary defaultBtn scheduleBtn" ng-click="sc.postAvailability(sc.schedule)">Add</md-button>
       </div>
