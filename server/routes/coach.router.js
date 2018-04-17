@@ -18,6 +18,37 @@ router.post('/', (request, response) => {
   })
 }); // end POST
 
+router.get('/viewcoach/:id', (request, response) => {
+  const id = request.params.id;
+  console.log('ID', id);
+  const sqlText = `SELECT * FROM coach_bio WHERE coach_id=$1`;
+  pool.query(sqlText, [id])
+    .then(function(result) {
+    //  console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function(error){
+    //  console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+}); // end viewCoach GET
+
+router.get('/getspecialties/:id', (request, response) => {
+  const id = request.params.id;
+  console.log('ID', id);
+  const sqlText = `SELECT specialties.specialty_name FROM specialties 
+  JOIN coach_specialties ON coach_specialties.specialty_id=specialties.specialty_id
+  WHERE coach_specialties.coach_id=$1`;
+  pool.query(sqlText, [id])
+    .then(function(result) {
+    //  console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function(error){
+    //  console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+}); // end viewCoach GET
 
 
 module.exports = router;
