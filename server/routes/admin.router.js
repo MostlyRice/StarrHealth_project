@@ -5,10 +5,10 @@ const router = express.Router();
 
 router.post('/school', (request, response) => {
     const entry = request.body.entry;
-    const school_code = encryptLib.encryptPassword(entry.school_code);
+    const school_code = entry.school_code;
     const saveSchool = {
       school_name: entry.school_name,
-      school_code: encryptLib.encryptPassword(entry.school_code),
+      school_code: entry.school_code,
       total_accounts: entry.total_accounts,
       student_sessions: entry.student_sessions
     }
@@ -45,7 +45,8 @@ router.post('/school/:school_id', (request, response) => {
   pool.query(sqlText, [school_id])
     .then(function(result) {
       user = result.rows[0];
-      if(encryptLib.comparePassword(secret, user.school_code)) {
+      console.log(user);
+      if(secret === user.school_code) {
         // all good!
         response.send(result.rows);
       } else {
