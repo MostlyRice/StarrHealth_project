@@ -68,7 +68,7 @@
             <div ng-repeat="student in vm.student.list">
                 <button ng-hide="vm.editing" ng-click="vm.editBio()">Update Bio</button>
                 <button ng-show="vm.editing" ng-click="vm.saveBio(student.student_id, vm.newBio)">Save Bio</button>
-                <button ng-show="vm.editing" ng-click="vm.cancelBio()">Cancel</button>
+                <button ng-show="vm.editing" ng-click="vm.cancelBio()">Cancel Update</button>
             </div>
             <div>
                 <button ng-click="vm.newPassword()">Change Password:</button>

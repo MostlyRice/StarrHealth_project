@@ -50,5 +50,47 @@ router.get('/getspecialties/:id', (request, response) => {
     })
 }); // end viewCoach GET
 
+router.get('/:id', (request, response) => {
+  const id = request.params.id;
+  console.log('ID', id);
+  const sqlText = `SELECT * FROM coach_bio WHERE id=$1`;
+  pool.query(sqlText, [id])
+    .then(function(result) {
+    //  console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function(error){
+    //  console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+});
+
+router.put('/profile/:id', (request, response) => {
+  const id = request.params.id;
+  const entry = request.body.entry;
+  let queryText = `UPDATE coach_bio 
+  SET first_name=$2, last_name=$3, email=$4, job_title=$5, certifications=$6, personal_interests=$7, coach_bio=$8 WHERE coach_id=$1`;
+  pool.query(queryText, [id, entry.first_name, entry.last_name, entry.email, entry.job_title, entry.certifications, entry.personal_interests, entry.coach_bio])
+    .then((result) => {
+      response.sendStatus(200);
+    })
+    .catch((err) => {
+      response.sendStatus(500);
+    })
+}); // end profile update
+
+router.put('/username/:id', (request, response) => {
+  const id = request.params.id;
+  const entry = request.body.entry;
+  let queryText = `UPDATE users 
+  SET username=$2 WHERE id=$1`;
+  pool.query(queryText, [id, entry.username])
+    .then((result) => {
+      response.sendStatus(200);
+    })
+    .catch((err) => {
+      response.sendStatus(500);
+    })
+}); // end username update
 
 module.exports = router;
