@@ -21,6 +21,15 @@ body {
 
 main {
   overflow: scroll;
+  content: "";
+  background-color: transparent;
+  background: url(../images/landingPageBackground2.png) center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .instructions .container h1 {
@@ -42,8 +51,9 @@ main {
   margin-top: 10px;
 }
 
-.container p {
+.home-page-text {
   margin-top: 14px;
+  margin-bottom: 0;
 }
 
 .message {
@@ -126,26 +136,6 @@ header {
   text-align: center;
   color: rgba(0, 0, 0, 0.7);
   font-size: 20px;
-}
-
-.landingBtns {
-  text-align: center;
-}
-
-.landingPage {
-  background: url(../images/newLandingPage.png) no-repeat center center fixed;
-  height: auto;
-  width: auto;
-}
-
-.loginPage {
-  background: url(../images/newLandingPage.png) no-repeat center center fixed;
-  text-align: center;
-}
-
-.registerPage {
-  background: url(../images/newLandingPage.png) no-repeat center center fixed;
-  text-align: center;
 }
 
 .registration-view-text {
@@ -255,8 +245,6 @@ md-sidenav md-content {
 }
 
 .layout-fill {
-  content: "";
-  background: url(../images/landingPageBackground2.png) no-repeat center center fixed;
   top: 0;
   left: 0;
   z-index: 1;
@@ -316,17 +304,10 @@ a.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple {
   width: 95%;
 }
 
-.home-card {
-  background: rgba(255, 255, 255, 0.9);
-}
-
-.login-card {
-  background: rgba(255, 255, 255, 0.9);
-}
-
 .login-title {
   color: rgba(7, 61, 128, 0.8);
   font-weight: bold;
+  margin-top: 0;
 }
 
 .text-label {
@@ -388,6 +369,7 @@ a.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple {
 .register-title {
   color: rgba(7, 61, 128, 0.8);
   font-weight: bold;
+  margin-top: 0;
 }
 
 .disclaimer {
@@ -439,10 +421,6 @@ a.md-raised.md-primary.defaultBtn.md-button.md-ink-ripple {
 md-input-container.other-barriers {
   margin: 0 0 0 0;
   padding: 0 8px 0 8px;
-}
-
-.section-element {
-  overflow-y: hidden;
 }
 
 .content-element {

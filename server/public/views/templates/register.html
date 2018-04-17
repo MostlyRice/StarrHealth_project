@@ -1,28 +1,33 @@
-<div class="container registerPage" ng-cloak layout-fill layout="column" layout-align="center center">
+<div ng-cloak layout-fill layout="column" layout-align="center center">
 
-  <md-card class="register-card">
-    <h1 class="register-title" class="lead">Register User</h1>
+  <md-card class="card-element">
+    <br>
+    <div layout-padding class="starr-landing">
+      <img ng-src="./images/starrhealthlogo.png" />
+      <p class="home-page-text">Starr Health Co.</p>
+    </div>
+    <h1 class="register-title" class="lead">Register Student</h1>
     <h1 class="lead alert alert-danger" role="alert" ng-if="vm.message != ''">{{vm.message}}</h2>
       <form ng-submit="vm.registerUser()">
-        <div class="container">
-          <md-input-container>
+        <div layout-align="center center">
+          <md-input-container flex>
             <label class="label-items" for="username">Username:</label>
             <input class="label-items" type="text" ng-model="vm.user.username" ng-required="true" />
           </md-input-container>
         </div>
-        <div class="container">
-          <md-input-container>
+        <div layout-align="center center">
+          <md-input-container flex>
             <label class="label-items" for="passwordOne">Password:</label>
             <input class="label-items" type="password" ng-model="vm.user.passwordOne" ng-required="true" />
           </md-input-container>
         </div>
-        <div class="container">
-          <md-input-container>
+        <div layout-align="center center">
+          <md-input-container flex>
             <label class="label-items" for="passwordTwo">Confirm Password:</label>
             <input class="label-items2" type="password" ng-model="vm.user.passwordTwo" ng-required="true" />
           </md-input-container>
         </div>
-        <div class="landingBtns">
+        <div layout-align="center center">
           <md-input-container>
             <md-button class="md-raised md-primary defaultBtn" type="submit" name="submit" value="Register">Register</md-button>
             <md-button class="md-raised md-primary defaultBtn" ng-href="/#!home">Cancel</md-button>
