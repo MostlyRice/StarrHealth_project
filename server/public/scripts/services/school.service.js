@@ -4,9 +4,12 @@ myApp.service('SchoolService', ['$http', '$location', 'UserService', function ($
 
     self.addSchool = function(school) {
         console.log('school', school);
+        if (school.school_codeOne != school.school_codeTwo) {
+            alert('school codes do not match')
+        } else if (school.school_codeOne === school.school_codeTwo) {
         const entry = {
             school_name: school.school_name,
-            school_code: school.school_code,
+            school_code: school.school_codeOne,
             total_accounts: school.total_accounts,
             student_sessions: school.student_sessions
         }
@@ -21,6 +24,10 @@ myApp.service('SchoolService', ['$http', '$location', 'UserService', function ($
         }).catch(function (error) {
             console.log('disclaimer error');
         })
+    } else {
+        alert('Something Went Wrong. Please Try Again');
+        location.reload(true);
     }
+}
 
 }]); // end school service
