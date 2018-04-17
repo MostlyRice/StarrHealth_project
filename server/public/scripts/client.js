@@ -226,6 +226,15 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
         }
       }
     })
+    .when('/coach_password', {
+      templateUrl: '/views/coach_views/coach_password.html',
+      controller: 'CoachController as vm',
+      resolve: {
+        getCoach: function (UserService) {
+          return UserService.getCoach();
+        }
+      }
+    })
     .when('/coach_Students', {
       templateUrl: '/views/coach_views/coach_Students.html',
       controller: 'CoachController as vm',
