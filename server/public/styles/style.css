@@ -3,19 +3,24 @@
   src: url("./fonts/CallunaSans-Regular.woff") format("woff");
 }
 
+@-ms-viewport{
+  width: device-width;
+}
+
 html {
-  height: 100%;
   margin: 0;
   padding: 0;
   font-family: CallunaSans !important;
   font-size: 14px;
-  overflow: hidden
 }
 
 body {
-  min-height: 100%;
   overflow: hidden;
-  top: 0px !important;
+  height: auto;
+}
+
+main {
+  overflow: scroll;
 }
 
 .instructions .container h1 {
@@ -246,6 +251,7 @@ md-sidenav.md-default-theme md-content,
 md-sidenav md-content {
   background-color: rgba(0, 0, 0, 0.3);
   text-align: center;
+  height: 100%;
 }
 
 .layout-fill {
@@ -284,10 +290,6 @@ a.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple {
 
 ::-webkit-scrollbar {
   display: none;
-}
-
-.main-container {
-  overflow: hidden;
 }
 
 .label-items {
@@ -439,19 +441,56 @@ md-input-container.other-barriers {
   padding: 0 8px 0 8px;
 }
 
-.create-coach {
-  font-size: 13px;
-  height: 700px;
-  width: 350px;
+.section-element {
+  overflow-y: hidden;
+}
+
+.content-element {
+  background: rgba(255, 255, 255, 0.0);
+  text-align: center;
+  margin: auto;
+}
+
+.content-element-text {
+  font-size: 16px;
+}
+
+.card-element {
+  overflow-y: scroll;
   background: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  margin: auto;
+}
+
+.div-element {
+  background: rgba(255, 255, 255, 0.0);
+}
+
+.create-coach-title {
+  color: rgba(7, 61, 128, 0.8);
+  font-size: 30px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.create-coach-mobile {
+  background: rgba(255, 255, 255, 0.9);
+  overflow: scroll;
+  height: 91%;
+}
+
+.create-coach-container {
+  margin: 2px;
+}
+
+.create-coach-select {
+  min-width: 250px;
+  min-height: 26px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: auto;
-  margin-bottom: auto;
-  padding: 15px;
-  text-align: center;
-  color:black;
+  overflow: scroll;
 }
+
 .create-school {
   font-size: 13px;
   height: 700px;
@@ -465,10 +504,11 @@ md-input-container.other-barriers {
   text-align: center;
   color:black;
 }
-.blackLabel{
+
+.blackLabel {
   color:rgba(0, 0, 0, 0.85);
 }
-md-select span{
+md-select span {
   color: rgba(0, 0, 0, 0.85);
 }
 
