@@ -140,7 +140,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', function ($http, UserS
     }
 
     self.getCoachTimes = function (input) {
-        let date = moment(input).format('L');
+        let date = moment(input).format('MMMM Do YYYY');
         $http.get(`/calendar/availability/${date}`)
         .then(function(response) {
             // console.log('times get', response.data);
