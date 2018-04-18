@@ -29,4 +29,5 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function ($h
         $location.path('/admin_Home');
     }
 
+
 }]); // end Admin service

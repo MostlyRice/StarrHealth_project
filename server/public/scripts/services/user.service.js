@@ -84,6 +84,7 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
                     console.log('get Coach reponse', response.data);
                     console.log('get Coach userObject', self.userObject);
                     // user has a curret session on the server
+                    self.userObject.id = response.data.id;
                     self.userObject.userName = response.data.username;
                     self.userObject.user_role = response.data.user_role;
                     console.log('UserService -- getCoach -- User Data: ', self.userObject.userName);
