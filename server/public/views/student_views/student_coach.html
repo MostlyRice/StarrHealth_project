@@ -53,20 +53,26 @@
         </md-sidenav>
         <!-- End md-sidenav -->
         <!-- Put Content In This Div! -->
-        <div layout="column" layout-align="top" ng-repeat="coach in vm.myCoach.list">
-            {{coach.coach_photo}} </br>
-            {{coach.first_name}} {{coach.last_name}} </br>
-            {{coach.job_title}} </br>
-            {{coach.email}} </br>
-            {{coach.certifications}} </br>
-            {{coach.personal_interests}} </br>
-            {{coach.coach_bio}} </br>
-        </div>
-        <div ng-repeat="thing in vm.specialties.list">
-            {{thing.specialty_name}}
-        </div>
-        <div flex></div>
-        <!-- End Put Content In This Div! -->
+        <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
+            <div flex class="div-element" layout="column" layout-align="center center">
+                <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
+                    <h2 class="home-title">Your Coach</h2>
 
+                    <div layout="column" layout-align="top" ng-repeat="coach in vm.myCoach.list">
+                        {{coach.coach_photo}} </br>
+                        {{coach.first_name}} {{coach.last_name}} </br>
+                        {{coach.job_title}} </br>
+                        {{coach.email}} </br>
+                        {{coach.certifications}} </br>
+                        {{coach.personal_interests}} </br>
+                        {{coach.coach_bio}} </br>
+                    </div>
+                    <div ng-repeat="thing in vm.specialties.list">
+                        {{thing.specialty_name}}
+                    </div>
+                </md-card>
+            </div>
+        </md-content>
+        <!-- End Put Content In This Div! -->
     </section>
 </div>
