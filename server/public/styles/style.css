@@ -521,9 +521,9 @@ md-input-container.other-barriers {
   padding: 0;
 }
 
-.create-coach-select {
-  min-width: 250px;
-  min-height: 26px;
+.select-element {
+  width: 250px;
+  height: 26px;
   margin-left: auto;
   margin-right: auto;
   overflow: scroll;
@@ -612,4 +612,8 @@ button.md-raised.md-primary.defaultBtn.scheduleBtn.md-button.md-ink-ripple {
 
 .radio-group {
   margin-left: 30px;
+}
+
+._md-container{
+  display: inline-block;
 }
