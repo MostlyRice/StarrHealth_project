@@ -1,4 +1,4 @@
-myApp.controller('StudentController', ['$http', 'UserService', '$location', 'StudentService', function ($http, UserService, $location, StudentService) {
+myApp.controller('StudentController', ['$http', 'UserService', '$location', 'StudentService', 'SignupService', function ($http, UserService, $location, StudentService, SignupService) {
   console.log('StudentController created');
   var self = this;
   self.userService = UserService;
@@ -9,7 +9,12 @@ myApp.controller('StudentController', ['$http', 'UserService', '$location', 'Stu
   self.newPassword = StudentService.newPassword;
   self.changePassword = StudentService.changePassword;
   self.saveBio = StudentService.saveBio;
+  self.getMyCoach = SignupService.getMyCoach;
 
+
+  self.studentHome = StudentService.studentHome;
+  self.studentCoach = StudentService.studentCoach;
+  self.studentSchedule = StudentService.studentSchedule;
 
   StudentService.getStudent();
   console.log('t', self.student);

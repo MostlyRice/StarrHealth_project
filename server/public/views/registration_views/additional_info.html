@@ -1,67 +1,46 @@
-<div layout="column" ng-cloak class="md-inline-form registration-view-text" layout-fill layout-align="center center">
-        
-    <md-card class="additional-info" hide show-gt-md layout-padding>
-            <div id="myProgress5">
+<div ng-cloak layout-fill layout="column" layout-align="center center" class="registration-view-text">
+
+
+    <md-card class="card-element md-padding">
+        <br>
+        <div layout-padding class="starr-landing">
+            <img ng-src="./images/starrhealthlogo.png" />
+            <p class="home-page-text">Starr Health Co.</p>
+        </div>
+      <div id="myProgress5">
                     <div id="myBar5">
                             <div class="label2">5/5</div>
                     </div>
                 </div>
-        <md-container layout="column" layout-padding>
-            <h2 class="additional-info-title">Additional Information</h2>
-            <label class="label-items">Are you currently working with any mental health or medical professionals?</label>
-            <md-radio-group layout="column" layout-padding ng-model="vm.info.medical_bool">
-                <md-radio-button class="label-items" value="false">No</md-radio-button>
-                <md-radio-button class="label-items" value="true">Yes</md-radio-button>
+        <h2 class="additional-info-title">Additional Information</h2>
+        <label class="label-items">Are you currently working with any mental health or medical professionals?</label>
+        <br />
+        <div>
+            <md-radio-group layout="row" layout-align="center center" ng-model="vm.info.medical_bool">
+                <md-radio-button class="label-items radio-value" value="false">No</md-radio-button>
+                <md-radio-button class="label-items radio-value" value="true">Yes</md-radio-button>
             </md-radio-group>
-            <md-input-container class="md-block">
-                <label class="label-items" for="explain">If yes, explain:</label>
+            <md-input-container flex>
+                <label class="label-items overflow" for="explain">If yes, explain:</label>
                 <input class="label-items" type="text" name="medical_explain" ng-model="vm.info.medical_explain" />
             </md-input-container>
-        </md-container>
-        <md-container layout="column" layout-padding>
-            <label class="label-items">Do you have anything else you would like us to know?</label>
-            <md-radio-group layout="column" layout-padding ng-model="vm.info.other_bool">
-                <md-radio-button class="label-items radio" value="false">No</md-radio-button>
-                <md-radio-button class="label-items radio" value="true">Yes</md-radio-button>
-            </md-radio-group>
-            <md-input-container>
-                <label class="label-items" for="explain">If yes, explain:</label>
-                <input class="label-items" type="text" name="other_explain" ng-model="vm.info.other_explain" />
-            </md-input-container>
-        </md-container>
-        <div class="container">
-            <md-button class="md-raised md-primary defaultBtn" ng-click="vm.collectExtraInfo(vm.info)">Submit</md-button>
         </div>
-    </md-card>
-
-    <md-card class="additional-info-card" hide-gt-md layout-padding>
-        <md-container layout="column" layout-padding>
-            <h2 class="additional-info-title">Additional Information</h2>
-            <label class="label-items">Are you currently working with any mental health or medical professionals?</label>
-            <md-radio-group layout="column" layout-padding ng-model="vm.info.medical_bool">
-                <md-radio-button class="label-items" value="false">No</md-radio-button>
-                <md-radio-button class="label-items" value="true">Yes</md-radio-button>
-            </md-radio-group>
-            <md-input-container class="md-block">
-                <label class="label-items" for="explain">If yes, explain:</label>
-                <input class="label-items" type="text" name="medical_explain" ng-model="vm.info.medical_explain" />
-            </md-input-container>
-        </md-container>
-        <md-container layout="column" layout-padding>
+        <br />
+        <div layout-align="center center">
             <label class="label-items">Do you have anything else you would like us to know?</label>
-            <md-radio-group layout="column" layout-padding ng-model="vm.info.other_bool">
-
-                <md-radio-button class="label-items radio" value="false">No</md-radio-button>
-                <md-radio-button class="label-items radio" value="true">Yes</md-radio-button>
+            <md-radio-group layout="row" layout-align="center center" layout-padding ng-model="vm.info.other_bool">
+                <md-radio-button class="label-items radio-value" value="false">No</md-radio-button>
+                <md-radio-button class="label-items radio-value" value="true">Yes</md-radio-button>
             </md-radio-group>
-            <md-input-container>
-                <label class="label-items" for="explain">If yes, explain:</label>
+            <md-input-container flex>
+                <label class="label-items overflow" for="explain">If yes, explain:</label>
                 <input class="label-items" type="text" name="other_explain" ng-model="vm.info.other_explain" />
             </md-input-container>
-        </md-container>
-        <md-input-container>
+        </div>
+        <br />
+        <md-container>
             <md-button class="md-raised md-primary defaultBtn" ng-click="vm.collectExtraInfo(vm.info)">Submit</md-button>
-        </md-input-container>
+        </md-container>
     </md-card>
 
 </div>

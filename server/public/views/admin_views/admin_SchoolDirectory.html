@@ -3,7 +3,7 @@
 <div layout="column" layout-fill ng-cloak>
 
     <section layout="row" flex>
-
+        <!-- Start md-sidenav -->
         <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
             <div class="starr-sidenav">
                 <img ng-src="./images/starrhealthlogo.png" />
@@ -36,7 +36,7 @@
                     <span>Coach Directory</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.adminSchoolDirectory()">
+                <md-button class="md-raised md-primary selectedBtn" flex ng-click="vm.adminSchoolDirectory()">
                     <i class="material-icons list">list</i>
                     <span>School Directory</span>
                 </md-button>
@@ -77,7 +77,7 @@
                     <span>Coach Directory</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.adminSchoolDirectory()">
+                <md-button class="md-raised md-primary selectedBtn" flex ng-click="vm.adminSchoolDirectory()">
                     <i class="material-icons list">list</i>
                     <span>School Directory</span>
                 </md-button>
@@ -93,11 +93,15 @@
                 </md-button>
             </md-content>
         </md-sidenav>
-
+        <!-- End md-sidenav -->
         <!-- Put Content In This Div! -->
-        <div layout="column" layout-align="top">
-        </div>
-        <div flex></div>
+        <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
+            <div flex class="div-element" layout="column" layout-align="center center">
+                <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
+                    <h2 class="school-directory-title">Admin School Directory</h2>
+                </md-card>
+            </div>
+        </md-content>
         <!-- Put Content In This Div! -->
 
     </section>
