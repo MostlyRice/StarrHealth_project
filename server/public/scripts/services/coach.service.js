@@ -20,7 +20,7 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
     self.coachStudents = function () {
         $location.path('/coach_Students');
     }
-    
+
     //Instantiating dialog with Filestack
     self.client = filestack.init("ASYgNuRdqTkmiELkrSnfIz");
 
@@ -92,7 +92,7 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
         $location.path('/coach_password');
     } // end newPassword
 
-    self.getMe = function() {
+    self.getMe = function () {
         const id = UserService.userObject.id;
         console.log('myID', id);
         $http({
@@ -107,7 +107,7 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
         })
     }
 
-    self.saveCoach = function(id, coach) {
+    self.saveCoach = function (id, coach) {
         console.log('This ID', id);
         console.log('This Coach', coach);
         entry = {
@@ -134,7 +134,7 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
         })
     }
 
-    self.saveUserName = function(id, name) {
+    self.saveUserName = function (id, name) {
         console.log('id', id);
         console.log('username', name)
         entry = {
@@ -142,17 +142,17 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
             username: name
         }
         $http({
-        method: 'PUT',
-        url: `/coach/username/${id}`,
-        data: {
-            entry: entry
-        }
-    }).then(function (response) {
-        alert('Successful Update');
-        location.reload(true);
-    }).catch(function (error) {
-        console.log('username change error');
-    })
+            method: 'PUT',
+            url: `/coach/username/${id}`,
+            data: {
+                entry: entry
+            }
+        }).then(function (response) {
+            alert('Successful Update');
+            location.reload(true);
+        }).catch(function (error) {
+            console.log('username change error');
+        })
     }
-    
+
 }]); // end coach service

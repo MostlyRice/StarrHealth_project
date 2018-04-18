@@ -101,8 +101,6 @@ li a {
   text-decoration: none;
 }
 
-/* Change the link color to #111 (black) on hover */
-
 li a:hover {
   text-decoration: underline;
   color: #eee;
@@ -142,23 +140,6 @@ header {
   font-size: 18px;
   text-align: center;
 }
-
-/* md-radio-button.md-checked.my-radio .md-on {
-  color: rgba(0, 0, 0, 0.7);
-}
-
-md-radio-button.radio .md-off {
-  border-color: rgba(0, 0, 0, 0.7);
-}
-
-md-radio-button.md-checked.radio .md-on {
-  background-color: rgba(7, 61, 128, 0.8);
-}
-
-md-radio-button div.md-label {
-  margin-left: 0;
-  margin-right: 0;
-} */
 
 md-checkbox.md-checked .md-icon {
   background: rgba(7, 61, 128, 0.8);
@@ -597,11 +578,9 @@ button.md-raised.md-primary.defaultBtn.md-button.md-ink-ripple {
   width: 85px;
   margin-right: auto;
   margin-left: auto;
-  /* display: inline-block; */
 }
 
 .cardBack {
-  /* background-color: rgb(22, 134, 180, 0.4);  */
   background: rgba(255, 255, 255, 0.8);
   padding: 9px;
 }

@@ -66,16 +66,16 @@
     <!-- End md-sidenav -->
     <!-- Put Content In This Div! -->
     <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
-        <div flex class="div-element" layout="column" layout-align="center center">
-            <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
-                <h2 class="coach-appointments-title">Coach Appointments</h2>
-                <div>
-                    <div ng-repeat="appointment in vm.coachAppointments.list">
-                      <p>{{appointment.time}} with Student {{appointment.student}} on {{appointment.date}}</p>
-                    </div>
-                  </div>
-            </md-card>
-        </div>
+      <div flex class="div-element" layout="column" layout-align="center center">
+        <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
+          <h2 class="coach-appointments-title">Coach Appointments</h2>
+          <div>
+            <div ng-repeat="appointment in vm.coachAppointments.list">
+              <p>{{appointment.time}} with Student {{appointment.student}} on {{appointment.date}}</p>
+            </div>
+          </div>
+        </md-card>
+      </div>
     </md-content>
     <!-- End Put Content In This Div! -->
 
