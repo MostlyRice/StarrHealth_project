@@ -104,8 +104,6 @@ myApp.service('ScheduleService', ['$http', 'UserService', function ($http, UserS
         })
         } else {
         $http({
-
-
             method: 'PUT',
             url: '/calendar/coach',
             data: schedule
