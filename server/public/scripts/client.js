@@ -216,7 +216,7 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
           return UserService.getCoach();
         }
       }
-    })//ScheduleController
+    }) //ScheduleController
     .when('/coach_Appointments', {
       templateUrl: '/views/coach_views/coach_Appointments.html',
       controller: 'CoachController as vm',

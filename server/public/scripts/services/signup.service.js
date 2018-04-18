@@ -37,7 +37,7 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
         $location.path('/student_goals');
     } // end goals
 
-    self.viewCoach = function(coach) {
+    self.viewCoach = function (coach) {
         console.log('coach', coach);
         $http({
             method: 'GET',
