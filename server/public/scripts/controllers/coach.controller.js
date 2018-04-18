@@ -6,8 +6,6 @@ myApp.controller('CoachController', ['$http', 'UserService', '$location', 'Coach
   self.id = UserService.userObject.id;
   self.userName = UserService.userObject.userName;
 
-  self.upload = UserService.upload;
-
   self.coachHome = CoachService.coachHome;
   self.coachAppointmenets = CoachService.coachAppointmenets;
   self.coachSchedule = CoachService.coachSchedule;
@@ -37,5 +35,4 @@ myApp.controller('CoachController', ['$http', 'UserService', '$location', 'Coach
   self.editUserName = function () {
     self.editing = true;
   }
-
 }]);

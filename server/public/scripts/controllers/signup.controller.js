@@ -17,21 +17,4 @@ myApp.controller('SignupController', ['UserService', '$location', 'SignupService
   console.log(self.userObject);
   console.log(self.id);
 
-
-  function move() {
-    var elem = document.getElementById("myBar"); 
-    var width = 1;
-    var id = setInterval(frame, 10);
-    function frame() {
-        if (width >= 100) {
-            clearInterval(id);
-        } else {
-            width++; 
-            elem.style.width = width + '%'; 
-        }
-    }
-}
-
-
-
 }]);

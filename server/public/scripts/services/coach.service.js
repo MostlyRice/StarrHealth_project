@@ -1,7 +1,6 @@
 myApp.service('CoachService', ['$http', '$location', 'UserService', function ($http, $location, UserService) {
     console.log('CoachService Loaded');
     var self = this;
-  
     self.userService = UserService;
     self.userObject = UserService.userObject;
     self.myself = {
