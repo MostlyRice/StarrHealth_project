@@ -1,10 +1,16 @@
 myApp.service('AddCoachService', ['$http', '$location', 'UserService', function ($http, $location, UserService) {
     console.log('AddCoachService Loaded');
     var self = this;
+    self.specialties = {
+        list: []
+    }
 
+    self.jobs = {
+        list: []
+    }
 
     self.addCoach = function (coach) {
-        console.log('COACH IS: ', coach);
+        console.log('COACH I S: ', coach);
         const user = {
             username: coach.username,
             password: '',
@@ -185,7 +191,31 @@ myApp.service('AddCoachService', ['$http', '$location', 'UserService', function 
         })
     }
 
+    self.getSpecialties = function() {
+        $http({
+            method: 'GET',
+            url: `/admin/specialties`
+        }).then(function (response) {
+            console.log('special', response.data);
+            self.specialties.list = response.data;
+            console.log('special 2 = ', self.specialties.list);
+        }).catch(function (error) {
+            console.log('get specialties error');
+        })
+    } // end get Specialties
 
+    self.getJobs = function() {
+        $http({
+            method: 'GET',
+            url: `/admin/jobs`
+        }).then(function (response) {
+            console.log('jobs', response.data);
+            self.jobs.list = response.data;
+            console.log('jobs 2 = ', self.jobs.list);
+        }).catch(function (error) {
+            console.log('get jobs error');
+        })
+    } // end getJobs
 
 
 }]); // end Addcoach service

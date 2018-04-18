@@ -94,7 +94,7 @@
             </md-content>
         </md-sidenav>
         <!-- End md-sidenav -->
-        <!-- Put Content In This Div! -->
+        <!-- Put Content In This Div ! -->
         <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
             <div flex class="div-element" layout="column" layout-align="center center">
                 <md-card flex class="card-element md-padding" ng-controller="AddCoachController as ac" layout="column" layout-align="center center">
@@ -130,16 +130,30 @@
                         </md-input-container>
                     </div>
                     <div layout-gt-sm="row">
-                        <md-input-container class="create-coach-select">
+                            <md-container>
+                                    <md-select class="text-label" for="jobs" name="jobs" placeholder="Job Title:" ng-model="ac.coachInfo.job_title">
+                                        <md-option class="text-label" ng-repeat="job in ac.jobs.list" value="{{job.job_title}}">
+                                            <em>{{job.job_title}}</em>
+                                        </md-option>
+                                    </md-select>
+                                </md-container>
+                        <!-- <md-input-container class="create-coach-select">
                             <md-select placeholder="Job Title:" name="jobTitle" ng-model="ac.coachInfo.job_title">
                                 <md-option value="Life Coach">Life Coach</md-option>
                                 <md-option value="Health Coach">Health Coach</md-option>
                                 <md-option value="Nutritionist">Nutritionist</md-option>
                             </md-select>
-                        </md-input-container>
+                        </md-input-container> -->
                     </div>
                     <div layout-gt-sm="row">
-                        <md-input-container class="create-coach-select">
+                            <md-container>
+                                    <md-select class="text-label" for="specialty" name="specialty" placeholder="Specialties:" ng-model="ac.coachInfo.specialties">
+                                        <md-option class="text-label" ng-repeat="specialty in ac.specialties.list" value="{{specialty.specialty_id}}">
+                                            <em>{{specialty.specialty_name}}</em>
+                                        </md-option>
+                                    </md-select>
+                                </md-container>
+                        <!-- <md-input-container class="create-coach-select">
                             <md-select placeholder="Specialty:" name="specialty" ng-model="ac.coachInfo.specialty">
                                 <md-option value="1">Academic Goal Setting</md-option>
                                 <md-option value="2">Social Life</md-option>
@@ -147,7 +161,7 @@
                                 <md-option value="4">Professional Success</md-option>
                                 <md-option value="5">Relationships</md-option>
                             </md-select>
-                        </md-input-container>
+                        </md-input-container> -->
                     </div>
                     <div layout-gt-sm="row">
                         <md-input-container flex>
