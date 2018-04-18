@@ -334,6 +334,15 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
         }
       }
     })
+    .when('/match_coach', {
+      templateUrl: '/views/student_views/match_coach.html',
+      controller: 'MatchController as vm',
+      resolve: {
+        getuser: function (UserService) {
+          return UserService.getuser();
+        }
+      }
+    })
     .otherwise({
       template: '<h1>404</h1>'
     });

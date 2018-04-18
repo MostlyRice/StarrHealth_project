@@ -48,8 +48,8 @@ myApp.service('ScheduleService', ['$http', 'UserService', function ($http, UserS
     }
 
     self.getCoachSchedule = function (schedule) {
-        day = moment(schedule.date).format('MMMM Do YYYY');
-        console.log('getting coach day schedule')
+        day = moment(schedule.date).format('L');
+        console.log('getting coach day schedule', day)
         $http.get(`/calendar/coach/${day}`)
             .then(function (response) {
                 console.log('get coach day times', response.data);
