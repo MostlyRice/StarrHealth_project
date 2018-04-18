@@ -119,22 +119,20 @@ myApp.service('ScheduleService', ['$http', 'UserService', function ($http, UserS
 
     self.getCoachAppointments = function () {
         $http.get('/calendar/appointments')
-
-
         .then(function(response) {
-            // console.log('appointments get', response.data);
+            console.log('appointments get', response.data);
             let appointmentArray = response.data.filter(function(res){
                 if(res.student_id != null){
                 return res
                 }
             })
-            // console.log('appointment array', appointmentArray);
+            console.log('appointment array', appointmentArray);
             self.coachAppointments.list = appointmentArray.map(function(res) {
                 return {time: res.available_time, student: res.student_id, date: res.date}
                 });
-            // console.log('coach appointments', self.coachAppointments.list)
+            console.log('coach appointments', self.coachAppointments.list)
         }).catch(function(error){
-            // console.log('Error getting times', error);
+            console.log('Error getting times', error);
         })
     }
 
