@@ -16,7 +16,7 @@
                     <span>Home Page</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.adminCreateCoach()">
+                <md-button class="md-raised md-primary selectedBtn" flex ng-click="vm.adminCreateCoach()">
                     <i class="material-icons note-add">note_add</i>
                     <span>Add Coach</span>
                 </md-button>
@@ -57,7 +57,7 @@
                     <span>Home Page</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.adminCreateCoach()">
+                <md-button class="md-raised md-primary selectedBtn" flex ng-click="vm.adminCreateCoach()">
                     <i class="material-icons note-add">note_add</i>
                     <span>Add Coach</span>
                 </md-button>
@@ -97,8 +97,8 @@
         <!-- Put Content In This Div! -->
         <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
             <div flex class="div-element" layout="column" layout-align="center center">
-                <md-card flex class="card-element" ng-controller="AddCoachController as ac" layout="column" layout-align="center center">
-                    <h2 class="create-coach-title">Create Coach</h2>
+                <md-card flex class="card-element md-padding" ng-controller="AddCoachController as ac" layout="column" layout-align="center center">
+                    <h2 class="create-coach-title">Add Coach</h2>
                     <div layout-gt-sm="row">
                         <md-input-container flex>
                             <label class="blackLabel" for="firstName">First Name:</label>
