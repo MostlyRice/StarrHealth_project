@@ -10,4 +10,6 @@ myApp.controller('CoachController', ['$http', 'UserService', '$location', 'Coach
     self.coachSchedule = CoachService.coachSchedule;
     self.coachStudents = CoachService.coachStudents;
 
+    self.upload = UserService.upload;
+
 }]);
