@@ -7,6 +7,16 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function (
         list = {}
     ];
 
+    self.studentHome = function () {
+        $location.path('/student_Home');
+    }
+    self.studentCoach = function () {
+        $location.path('/student_Coach');
+    }
+    self.studentSchedule = function () {
+        $location.path('/student_Schedule');
+    }
+
     self.getStudent = function () {
         const id = UserService.userObject.id;
         $http({
@@ -76,7 +86,15 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function (
                 }
             }).then(function (response) {
                 alert('SUCCESS');
-                $location.path('/student_home');
+                let role = UserService.userObject.user_role;
+                if (role === 2) {
+                    $location.path('/coach_Home');
+                } else if (role === 1) {
+                    $location.path('/student_home');
+                } else {
+                    alert('What is your role?');
+                }
+                // $location.path('/student_home');
             }).catch(function (error) {
                 console.log('change password put error', error);
             })

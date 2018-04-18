@@ -2,8 +2,12 @@ myApp.service('ScheduleService', ['$http', 'UserService', function ($http, UserS
     console.log('ScheduleService Loaded');
     let self = this;
 
-   self.coachAppointments = {list: []};
-    self.coachTimes = {list: []};
+    self.coachAppointments = {
+        list: []
+    };
+    self.coachTimes = {
+        list: []
+    };
     self.schedule;
 
     self.postCalendar = function (schedule) {
@@ -100,6 +104,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', function ($http, UserS
         } else {
         $http({
 
+
             method: 'PUT',
             url: '/calendar/coach',
             data: schedule
@@ -115,6 +120,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', function ($http, UserS
 
     self.getCoachAppointments = function () {
         $http.get('/calendar/appointments')
+
 
         .then(function(response) {
             // console.log('appointments get', response.data);
@@ -165,7 +171,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', function ($http, UserS
                 // console.log('studend appointment added', response);
 
                 swal("Appointment added!", "", "success");
-            }).catch(function(error) {
+            }).catch(function (error) {
 
                 // console.log('student appointment error', error);
             })

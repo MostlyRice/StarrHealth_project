@@ -3,19 +3,33 @@
   src: url("./fonts/CallunaSans-Regular.woff") format("woff");
 }
 
+@-ms-viewport {
+  width: device-width;
+}
+
 html {
-  height: 100%;
   margin: 0;
   padding: 0;
   font-family: CallunaSans !important;
   font-size: 14px;
-  overflow: hidden
 }
 
 body {
-  min-height: 100%;
   overflow: hidden;
-  top: 0px !important;
+  height: auto;
+}
+
+main {
+  overflow: scroll;
+  content: "";
+  background-color: transparent;
+  background: url(../images/landingPageBackground2.png) center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .instructions .container h1 {
@@ -37,8 +51,9 @@ body {
   margin-top: 10px;
 }
 
-.container p {
+.home-page-text {
   margin-top: 14px;
+  margin-bottom: 0;
 }
 
 .message {
@@ -86,8 +101,6 @@ li a {
   text-decoration: none;
 }
 
-/* Change the link color to #111 (black) on hover */
-
 li a:hover {
   text-decoration: underline;
   color: #eee;
@@ -123,46 +136,9 @@ header {
   font-size: 20px;
 }
 
-.landingBtns {
-  text-align: center;
-}
-
-.landingPage {
-  background: url(../images/newLandingPage.png) no-repeat center center fixed;
-  height: auto;
-  width: auto;
-}
-
-.loginPage {
-  background: url(../images/newLandingPage.png) no-repeat center center fixed;
-  text-align: center;
-}
-
-.registerPage {
-  background: url(../images/newLandingPage.png) no-repeat center center fixed;
-  text-align: center;
-}
-
 .registration-view-text {
   font-size: 18px;
   text-align: center;
-}
-
-md-radio-button.md-checked.my-radio .md-on {
-  color: rgba(0, 0, 0, 0.7);
-}
-
-md-radio-button.radio .md-off {
-  border-color: rgba(0, 0, 0, 0.7);
-}
-
-md-radio-button.md-checked.radio .md-on {
-  background-color: rgba(7, 61, 128, 0.8);
-}
-
-md-radio-button div.md-label {
-  margin-left: 0;
-  margin-right: 0;
 }
 
 md-checkbox.md-checked .md-icon {
@@ -246,11 +222,10 @@ md-sidenav.md-default-theme md-content,
 md-sidenav md-content {
   background-color: rgba(0, 0, 0, 0.3);
   text-align: center;
+  height: 100%;
 }
 
 .layout-fill {
-  content: "";
-  background: url(../images/landingPageBackground2.png) no-repeat center center fixed;
   top: 0;
   left: 0;
   z-index: 1;
@@ -286,12 +261,14 @@ a.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple {
   display: none;
 }
 
-.main-container {
-  overflow: hidden;
-}
-
 .label-items {
   color: rgba(0, 0, 0, 0.7);
+}
+
+.overflow {
+  overflow: visible !important;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.85);
 }
 
 .label-items2 {
@@ -314,17 +291,10 @@ a.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple {
   width: 95%;
 }
 
-.home-card {
-  background: rgba(255, 255, 255, 0.9);
-}
-
-.login-card {
-  background: rgba(255, 255, 255, 0.9);
-}
-
 .login-title {
   color: rgba(7, 61, 128, 0.8);
   font-weight: bold;
+  margin-top: 0;
 }
 
 .text-label {
@@ -346,6 +316,13 @@ a.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple {
 .general-info-mobile {
   background: rgba(255, 255, 255, 0.9);
   overflow: scroll;
+}
+
+.general-info-select {
+  max-width: 189px;
+  max-height: 26px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .additional-info-title {
@@ -386,21 +363,32 @@ a.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple {
 .register-title {
   color: rgba(7, 61, 128, 0.8);
   font-weight: bold;
+  margin-top: 0;
 }
 
-.disclaimer {
-  width: 50%;
-  overflow: scroll;
-  background: rgba(255, 255, 255, 0.9);
-}
-
-.disclaimer-mobile {
-  background: rgba(255, 255, 255, 0.9);
+.disclaimer-view-text {
+  font-size: 18px;
+  text-align: center;
 }
 
 .disclaimer-title {
   color: rgba(7, 61, 128, 0.8);
-  font-size: 30px;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.disclaimer-text {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.disclaimer-element {
+  overflow-y: scroll;
+  background: rgba(255, 255, 255, 0.9);
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
 }
 
 .specialties-items {
@@ -419,13 +407,6 @@ md-datepicker span {
   color: rgba(0, 0, 0, 0.85);
 }
 
-.general-info-select {
-  max-width: 189px;
-  max-height: 26px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 button.md-raised.md-primary.defaultBtn.md-button.md-ink-ripple {
   background-color: #1686B4;
 }
@@ -434,12 +415,121 @@ a.md-raised.md-primary.defaultBtn.md-button.md-ink-ripple {
   background-color: #1686B4;
 }
 
+button.md-raised.md-primary.selectedBtn.md-button.md-ink-ripple {
+  background-color: #16b493;
+}
+
 md-input-container.other-barriers {
   margin: 0 0 0 0;
   padding: 0 8px 0 8px;
 }
 
-.create-coach {
+.content-element {
+  background: rgba(255, 255, 255, 0.0);
+  text-align: center;
+  margin: auto;
+}
+
+.content-element-text {
+  font-size: 16px;
+}
+
+.card-element {
+  overflow-y: scroll;
+  background: rgba(255, 255, 255, 0.9);
+  text-align: center;
+}
+
+.div-element {
+  background: rgba(255, 255, 255, 0.0);
+}
+
+.create-coach-title {
+  color: rgba(7, 61, 128, 0.8);
+  font-size: 30px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.home-title {
+  color: rgba(7, 61, 128, 0.8);
+  font-size: 30px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.student-directory-title {
+  color: rgba(7, 61, 128, 0.8);
+  font-size: 30px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.school-directory-title {
+  color: rgba(7, 61, 128, 0.8);
+  font-size: 30px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.coach-directory-title {
+  color: rgba(7, 61, 128, 0.8);
+  font-size: 30px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.student-title {
+  color: rgba(7, 61, 128, 0.8);
+  font-size: 30px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.all-appointments-title {
+  color: rgba(7, 61, 128, 0.8);
+  font-size: 30px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.coach-all-appointments-title {
+  color: rgba(7, 61, 128, 0.8);
+  font-size: 30px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.coach-appointments-title {
+  color: rgba(7, 61, 128, 0.8);
+  font-size: 30px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.create-school-title {
+  color: rgba(7, 61, 128, 0.8);
+  font-size: 30px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.coach-schedule-title {
+  color: rgba(7, 61, 128, 0.8);
+  font-size: 30px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.select-element {
+  width: 250px;
+  height: 26px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: scroll;
+}
+
+.create-school {
   font-size: 13px;
   height: 700px;
   width: 350px;
@@ -450,25 +540,14 @@ md-input-container.other-barriers {
   margin-bottom: auto;
   padding: 15px;
   text-align: center;
-  color:black;
+  color: black;
 }
-.create-school {
-  font-size: 13px;
-  height: 700px;
-  width: 350px;
-  background: rgba(255, 255, 255, 0.9);
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
-  margin-bottom:auto;
-  padding: 15px;
-  text-align: center;
-  color:black;
+
+.blackLabel {
+  color: rgba(0, 0, 0, 0.85);
 }
-.blackLabel{
-  color:rgba(0, 0, 0, 0.85);
-}
-md-select span{
+
+md-select span {
   color: rgba(0, 0, 0, 0.85);
 }
 
@@ -484,34 +563,36 @@ button.md-raised.md-primary.defaultBtn.md-button.md-ink-ripple {
   margin-left: auto;
   margin-right: auto;
   margin-top: auto;
-  margin-bottom:auto;
+  margin-bottom: auto;
   padding: 10px;
   text-align: center;
-  color:black;
+  color: black;
 }
+
 .schedule-title {
-  color: #1686B4; 
-  font-size:30px;
+  color: #1686B4;
+  font-size: 30px;
 }
-.timeSlot{
+
+.timeSlot {
   width: 85px;
   margin-right: auto;
   margin-left: auto;
-  /* display: inline-block; */
-  
 }
-.cardBack{
-  /* background-color: rgb(22, 134, 180, 0.4);  */
+
+.cardBack {
   background: rgba(255, 255, 255, 0.8);
   padding: 9px;
 }
+
 button.md-raised.md-primary.defaultBtn.scheduleBtn.md-button.md-ink-ripple {
   background-color: #1686B4;
   width: 125px;
   margin-right: auto;
   margin-left: auto;
 }
-.changePasswordCard{
+
+.changePasswordCard {
   font-size: 20px;
   height: 500px;
   width: 400px;
@@ -519,8 +600,20 @@ button.md-raised.md-primary.defaultBtn.scheduleBtn.md-button.md-ink-ripple {
   margin-left: auto;
   margin-right: auto;
   margin-top: auto;
-  margin-bottom:auto;
+  margin-bottom: auto;
   padding: 10px;
   text-align: center;
-  color:black;
+  color: black;
+}
+
+.radio-value {
+  text-align: left;
+}
+
+.radio-group {
+  margin-left: 30px;
+}
+
+._md-container{
+  display: inline-block;
 }

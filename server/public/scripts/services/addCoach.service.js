@@ -1,10 +1,18 @@
 myApp.service('AddCoachService', ['$http', '$location', 'UserService', function ($http, $location, UserService) {
     console.log('AddCoachService Loaded');
     var self = this;
+    self.userService = UserService;
+    self.userObject = UserService.userObject;
+    self.specialties = {
+        list: []
+    }
 
+    self.jobs = {
+        list: []
+    }
 
     self.addCoach = function (coach) {
-        console.log('COACH IS: ', coach);
+        console.log('COACH I S: ', coach);
         const user = {
             username: coach.username,
             password: '',
@@ -66,18 +74,14 @@ myApp.service('AddCoachService', ['$http', '$location', 'UserService', function 
                     console.log(response.data);
                     coach_id = response.data[0].coach_id;
                     console.log('CID', coach_id);
-                    academic = 0;
-                    social = 0;
-                    health = 0;
-                    professional = 0;
-                    relationships = 0;
-
-                    if (coach.academic === true) {
-                        academic = 1;
+                    console.log('CID', coach.specialty);
+                    for (thing of coach.specialty) {
+                        console.log(thing);
                         const entry = {
                             coach_id: coach_id,
-                            specialty_id: academic
+                            specialty_id: thing
                         }
+                        console.log(entry);
                         $http({
                             method: 'POST',
                             url: `/admin/academic`,
@@ -86,93 +90,19 @@ myApp.service('AddCoachService', ['$http', '$location', 'UserService', function 
                             }
                         }).then(function (response) {
                             console.log('academic posted');
+                            swal('Coach Added');
+                            let role = UserService.userObject.user_role;
+                            if (role === 3) {
+                                $location.path('/admin_Home');
+                            } else if (role === 4) {
+                                $location.path('/super_AdminHome');
+                            } else {
+                                alert('What is your role?');
+                            }
                         }).catch(function (error) {
                             console.log('academic post error', error);
                         })
-                    } else {
-                        academic = 0;
                     }
-                    if (coach.social === true) {
-                        social = 2;
-                        const entry = {
-                            coach_id: coach_id,
-                            specialty_id: social
-                        }
-                        $http({
-                            method: 'POST',
-                            url: `/admin/social`,
-                            data: {
-                                entry: entry
-                            }
-                        }).then(function (response) {
-                            console.log('social posted');
-                        }).catch(function (error) {
-                            console.log('social post error', error);
-                        })
-                    } else {
-                        social = 0;
-                    }
-                    if (coach.health === true) {
-                        health = 3;
-                        const entry = {
-                            coach_id: coach_id,
-                            specialty_id: health
-                        }
-                        $http({
-                            method: 'POST',
-                            url: `/admin/health`,
-                            data: {
-                                entry: entry
-                            }
-                        }).then(function (response) {
-                            console.log('health posted');
-                        }).catch(function (error) {
-                            console.log('health post error', error);
-                        })
-                    } else {
-                        health = 0;
-                    }
-                    if (coach.professional === true) {
-                        professional = 4;
-                        const entry = {
-                            coach_id: coach_id,
-                            specialty_id: professional
-                        }
-                        $http({
-                            method: 'POST',
-                            url: `/admin/professional`,
-                            data: {
-                                entry: entry
-                            }
-                        }).then(function (response) {
-                            console.log('professional posted');
-                        }).catch(function (error) {
-                            console.log('professional post error', error);
-                        })
-                    } else {
-                        professional = 0;
-                    }
-                    if (coach.relationships === true) {
-                        relationships = 5;
-                        const entry = {
-                            coach_id: coach_id,
-                            specialty_id: relationships
-                        }
-                        $http({
-                            method: 'POST',
-                            url: `/admin/relationships`,
-                            data: {
-                                entry: entry
-                            }
-                        }).then(function (response) {
-                            console.log('relationships posted');
-                        }).catch(function (error) {
-                            console.log('relationships post error', error);
-                        })
-                    } else {
-                        relationships = 0;
-                    }
-                    swal('Coach Added');
                 }).catch(function (error) {
                     console.log('get schools error');
                 })
@@ -185,7 +115,31 @@ myApp.service('AddCoachService', ['$http', '$location', 'UserService', function 
         })
     }
 
+    self.getSpecialties = function() {
+        $http({
+            method: 'GET',
+            url: `/admin/specialties`
+        }).then(function (response) {
+            console.log('special', response.data);
+            self.specialties.list = response.data;
+            console.log('special 2 = ', self.specialties.list);
+        }).catch(function (error) {
+            console.log('get specialties error');
+        })
+    } // end get Specialties
 
+    self.getJobs = function() {
+        $http({
+            method: 'GET',
+            url: `/admin/jobs`
+        }).then(function (response) {
+            console.log('jobs', response.data);
+            self.jobs.list = response.data;
+            console.log('jobs 2 = ', self.jobs.list);
+        }).catch(function (error) {
+            console.log('get jobs error');
+        })
+    } // end getJobs
 
 
 }]); // end Addcoach service

@@ -47,14 +47,6 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
       templateUrl: '/views/templates/register.html',
       controller: 'LoginController as vm'
     })
-    .when('/user', {
-      templateUrl: '/views/templates/user.html',
-      controller: 'UserController as vm',
-    })
-    .when('/info', {
-      templateUrl: '/views/templates/info.html',
-      controller: 'InfoController as vm',
-    })
     .when('/super_AdminHome', {
       templateUrl: '/views/super_admin/super_AdminHome.html',
       controller: 'SuperAdminController as vm',
@@ -216,9 +208,18 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
           return UserService.getCoach();
         }
       }
-    })//ScheduleController
+    }) //ScheduleController
     .when('/coach_Appointments', {
       templateUrl: '/views/coach_views/coach_Appointments.html',
+      controller: 'CoachController as vm',
+      resolve: {
+        getCoach: function (UserService) {
+          return UserService.getCoach();
+        }
+      }
+    })
+    .when('/coach_password', {
+      templateUrl: '/views/coach_views/coach_password.html',
       controller: 'CoachController as vm',
       resolve: {
         getCoach: function (UserService) {
@@ -232,24 +233,6 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
       resolve: {
         getCoach: function (UserService) {
           return UserService.getCoach();
-        }
-      }
-    })
-    .when('/student_home', {
-      templateUrl: '/views/student_views/student_home.html',
-      controller: 'StudentController as vm',
-      resolve: {
-        getStudent: function (UserService) {
-          return UserService.getStudent();
-        }
-      }
-    })
-    .when('/student_password', {
-      templateUrl: '/views/student_views/student_password.html',
-      controller: 'StudentController as vm',
-      resolve: {
-        getStudent: function (UserService) {
-          return UserService.getStudent();
         }
       }
     })
@@ -316,8 +299,35 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
         }
       }
     })
+    .when('/student_Home', {
+      templateUrl: '/views/student_views/student_Home.html',
+      controller: 'StudentController as vm',
+      resolve: {
+        getStudent: function (UserService) {
+          return UserService.getStudent();
+        }
+      }
+    })
+    .when('/student_Coach', {
+      templateUrl: '/views/student_views/student_coach.html',
+      controller: 'MatchController as vm',
+      resolve: {
+        getuser: function (UserService) {
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/student_password', {
+      templateUrl: '/views/student_views/student_password.html',
+      controller: 'StudentController as vm',
+      resolve: {
+        getStudent: function (UserService) {
+          return UserService.getStudent();
+        }
+      }
+    })
+
     .otherwise({
       template: '<h1>404</h1>'
     });
-
 }]);

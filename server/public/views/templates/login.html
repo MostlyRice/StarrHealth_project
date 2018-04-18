@@ -1,23 +1,28 @@
-<div class="container loginPage" ng-cloak layout-fill layout="column" layout-align="center center">
+<div ng-cloak layout-fill layout="column" layout-align="center center">
 
-    <md-card class="login-card">
-        <h1 class="login-title" class="lead">Login</h1>
+    <md-card class="card-element">
+        <br>
+        <div layout-padding class="starr-landing">
+            <img ng-src="./images/starrhealthlogo.png" />
+            <p class="home-page-text">Starr Health Co.</p>
+        </div>
+        <h1 class="login-title">Login</h1>
         <h1 class="lead alert alert-danger" role="alert" ng-if="vm.message != ''">{{vm.message}}</h2>
             <form ng-submit="vm.login()">
-                <div class="container">
-                    <md-input-container>
+                <div layout-align="center center">
+                    <md-input-container flex>
                         <label class="text-label" for="username">Username:</label>
                         <input class="text-label" type="text" ng-model="vm.user.username" />
                     </md-input-container>
                 </div>
-                <div class="container">
-                    <md-input-container>
+                <div layout-align="center center">
+                    <md-input-container flex>
                         <label class="text-label" for="password">Password:</label>
                         <input class="text-label" type="password" ng-model="vm.user.password" />
                     </md-input-container>
                 </div>
-                <div class="landingBtns">
-                    <md-input-container>
+                <div layout-align="center center">
+                    <md-input-container flex>
                         <md-button class="md-raised md-primary defaultBtn" type="submit" name="submit" value="Log In">Log in</md-button>
                         <md-button class="md-raised md-primary defaultBtn" ng-href="/#!home">Back</md-button>
                     </md-input-container>

@@ -3,6 +3,7 @@
 <div layout="column" layout-fill ng-cloak>
 
   <section layout="row" flex>
+    <!-- Start md-sidenav -->
     <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
       <div class="starr-sidenav">
         <img ng-src="./images/starrhealthlogo.png" />
@@ -10,7 +11,7 @@
         <h1 class="lead">Welcome {{vm.userObject.userName}}!</h1>
       </div>
       <md-content layout-padding hide show-gt-md flex>
-        <md-button class="md-raised md-primary" flex ng-click="vm.coachHome()">
+        <md-button class="md-raised md-primary selectedBtn" flex ng-click="vm.coachHome()">
           <i class="material-icons home">home</i>
           <span>Home Page</span>
         </md-button>
@@ -36,7 +37,7 @@
         </md-button>
       </md-content>
       <md-content layout-padding hide-gt-md flex>
-        <md-button class="md-raised md-primary" flex ng-click="vm.coachHome()">
+        <md-button class="md-raised md-primary selectedBtn" flex ng-click="vm.coachHome()">
           <i class="material-icons home">home</i>
           <span>Home Page</span>
         </md-button>
@@ -62,10 +63,97 @@
         </md-button>
       </md-content>
     </md-sidenav>
+    <!-- End md-sidenav -->
     <!-- Put Content In This Div! -->
-    <div layout="column" layout-align="top">
-    </div>
-    <div flex></div>
+    <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
+      <div flex class="div-element" layout="column" layout-align="center center">
+        <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
+          <h2 class="home-title">Coach Home</h2>
+
+          <div layout="column" layout-align="top" ng-repeat="coach in vm.myself.list">
+            <div>
+              <div ng-hide="coach.editing" class="text-label" name="firstName">
+                {{coach.first_name}} {{coach.last_name}}
+              </div>
+              <input ng-show="coach.editing" class="text-label" type="text" name="firstName" ng-model="coach.first_name" />
+            </div>
+            <div>
+              <div ng-hide="coach.editing" class="text-label" name="lastName">
+
+              </div>
+              <input ng-show="coach.editing" class="text-label" type="text" name="lastName" ng-model="coach.last_name" />
+            </div>
+            <div>
+              <label class="text-label" for="email">Email: {{coach.email}}</label>
+              <div ng-hide="coach.editing" class="text-label" name="email">
+              </div>
+              <input ng-show="coach.editing" class="text-label" type="text" name="email" ng-model="coach.email" />
+            </div>
+            <div>
+              <label class="text-label" for="jobTitle">Job Title: {{coach.job_title}}</label>
+              <div ng-hide="coach.editing" class="text-label" name="jobTitle">
+              </div>
+              <input ng-show="coach.editing" class="text-label" type="email" name="jobTitle" ng-model="coach.job_title" />
+            </div>
+            <div>
+              <label class="text-label" for="certs">Professional Certifications:</label>
+              <div ng-hide="coach.editing" class="text-label" name="certs">
+                {{coach.certifications}}
+              </div>
+              <input ng-show="coach.editing" class="text-label" type="text" name="certs" ng-model="coach.certifications" />
+            </div>
+            <div>
+              <label class="text-label" for="personalInterests">Personal Interests:</label>
+              <div ng-hide="coach.editing" class="text-label" name="personalInterests">
+                {{coach.personal_interests}}
+              </div>
+              <input ng-show="coach.editing" class="text-label" type="text" name="personalInterests" ng-model="coach.personal_interests"
+              />
+            </div>
+            <div>
+              <label class="text-label" for="bio">Coach Bio:</label>
+              <div ng-hide="coach.editing" class="text-label" name="bio">
+                {{coach.coach_bio}}
+              </div>
+              <input ng-show="coach.editing" class="text-label" type="text" name="bio" ng-model="coach.coach_bio" />
+            </div>
+            <div>
+              <label class="text-label" for="photo">Coach Photo:</label>
+              <div name="photo">
+                <img ng-src="{{coach.coach_photo}}" width="400px">
+              </div>
+              <button ng-click="vm.upload()">Change Photo</button>
+            </div>
+
+
+            <div>
+              <button ng-click="vm.newPassword()">Change Password:</button>
+            </div>
+            <div>
+              <button ng-hide="coach.editing" ng-click="vm.editCoach(coach)">Update Coach Information</button>
+              <button ng-show="coach.editing" ng-click="vm.saveCoach(coach.coach_id, coach)">Save Coach Information</button>
+              <button ng-show="coach.editing" ng-click="vm.cancelCoach(coach)">Cancel Update</button>
+            </div>
+          </div>
+          <div>
+            <label class="text-label" for="userName">User Name:</label>
+            <div ng-hide="vm.editing" class="text-label" name="userName">
+              {{vm.userName}}
+            </div>
+            <input ng-show="vm.editing" class="text-label" type="text" name="userName" ng-model="vm.userName" />
+          </div>
+
+
+          <div>
+            <button ng-hide="vm.editing" ng-click="vm.editUserName()">Update User Name</button>
+            <button ng-show="vm.editing" ng-click="vm.saveUserName(vm.id, vm.userName)">Save User Name</button>
+            <button ng-show="vm.editing" ng-click="vm.cancelUserName()">Cancel Update</button>
+          </div>
+
+
+        </md-card>
+      </div>
+    </md-content>
     <!-- End Put Content In This Div! -->
 
   </section>

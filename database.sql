@@ -22,7 +22,7 @@ CREATE TABLE "schools"
   ( 
      "school_id"        SERIAL PRIMARY KEY, 
      "school_name"      VARCHAR(40), 
-     "school_code"      VARCHAR(20), 
+     "school_code"      VARCHAR(240), 
      "total_accounts"   INT, 
      "student_sessions" INT 
   ); 
@@ -94,7 +94,7 @@ CREATE TABLE "student_bio"
 
 INSERT INTO "public"."specialties"("specialty_id", "specialty_name") VALUES(1, 'Academic Goal Setting');
 INSERT INTO "public"."specialties"("specialty_id", "specialty_name") VALUES(2, 'Social Life');
-INSERT INTO "public"."specialties"("specialty_id", "specialty_name") VALUES(3, 'Health & Wellness')
+INSERT INTO "public"."specialties"("specialty_id", "specialty_name") VALUES(3, 'Health & Wellness');
 INSERT INTO "public"."specialties"("specialty_id", "specialty_name") VALUES(4, 'Professional Success');
 INSERT INTO "public"."specialties"("specialty_id", "specialty_name") VALUES(5, 'Relationships');
 
@@ -105,3 +105,12 @@ INSERT INTO "public"."barriers"("barrier_id", "barrier_name") VALUES(4, 'Knowled
 INSERT INTO "public"."barriers"("barrier_id", "barrier_name") VALUES(5, 'Lack of resources');
 INSERT INTO "public"."barriers"("barrier_id", "barrier_name") VALUES(6, 'Health');
 INSERT INTO "public"."barriers"("barrier_id", "barrier_name") VALUES(7, 'Time');
+
+CREATE TABLE jobs (
+	"job_id" serial primary key,
+	"job_title" varchar(40)
+);
+
+INSERT INTO "jobs"("job_id", "job_title") VALUES(1, 'Life Coach');
+INSERT INTO "jobs"("job_id", "job_title") VALUES(2, 'Health Coach');
+INSERT INTO "jobs"("job_id", "job_title") VALUES(3, 'Nutritionist');

@@ -10,6 +10,13 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
     self.allCoaches = {
         list: []
     }
+    self.myCoach = {
+        list: []
+    }
+    self.specialties = {
+        list: []
+    }
+    
 
     self.disclaimer = function () {
         // swal({
@@ -18,7 +25,7 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
         //     The Starr Health Co. application is not intended to be a replacement or substitution to the medical advice, care, diagnosis or treatment of a licensed medical practitioner.
         //     Starr Health Co. recommends that you consult your physician prior to beginning any new health initiative.`,
         //     icon: "warning",
-        //     buttons: true,
+        //     buttons: true, 
         //     dangerMode: true,//sweetAlert in progress here
         $location.path('/disclaimer');
     } // end disclaimer
@@ -30,6 +37,31 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
     self.goals = function () {
         $location.path('/student_goals');
     } // end goals
+
+    self.viewCoach = function (coach) {
+        console.log('coach', coach);
+        $http({
+            method: 'GET',
+            url: `/coach/viewcoach/${coach}`
+        }).then(function (response) {
+            console.log(response.data);
+            self.myCoach.list = response.data;
+            console.log('myCoach = ', self.myCoach.list);
+            $http({
+                method: 'GET',
+                url: `/coach/getspecialties/${coach}`
+            }).then(function (response) {
+                console.log(response.data);
+                self.specialties.list = response.data;
+                console.log('self.specialties = ', self.specialties.list);
+            }).catch(function (error) {
+                console.log('get specialties error');
+            })
+        }).catch(function (error) {
+            console.log('get myCoach error');
+        })
+        $location.path('/student_coach');
+    } // end viewCoach
 
 
     self.letPass = function () {
@@ -378,8 +410,9 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
             }).then(function (response) {
                 console.log(response.data);
                 self.allCoaches.list = response.data;
+                self.thisCoach = response.data[0].coach_id;
                 console.log('All Coaches = ', self.allCoaches.list);
-                console.log('thisStudent = ', thisStudent);
+                console.log('thisStudent = ', self.thisCoach);
 
             }).catch(function (error) {
                 console.log('coach match error');
@@ -388,5 +421,40 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
             console.log('find student goal error');
         })
     }
+
+    self.studentCoach = function(coach) {
+        const id = UserService.userObject.id;
+        console.log('sC ID', id);
+        const entry = {
+            id: id,
+            coach_id: coach
+        }
+        $http({
+            method: 'PUT',
+            url: `/student/coach/${id}`,
+            data: {
+                entry: entry
+            }
+        }).then(function (response) {
+            $location.path('/student_appointments');
+        }).catch(function (error) {
+            console.log('coach_id put error', error);
+        })
+    } // end student coach
+
+    self.getMyCoach = function() {
+        const id = UserService.userObject.id;
+        $http({
+            method: 'GET',
+            url: `/student/mycoach/${id}`
+        }).then(function (response) {
+            console.log(response.data);
+            coach = response.data[0].coach_id;
+            self.viewCoach(coach);
+
+        }).catch(function (error) {
+            console.log('coach match error');
+        })
+    } // end getMyCoach
 
 }]); // end signup service
