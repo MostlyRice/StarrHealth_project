@@ -48,11 +48,11 @@
             </md-input-container>
         </div>
         <br />
-        <div layout-align="center center">
-            <md-container>
-                <md-select class="text-label" for="school" name="school" placeholder="Name of School:" ng-model="vm.generalStudent.school_id">
-                    <md-option class="text-label" ng-repeat="school in vm.schools.list" value="{{school.school_id}}">
-                        <em>{{school.school_name}}</em>
+        <div layout-align="center" flex>
+            <md-container flex>
+                <md-select class="text-label select-element" for="school" name="school" placeholder="Name of School:" ng-model="vm.generalStudent.school_id">
+                    <md-option class="text-label select-element" ng-repeat="school in vm.schools.list" value="{{school.school_id}}">
+                        <p>{{school.school_name}}</p>
                     </md-option>
                 </md-select>
             </md-container>
