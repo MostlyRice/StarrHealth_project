@@ -2,18 +2,20 @@ const express = require('express');
 const encryptLib = require('../modules/encryption');
 const pool = require('../modules/pool.js');
 const router = express.Router();
-var moment = require('moment');
+const moment = require('moment');
 
 router.get('/coach/:day', (request, response) => {
     if (request.isAuthenticated()){
-        console.log('getting coach day times');
-        let date = request.params.day;
+        console.log('GETTING COACH DAY TIMES');
+        let dateOne = request.params.day;
+        let date = moment(dateOne).format('L');
+        console.log('formatted date', date);
         let coachID = request.user.id;
         const sqlText = 'SELECT available_time, property, selected FROM calendar WHERE date=$1 AND coach_id=$2;';
         pool.query(sqlText, [date, coachID])
         .then(result => {
             response.send(result.rows);
-            cosole.log('get coach times', result.rows)
+            console.log('get coach times', result.rows)
         })
         .catch(error => {
             response.sendStatus(500);
@@ -98,7 +100,7 @@ router.post('/weekly', (request, response) => {
                 }
             }
             const SQLTEXT = 'UPDATE calendar SET selected=false WHERE date=$1 and coach_id=$2;';
-            pool.query(SQLtext, [appointment, coachID])
+            pool.query(SQLTEXT, [appointment, coachID])
             .then((result) => {
                 for(let value in coachAvailability){
                     if(value != 'date' && value != 'coach_id' && value != 'day' && value != 'weeklyAppointments'){
@@ -106,8 +108,8 @@ router.post('/weekly', (request, response) => {
                     }
                     console.log('availability array', availabilityArray);
                     for(let time of availabilityArray){
-                        const sqlText = `UPDATE calendar SET selected=true WHERE available_time=$1 AND date=$2 AND coach_id=$3;`;
-                        pool.query(sqlText, [time, appointment, coachID])
+                        const sqltext = `UPDATE calendar SET selected=true WHERE available_time=$1 AND date=$2 AND coach_id=$3;`;
+                        pool.query(sqltext, [time, appointment, coachID])
                         .then((result) => {
                             response.sendStatus(201);
                             console.log('put new times', result);
