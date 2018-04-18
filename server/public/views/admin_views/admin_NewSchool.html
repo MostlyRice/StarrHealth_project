@@ -3,7 +3,7 @@
 <div layout="column" layout-fill ng-cloak>
 
     <section layout="row" flex>
-
+        <!-- Start md-sidenav -->
         <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
             <div class="starr-sidenav">
                 <img ng-src="./images/starrhealthlogo.png" />
@@ -21,7 +21,7 @@
                     <span>Add Coach</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.adminNewSchool()">
+                <md-button class="md-raised md-primary selectedBtn" flex ng-click="vm.adminNewSchool()">
                     <i class="material-icons note-add">note_add</i>
                     <span>Add School</span>
                 </md-button>
@@ -62,7 +62,7 @@
                     <span>Add Coach</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.adminNewSchool()">
+                <md-button class="md-raised md-primary selectedBtn" flex ng-click="vm.adminNewSchool()">
                     <i class="material-icons note-add">note_add</i>
                     <span>Add School</span>
                 </md-button>
@@ -93,28 +93,29 @@
                 </md-button>
             </md-content>
         </md-sidenav>
-            <!-- Put Content In This Div! -->
-            <md-card class="create-coach" ng-controller="SchoolController as ss">
-                <br>
-                <br>
+        <!-- End md-sidenav -->
+        <!-- Put Content In This Div! -->
+        <md-card class="create-coach" ng-controller="SchoolController as ss">
+            <br>
+            <br>
             <md-input-container>
                 <label class="blackLabel" for="schoolName">School Name:</label>
                 <input type="text" name="schoolName" ng-model="ss.schoolInfo.school_name">
             </md-input-container>
-            
+
             <md-input-container>
                 <label class="blackLabel" for="schoolCodeOne">School Code:</label>
                 <input type="password" name="schoolCodeOne" ng-model="ss.schoolInfo.school_codeOne">
             </md-input-container>
             <md-input-container>
-                    <label class="blackLabel" for="schoolCodeTwo">Confrim School Code:</label>
-                    <input type="password" name="schoolCodeTwo" ng-model="ss.schoolInfo.school_codeTwo">
-                </md-input-container>
+                <label class="blackLabel" for="schoolCodeTwo">Confrim School Code:</label>
+                <input type="password" name="schoolCodeTwo" ng-model="ss.schoolInfo.school_codeTwo">
+            </md-input-container>
             <md-input-container>
                 <label class="blackLabel" for="accounts">Number of Student Accounts:</label>
                 <input type="text" name="accounts" ng-model="ss.schoolInfo.total_accounts">
             </md-input-container>
-            
+
             <md-input-container>
                 <label class="blackLabel" for="sessions">Number of Sessions per Student:</label>
                 <input type="text" name="sessions" ng-model="ss.schoolInfo.student_sessions">

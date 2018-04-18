@@ -3,7 +3,7 @@
 <div layout="column" layout-fill ng-cloak>
 
     <section layout="row" flex>
-
+        <!-- Start md-sidenav -->
         <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
             <div class="starr-sidenav">
                 <img ng-src="./images/starrhealthlogo.png" />
@@ -21,7 +21,7 @@
                     <span>Your Coach</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="">
+                <md-button class="md-raised md-primary selectedBtn" flex ng-click="">
                     <i class="material-icons date-range">date_range</i>
                     <span>Your Schedule</span>
                 </md-button>
@@ -42,7 +42,7 @@
                     <span>Your Coach</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="">
+                <md-button class="md-raised md-primary selectedBtn" flex ng-click="">
                     <i class="material-icons date-range">date_range</i>
                     <span>Your Schedule</span>
                 </md-button>
@@ -53,7 +53,7 @@
                 </md-button>
             </md-content>
         </md-sidenav>
-
+        <!-- End md-sidenav -->
         <!-- Put Content In This Div! -->
         <div layout="column" layout-align="top">
         </div>
