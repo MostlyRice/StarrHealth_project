@@ -163,6 +163,30 @@ router.post('/relationships', (request, response) => {
     })
 }); // end relationships post
 
+router.get('/specialties', (request, response) => {
+  const sqlText = `SELECT * FROM specialties`;
+  pool.query(sqlText)
+    .then(function (result) {
+      //  console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function (error) {
+      //  console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+});
 
+router.get('/jobs', (request, response) => {
+  const sqlText = `SELECT * FROM jobs`;
+  pool.query(sqlText)
+    .then(function (result) {
+      //  console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function (error) {
+      //  console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+});
 
 module.exports = router;

@@ -105,3 +105,12 @@ INSERT INTO "public"."barriers"("barrier_id", "barrier_name") VALUES(4, 'Knowled
 INSERT INTO "public"."barriers"("barrier_id", "barrier_name") VALUES(5, 'Lack of resources');
 INSERT INTO "public"."barriers"("barrier_id", "barrier_name") VALUES(6, 'Health');
 INSERT INTO "public"."barriers"("barrier_id", "barrier_name") VALUES(7, 'Time');
+
+CREATE TABLE jobs (
+	"job_id" serial primary key,
+	"job_title" varchar(40)
+);
+
+INSERT INTO "jobs"("job_id", "job_title") VALUES(1, 'Life Coach');
+INSERT INTO "jobs"("job_id", "job_title") VALUES(2, 'Health Coach');
+INSERT INTO "jobs"("job_id", "job_title") VALUES(3, 'Nutritionist');
