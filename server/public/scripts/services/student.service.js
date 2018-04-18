@@ -7,6 +7,16 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function (
         list = {}
     ];
 
+    self.studentHome = function () {
+        $location.path('/student_Home');
+    }
+    self.studentCoach = function () {
+        $location.path('/student_Coach');
+    }
+    self.studentSchedule = function () {
+        $location.path('/student_Schedule');
+    }
+
     self.getStudent = function () {
         const id = UserService.userObject.id;
         $http({

@@ -8,18 +8,18 @@
                 <p class="starr-sidenav-text">Starr Health Co.</p>
                 <h1 class="lead">Welcome {{vm.userObject.userName}}!</h1>
             </div>
-            <md-content layout-padding hide show-gt-md>
-                <md-button class="md-raised md-primary" flex ng-click="">
+            <md-content layout-padding hide show-gt-md flex>
+                <md-button class="md-raised md-primary selectedBtn" flex ng-click="vm.studentHome()">
                     <i class="material-icons home">home</i>
                     <span>Home Page</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary selectedBtn" flex ng-click="">
+                <md-button class="md-raised md-primary" flex ng-click="vm.studentCoach()">
                     <i class="material-icons person">person</i>
                     <span>Your Coach</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="">
+                <md-button class="md-raised md-primary" flex ng-click="vm.studentSchedule">
                     <i class="material-icons date-range">date_range</i>
                     <span>Your Schedule</span>
                 </md-button>
@@ -29,18 +29,18 @@
                     <span>Log Out</span>
                 </md-button>
             </md-content>
-            <md-content layout-padding hide-gt-md>
-                <md-button class="md-raised md-primary" flex ng-click="">
+            <md-content layout-padding hide-gt-md flex>
+                <md-button class="md-raised md-primary selectedBtn" flex ng-click="vm.studentHome()">
                     <i class="material-icons home">home</i>
                     <span>Home Page</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary selectedBtn" flex ng-click="">
+                <md-button class="md-raised md-primary" flex ng-click="vm.studentCoach()">
                     <i class="material-icons person">person</i>
                     <span>Your Coach</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="">
+                <md-button class="md-raised md-primary" flex ng-click="vm.studentSchedule">
                     <i class="material-icons date-range">date_range</i>
                     <span>Your Schedule</span>
                 </md-button>
