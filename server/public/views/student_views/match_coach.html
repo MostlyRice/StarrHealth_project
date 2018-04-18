@@ -11,14 +11,14 @@
                     {{coach.certifications}} </br>
                     {{coach.personal_interests}} </br>
                     {{coach.coach_bio}} </br>
-                </div>
                 <div ng-repeat="thing in vm.specialties.list">
                     {{thing.specialty_name}}
                 </div>
                 <div>
-                    <button ng-click="vm.studentCoach(vm.thisCoach)">Make Appointment</button>
+                    <button ng-click="vm.studentCoach(coach.coach_id)">Make Appointment</button>
                     <button ng-click="vm.back()">Back</button>
                 </div>
+            </div>
             </md-card>
         </div>
     </md-content>
