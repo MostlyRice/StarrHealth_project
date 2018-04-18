@@ -10,6 +10,9 @@ myApp.controller('StudentController', ['$http', 'UserService', '$location', 'Stu
   self.changePassword = StudentService.changePassword;
   self.saveBio = StudentService.saveBio;
 
+  self.studentHome = StudentService.studentHome;
+  self.studentCoach = StudentService.studentCoach;
+  self.studentSchedule = StudentService.studentSchedule;
 
   StudentService.getStudent();
   console.log('t', self.student);

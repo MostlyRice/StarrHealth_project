@@ -47,14 +47,6 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
       templateUrl: '/views/templates/register.html',
       controller: 'LoginController as vm'
     })
-    .when('/user', {
-      templateUrl: '/views/templates/user.html',
-      controller: 'UserController as vm',
-    })
-    .when('/info', {
-      templateUrl: '/views/templates/info.html',
-      controller: 'InfoController as vm',
-    })
     .when('/super_AdminHome', {
       templateUrl: '/views/super_admin/super_AdminHome.html',
       controller: 'SuperAdminController as vm',
@@ -244,24 +236,6 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
         }
       }
     })
-    .when('/student_home', {
-      templateUrl: '/views/student_views/student_home.html',
-      controller: 'StudentController as vm',
-      resolve: {
-        getStudent: function (UserService) {
-          return UserService.getStudent();
-        }
-      }
-    })
-    .when('/student_password', {
-      templateUrl: '/views/student_views/student_password.html',
-      controller: 'StudentController as vm',
-      resolve: {
-        getStudent: function (UserService) {
-          return UserService.getStudent();
-        }
-      }
-    })
     .when('/student_appointments', {
       templateUrl: '/views/student_views/student_appointments.html',
       controller: 'ScheduleController as vm',
@@ -325,7 +299,16 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
         }
       }
     })
-    .when('/student_coach', {
+    .when('/student_Home', {
+      templateUrl: '/views/student_views/student_Home.html',
+      controller: 'StudentController as vm',
+      resolve: {
+        getStudent: function (UserService) {
+          return UserService.getStudent();
+        }
+      }
+    })
+    .when('/student_Coach', {
       templateUrl: '/views/student_views/student_coach.html',
       controller: 'MatchController as vm',
       resolve: {
@@ -334,8 +317,17 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
         }
       }
     })
+    .when('/student_password', {
+      templateUrl: '/views/student_views/student_password.html',
+      controller: 'StudentController as vm',
+      resolve: {
+        getStudent: function (UserService) {
+          return UserService.getStudent();
+        }
+      }
+    })
+
     .otherwise({
       template: '<h1>404</h1>'
     });
-
 }]);

@@ -72,30 +72,26 @@
 
           <div layout="column" layout-align="top" ng-repeat="coach in vm.myself.list">
             <div>
-              <label class="text-label" for="firstName">First Name:</label>
               <div ng-hide="coach.editing" class="text-label" name="firstName">
-                {{coach.first_name}}
+                {{coach.first_name}} {{coach.last_name}}
               </div>
               <input ng-show="coach.editing" class="text-label" type="text" name="firstName" ng-model="coach.first_name" />
             </div>
             <div>
-              <label class="text-label" for="lastName">Last Name:</label>
               <div ng-hide="coach.editing" class="text-label" name="lastName">
-                {{coach.last_name}}
+
               </div>
               <input ng-show="coach.editing" class="text-label" type="text" name="lastName" ng-model="coach.last_name" />
             </div>
             <div>
-              <label class="text-label" for="email">Email:</label>
+              <label class="text-label" for="email">Email: {{coach.email}}</label>
               <div ng-hide="coach.editing" class="text-label" name="email">
-                {{coach.email}}
               </div>
               <input ng-show="coach.editing" class="text-label" type="text" name="email" ng-model="coach.email" />
             </div>
             <div>
-              <label class="text-label" for="jobTitle">Job Title:</label>
+              <label class="text-label" for="jobTitle">Job Title: {{coach.job_title}}</label>
               <div ng-hide="coach.editing" class="text-label" name="jobTitle">
-                {{coach.job_title}}
               </div>
               <input ng-show="coach.editing" class="text-label" type="email" name="jobTitle" ng-model="coach.job_title" />
             </div>
@@ -124,7 +120,7 @@
             <div>
               <label class="text-label" for="photo">Coach Photo:</label>
               <div name="photo">
-                <img ng-src="{{coach.coach_photo}}" width="180px">
+                <img ng-src="{{coach.coach_photo}}" width="400px">
               </div>
               <button ng-click="vm.upload()">Change Photo</button>
             </div>
