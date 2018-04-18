@@ -2,6 +2,7 @@
 
 <div layout="column" layout-fill ng-cloak>
   <section layout="row" flex>
+    <!-- Start md-sidenav -->
     <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
       <div class="starr-sidenav">
         <img ng-src="./images/starrhealthlogo.png" />
@@ -14,7 +15,7 @@
           <span>Home Page</span>
         </md-button>
         <br />
-        <md-button class="md-raised md-primary" flex ng-click="vm.coachSchedule()">
+        <md-button class="md-raised md-primary selectedBtn" flex ng-click="vm.coachSchedule()">
           <i class="material-icons date-range">date_range</i>
           <span>Scheduling</span>
         </md-button>
@@ -40,7 +41,7 @@
           <span>Home Page</span>
         </md-button>
         <br />
-        <md-button class="md-raised md-primary" flex ng-click="vm.coachSchedule()">
+        <md-button class="md-raised md-primary selectedBtn" flex ng-click="vm.coachSchedule()">
           <i class="material-icons date-range">date_range</i>
           <span>Scheduling</span>
         </md-button>
@@ -61,8 +62,8 @@
         </md-button>
       </md-content>
     </md-sidenav>
-
-    <!-- -End SideNav-!!!! -->
+    <!-- Start md-sidenav -->
+    <!-- Put Content In This Div! -->
     <md-card class="create-schedule">
       <md-container layout-padding>
         <div flex>
@@ -138,6 +139,6 @@
         </div>
       </md-container>
     </md-card>
-    <!-- -End SideNav-!!!! -->
+    <!-- End Put Content In This Div! -->
   </section>
 </div>

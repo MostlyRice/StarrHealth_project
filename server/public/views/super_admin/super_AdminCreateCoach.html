@@ -3,7 +3,7 @@
 <div layout="column" layout-fill ng-cloak>
 
     <section layout="row" flex>
-
+        <!-- Start md-sidenav -->
         <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
             <div class="starr-sidenav">
                 <img ng-src="./images/starrhealthlogo.png" />
@@ -16,7 +16,7 @@
                     <span>Home Page</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminCreateCoach()">
+                <md-button class="md-raised md-primary selectedBtn" flex ng-click="vm.superAdminCreateCoach()">
                     <i class="material-icons note-add">note_add</i>
                     <span>Admin - Add Coach</span>
                 </md-button>
@@ -67,7 +67,7 @@
                     <span>Home Page</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminCreateCoach()">
+                <md-button class="md-raised md-primary selectedBtn" flex ng-click="vm.superAdminCreateCoach()">
                     <i class="material-icons note-add">note_add</i>
                     <span>Admin - Add Coach</span>
                 </md-button>
@@ -113,6 +113,7 @@
                 </md-button>
             </md-content>
         </md-sidenav>
+        <!-- Start md-sidenav -->
         <!-- Put Content In This Div! -->
         <md-card class="create-coach" ng-controller="AddCoachController as ac">
             <form>

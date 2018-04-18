@@ -1,7 +1,7 @@
 <header hide-gt-md ng-include="'/views/partials/header.html'"></header>
 
 <div layout="column" layout-fill ng-cloak>
-
+<!-- Start md-sidenav -->
   <section layout="row" flex>
     <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
       <div class="starr-sidenav">
@@ -25,7 +25,7 @@
           <span>All Appointments</span>
         </md-button>
         <br />
-        <md-button class="md-raised md-primary" flex ng-click="vm.coachStudents()">
+        <md-button class="md-raised md-primary selectedBtn" flex ng-click="vm.coachStudents()">
           <i class="material-icons group">group</i>
           <span>Students</span>
         </md-button>
@@ -51,7 +51,7 @@
           <span>All Appointments</span>
         </md-button>
         <br />
-        <md-button class="md-raised md-primary" flex ng-click="vm.coachStudents()">
+        <md-button class="md-raised md-primary selectedBtn" flex ng-click="vm.coachStudents()">
           <i class="material-icons group">group</i>
           <span>Students</span>
         </md-button>
@@ -62,6 +62,7 @@
         </md-button>
       </md-content>
     </md-sidenav>
+    <!-- End md-sidenav -->
     <!-- Put Content In This Div! -->
     <div layout="column" layout-align="top">
     </div>
