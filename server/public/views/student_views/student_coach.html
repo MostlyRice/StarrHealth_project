@@ -59,7 +59,7 @@
                     <h2 class="home-title">Your Coach</h2>
 
                     <div layout="column" layout-align="top" ng-repeat="coach in vm.myCoach.list">
-                        {{coach.coach_photo}} </br>
+                        <img ng-src="{{coach.coach_photo}}" width="180px"> </br>
                         {{coach.first_name}} {{coach.last_name}} </br>
                         {{coach.job_title}} </br>
                         {{coach.email}} </br>
@@ -69,6 +69,9 @@
                     </div>
                     <div ng-repeat="thing in vm.specialties.list">
                         {{thing.specialty_name}}
+                    </div>
+                    <div>
+                        <button ng-click="vm.studentCoach(vm.thisCoach)">Make Appointment</button>
                     </div>
                 </md-card>
             </div>
