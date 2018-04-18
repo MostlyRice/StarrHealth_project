@@ -94,12 +94,12 @@
             </md-content>
         </md-sidenav>
         <!-- End md-sidenav -->
-        <!-- Put Content In This Div! -->
+        <!-- Put Content In This Div ! -->
         <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
             <div flex class="div-element" layout="column" layout-align="center center">
                 <md-card flex class="card-element md-padding" ng-controller="AddCoachController as ac" layout="column" layout-align="center center">
                     <h2 class="create-coach-title">Add Coach</h2>
-                    <div layout-gt-sm="row">
+                    <div layout-align="center center">
                         <md-input-container flex>
                             <label class="blackLabel" for="firstName">First Name:</label>
                             <input type="text" name="firstName" ng-model="ac.coachInfo.first_name">
@@ -109,7 +109,7 @@
                             <input type="text" name="lastName" ng-model="ac.coachInfo.last_name">
                         </md-input-container>
                     </div>
-                    <div layout-gt-sm="row">
+                    <div layout-align="center center">
                         <md-input-container flex>
                             <label class="blackLabel" for="userName">Coach Username:</label>
                             <input type="text" name="userName" ng-model="ac.coachInfo.username">
@@ -119,7 +119,7 @@
                             <input type="email" name="email" ng-model="ac.coachInfo.email" />
                         </md-input-container>
                     </div>
-                    <div layout-gt-sm="row">
+                    <div layout-align="center center">
                         <md-input-container flex>
                             <label class="blackLabel" for="passwordOne">Password:</label>
                             <input type="password" ng-model="ac.coachInfo.passwordOne">
@@ -129,27 +129,25 @@
                             <input type="password" ng-model="ac.coachInfo.passwordTwo">
                         </md-input-container>
                     </div>
-                    <div layout-gt-sm="row">
-                        <md-input-container class="create-coach-select">
-                            <md-select placeholder="Job Title:" name="jobTitle" ng-model="ac.coachInfo.job_title">
-                                <md-option value="Life Coach">Life Coach</md-option>
-                                <md-option value="Health Coach">Health Coach</md-option>
-                                <md-option value="Nutritionist">Nutritionist</md-option>
+                    <div layout="row">
+                        <md-input-container class="select-element md-block">
+                            <md-select flex placeholder="Job Title:" name="jobTitle" ng-model="ac.coachInfo.job_title">
+                                <md-option class="text-label select-element" ng-repeat="job in ac.jobs.list" value="{{job.job_title}}">
+                                    {{job.job_title}}
+                                </md-option>
                             </md-select>
                         </md-input-container>
                     </div>
-                    <div layout-gt-sm="row">
-                        <md-input-container class="create-coach-select">
-                            <md-select placeholder="Specialty:" name="specialty" ng-model="ac.coachInfo.specialty">
-                                <md-option value="1">Academic Goal Setting</md-option>
-                                <md-option value="2">Social Life</md-option>
-                                <md-option value="3">Health and Wellness</md-option>
-                                <md-option value="4">Professional Success</md-option>
-                                <md-option value="5">Relationships</md-option>
+                    <div layout="row">
+                        <md-input-container class="select-element md-block">
+                            <md-select flex multiple placeholder="Specialty:" name="specialty" ng-model="ac.coachInfo.specialty">
+                                <md-option class="text-label select-element" ng-repeat="specialty in ac.specialties.list" value="{{specialty.specialty_id}}">
+                                    {{specialty.specialty_name}}
+                                </md-option>
                             </md-select>
                         </md-input-container>
                     </div>
-                    <div layout-gt-sm="row">
+                    <div layout-align="center center">
                         <md-input-container flex>
                             <label class="blackLabel" for="interests">Personal Interests:</label>
                             <input type="text" name="interests" ng-model="ac.coachInfo.interests">
