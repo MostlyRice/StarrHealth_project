@@ -48,7 +48,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', function ($http, UserS
     }
 
     self.getCoachSchedule = function (schedule) {
-        day = moment(schedule.date).format('MMMM Do YYYY');
+        day = schedule.date
         console.log('getting coach day schedule', day)
         $http.get(`/calendar/coach/${day}`)
             .then(function (response) {
@@ -56,7 +56,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', function ($http, UserS
                 if (response.data.length < 1) {
                     console.log('do the post here');
                     self.postCalendar(schedule);
-                }
+                } else {
                 let responseArray = response.data;
                 console.log(responseArray);
                 for (let response of responseArray) {
@@ -69,6 +69,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', function ($http, UserS
                         let key = response.property;
                         schedule[key] = response.available_time;
                     }
+                }
                 }
             }).catch(function (error) {
                 console.log('get coach day times error', error);
@@ -140,7 +141,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', function ($http, UserS
     }
 
     self.getCoachTimes = function (input) {
-        let date = moment(input).format('L');
+        let date = input;
         $http.get(`/calendar/availability/${date}`)
         .then(function(response) {
             // console.log('times get', response.data);

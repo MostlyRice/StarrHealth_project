@@ -172,7 +172,8 @@ router.put('/coach', (request, response) => {
 router.get('/availability/:date', (request, response) => {
     if (request.isAuthenticated()) {
         console.log('getting availability');
-        const date = request.params.date;
+        let dateOne = request.params.day;
+        let date = moment(dateOne).format('L');
         console.log('appointment date', request.params);
         const SQLtext = `SELECT users.id FROM users
         JOIN coach_bio ON coach_bio.id=users.id
