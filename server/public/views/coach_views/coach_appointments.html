@@ -69,11 +69,13 @@
       <div flex class="div-element" layout="column" layout-align="center center">
         <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
           <h2 class="coach-appointments-title">Coach Appointments</h2>
+          <div ng-controller="ScheduleController as sc">
           <div>
-            <div ng-repeat="appointment in vm.coachAppointments.list">
+            <div ng-repeat="appointment in sc.coachAppointments.list">
               <p>{{appointment.time}} with Student {{appointment.student}} on {{appointment.date}}</p>
             </div>
           </div>
+        </div>
         </md-card>
       </div>
     </md-content>
