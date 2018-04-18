@@ -20,6 +20,7 @@ myApp.controller('MatchController', ['UserService', '$location', 'SignupService'
   self.specialties = SignupService.specialties;
   self.thisCoach = SignupService.thisCoach;
   self.studentCoach = SignupService.studentCoach;
+  self.back = SignupService.back;
 
   SignupService.findCoach(); 
 

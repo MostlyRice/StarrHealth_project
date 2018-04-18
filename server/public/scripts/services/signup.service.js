@@ -34,6 +34,10 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
         $location.path('/general_info');
     } // end general
 
+    self.back = function () {
+        $location.path('/student_coaches');
+    } // end back
+
     self.goals = function () {
         $location.path('/student_goals');
     } // end goals
@@ -60,7 +64,7 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
         }).catch(function (error) {
             console.log('get myCoach error');
         })
-        $location.path('/student_coach');
+        $location.path('/match_coach');
     } // end viewCoach
 
 
@@ -442,6 +446,35 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
         })
     } // end student coach
 
+
+    self.viewMyCoach = function (coach) {
+        console.log('coach', coach);
+        $http({
+            method: 'GET',
+            url: `/coach/viewcoach/${coach}`
+        }).then(function (response) {
+            console.log(response.data);
+            self.myCoach.list = response.data;
+            console.log('myCoach = ', self.myCoach.list);
+            $http({
+                method: 'GET',
+                url: `/coach/getspecialties/${coach}`
+            }).then(function (response) {
+                console.log(response.data);
+                self.specialties.list = response.data;
+                console.log('self.specialties = ', self.specialties.list);
+            }).catch(function (error) {
+                console.log('get specialties error');
+            })
+        }).catch(function (error) {
+            console.log('get myCoach error');
+        })
+        $location.path('/student_coach');
+    } // end viewCoach
+
+
+
+
     self.getMyCoach = function() {
         const id = UserService.userObject.id;
         $http({
@@ -450,7 +483,7 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
         }).then(function (response) {
             console.log(response.data);
             coach = response.data[0].coach_id;
-            self.viewCoach(coach);
+            self.viewMyCoach(coach);
 
         }).catch(function (error) {
             console.log('coach match error');
