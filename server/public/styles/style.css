@@ -3,7 +3,7 @@
   src: url("./fonts/CallunaSans-Regular.woff") format("woff");
 }
 
-@-ms-viewport{
+@-ms-viewport {
   width: device-width;
 }
 
@@ -284,12 +284,12 @@ a.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple {
   color: rgba(0, 0, 0, 0.7);
 }
 
-.overflow{
+.overflow {
   overflow: visible !important;
-  font-size: 14px;
-  font-weight: bold;
-  color: rgba(7, 61, 128, 0.8);
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.85);
 }
+
 .label-items2 {
   color: rgba(126, 63, 63, 0.7);
 }
@@ -386,8 +386,8 @@ a.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple {
 }
 
 .disclaimer-view-text {
-    font-size: 18px;
-    text-align: center;
+  font-size: 18px;
+  text-align: center;
 }
 
 .disclaimer-title {
@@ -470,14 +470,74 @@ md-input-container.other-barriers {
   padding: 0;
 }
 
-.create-coach-mobile {
-  background: rgba(255, 255, 255, 0.9);
-  overflow: scroll;
-  height: 91%;
+.home-title {
+  color: rgba(7, 61, 128, 0.8);
+  font-size: 30px;
+  margin: 5px 0;
+  padding: 0;
 }
 
-.create-coach-container {
-  margin: 2px;
+.student-directory-title {
+  color: rgba(7, 61, 128, 0.8);
+  font-size: 30px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.school-directory-title {
+  color: rgba(7, 61, 128, 0.8);
+  font-size: 30px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.coach-directory-title {
+  color: rgba(7, 61, 128, 0.8);
+  font-size: 30px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.student-title {
+  color: rgba(7, 61, 128, 0.8);
+  font-size: 30px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.all-appointments-title {
+  color: rgba(7, 61, 128, 0.8);
+  font-size: 30px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.coach-all-appointments-title {
+  color: rgba(7, 61, 128, 0.8);
+  font-size: 30px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.coach-appointments-title {
+  color: rgba(7, 61, 128, 0.8);
+  font-size: 30px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.create-school-title {
+  color: rgba(7, 61, 128, 0.8);
+  font-size: 30px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.coach-schedule-title {
+  color: rgba(7, 61, 128, 0.8);
+  font-size: 30px;
+  margin: 5px 0;
+  padding: 0;
 }
 
 .create-coach-select {
@@ -496,15 +556,16 @@ md-input-container.other-barriers {
   margin-left: auto;
   margin-right: auto;
   margin-top: auto;
-  margin-bottom:auto;
+  margin-bottom: auto;
   padding: 15px;
   text-align: center;
-  color:black;
+  color: black;
 }
 
 .blackLabel {
-  color:rgba(0, 0, 0, 0.85);
+  color: rgba(0, 0, 0, 0.85);
 }
+
 md-select span {
   color: rgba(0, 0, 0, 0.85);
 }
@@ -521,34 +582,38 @@ button.md-raised.md-primary.defaultBtn.md-button.md-ink-ripple {
   margin-left: auto;
   margin-right: auto;
   margin-top: auto;
-  margin-bottom:auto;
+  margin-bottom: auto;
   padding: 10px;
   text-align: center;
-  color:black;
+  color: black;
 }
+
 .schedule-title {
-  color: #1686B4; 
-  font-size:30px;
+  color: #1686B4;
+  font-size: 30px;
 }
-.timeSlot{
+
+.timeSlot {
   width: 85px;
   margin-right: auto;
   margin-left: auto;
   /* display: inline-block; */
-  
 }
-.cardBack{
+
+.cardBack {
   /* background-color: rgb(22, 134, 180, 0.4);  */
   background: rgba(255, 255, 255, 0.8);
   padding: 9px;
 }
+
 button.md-raised.md-primary.defaultBtn.scheduleBtn.md-button.md-ink-ripple {
   background-color: #1686B4;
   width: 125px;
   margin-right: auto;
   margin-left: auto;
 }
-.changePasswordCard{
+
+.changePasswordCard {
   font-size: 20px;
   height: 500px;
   width: 400px;
@@ -556,15 +621,11 @@ button.md-raised.md-primary.defaultBtn.scheduleBtn.md-button.md-ink-ripple {
   margin-left: auto;
   margin-right: auto;
   margin-top: auto;
-  margin-bottom:auto;
+  margin-bottom: auto;
   padding: 10px;
   text-align: center;
-  color:black;
+  color: black;
 }
-
-/* div.md-container.md-ink-ripple {
-  margin-left: -20px;
-} */
 
 .radio-value {
   text-align: left;

@@ -1,9 +1,19 @@
-<div class="container">
-    <h2>Recommended Coaches</h2>
-    <div ng-repeat="coach in vm.allCoaches.list">
-        {{coach.first_name}} {{coach.last_name}} </br>
-        {{coach.job_title}}: {{coach.specialty_name}}
-        <button ng-click="vm.viewCoach(coach.coach_id)">View Coach</button>
-    </div>
+<div ng-cloak layout-fill layout="column" layout-align="center center" class="registration-view-text">
+
+    <md-card class="card-element md-padding">
+        <br>
+        <div layout-padding class="starr-landing">
+            <img ng-src="./images/starrhealthlogo.png" />
+            <p class="home-page-text">Starr Health Co.</p>
+        </div>
+        <h2 class="home-title">Recommended Coaches</h2>
+        <div layout-align="center center">
+            <md-input-container ng-repeat="coach in vm.allCoaches.list" flex>
+                {{coach.first_name}} {{coach.last_name}}
+                <br /> {{coach.job_title}}: {{coach.specialty_name}}
+                <md-button class="md-raised md-primary defaultBtn" ng-click="vm.viewCoach(coach.coach_id)">View Coach</md-button>
+            </md-input-container>
+        </div>
+    </md-card>
 
 </div>

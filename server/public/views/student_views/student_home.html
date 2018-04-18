@@ -55,27 +55,31 @@
         </md-sidenav>
         <!-- End md-sidenav -->
         <!-- Put Content In This Div! -->
-        <div layout="column" layout-align="top">
-            <div ng-repeat="student in vm.student.list">
-                {{student.first_name}} {{student.last_name}}
+        <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
+            <div flex class="div-element" layout="column" layout-align="center center">
+                <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
+                    <h2 class="home-title">Student Home</h2>
+                    <div ng-repeat="student in vm.student.list">
+                        {{student.first_name}} {{student.last_name}}
+                    </div>
+                    <div ng-repeat="student in vm.student.list">
+                        <label for="bio">My Bio:</label>
+                        <div ng-hide="vm.editing" name="bio">
+                            {{student.student_bio}}
+                        </div>
+                        <input ng-show="vm.editing" type="text" name="bio" ng-model="vm.newBio" placeholder="Enter a Bio" />
+                    </div>
+                    <div ng-repeat="student in vm.student.list">
+                        <button ng-hide="vm.editing" ng-click="vm.editBio()">Update Bio</button>
+                        <button ng-show="vm.editing" ng-click="vm.saveBio(student.student_id, vm.newBio)">Save Bio</button>
+                        <button ng-show="vm.editing" ng-click="vm.cancelBio()">Cancel Update</button>
+                    </div>
+                    <div>
+                        <button ng-click="vm.newPassword()">Change Password:</button>
+                    </div>
+                </md-card>
             </div>
-            <div ng-repeat="student in vm.student.list">
-                <label for="bio">My Bio:</label>
-                <div ng-hide="vm.editing" name="bio">
-                    {{student.student_bio}}
-                </div>
-                <input ng-show="vm.editing" type="text" name="bio" ng-model="vm.newBio" placeholder="Enter a Bio" />
-            </div>
-            <div ng-repeat="student in vm.student.list">
-                <button ng-hide="vm.editing" ng-click="vm.editBio()">Update Bio</button>
-                <button ng-show="vm.editing" ng-click="vm.saveBio(student.student_id, vm.newBio)">Save Bio</button>
-                <button ng-show="vm.editing" ng-click="vm.cancelBio()">Cancel Update</button>
-            </div>
-            <div>
-                <button ng-click="vm.newPassword()">Change Password:</button>
-            </div>
-        </div>
-        <div flex></div>
+        </md-content>
         <!-- End Put Content In This Div! -->
 
     </section>
