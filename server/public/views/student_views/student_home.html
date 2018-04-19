@@ -80,6 +80,10 @@
                         <button ng-click="vm.newPassword()">Change Password:</button>
                     </div>
                 </md-card>
+                <div ng-repeat="date in vm.appointment.list">
+                    {{date.date}} </br>
+                    {{date.available_time}} </br>
+                </div>
             </div>
         </md-content>
         <!-- End Put Content In This Div! -->

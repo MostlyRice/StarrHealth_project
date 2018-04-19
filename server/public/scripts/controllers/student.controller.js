@@ -10,6 +10,7 @@ myApp.controller('StudentController', ['$http', 'UserService', '$location', 'Stu
   self.changePassword = StudentService.changePassword;
   self.saveBio = StudentService.saveBio;
   self.getMyCoach = SignupService.getMyCoach;
+  self.appointment = StudentService.appointment;
 
 
   self.studentHome = StudentService.studentHome;
@@ -18,6 +19,7 @@ myApp.controller('StudentController', ['$http', 'UserService', '$location', 'Stu
 
   StudentService.getStudent();
   console.log('t', self.student);
+  console.log('a', self.appointment);
 
   self.cancelBio = function () {
     self.editing = false;
@@ -25,6 +27,6 @@ myApp.controller('StudentController', ['$http', 'UserService', '$location', 'Stu
 
   self.editBio = function () {
     self.editing = true;
-  }
+  } 
 
 }]);

@@ -102,6 +102,21 @@ router.get('/:id', (request, response) => {
     })
 });
 
+router.get('/appointment/:id', (request, response) => {
+  const id = request.params.id;
+  console.log('ID', id);
+  const sqlText = `SELECT * FROM calendar WHERE student_id=$1`;
+  pool.query(sqlText, [id])
+    .then(function (result) {
+      //  console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function (error) {
+      //  console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+});
+
 router.get('/mycoach/:id', (request, response) => {
   const id = request.params.id;
   console.log('ID', id);
