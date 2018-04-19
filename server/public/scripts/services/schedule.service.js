@@ -1,4 +1,4 @@
-myApp.service('ScheduleService', ['$http', 'UserService', function ($http, UserService) {
+myApp.service('ScheduleService', ['$http', 'UserService', '$location', function ($http, UserService, $location) {
     console.log('ScheduleService Loaded');
     let self = this;
 
@@ -168,6 +168,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', function ($http, UserS
                 // console.log('studend appointment added', response);
 
                 swal("Appointment added!", "", "success");
+                $location.path('/student_Home');
             }).catch(function (error) {
 
                 // console.log('student appointment error', error);
