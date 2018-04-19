@@ -14,7 +14,7 @@
                     <span>Home Page</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.studentCoach()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.getMyCoach()">
                     <i class="material-icons person">person</i>
                     <span>Your Coach</span>
                 </md-button>
@@ -35,7 +35,7 @@
                     <span>Home Page</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.studentCoach()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.getMyCoach()">
                     <i class="material-icons person">person</i>
                     <span>Your Coach</span>
                 </md-button>
@@ -55,7 +55,7 @@
         <!-- Put Content In This Div! -->
         <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
             <div flex class="div-element" layout="column" layout-align="center center">
-                <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
+                <md-card flex class="card-element md-padding" ng-controller="NewController as vm" layout="column" layout-align="center center">
                     <h2 class="home-title">Your Coach</h2>
 
                     <div layout="column" layout-align="top" ng-repeat="coach in vm.myCoach.list">

@@ -159,7 +159,10 @@
     <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
       <div flex class="div-element" layout="column" layout-align="center center">
           <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
-              <h2 class="home-title">Your next appoiintments are:</h2>
+              <h2 class="home-title">Today's Appointments:</h2>
+              <div ng-repeat="meeting in vm.todayAppts.list">
+                {{meeting.available_time}} with {{meeting.first_name}} {{meeting.last_name}}
+              </div>
           </md-card>
       </div>
   </md-content>

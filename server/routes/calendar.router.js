@@ -56,7 +56,7 @@ router.post('/calendar', (request, response) => {
 
 router.post('/weekly', (request, response) => {
     if (request.isAuthenticated()){
-        console.log('getting weekly post', request.body.weeklyAppointments);
+        console.log('WEEKLY POST', request.body.weeklyAppointments);
         const coachAvailability = request.body;
         const availabilityArray = [];
         const coachID = request.user.id;
@@ -72,17 +72,17 @@ router.post('/weekly', (request, response) => {
             .then((result) => {
                 console.log('post weekly times', result.rows);
                 let weekly = {};
-                    weekly.timeOne = 8;
-                    weekly.timeTwo = 9;
-                    weekly.timeThree = 10;
-                    weekly.timeFour = 11;
-                    weekly.timeFive = 12;
-                    weekly.timeSix = 1;
-                    weekly.timeSeven = 2;
-                    weekly.timeEight = 3;
-                    weekly.timeNine = 4;
-                    weekly.timeTen = 5;
-                    weekly.timeEleven = 6;
+                    weekly.a = "8:00 AM";
+                    weekly.b = "9:00 AM";
+                    weekly.c = "10:00 AM";
+                    weekly.d = "11:00 AM";
+                    weekly.e = "12:00 PM";
+                    weekly.f = "1:00 PM";
+                    weekly.g = "2:00 PM";
+                    weekly.h = "3:00 PM";
+                    weekly.i = "4:00 PM";
+                    weekly.j = "5:00 PM";
+                    weekly.k = "6:00 PM";
                 if(result.rows.length < 1){
                     sqlText = `INSERT INTO calendar (available_time, date, coach_id, property, selected) VALUES ($1, $2, $3, $4, false);`
                     for (let input in weekly){

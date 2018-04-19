@@ -11,13 +11,12 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function (
     ];
 
     self.studentHome = function () {
-        $location.path('/student_Home');
+        $location.path('/student_home');
     }
-    self.studentCoach = function () {
-        $location.path('/student_Coach');
-    }
+
+
     self.studentSchedule = function () {
-        $location.path('/student_Schedule');
+        $location.path('/student_schedule');
     } 
 
     self.getStudent = function () {

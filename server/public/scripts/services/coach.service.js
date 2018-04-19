@@ -6,6 +6,9 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
     self.myself = {
         list: []
     }
+    self.todayAppts = {
+        list: []
+    }
     self.newItem = {};
 
     self.coachHome = function () {
@@ -152,6 +155,20 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
             location.reload(true);
         }).catch(function (error) {
             console.log('username change error');
+        })
+    }
+
+    self.getTodayAppts = function() {
+        const id = UserService.userObject.id;
+        $http({
+            method: 'GET',
+            url: `/coach/today/${id}`
+        }).then(function (response) {
+            console.log('DATA', response.data);
+            self.todayAppts.list = response.data;
+            console.log('TODAYS APPTS = ', self.todayAppts.list);
+        }).catch(function (error) {
+            console.log('get coach error');
         })
     }
 
