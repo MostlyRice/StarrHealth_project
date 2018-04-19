@@ -209,7 +209,7 @@ router.get('/appointments', (request, response) => {
     if (request.isAuthenticated()) {
         const sqlText = `SELECT calendar.available_time, calendar.date, calendar.student_id, student_bio.first_name, student_bio.last_name FROM calendar 
         JOIN student_bio ON calendar.student_id=student_bio.id
-        WHERE calendar.coach_id = $1;`;
+        WHERE calendar.coach_id = $1 ORDER BY calendar.date ASC;`;
         const coachID = request.user.id;
         pool.query(sqlText, [coachID])
             .then(result => {
