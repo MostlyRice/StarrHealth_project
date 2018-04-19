@@ -21,6 +21,7 @@ myApp.service('SchoolService', ['$http', '$location', 'UserService', function ($
                 }
             }).then(function (response) {
                 console.log('schooln created');
+                $location.path('/super_AdminHome');
             }).catch(function (error) {
                 console.log('disclaimer error');
             })
