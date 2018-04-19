@@ -122,7 +122,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
             schedule.weeklyAppointments = recurrence.next(24, "L");
             // let recurrence = moment(schedule.date).format('MMMM Do YYYY').recur().every(7).days();
             // schedule.weeklyAppointments = recurrence.next(24);
-            console.log('new weekly appointments', schedule.weeklyAppointments);
+            // console.log('new weekly appointments', schedule.weeklyAppointments);
             $http({
 
                 method: 'POST',
@@ -130,10 +130,10 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                 data: schedule
             })
         .then(function(response) {
-            console.log('weekly times added', response);
+            // console.log('weekly times added', response);
             swal("Schedule update!", "", "success");
         }).catch(function(error) {
-            console.log('add weekly error', error);
+            // console.log('add weekly error', error);
         })
         } else {
         $http({
@@ -153,19 +153,20 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
     self.getCoachAppointments = function () {
         $http.get('/calendar/appointments')
         .then(function(response) {
-            console.log('appointments get', response.data);
+            // console.log('appointments get', response.data);
             let appointmentArray = response.data.filter(function(res){
-                if(res.student_id != null){
+                let date = moment().format('L');
+                if(res.student_id != null && moment(res.date).isSameOrAfter(date)){
                 return res
                 }
             })
-            console.log('appointment array', appointmentArray);
+            // console.log('appointment array', appointmentArray);
             self.coachAppointments.list = appointmentArray.map(function(res) {
-                return {time: res.available_time, student: res.student_id, date: res.date}
+                return {time: res.available_time, firstName: res.first_name, lastName: res.last_name,  date: res.date}
                 });
-            console.log('coach appointments', self.coachAppointments.list)
+            // console.log('coach appointments', self.coachAppointments.list)
         }).catch(function(error){
-            console.log('Error getting times', error);
+            // console.log('Error getting times', error);
         })
     }
 
