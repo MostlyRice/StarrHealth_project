@@ -469,7 +469,7 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
         }).catch(function (error) {
             console.log('get myCoach error');
         })
-        $location.path('/student_coach');
+        $location.path('/student_Coach');
     } // end viewCoach
 
 

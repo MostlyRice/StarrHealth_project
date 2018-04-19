@@ -1,4 +1,4 @@
-myApp.service('ScheduleService', ['$http', 'UserService', function ($http, UserService) {
+myApp.service('ScheduleService', ['$http', 'UserService', '$location', function ($http, UserService, $location) {
     console.log('ScheduleService Loaded');
     let self = this;
 
@@ -11,17 +11,17 @@ myApp.service('ScheduleService', ['$http', 'UserService', function ($http, UserS
     self.schedule;
 
     self.postCalendar = function (schedule) {
-        schedule.timeOne = 8;
-        schedule.timeTwo = 9;
-        schedule.timeThree = 10;
-        schedule.timeFour = 11;
-        schedule.timeFive = 12;
-        schedule.timeSix = 1;
-        schedule.timeSeven = 2;
-        schedule.timeEight = 3;
-        schedule.timeNine = 4;
-        schedule.timeTen = 5;
-        schedule.timeEleven = 6;
+        schedule.a = "8:00 AM";
+        schedule.b = "9:00 AM";
+        schedule.c = "10:00 AM";
+        schedule.d = "11:00 AM";
+        schedule.e = "12:00 PM";
+        schedule.f = "1:00 PM";
+        schedule.g = "2:00 PM";
+        schedule.h = "3:00 PM";
+        schedule.i = "4:00 PM";
+        schedule.j = "5:00 PM";
+        schedule.k = "6:00 PM";
         // console.log('post calendar', schedule);
         schedule.day = moment(schedule.date).format('L');
         $http({
@@ -31,17 +31,17 @@ myApp.service('ScheduleService', ['$http', 'UserService', function ($http, UserS
             })
             .then(function (response) {
                 // console.log('calendar added', response);
-                schedule.timeOne = 0;
-                schedule.timeTwo = 0;
-                schedule.timeThree = 0;
-                schedule.timeFour = 0;
-                schedule.timeFive = 0;
-                schedule.timeSix = 0;
-                schedule.timeSeven = 0;
-                schedule.timeEight = 0;
-                schedule.timeNine = 0;
-                schedule.timeTen = 0;
-                schedule.timeEleven = 0;
+                schedule.a = '';
+                schedule.b = '';
+                schedule.c = '';
+                schedule.d = '';
+                schedule.e = '';
+                schedule.f = '';
+                schedule.g = '';
+                schedule.h = '';
+                schedule.i = '';
+                schedule.j = '';
+                schedule.k = '';
             }).catch(function (error) {
                 console.log('add calendar error', error);
             })
@@ -78,9 +78,42 @@ myApp.service('ScheduleService', ['$http', 'UserService', function ($http, UserS
 
     self.postAvailability = function (schedule) {
         schedule.day = moment(schedule.date).format('L');
-        // console.log('date', schedule.day);
-        // console.log('post availability', schedule);
-        // console.log('weekly appointment', schedule.weekly);
+        console.log('date', schedule.day);
+        console.log('post availability', schedule);
+        if (schedule.a === 8) {
+            schedule.a = "8:00 AM";
+        }
+        if (schedule.b === 9) {
+            schedule.b = "9:00 AM";
+        }
+        if (schedule.c === 10) {
+            schedule.c = "10:00 AM";
+        }
+        if (schedule.d === 11) {
+            schedule.d = "11:00 AM";
+        }
+        if (schedule.e === 12) {
+            schedule.e = "12:00 PM";
+        }
+        if (schedule.f === 1) {
+            schedule.f = "1:00 PM";
+        }
+        if (schedule.g === 2) {
+            schedule.g = "2:00 PM";
+        }
+        if (schedule.h === 3) {
+            schedule.h = "3:00 PM";
+        }
+        if (schedule.i === 4) {
+            schedule.i = "4:00 PM";
+        }
+        if (schedule.j === 5) {
+            schedule.j = "5:00 PM";
+        }
+        if (schedule.k === 6) {
+            schedule.k = "6:00 PM";
+        }
+        console.log('weekly appointment', schedule.weekly);
         if(schedule.weekly == true){
             let newDate = moment(schedule.date);
             let recurrence = moment().recur({
@@ -169,6 +202,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', function ($http, UserS
                 // console.log('studend appointment added', response);
 
                 swal("Appointment added!", "", "success");
+                $location.path('/student_Home');
             }).catch(function (error) {
 
                 // console.log('student appointment error', error);

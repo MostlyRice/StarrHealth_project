@@ -80,9 +80,22 @@
                         <button ng-click="vm.newPassword()">Change Password:</button>
                     </div>
                 </md-card>
+                <div ng-repeat="date in vm.appointment.list">
+                    {{date.date}} </br>
+                    {{date.available_time}} </br>
+                </div>
             </div>
         </md-content>
         <!-- End Put Content In This Div! -->
+        <!-- Put Content In This Div! -->
+        <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
+            <div flex class="div-element" layout="column" layout-align="center center">
+                <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
+                    <h2 class="home-title">Your next appoint is:</h2>
+                </md-card>
+            </div>
+        </md-content>
+<!-- End Put Content In This Div! -->
 
     </section>
 </div>

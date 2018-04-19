@@ -4,9 +4,9 @@
     <div class="form-group">
         <div class="radio" ng-repeat="availability in vm.coachTimes.list">
             <label>
-                <input type="radio" name="{{availability}}" value="{{availability.time}}" ng-model="vm.studentAppointment.time"> {{availability.time}}AM
+                <input type="radio" name="{{availability}}" value="{{availability.time}}" ng-model="vm.studentAppointment.time"> {{availability.time}}
             </label>
         </div>
     </div>
-    <button ng-click="vm.postStudentSchedule(vm.studentAppointment)">Add</button>
-</div>
+</md-content>
+<!-- End Put Content In This Div! -->
