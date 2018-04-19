@@ -300,7 +300,7 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
       }
     })
     .when('/student_Home', {
-      templateUrl: '/views/student_views/student_Home.html',
+      templateUrl: '/views/student_views/student_home.html',
       controller: 'StudentController as vm',
       resolve: {
         getStudent: function (UserService) {
