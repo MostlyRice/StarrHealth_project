@@ -6,6 +6,9 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function (
     self.student = [
         list = {}
     ];
+    self.appointment = [
+        list = {}
+    ];
 
     self.studentHome = function () {
         $location.path('/student_Home');
@@ -15,7 +18,7 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function (
     }
     self.studentSchedule = function () {
         $location.path('/student_Schedule');
-    }
+    } 
 
     self.getStudent = function () {
         const id = UserService.userObject.id;
@@ -24,9 +27,18 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function (
             url: `/student/${id}`
         }).then(function (response) {
             console.log('DATA', response.data);
-
             self.student.list = response.data;
             console.log('thisStudent = ', self.student.list);
+            $http({
+                method: 'GET',
+                url: `/student/appointment/${id}`
+            }).then(function (response) {
+                console.log('DATA2', response.data);
+                self.appointment.list = response.data;
+                console.log('thisApp = ', self.appointment.list);
+            }).catch(function (error) {
+                console.log('update get appointment error', error);
+            })
         }).catch(function (error) {
             console.log('coach match error');
         })
