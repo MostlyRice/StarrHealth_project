@@ -184,7 +184,7 @@ router.get('/availability/:date', (request, response) => {
             .then(result => {
                 console.log('GET COACH ID', result.rows[0].id);
                 let coachID = result.rows[0].id;
-                let sqlText = "SELECT available_time, selected, coach_id, student_id, date FROM calendar WHERE coach_id = $1 AND date=$2;";
+                let sqlText = `SELECT available_time, selected, coach_id, student_id, date FROM calendar WHERE coach_id = $1 AND date=$2;`;
                 console.log('date for get from db', date);
                 pool.query(sqlText, [coachID, date])
                     .then(res => {
@@ -207,7 +207,9 @@ router.get('/availability/:date', (request, response) => {
 
 router.get('/appointments', (request, response) => {
     if (request.isAuthenticated()) {
-        const sqlText = "SELECT available_time, student_id, date FROM calendar WHERE coach_id = $1;";
+        const sqlText = `SELECT calendar.available_time, calendar.date, calendar.student_id, student_bio.first_name, student_bio.last_name FROM calendar 
+        JOIN student_bio ON calendar.student_id=student_bio.id
+        WHERE calendar.coach_id = $1;`;
         const coachID = request.user.id;
         pool.query(sqlText, [coachID])
             .then(result => {

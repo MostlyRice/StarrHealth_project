@@ -128,7 +128,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', function ($http, UserS
             })
             console.log('appointment array', appointmentArray);
             self.coachAppointments.list = appointmentArray.map(function(res) {
-                return {time: res.available_time, student: res.student_id, date: res.date}
+                return {time: res.available_time, firstName: res.first_name, lastName: res.last_name,  date: res.date}
                 });
             console.log('coach appointments', self.coachAppointments.list)
         }).catch(function(error){

@@ -72,7 +72,7 @@
           <div ng-controller="ScheduleController as sc">
           <div>
             <div ng-repeat="appointment in sc.coachAppointments.list">
-              <p>{{appointment.time}} with Student {{appointment.student}} on {{appointment.date}}</p>
+              <p>{{appointment.time}} with {{appointment.firstName}} {{appointment.lastName}} on {{appointment.date}}</p>
             </div>
           </div>
         </div>
