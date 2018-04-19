@@ -168,7 +168,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                 // console.log('studend appointment added', response);
 
                 swal("Appointment added!", "", "success");
-                $location.path('/student_Home');
+                $location.path('/student_home');
             }).catch(function (error) {
 
                 // console.log('student appointment error', error);
