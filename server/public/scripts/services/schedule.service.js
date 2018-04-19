@@ -122,7 +122,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
             schedule.weeklyAppointments = recurrence.next(24, "L");
             // let recurrence = moment(schedule.date).format('MMMM Do YYYY').recur().every(7).days();
             // schedule.weeklyAppointments = recurrence.next(24);
-            // console.log('new weekly appointments', schedule.weeklyAppointments);
+            console.log('new weekly appointments', schedule);
             $http({
 
                 method: 'POST',
