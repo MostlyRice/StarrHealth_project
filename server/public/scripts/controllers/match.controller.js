@@ -1,7 +1,8 @@
-myApp.controller('MatchController', ['UserService', '$location', 'SignupService', function (UserService, $location, SignupService) {
+myApp.controller('MatchController', ['UserService', '$location', 'SignupService', 'StudentService', function (UserService, $location, SignupService, StudentService) {
   console.log('MatchController created');
   var self = this;
   self.userService = UserService;
+  self.signupService = SignupService;
   self.signupService = SignupService;
   self.userObject = UserService.userObject;
   self.id = UserService.userObject.id;
@@ -21,8 +22,12 @@ myApp.controller('MatchController', ['UserService', '$location', 'SignupService'
   self.thisCoach = SignupService.thisCoach;
   self.studentCoach = SignupService.studentCoach;
   self.back = SignupService.back;
+  self.studentHome = StudentService.studentHome;
+  self.studentCoach = StudentService.studentCoach;
+  self.studentSchedule = StudentService.studentSchedule;
 
   SignupService.findCoach(); 
+
 
   console.log(self.allCoaches.list);
   console.log(self.thisCoach);

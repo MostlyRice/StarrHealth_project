@@ -463,13 +463,13 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
                 console.log(response.data);
                 self.specialties.list = response.data;
                 console.log('self.specialties = ', self.specialties.list);
+                $location.path('/student_coach');
             }).catch(function (error) {
                 console.log('get specialties error');
             })
         }).catch(function (error) {
             console.log('get myCoach error');
         })
-        $location.path('/student_Coach');
     } // end viewCoach
 
 
@@ -484,7 +484,6 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
             console.log(response.data);
             coach = response.data[0].coach_id;
             self.viewMyCoach(coach);
-
         }).catch(function (error) {
             console.log('coach match error');
         })
