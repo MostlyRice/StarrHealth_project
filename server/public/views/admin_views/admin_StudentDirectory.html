@@ -100,6 +100,28 @@
                 <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
                     <h2 class="student-directory-title">Admin Student Directory</h2>
                 </md-card>
+                <table>
+                        <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>School Name</th>
+                                <th>Phone Number</th>
+                                <th>Email</th>
+                                <th>Delete Student</th>
+                            </tr>
+                        </thead>
+                        <tbody ng-repeat="student in vm.allStudents.list">
+                            <tr>
+                                <td>{{student.first_name}}</td>
+                                <td>{{student.last_name}}</td>
+                                <td>{{student.school_name}}</td>
+                                <td>{{student.phone_number}}</td>
+                                <td>{{student.email}}</td>
+                                <td><button ng-click="vm.deleteStudent(student.id)">Delete Student</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
             </div>
         </md-content>
         <!-- Put Content In This Div! -->

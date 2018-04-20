@@ -9,7 +9,14 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
     self.todayAppts = {
         list: []
     }
+    self.coachesStudents = {
+        list: []
+    }
     self.newItem = {};
+
+    self.myStudent = {
+        list: []
+    };
 
     self.coachHome = function () {
         $location.path('/coach_Home');
@@ -92,7 +99,7 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
     }
 
     self.newPassword = function () {
-        $location.path('/coach_password');
+        $location.path('/change_password');
     } // end newPassword
 
     self.getMe = function () {
@@ -170,6 +177,35 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
         }).catch(function (error) {
             console.log('get coach error');
         })
+    }
+
+    self.getMyStudents = function() {
+        console.log('HERE');
+        $http({
+            method: 'GET',
+            url: `/coach/everyone/students`
+        }).then(function (response) {
+            console.log('DATA', response.data);
+            self.coachesStudents.list = response.data;
+            console.log('my students = ', self.coachesStudents.list);
+        }).catch(function (error) {
+            console.log('get my students error');
+        })
+    }
+
+    self.moreInfo = function(id) {
+        $http({
+            method: 'GET',
+            url: `/coach/onestudent/${id}`
+        }).then(function (response) {
+            console.log('DATA', response.data);
+            self.myStudent.list = response.data;
+            console.log('my Student = ', self.myStudent.list);
+            $location.path('/student_info');
+        }).catch(function (error) {
+            console.log('get my Studen error');
+        })
+        
     }
 
 }]); // end coach service

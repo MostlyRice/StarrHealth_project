@@ -208,18 +208,18 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
           return UserService.getCoach();
         }
       }
+    })
+      .when('/student_info', {
+        templateUrl: '/views/coach_views/student_info.html',
+        controller: 'CoachController as vm',
+        resolve: {
+          getCoach: function (UserService) {
+            return UserService.getCoach();
+          }
+        }
     }) //ScheduleController
     .when('/coach_Appointments', {
       templateUrl: '/views/coach_views/coach_Appointments.html',
-      controller: 'CoachController as vm',
-      resolve: {
-        getCoach: function (UserService) {
-          return UserService.getCoach();
-        }
-      }
-    })
-    .when('/coach_password', {
-      templateUrl: '/views/coach_views/coach_password.html',
       controller: 'CoachController as vm',
       resolve: {
         getCoach: function (UserService) {
@@ -326,12 +326,12 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
         }
       }
     })
-    .when('/student_password', {
-      templateUrl: '/views/student_views/student_password.html',
+    .when('/change_password', {
+      templateUrl: '/views/student_views/change_password.html',
       controller: 'StudentController as vm',
       resolve: {
-        getStudent: function (UserService) {
-          return UserService.getStudent();
+        getuser: function (UserService) {
+          return UserService.getuser();
         }
       }
     })

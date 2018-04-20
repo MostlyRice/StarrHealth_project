@@ -189,4 +189,70 @@ router.get('/jobs', (request, response) => {
     })
 });
 
+router.get('/schools', (request, response) => {
+  const sqlText = `SELECT * FROM schools`;
+  pool.query(sqlText)
+    .then(function (result) {
+      //  console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function (error) {
+      //  console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+});
+
+router.get('/coaches', (request, response) => {
+  const sqlText = `SELECT * FROM coach_bio`;
+  pool.query(sqlText)
+    .then(function (result) {
+      //  console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function (error) {
+      //  console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+});
+
+router.get('/students', (request, response) => {
+  const sqlText = `SELECT * FROM student_bio
+  JOIN schools ON schools.school_id=student_bio.school_id`;
+  pool.query(sqlText)
+    .then(function (result) {
+      //  console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function (error) {
+      //  console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+});
+
+router.delete('/remove/student/:id', (req, res) => {
+  const id = req.params.id;
+  let queryText = `DELETE FROM users WHERE id=$1`;
+  pool.query(queryText, [id])
+  .then((result) => {
+    res.sendStatus(200);
+  })
+  .catch((error) => {
+    console.log('Error on delete', error);
+    res.sendStatus(500);
+  }) 
+});
+
+router.delete('/remove/coach/:id', (req, res) => {
+  const id = req.params.id;
+  let queryText = `DELETE FROM users WHERE id=$1`;
+  pool.query(queryText, [id])
+  .then((result) => {
+    res.sendStatus(200);
+  })
+  .catch((error) => {
+    console.log('Error on delete', error);
+    res.sendStatus(500);
+  }) 
+});
+
 module.exports = router;

@@ -100,9 +100,28 @@
                 <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
                     <h2 class="coach-directory-title">Admin Coach Directory</h2>
                 </md-card>
+                <table>
+                        <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Job Title</th>
+                                <th>Email</th>
+                                <th>Delete Coach</th>
+                            </tr>
+                        </thead>
+                        <tbody ng-repeat="coach in vm.allCoaches.list">
+                            <tr>
+                                <td>{{coach.first_name}}</td>
+                                <td>{{coach.last_name}}</td>
+                                <td>{{coach.job_title}}</td>
+                                <td>{{coach.email}}</td>
+                                <td><button ng-click="vm.deleteCoach(coach.id)">Delete Coach</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
             </div>
         </md-content>
         <!-- Put Content In This Div! -->
-
     </section>
 </div>

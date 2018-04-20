@@ -8,6 +8,7 @@ myApp.controller('StudentController', ['$http', 'UserService', '$location', 'Stu
   self.student = StudentService.student;
   self.newPassword = StudentService.newPassword;
   self.changePassword = StudentService.changePassword;
+  self.returnFromPass = StudentService.returnFromPass;
   self.saveBio = StudentService.saveBio;
   self.getMyCoach = SignupService.getMyCoach;
   self.appointment = StudentService.appointment;

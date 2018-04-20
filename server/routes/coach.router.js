@@ -21,7 +21,7 @@ router.post('/', (request, response) => {
 
 router.get('/viewcoach/:id', (request, response) => {
   const id = request.params.id;
-  console.log('ID', id);
+  console.log('ID1', id);
   const sqlText = `SELECT * FROM coach_bio WHERE coach_id=$1`;
   pool.query(sqlText, [id])
     .then(function (result) {
@@ -36,7 +36,7 @@ router.get('/viewcoach/:id', (request, response) => {
 
 router.get('/getspecialties/:id', (request, response) => {
   const id = request.params.id;
-  console.log('ID', id);
+  console.log('ID2', id);
   const sqlText = `SELECT specialties.specialty_name FROM specialties 
   JOIN coach_specialties ON coach_specialties.specialty_id=specialties.specialty_id
   WHERE coach_specialties.coach_id=$1`;
@@ -53,7 +53,7 @@ router.get('/getspecialties/:id', (request, response) => {
 
 router.get('/:id', (request, response) => {
   const id = request.params.id;
-  console.log('ID', id);
+  console.log('ID3', id);
   const sqlText = `SELECT * FROM coach_bio WHERE id=$1`;
   pool.query(sqlText, [id])
     .then(function (result) {
@@ -69,10 +69,10 @@ router.get('/:id', (request, response) => {
 router.get('/today/:id', (request, response) => {
   const id = request.params.id;
   let date = moment().format('L');
-  console.log('ID', id);
+  console.log('ID4', id);
   console.log('date', date);
   const sqlText = `SELECT * FROM calendar
-  JOIN student_bio ON student_bio.id=calendar.student_id WHERE calendar.coach_id=$1 AND calendar.date=$2`;
+  JOIN student_bio ON student_bio.id=calendar.student_id WHERE calendar.coach_id=$1 AND calendar.date=$2 ORDER BY calendar.property`;
   pool.query(sqlText, [id, date])
     .then(function (result) {
       console.log('Get result:', result);
@@ -125,5 +125,38 @@ router.put('/photo/:id', (request, response) => {
       response.sendStatus(500);
     })
 }); // end username update
+
+router.get('/everyone/students', (request, response) => {
+  console.log('IN ROUTER!!!!!!');
+  const sqlText = `SELECT * FROM student_bio
+  JOIN schools ON schools.school_id=student_bio.school_id
+  JOIN specialties ON specialties.specialty_id=student_bio.specialty_id`;
+  pool.query(sqlText)
+    .then(function (result) {
+      //  console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function (error) {
+      //  console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+});
+
+router.get('/onestudent/:id', (request, response) => {
+  const id = request.params.id;
+  const sqlText = `SELECT * FROM student_bio
+  JOIN schools ON schools.school_id=student_bio.school_id
+  JOIN specialties ON specialties.specialty_id=student_bio.specialty_id
+  WHERE student_bio.id=$1`;
+  pool.query(sqlText, [id])
+    .then(function (result) {
+      //  console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function (error) {
+      //  console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+});
 
 module.exports = router;
