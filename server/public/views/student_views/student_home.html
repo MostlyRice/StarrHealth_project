@@ -22,11 +22,6 @@
                     <span>Your Coach</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.studentSchedule">
-                    <i class="material-icons date-range">date_range</i>
-                    <span>Your Schedule</span>
-                </md-button>
-                <br />
                 <md-button class="md-raised md-warn" flex ng-click="vm.userService.logout()">
                     <i class="material-icons exit-app">exit_to_app</i>
                     <span>Log Out</span>
@@ -94,23 +89,17 @@
                 <div flex-xs flex-gt-xs="50" layout="row" layout-align="center none">
                     <div flex class="profile-div" layout="column" layout-align="center center">
                         <md-card class="card-element md-padding profile-card" layout="row" layout-align="start center">
-                            <h2 class="home-title">Your Coach Is:</h2>
+                            <h2 class="home-title">Your Next Appointment</h2>
+                            <div ng-repeat="date in vm.appointment.list">
+                                <br /> 
+                                <span class="md-subhead">{{date.date}}</span>
+                                <br />
+                                <span class="md-subhead">{{date.available_time}}</span>
+                                <br />
+                            </div>
                         </md-card>
                     </div>
             </md-content>
-            <md-content class="element-content content-element-text md-padding" layout-xs="column" layout="row" layout-align="center none">
-                <div flex-xs flex-gt-xs="50" layout="row" layout-align="center none">
-                    <div flex class="profile-div" layout="column" layout-align="center center">
-                        <md-card class="card-element md-padding profile-card" layout="row" layout-align="start center">
-                            <h2 class="home-title">Your next appoint is:</h2>
-                           <div ng-repeat="date in vm.appointment.list">
-                    {{date.date}} </br>
-                    {{date.available_time}} </br>
-                </div>
-                        </md-card>
-                    </div>
-            </md-content>
-
             </div>
             <!-- End Next Appointment Card -->
 
