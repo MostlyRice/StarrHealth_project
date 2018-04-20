@@ -4,12 +4,9 @@
             <h3>Schedule</h3>
             <md-datepicker ng-model="vm.studentAppointment.date" md-placeholder="Enter date" ng-change="vm.getCoachTimes(vm.studentAppointment.date)"></md-datepicker>
             <div class="form-group">
-                <md-radio-group class="radio" ng-repeat="availability in vm.coachTimes.list">
-                    <label>
-                        <md-radio-button type="radio" name="{{availability}}" value="{{availability.time}}" ng-model="vm.studentAppointment.time"> {{availability.time}}</md-radio-button>
-                    </label>
+                <md-radio-group class="radio" ng-model="vm.studentAppointment.time">
+                        <md-radio-button type="radio" name="{{availability.property}}" ng-repeat="availability in vm.coachTimes.list" ng-value="'{{availability.property}}'">{{availability.time}}</md-radio-button>
                 </md-radio-group>
-        
             </div>
             <button ng-click="vm.postStudentSchedule(vm.studentAppointment)">Add</button>
         </md-card>

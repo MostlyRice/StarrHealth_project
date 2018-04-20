@@ -216,7 +216,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
             });
             // console.log('times', responseArray);
             self.coachTimes.list = responseArray.map(res => {
-                return {time: res.available_time}
+                return {time: res.available_time, property: res.property}
             });
             // console.log('available time', self.coachTimes.list);
         }).catch(function(error){
@@ -226,7 +226,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
 
         self.postStudentSchedule = function(studentAppointment){
             studentAppointment.day = moment(studentAppointment.date).format('L');
-            // console.log('student appointment', studentAppointment);
+            console.log('student appointment', studentAppointment);
             $http({
 
                 method: 'PUT',

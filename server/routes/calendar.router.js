@@ -240,7 +240,7 @@ router.put('/student', (request, response) => {
             .then(result => {
                 console.log('GET COACH ID', result.rows[0].id);
                 let coachID = result.rows[0].id;
-                const sqlText = "UPDATE calendar SET student_id=$1 WHERE available_time=$2 AND coach_id=$3 AND date=$4;";
+                const sqlText = "UPDATE calendar SET student_id=$1 WHERE property=$2 AND coach_id=$3 AND date=$4;";
                 pool.query(sqlText, [studentID, appointmentTime, coachID, appointmentDate])
                     .then((result) => {
                         response.sendStatus(201);
