@@ -105,7 +105,9 @@ router.get('/:id', (request, response) => {
 router.get('/appointment/:id', (request, response) => {
   const id = request.params.id;
   console.log('ID', id);
-  const sqlText = `SELECT * FROM calendar WHERE student_id=$1`;
+  const sqlText = `SELECT * FROM calendar 
+  JOIN coach_bio ON coach_bio.id=calendar.coach_id
+  WHERE calendar.student_id=$1`;
   pool.query(sqlText, [id])
     .then(function (result) {
       //  console.log('Get result:', result);
