@@ -1,6 +1,9 @@
 myApp.service('AdminService', ['$http', '$location', 'UserService', function ($http, $location, UserService) {
     console.log('AdminService Loaded');
     var self = this;
+    self.allSchools = {
+        list: []
+    }
 
     self.adminHome = function () {
         $location.path('/admin_Home');
@@ -11,6 +14,7 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function ($h
     self.adminNewSchool = function () {
         $location.path('/admin_NewSchool');
     }
+
     self.adminStudentDirectory = function () {
         $location.path('/admin_StudentDirectory');
     }
@@ -29,5 +33,17 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function ($h
         $location.path('/admin_Home');
     }
 
+    self.getSchools = function() {
+        $http({
+            method: 'GET',
+            url: `/admin/schools`
+        }).then(function (response) {
+            console.log('DATA', response.data);
+            self.allSchools.list = response.data;
+            console.log('All Schools = ', self.allSchools.list);
+        }).catch(function (error) {
+            console.log('get coach error');
+        })
+    }
 
 }]); // end Admin service

@@ -120,6 +120,24 @@
                 <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
                     <h2 class="school-directory-title">Super Admin School Directory</h2>
                 </md-card>
+                <table>
+                        <thead>
+                            <tr>
+                                <th>School Name</th>
+                                <th>School Code</th>
+                                <th>Number of Student Accounts</th>
+                                <th>Number of Sessions per Student</th>
+                            </tr>
+                        </thead>
+                        <tbody ng-repeat="school in vm.allSchools.list">
+                            <tr>
+                                <td>{{school.school_name}}</td>
+                                <td>{{school.school_code}}</td>
+                                <td>{{school.total_accounts}}</td>
+                                <td>{{school.student_sessions}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
             </div>
         </md-content>
         <!-- End Put Content In This Div! -->
