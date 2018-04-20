@@ -10,6 +10,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
     };
     self.schedule;
 
+
     self.postCalendar = function (schedule) {
         schedule.a = "8:00 AM";
         schedule.b = "9:00 AM";
