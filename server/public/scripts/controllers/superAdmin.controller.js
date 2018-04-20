@@ -16,7 +16,10 @@ myApp.controller('SuperAdminController', ['UserService', '$location', 'SuperAdmi
   self.superAdminCoachSchedule = SuperAdminService.superAdminCoachSchedule;
   self.superAdminCoachAllAppointments = SuperAdminService.superAdminCoachAllAppointments;
   self.allSchools = AdminService.allSchools;
+  self.allCoaches = AdminService.allCoaches;
+  self.deleteCoach = AdminService.deleteCoach;
 
   AdminService.getSchools();
-
+  AdminService.getCoaches();
+  
 }]);
