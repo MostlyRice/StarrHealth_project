@@ -17,7 +17,7 @@
                 </md-button>
                 <br />
 
-                <md-button class="md-raised md-primary" flex ng-click="vm.getMyCoach()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.student">
                     <i class="material-icons person">person</i>
                     <span>Your Coach</span>
                 </md-button>
@@ -37,11 +37,6 @@
                 <md-button class="md-raised md-primary" flex ng-click="vm.getMyCoach()">
                     <i class="material-icons person">person</i>
                     <span>Your Coach</span>
-                </md-button>
-                <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.studentSchedule">
-                    <i class="material-icons date-range">date_range</i>
-                    <span>Your Schedule</span>
                 </md-button>
                 <br />
                 <md-button class="md-raised md-warn" flex ng-click="vm.userService.logout()">
@@ -66,7 +61,7 @@
                                             <md-button class="md-raised md-primary defaultBtn" ng-hide="vm.editing" ng-click="vm.editBio()">Update Bio</md-button>
                                             <md-button class="md-raised md-primary defaultBtn" ng-show="vm.editing" ng-click="vm.saveBio(student.student_id, vm.newBio)">Save Bio</md-button>
                                             <md-button class="md-raised md-primary defaultBtn" ng-show="vm.editing" ng-click="vm.cancelBio()">Cancel Update</md-button>
-                                            <md-button class="md-raised md-primary defaultBtn" ng-click="vm.newPassword()">Change Password:</md-button>
+                                            <md-button class="md-raised md-primary defaultBtn" ng-click="vm.newPassword()">Change Password</md-button>
                                         </span>
                                     </div>
                                 </md-card-title-text>
@@ -77,7 +72,10 @@
                                 <div ng-hide="vm.editing" name="bio">
                                     {{student.student_bio}}
                                 </div>
-                                <input ng-show="vm.editing" type="text" name="bio" ng-model="vm.newBio" placeholder="Enter a Bio" />
+                                <md-input-container ng-show="vm.editing">
+                                    <textarea md-maxlength="150" rows="3" md-select-on-focus type="text" name="bio" ng-model="vm.newBio" placeholder="Enter a Bio"></textarea>
+                                </md-input-container>
+
                             </md-card-content>
                         </div>
                     </md-card>
@@ -90,9 +88,18 @@
                     <div flex class="profile-div" layout="column" layout-align="center center">
                         <md-card class="card-element md-padding profile-card" layout="column" layout-align="center center">
                             <h2 class="home-title">Your Next Appointment</h2>
-                            <div ng-repeat="date in vm.appointment.list">
+                            <md-card-content class="bio-text groove">
+                                <div ng-repeat="date in vm.appointment.list">
                                     {{date.date}} at {{date.available_time}} with {{date.first_name}} {{date.last_name}}
-                            </div>
+                                </div>
+                                <br/>
+                                <div>
+                                    <md-button class="md-raised md-primary" flex ng-click="vm.studentSchedule()">
+                                        <i class="material-icons date-range">date_range</i>
+                                        <span>Make Appointment</span>
+                                    </md-button>
+                                </div>
+                            </md-card-content>
                         </md-card>
                     </div>
             </md-content>
