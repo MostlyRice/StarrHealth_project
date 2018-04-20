@@ -148,6 +148,13 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
             schedule.k = "6:00 PM";
         }
         console.log('weekly appointment', schedule.weekly);
+        $http({
+            method: 'PUT',
+            url: '/calendar/coach',
+            data: schedule
+        })
+    .then(function(response) {
+        console.log('times added', response);
         if(schedule.weekly == true){
             let newDate = moment(schedule.date);
             let recurrence = moment().recur({
@@ -164,25 +171,19 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                 data: schedule
             })
         .then(function(response) {
+            schedule.weekly = "";
             // console.log('weekly times added', response);
-            swal("Schedule update!", "", "success");
+            // swal("Schedule update!", "", "success");
         }).catch(function(error) {
             // console.log('add weekly error', error);
         })
-        } else {
-        $http({
-            method: 'PUT',
-            url: '/calendar/coach',
-            data: schedule
-        })
-    .then(function(response) {
-        // console.log('times added', response);
+        }
         swal("Schedule update!", "", "success");
         self.getCoachSchedule(schedule);
     }).catch(function(error) {
         // console.log('add times error', error);
     })
-    }
+    
     }
 
     self.getCoachAppointments = function () {
