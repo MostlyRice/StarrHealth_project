@@ -67,7 +67,41 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                     if (response.selected == 'true') {
                         console.log('getting chosen times', response.available_time);
                         let key = response.property;
-                        schedule[key] = response.available_time;
+                        // schedule[key] = response.available_time;
+                        if (response.available_time === "8:00 AM") {
+                            schedule[key] = 8;
+                        }
+                        console.log('schedule key', schedule[key]);
+                        if (response.available_time === "9:00 AM") {
+                            schedule[key] = 9;
+                        }
+                        if (response.available_time === "10:00 AM") {
+                            schedule[key] = 10;
+                        }
+                        if (response.available_time === "11:00 AM") {
+                            schedule[key] = 11;
+                        }
+                        if (response.available_time === "12:00 PM") {
+                            schedule[key] = 12;
+                        }
+                        if (response.available_time === "1:00 PM") {
+                            schedule[key] = 1;
+                        }
+                        if (response.available_time === "2:00 PM") {
+                            schedule[key] = 2;
+                        }
+                        if (response.available_time === "3:00 PM") {
+                            schedule[key] = 3;
+                        } 
+                        if (response.available_time === "4:00 PM") {
+                            schedule[key] = 4;
+                        } 
+                        if (response.available_time === "5:00 PM") {
+                            schedule[key] = 5;
+                        }
+                        if (response.available_time === "6:00 PM") {
+                            schedule[key] = 6;
+                        }
                     }
                 }
                 }
@@ -144,6 +178,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
     .then(function(response) {
         // console.log('times added', response);
         swal("Schedule update!", "", "success");
+        self.getCoachSchedule(schedule);
     }).catch(function(error) {
         // console.log('add times error', error);
     })
