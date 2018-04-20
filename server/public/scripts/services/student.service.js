@@ -120,6 +120,22 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function (
         }
     } // end postPassword
 
+    self.returnFromPass = function() {
+        let role = UserService.userObject.user_role;
+        if (role === 2) {
+            $location.path('/coach_Home');
+        } else if (role === 1) {
+            $location.path('/student_home');
+        } else if (role === 3) {
+            $location.path('/admin_home');
+        } else if (role === 4) {
+            $location.path('/super_AdminHome');
+        }
+         else {
+            alert('What is your role?');
+        }
+    }
+
     self.saveBio = function (id, bio) {
         console.log(id, bio);
         const entry = {

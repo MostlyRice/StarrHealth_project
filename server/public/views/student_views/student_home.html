@@ -88,14 +88,10 @@
             <md-content class="element-content content-element-text md-padding" layout-xs="column" layout="row" layout-align="center none">
                 <div flex-xs flex-gt-xs="50" layout="row" layout-align="center none">
                     <div flex class="profile-div" layout="column" layout-align="center center">
-                        <md-card class="card-element md-padding profile-card" layout="row" layout-align="start center">
+                        <md-card class="card-element md-padding profile-card" layout="column" layout-align="center center">
                             <h2 class="home-title">Your Next Appointment</h2>
                             <div ng-repeat="date in vm.appointment.list">
-                                <br /> 
-                                <span class="md-subhead">{{date.date}}</span>
-                                <br />
-                                <span class="md-subhead">{{date.available_time}}</span>
-                                <br />
+                                    {{date.date}} at {{date.available_time}} with {{date.first_name}} {{date.last_name}}
                             </div>
                         </md-card>
                     </div>
