@@ -679,3 +679,30 @@ button.md-raised.md-primary.defaultBtn.scheduleBtn.md-button.md-ink-ripple {
   font-size: 14px;
   vertical-align: middle;
 }
+
+.profile-div {
+
+  background: rgba(255, 255, 255, 0.0);
+}
+
+.bio-text {
+  clear: both;
+  display: block;
+}
+
+.profile-card {
+  width: auto;
+  height: auto;
+}
+
+.element-content {
+  background: rgba(255, 255, 255, 0.0);
+  text-align: center;
+}
+
+.inset {
+  border-style: inset;
+}
+.groove {
+  border-style: groove;
+}

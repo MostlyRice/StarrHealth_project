@@ -56,46 +56,63 @@
             </md-content>
         </md-sidenav>
         <!-- End md-sidenav -->
-        <!-- Put Content In This Div! -->
-        <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
-            <div flex class="div-element" layout="column" layout-align="center center">
-                <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
-                    <h2 class="home-title">Student Home</h2>
-                    <div ng-repeat="student in vm.student.list">
-                        {{student.first_name}} {{student.last_name}}
-                    </div>
-                    <div ng-repeat="student in vm.student.list">
-                        <label for="bio">My Bio:</label>
-                        <div ng-hide="vm.editing" name="bio">
-                            {{student.student_bio}}
+        <!-- Profile Card -->
+        <div flex>
+            <md-content class="element-content content-element-text md-padding" layout-xs="column" layout="row">
+                <div flex class="profile-div" layout="column" layout-align="center center">
+                    <md-card flex class="card-element profile-card md-padding">
+                        <div>
+                            <h2 class="home-title">Student Home</h2>
+                            <md-card-title>
+                                <md-card-title-text ng-repeat="student in vm.student.list">
+                                    <div>
+                                        <span class="md-headline">{{student.first_name}} {{student.last_name}}</span>
+                                        <span ng-repeat="student in vm.student.list" layout-xs="column">
+                                            <md-button class="md-raised md-primary defaultBtn" ng-hide="vm.editing" ng-click="vm.editBio()">Update Bio</md-button>
+                                            <md-button class="md-raised md-primary defaultBtn" ng-show="vm.editing" ng-click="vm.saveBio(student.student_id, vm.newBio)">Save Bio</md-button>
+                                            <md-button class="md-raised md-primary defaultBtn" ng-show="vm.editing" ng-click="vm.cancelBio()">Cancel Update</md-button>
+                                            <md-button class="md-raised md-primary defaultBtn" ng-click="vm.newPassword()">Change Password:</md-button>
+                                        </span>
+                                    </div>
+                                </md-card-title-text>
+                            </md-card-title>
                         </div>
-                        <input ng-show="vm.editing" type="text" name="bio" ng-model="vm.newBio" placeholder="Enter a Bio" />
+                        <div>
+                            <md-card-content class="bio-text groove" ng-repeat="student in vm.student.list">
+                                <div ng-hide="vm.editing" name="bio">
+                                    {{student.student_bio}}
+                                </div>
+                                <input ng-show="vm.editing" type="text" name="bio" ng-model="vm.newBio" placeholder="Enter a Bio" />
+                            </md-card-content>
+                        </div>
+                    </md-card>
+                </div>
+            </md-content>
+            <!-- End Profile Card -->
+            <!-- Start Next Appointment Card -->
+            <md-content class="element-content content-element-text md-padding" layout-xs="column" layout="row" layout-align="center none">
+                <div flex-xs flex-gt-xs="50" layout="row" layout-align="center none">
+                    <div flex class="profile-div" layout="column" layout-align="center center">
+                        <md-card class="card-element md-padding profile-card" layout="row" layout-align="start center">
+                            <h2 class="home-title">Your Coach Is:</h2>
+                        </md-card>
                     </div>
-                    <div ng-repeat="student in vm.student.list">
-                        <button ng-hide="vm.editing" ng-click="vm.editBio()">Update Bio</button>
-                        <button ng-show="vm.editing" ng-click="vm.saveBio(student.student_id, vm.newBio)">Save Bio</button>
-                        <button ng-show="vm.editing" ng-click="vm.cancelBio()">Cancel Update</button>
-                    </div>
-                    <div>
-                        <button ng-click="vm.newPassword()">Change Password:</button>
-                    </div>
-                </md-card>
-                <div ng-repeat="date in vm.appointment.list">
+            </md-content>
+            <md-content class="element-content content-element-text md-padding" layout-xs="column" layout="row" layout-align="center none">
+                <div flex-xs flex-gt-xs="50" layout="row" layout-align="center none">
+                    <div flex class="profile-div" layout="column" layout-align="center center">
+                        <md-card class="card-element md-padding profile-card" layout="row" layout-align="start center">
+                            <h2 class="home-title">Your next appoint is:</h2>
+                           <div ng-repeat="date in vm.appointment.list">
                     {{date.date}} </br>
                     {{date.available_time}} </br>
                 </div>
+                        </md-card>
+                    </div>
+            </md-content>
+
             </div>
-        </md-content>
-        <!-- End Put Content In This Div! -->
-        <!-- Put Content In This Div! -->
-        <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
-            <div flex class="div-element" layout="column" layout-align="center center">
-                <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
-                    <h2 class="home-title">Your next appoint is:</h2>
-                </md-card>
-            </div>
-        </md-content>
-<!-- End Put Content In This Div! -->
+            <!-- End Next Appointment Card -->
 
     </section>
-</div>
+    </div>
