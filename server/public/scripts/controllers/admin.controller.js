@@ -16,9 +16,12 @@ myApp.controller('AdminController', ['$http', 'UserService', '$location', 'Admin
     self.allSchools = AdminService.allSchools;
     self.allCoaches = AdminService.allCoaches;
     self.deleteCoach = AdminService.deleteCoach;
+    self.allStudents = AdminService.allStudents;
+    self.deleteStudent = AdminService.deleteStudent;
 
     AdminService.getSchools();
     AdminService.getCoaches();
+    AdminService.getStudents();
 
 
     // AdminService.getCoachInfo();

@@ -7,6 +7,9 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function ($h
     self.allCoaches = {
         list: []
     }
+    self.allStudents = {
+        list: []
+    }
 
     self.adminHome = function () {
         $location.path('/admin_Home');
@@ -62,6 +65,19 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function ($h
         })
     }
 
+    self.getStudents = function() {
+        $http({
+            method: 'GET',
+            url: `/admin/students`
+        }).then(function (response) {
+            console.log('DATA', response.data);
+            self.allStudents.list = response.data;
+            console.log('All Students = ', self.allStudents.list);
+        }).catch(function (error) {
+            console.log('get all students error');
+        })
+    }
+
     self.deleteCoach = function(id) {
         $http({
             method: 'DELETE',
@@ -69,6 +85,18 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function ($h
         }).then(function (response) {
             console.log('DATA', response.data);
             self.getCoaches();
+        }).catch(function (error) {
+            console.log('delete error');
+        })
+    }
+
+    self.deleteStudent = function(id) {
+        $http({
+            method: 'DELETE',
+            url: `/admin/remove/student/${id}`
+        }).then(function (response) {
+            console.log('DATA', response.data);
+            self.getStudents();
         }).catch(function (error) {
             console.log('delete error');
         })
