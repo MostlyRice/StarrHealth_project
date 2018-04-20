@@ -19,11 +19,6 @@
                     <span>Your Coach</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.studentSchedule">
-                    <i class="material-icons date-range">date_range</i>
-                    <span>Your Schedule</span>
-                </md-button>
-                <br />
                 <md-button class="md-raised md-warn" flex ng-click="vm.userService.logout()">
                     <i class="material-icons exit-app">exit_to_app</i>
                     <span>Log Out</span>
@@ -59,16 +54,11 @@
                     <h2 class="home-title">Your Coach</h2>
 
                     <div layout="column" layout-align="top" ng-repeat="coach in vm.myCoach.list">
-                        <img ng-src="{{coach.coach_photo}}" width="180px"> </br>
-                        {{coach.first_name}} {{coach.last_name}} </br>
-                        {{coach.job_title}} </br>
-                        {{coach.email}} </br>
-                        {{coach.certifications}} </br>
-                        {{coach.personal_interests}} </br>
-                        {{coach.coach_bio}} </br>
-                    </div>
-                    <div ng-repeat="thing in vm.specialties.list">
-                        {{thing.specialty_name}}
+                        <img ng-src="{{coach.coach_photo}}" width="180px"> <br />
+                        {{coach.first_name}} {{coach.last_name}} <br />
+                        {{coach.job_title}} <br />
+                        {{coach.email}} <br />
+                        {{coach.coach_bio}} <br />
                     </div>
                     <!-- <div>
                         <button ng-click="vm.studentCoach(vm.thisCoach)">Make Appointment</button>
