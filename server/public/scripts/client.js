@@ -299,7 +299,7 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
         }
       }
     })
-    .when('/student_Home', {
+    .when('/student_home', {
       templateUrl: '/views/student_views/student_home.html',
       controller: 'StudentController as vm',
       resolve: {
@@ -308,7 +308,7 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
         }
       }
     })
-    .when('/student_Coach', {
+    .when('/student_coach', {
       templateUrl: '/views/student_views/student_coach.html',
       controller: 'MatchController as vm',
       resolve: {

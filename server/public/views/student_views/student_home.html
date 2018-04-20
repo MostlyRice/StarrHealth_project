@@ -103,9 +103,14 @@
                     <div flex class="profile-div" layout="column" layout-align="center center">
                         <md-card class="card-element md-padding profile-card" layout="row" layout-align="start center">
                             <h2 class="home-title">Your next appoint is:</h2>
+                           <div ng-repeat="date in vm.appointment.list">
+                    {{date.date}} </br>
+                    {{date.available_time}} </br>
+                </div>
                         </md-card>
                     </div>
             </md-content>
+
             </div>
             <!-- End Next Appointment Card -->
 

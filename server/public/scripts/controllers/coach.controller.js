@@ -16,9 +16,12 @@ myApp.controller('CoachController', ['$http', 'UserService', '$location', 'Coach
   self.saveCoach = CoachService.saveCoach;
   self.saveUserName = CoachService.saveUserName;
   self.upload = CoachService.upload;
+  self.todayAppts = CoachService.todayAppts;
 
   CoachService.getMe();
+  CoachService.getTodayAppts();
   console.log('myself', self.myself);
+  console.log('today', self.todayAppts);
 
   self.cancelCoach = function (coach) {
     coach.editing = false;

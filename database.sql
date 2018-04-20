@@ -45,9 +45,9 @@ CREATE TABLE "calendar"
     (
         "calendar_id" serial primary key,
         "coach_id" int,
-        "property" varchar,
+        "property" char(1),
         "student_id" int,
-        "available_time" int,
+        "available_time" varchar(12),
         "date" varchar,
         "selected" varchar
 )   ;

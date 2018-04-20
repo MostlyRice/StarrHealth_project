@@ -1,19 +1,20 @@
-<!-- Put Content In This Div! -->
 <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
     <div flex class="div-element" layout="column" layout-align="center center">
         <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
-                <h3>Schedule</h3>
-                <md-datepicker ng-model="vm.studentAppointment.date" md-placeholder="Enter date" ng-change="vm.getCoachTimes(vm.studentAppointment.date)"></md-datepicker>
-                <div class="form-group">
-                    <div class="radio" ng-repeat="availability in vm.coachTimes.list">
-                        <label>
-                            <input type="radio" name="{{availability}}" value="{{availability.time}}" ng-model="vm.studentAppointment.time"> {{availability.time}}AM
-                        </label>
-                    </div>
+            <h3>Schedule</h3>
+            <md-datepicker ng-model="vm.studentAppointment.date" md-placeholder="Enter date" ng-change="vm.getCoachTimes(vm.studentAppointment.date)"></md-datepicker>
+            <div class="form-group">
+                <div class="radio" ng-repeat="availability in vm.coachTimes.list">
+                    <label>
+                        <input type="radio" name="{{availability}}" value="{{availability.time}}" ng-model="vm.studentAppointment.time"> {{availability.time}}
+                    </label>
                 </div>
-                <button ng-click="vm.postStudentSchedule(vm.studentAppointment)">Add</button>
+        
             </div>
+            <button ng-click="vm.postStudentSchedule(vm.studentAppointment)">Add</button>
         </md-card>
     </div>
 </md-content>
 <!-- End Put Content In This Div! -->
+
+

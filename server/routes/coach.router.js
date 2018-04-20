@@ -2,6 +2,7 @@ const express = require('express');
 const encryptLib = require('../modules/encryption');
 const pool = require('../modules/pool.js');
 const router = express.Router();
+const moment = require('moment');
 
 router.post('/', (request, response) => {
   const entry = request.body.entry;
@@ -57,6 +58,24 @@ router.get('/:id', (request, response) => {
   pool.query(sqlText, [id])
     .then(function (result) {
       //  console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function (error) {
+      //  console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+});
+
+router.get('/today/:id', (request, response) => {
+  const id = request.params.id;
+  let date = moment().format('L');
+  console.log('ID', id);
+  console.log('date', date);
+  const sqlText = `SELECT * FROM calendar
+  JOIN student_bio ON student_bio.id=calendar.student_id WHERE calendar.coach_id=$1 AND calendar.date=$2`;
+  pool.query(sqlText, [id, date])
+    .then(function (result) {
+      console.log('Get result:', result);
       response.send(result.rows);
     })
     .catch(function (error) {
