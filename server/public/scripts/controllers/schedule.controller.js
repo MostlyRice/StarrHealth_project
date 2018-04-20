@@ -14,6 +14,14 @@ myApp.controller('ScheduleController', ['$http', 'ScheduleService', 'UserService
 
   self.schedule = ScheduleService.schedule;
 
+  self.studentAppointment = {};
+  self.studentAppointment.date = new Date();
+  self.getCoachTimes(self.studentAppointment.date);
+
+  self.schedule = {};
+  self.schedule.date = new Date();
+  self.getCoachSchedule(self.schedule);
+
   self.postStudentSchedule = ScheduleService.postStudentSchedule;
 
   // self.getCoachTimes();
