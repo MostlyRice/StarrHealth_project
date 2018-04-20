@@ -67,7 +67,41 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                     if (response.selected == 'true') {
                         console.log('getting chosen times', response.available_time);
                         let key = response.property;
-                        schedule[key] = response.available_time;
+                        // schedule[key] = response.available_time;
+                        if (response.available_time === "8:00 AM") {
+                            schedule[key] = 8;
+                        }
+                        console.log('schedule key', schedule[key]);
+                        if (response.available_time === "9:00 AM") {
+                            schedule[key] = 9;
+                        }
+                        if (response.available_time === "10:00 AM") {
+                            schedule[key] = 10;
+                        }
+                        if (response.available_time === "11:00 AM") {
+                            schedule[key] = 11;
+                        }
+                        if (response.available_time === "12:00 PM") {
+                            schedule[key] = 12;
+                        }
+                        if (response.available_time === "1:00 PM") {
+                            schedule[key] = 1;
+                        }
+                        if (response.available_time === "2:00 PM") {
+                            schedule[key] = 2;
+                        }
+                        if (response.available_time === "3:00 PM") {
+                            schedule[key] = 3;
+                        } 
+                        if (response.available_time === "4:00 PM") {
+                            schedule[key] = 4;
+                        } 
+                        if (response.available_time === "5:00 PM") {
+                            schedule[key] = 5;
+                        }
+                        if (response.available_time === "6:00 PM") {
+                            schedule[key] = 6;
+                        }
                     }
                 }
                 }
@@ -114,6 +148,13 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
             schedule.k = "6:00 PM";
         }
         console.log('weekly appointment', schedule.weekly);
+        $http({
+            method: 'PUT',
+            url: '/calendar/coach',
+            data: schedule
+        })
+    .then(function(response) {
+        console.log('times added', response);
         if(schedule.weekly == true){
             let newDate = moment(schedule.date);
             let recurrence = moment().recur({
@@ -130,24 +171,19 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                 data: schedule
             })
         .then(function(response) {
+            schedule.weekly = "";
             // console.log('weekly times added', response);
-            swal("Schedule update!", "", "success");
+            // swal("Schedule update!", "", "success");
         }).catch(function(error) {
             // console.log('add weekly error', error);
         })
-        } else {
-        $http({
-            method: 'PUT',
-            url: '/calendar/coach',
-            data: schedule
-        })
-    .then(function(response) {
-        // console.log('times added', response);
+        }
         swal("Schedule update!", "", "success");
+        self.getCoachSchedule(schedule);
     }).catch(function(error) {
         // console.log('add times error', error);
     })
-    }
+    
     }
 
     self.getCoachAppointments = function () {
@@ -181,7 +217,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
             });
             // console.log('times', responseArray);
             self.coachTimes.list = responseArray.map(res => {
-                return {time: res.available_time}
+                return {time: res.available_time, property: res.property}
             });
             // console.log('available time', self.coachTimes.list);
         }).catch(function(error){
@@ -191,7 +227,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
 
         self.postStudentSchedule = function(studentAppointment){
             studentAppointment.day = moment(studentAppointment.date).format('L');
-            // console.log('student appointment', studentAppointment);
+            console.log('student appointment', studentAppointment);
             $http({
 
                 method: 'PUT',

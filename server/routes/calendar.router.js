@@ -34,7 +34,7 @@ router.post('/calendar', (request, response) => {
         const date = request.body.day;
         const coachID = request.user.id;
         for (let value in coachAvailability) {
-            if (value != 'date' && value != 'coach_id' && value != 'day') {
+            if (value != 'date' && value != 'coach_id' && value != 'day' && value != 'weeklyAppointments' && value != 'weekly') {
                 let property = value;
                 let available_time = coachAvailability[value];
                 const sqlText = `INSERT INTO calendar (available_time, date, coach_id, property, selected) VALUES ($1, $2, $3, $4, false);`;
@@ -103,6 +103,7 @@ router.post('/weekly', (request, response) => {
             pool.query(SQLTEXT, [appointment, coachID])
             .then((result) => {
                 for(let value in coachAvailability){
+                    console.log('VALUE', value);
                     if(value != 'date' && value != 'coach_id' && value != 'day' && value != 'weeklyAppointments'){
                         availabilityArray.push(coachAvailability[value])};
                     }
@@ -142,7 +143,7 @@ router.put('/coach', (request, response) => {
         pool.query(SQLtext, [date, coachID])
             .then((result) => {
                 for (let value in coachAvailability) {
-                    if (value != 'date' && value != 'coach_id' && value != 'day') {
+                    if (value != 'date' && value != 'coach_id' && value != 'day' && value != 'weeklyAppointments' && value != 'weekly') {
                         availabilityArray.push(coachAvailability[value])
                     };
                 }
@@ -240,7 +241,7 @@ router.put('/student', (request, response) => {
             .then(result => {
                 console.log('GET COACH ID', result.rows[0].id);
                 let coachID = result.rows[0].id;
-                const sqlText = "UPDATE calendar SET student_id=$1 WHERE available_time=$2 AND coach_id=$3 AND date=$4;";
+                const sqlText = "UPDATE calendar SET student_id=$1 WHERE property=$2 AND coach_id=$3 AND date=$4;";
                 pool.query(sqlText, [studentID, appointmentTime, coachID, appointmentDate])
                     .then((result) => {
                         response.sendStatus(201);
