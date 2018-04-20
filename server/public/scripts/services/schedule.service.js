@@ -1,6 +1,8 @@
 myApp.service('ScheduleService', ['$http', 'UserService', '$location', function ($http, UserService, $location) {
     console.log('ScheduleService Loaded');
     let self = this;
+    self.userService = UserService;
+    self.userObject = UserService.userObject;
 
     self.coachAppointments = {
         list: []
@@ -235,10 +237,40 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                 data: studentAppointment
             })
             .then(function (response) {
-                // console.log('studend appointment added', response);
-
-                swal("Appointment added!", "", "success");
-                $location.path('/student_home');
+                console.log('studend appointment added', response);
+                const id = UserService.userObject.id;
+                $http({
+                    method: 'GET',
+                    url: `/student/sessions/${id}`
+                }).then(function (response) {
+                    console.log('DATA', response.data);
+                    sessions = response.data;
+                    console.log('Sessions = ', sessions);
+                    thing = sessions[0].sessions_used;
+                    console.log('thing', thing);
+                    used = thing + 1;
+                    console.log('used', used);
+                    entry = {
+                        id: id,
+                        sessions_used: used
+                    }
+                    $http({
+                        method: 'PUT',
+                        url: `/student/updatesessions/${id}`,
+                        data: {
+                            entry: entry
+                        }
+                    }).then(function (response) {
+                        swal("Appointment added!", "", "success");
+                        $location.path('/student_home');
+                    }).catch(function (error) {
+                        console.log('goals put error', error);
+                    })
+                    
+                }).catch(function (error) {
+                    console.log('get my Studen error');
+                })
+              
             }).catch(function (error) {
 
                 // console.log('student appointment error', error);

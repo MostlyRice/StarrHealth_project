@@ -118,6 +118,21 @@ router.get('/appointment/:id', (request, response) => {
       response.sendStatus(500);
     })
 });
+router.get('/sessions/:id', (request, response) => {
+  const id = request.params.id;
+  console.log('SESSIONS ID', id);
+  const sqlText = `SELECT student_id, id, sessions_used, total_sessions FROM student_bio
+  WHERE id=$1`;
+  pool.query(sqlText, [id])
+    .then(function (result) {
+      //  console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function (error) {
+      //  console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+});
 
 router.get('/mycoach/:id', (request, response) => {
   const id = request.params.id;
@@ -140,6 +155,20 @@ router.put('/bio/:id', (request, response) => {
   let queryText = `UPDATE student_bio 
     SET student_bio=$2 WHERE student_id=$1`;
   pool.query(queryText, [id, entry.student_bio])
+    .then((result) => {
+      response.sendStatus(200);
+    })
+    .catch((err) => {
+      response.sendStatus(500);
+    })
+}); // end extra update
+
+router.put('/updatesessions/:id', (request, response) => {
+  const id = request.params.id;
+  const entry = request.body.entry;
+  let queryText = `UPDATE student_bio 
+    SET sessions_used=$2 WHERE id=$1`;
+  pool.query(queryText, [id, entry.sessions_used])
     .then((result) => {
       response.sendStatus(200);
     })
