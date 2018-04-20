@@ -189,4 +189,31 @@ router.get('/jobs', (request, response) => {
     })
 });
 
+router.get('/schools', (request, response) => {
+  const sqlText = `SELECT * FROM schools`;
+  pool.query(sqlText)
+    .then(function (result) {
+      //  console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function (error) {
+      //  console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+});
+
+router.delete('/remove/:id', (req, res) => {
+  const id = req.params.id;
+  console.log('DELETE ID', id);
+  let queryText = `DELETE * FROM schools WHERE school_id=$1`;
+  pool.query(queryText, [id])
+  .then((result) => {
+    res.sendStatus(200);
+  })
+  .catch((error) => {
+    console.log('Error on delete', error);
+    res.sendStatus(500);
+  }) 
+});
+
 module.exports = router;

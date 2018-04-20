@@ -1,7 +1,8 @@
-myApp.controller('SuperAdminController', ['UserService', '$location', 'SuperAdminService', function (UserService, $location, SuperAdminService) {
+myApp.controller('SuperAdminController', ['UserService', '$location', 'SuperAdminService', 'AdminService', function (UserService, $location, SuperAdminService, AdminService) {
   console.log('SuperAdminController created');
   var self = this;
   self.userService = UserService;
+  self.adminService = AdminService;
   self.userObject = UserService.userObject;
   console.log(self.userObject);
 
@@ -14,4 +15,8 @@ myApp.controller('SuperAdminController', ['UserService', '$location', 'SuperAdmi
   self.superAdminAllAppointments = SuperAdminService.superAdminAllAppointments;
   self.superAdminCoachSchedule = SuperAdminService.superAdminCoachSchedule;
   self.superAdminCoachAllAppointments = SuperAdminService.superAdminCoachAllAppointments;
+  self.allSchools = AdminService.allSchools;
+
+  AdminService.getSchools();
+
 }]);
