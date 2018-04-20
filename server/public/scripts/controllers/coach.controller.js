@@ -17,10 +17,16 @@ myApp.controller('CoachController', ['$http', 'UserService', '$location', 'Coach
   self.saveUserName = CoachService.saveUserName;
   self.upload = CoachService.upload;
   self.todayAppts = CoachService.todayAppts;
+  self.coachesStudents = CoachService.coachesStudents;
+  self.moreInfo = CoachService.moreInfo;
+  self.myStudent = CoachService.myStudent;
+  
 
   CoachService.getMe();
   CoachService.getTodayAppts();
-  console.log('myself', self.myself);
+  CoachService.getMyStudents();
+
+  console.log('myself', self.student);
   console.log('today', self.todayAppts);
 
   self.cancelCoach = function (coach) {
