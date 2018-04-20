@@ -92,7 +92,7 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
     }
 
     self.newPassword = function () {
-        $location.path('/coach_password');
+        $location.path('/change_password');
     } // end newPassword
 
     self.getMe = function () {

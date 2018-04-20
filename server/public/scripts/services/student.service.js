@@ -44,7 +44,7 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function (
     } // end getStudent
 
     self.newPassword = function () {
-        $location.path('/student_password');
+        $location.path('/change_password');
     } // end newPassword
 
     self.changePassword = function (auth) {
@@ -102,7 +102,12 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function (
                     $location.path('/coach_Home');
                 } else if (role === 1) {
                     $location.path('/student_home');
-                } else {
+                } else if (role === 3) {
+                    $location.path('/admin_home');
+                } else if (role === 4) {
+                    $location.path('/super_AdminHome');
+                }
+                 else {
                     alert('What is your role?');
                 }
                 // $location.path('/student_home');
