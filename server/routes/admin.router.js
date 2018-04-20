@@ -202,10 +202,22 @@ router.get('/schools', (request, response) => {
     })
 });
 
-router.delete('/remove/:id', (req, res) => {
+router.get('/coaches', (request, response) => {
+  const sqlText = `SELECT * FROM coach_bio`;
+  pool.query(sqlText)
+    .then(function (result) {
+      //  console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function (error) {
+      //  console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+});
+
+router.delete('/remove/coach/:id', (req, res) => {
   const id = req.params.id;
-  console.log('DELETE ID', id);
-  let queryText = `DELETE * FROM schools WHERE school_id=$1`;
+  let queryText = `DELETE FROM users WHERE id=$1`;
   pool.query(queryText, [id])
   .then((result) => {
     res.sendStatus(200);
