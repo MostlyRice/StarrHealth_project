@@ -209,6 +209,15 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
         }
       }
     })
+    .when('/student_Appointments', {
+      templateUrl: '/views/student_views/student_Appointments.html',
+      controller: 'StudentController as vm',
+      resolve: {
+        getCoach: function (UserService) {
+          return UserService.getStudent();
+        }
+      }
+    })
       .when('/student_info', {
         templateUrl: '/views/coach_views/student_info.html',
         controller: 'CoachController as vm',
