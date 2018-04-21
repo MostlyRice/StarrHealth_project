@@ -202,6 +202,27 @@ router.get('/schools', (request, response) => {
     })
 });
 
+router.get('/appts', (request, response) => {
+  const sqlText = `SELECT calendar.date, calendar.available_time, student_bio.sessions_used, calendar.property,
+  student_bio.first_name as student_first, student_bio.last_name as student_last,
+  coach_bio.first_name as coach_first, coach_bio.last_name as coach_last,
+  schools.school_name, specialties.specialty_name FROM calendar
+  JOIN coach_bio ON calendar.coach_id=coach_bio.id
+  JOIN student_bio ON student_bio.id=calendar.student_id
+  JOIN schools ON schools.school_id=student_bio.school_id
+  JOIN specialties ON specialties.specialty_id=student_bio.specialty_id
+  ORDER BY calendar.date ASC, calendar.property`;
+  pool.query(sqlText)
+    .then(function (result) {
+      //  console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function (error) {
+      //  console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+});
+
 router.get('/coaches', (request, response) => {
   const sqlText = `SELECT * FROM coach_bio`;
   pool.query(sqlText)

@@ -18,11 +18,12 @@ myApp.controller('AdminController', ['$http', 'UserService', '$location', 'Admin
     self.deleteCoach = AdminService.deleteCoach;
     self.allStudents = AdminService.allStudents;
     self.deleteStudent = AdminService.deleteStudent;
+    self.allAppts = AdminService.allAppts;
 
     AdminService.getSchools();
     AdminService.getCoaches();
     AdminService.getStudents();
-
+    AdminService.getAppts();
 
     // AdminService.getCoachInfo();
 
