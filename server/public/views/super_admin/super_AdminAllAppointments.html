@@ -120,6 +120,30 @@
                 <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
                     <h2 class="all-appointments-title">Super Admin All Appointments</h2>
                 </md-card>
+                <table>
+                        <thead>
+                            <tr>
+                                <th>Appt. Date</th>
+                                <th>Appt. Time</th>
+                                <th>Coach Name</th>
+                                <th>Student Name</th>
+                                <th>School Name</th>
+                                <th>Student Goal</th>
+                                <th>Session Number</th>
+                            </tr>
+                        </thead>
+                        <tbody ng-repeat="data in vm.allAppts.list">
+                            <tr>
+                                <td>{{data.date}}</td>
+                                <td>{{data.available_time}}</td>
+                                <td>{{data.coach_first}} {{data.coach_last}}</td>
+                                <td>{{data.student_first}} {{data.student_last}}</td>
+                                <td>{{data.school_name}}</td>
+                                <td>{{data.specialty_name}}</td>
+                                <td>{{data.sessions_used}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
             </div>
         </md-content>
         <!-- End Put Content In This Div! -->
