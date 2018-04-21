@@ -8,7 +8,9 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
     self.coachTimes = {
         list: []
     };
-    self.schedule;
+    self.schedule = {};
+    self.schedule.date = new Date();
+    
 
 
     self.postCalendar = function (schedule) {
@@ -110,6 +112,8 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                 console.log('get coach day times error', error);
             })
     }
+
+    self.getCoachSchedule(self.schedule);
 
     self.postAvailability = function (schedule) {
         schedule.day = moment(schedule.date).format('L');
