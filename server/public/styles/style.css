@@ -240,6 +240,10 @@ button.md-raised.md-warn.md-button.md-ink-ripple.flex {
   background-color: #d3394b;
 }
 
+button.md-raised.md-warn.md-button.md-ink-ripple.flex:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
 button.md-raised.md-primary.md-button.md-ink-ripple.flex {
   min-height: 50px;
   min-width: 255px;
@@ -247,14 +251,26 @@ button.md-raised.md-primary.md-button.md-ink-ripple.flex {
   background-color: #1686B4;
 }
 
+button.md-raised.md-primary.md-button.md-ink-ripple.flex:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
 button.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple {
   background-color: rgba(7, 61, 128, 0.8);
   color: white;
 }
 
+button.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
 a.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple {
   background-color: rgba(7, 61, 128, 0.8);
   color: white;
+}
+
+a.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 ::-webkit-scrollbar {
@@ -395,10 +411,6 @@ a.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple {
   color: white;
 }
 
-md-select span {
-  color: rgba(0, 0, 0, 0.85);
-}
-
 md-datepicker span {
   color: rgba(0, 0, 0, 0.85);
 }
@@ -411,12 +423,24 @@ button.md-raised.md-primary.defaultBtn.md-button.md-ink-ripple {
   background-color: #1686B4;
 }
 
+button.md-raised.md-primary.defaultBtn.md-button.md-ink-ripple:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
 a.md-raised.md-primary.defaultBtn.md-button.md-ink-ripple {
   background-color: #1686B4;
 }
 
+a.md-raised.md-primary.defaultBtn.md-button.md-ink-ripple:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
 button.md-raised.md-primary.selectedBtn.md-button.md-ink-ripple {
   background-color: #16b493;
+}
+
+button.md-raised.md-primary.selectedBtn.md-button.md-ink-ripple:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 md-input-container.other-barriers {
@@ -555,6 +579,10 @@ button.md-raised.md-primary.defaultBtn.md-button.md-ink-ripple {
   background-color: #1686B4;
 }
 
+button.md-raised.md-primary.defaultBtn.md-button.md-ink-ripple:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
 .create-schedule {
   font-size: 20px;
   height: 700px;
@@ -614,7 +642,7 @@ button.md-raised.md-primary.defaultBtn.scheduleBtn.md-button.md-ink-ripple {
   margin-left: 30px;
 }
 
-._md-container{
+._md-container {
   display: inline-block;
 }
 
@@ -624,6 +652,7 @@ button.md-raised.md-primary.defaultBtn.scheduleBtn.md-button.md-ink-ripple {
   height: 30px;
   background-color: rgba(254, 254, 254, 0);
 }
+
 #myBar {
   width: 20%;
   height: 65%;
@@ -636,39 +665,46 @@ button.md-raised.md-primary.defaultBtn.scheduleBtn.md-button.md-ink-ripple {
   height: 30px;
   background-color: rgba(254, 254, 254, 0);
 }
+
 #myBar2 {
   width: 40%;
   height: 65%;
   background-color: #1686B4;
 }
+
 #myProgress3 {
   position: relative;
   width: 100%;
   height: 30px;
   background-color: rgba(254, 254, 254, 0);
 }
+
 #myBar3 {
   width: 60%;
   height: 65%;
   background-color: #1686B4;
 }
+
 #myProgress4 {
   position: relative;
   width: 100%;
   height: 30px;
   background-color: rgba(254, 254, 254, 0);
 }
+
 #myBar4 {
   width: 80%;
   height: 65%;
   background-color: #1686B4;
 }
+
 #myProgress5 {
   position: relative;
   width: 100%;
   height: 30px;
   background-color: rgba(254, 254, 254, 0);
 }
+
 #myBar5 {
   width: 100%;
   height: 65%;
@@ -681,7 +717,6 @@ button.md-raised.md-primary.defaultBtn.scheduleBtn.md-button.md-ink-ripple {
 }
 
 .profile-div {
-
   background: rgba(255, 255, 255, 0.0);
 }
 
@@ -700,9 +735,32 @@ button.md-raised.md-primary.defaultBtn.scheduleBtn.md-button.md-ink-ripple {
   text-align: center;
 }
 
-.inset {
-  border-style: inset;
-}
 .groove {
-  border-style: groove;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 2px;
+  display: inline-block;
+  margin: 1rem;
+  position: relative;
+}
+
+.groove-1 {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.groove-1:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none !important;
+}
+
+.ng-hide.ng-hide-animate {
+  display: none !important;
 }

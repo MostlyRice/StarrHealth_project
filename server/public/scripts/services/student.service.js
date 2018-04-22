@@ -16,6 +16,10 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function (
 
     self.studentSchedule = function () {
         $location.path('/student_Appointments');
+    }
+
+    self.studentCoach = function () {
+        $location.path('/student_coach');
     } 
 
     self.getStudent = function () {
