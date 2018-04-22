@@ -1,19 +1,26 @@
 <div ng-cloak layout-fill layout="column" layout-align="center center" class="registration-view-text">
 
-    <md-card class="card-element md-padding">
-        <br>
-        <div layout-padding class="starr-landing">
-            <img ng-src="./images/starrhealthlogo.png" />
-            <p class="home-page-text">Starr Health Co.</p>
+    <md-content class="content-element content-element-text" layout="column" layout-align="center center">
+        <div class="div-element" layout="column" layout-align="center center">
+            <md-card class="card-element md-padding" layout="row" layout-align="center center">
+                <h2 class="home-title">Recommended Coaches</h2>
+            </md-card>
         </div>
-        <h2 class="home-title">Recommended Coaches</h2>
-        <div layout-align="center center">
-            <md-input-container ng-repeat="coach in vm.allCoaches.list" flex>
-                {{coach.first_name}} {{coach.last_name}}
-                <br /> {{coach.job_title}}: {{coach.specialty_name}}
-                <md-button class="md-raised md-primary defaultBtn" ng-click="vm.viewCoach(coach.coach_id)">View Coach</md-button>
-            </md-input-container>
+    </md-content>
+
+    <md-content class="content-element content-element-text" layout="row">
+        <div flex class="div-element" layout="row" layout-align="center center" layout-xs="column">
+            <md-card flex layout="row" class="card-element md-padding" ng-repeat="coach in vm.allCoaches.list">
+                <div layout-align="center center">
+                    <h3>{{coach.first_name}} {{coach.last_name}}</h3>
+                    <h3>{{coach.job_title}}</h3>
+                    <h3>{{coach.specialty_name}}</h3>
+                </div>
+                <md-input-container layout-align="center center"></md-input-container>
+                <md-button class="md-raised md-primary defaultBtn md-padding" ng-click="vm.viewCoach(coach.coach_id)">View Coach</md-button>
+                </md-input-container>
+            </md-card>
         </div>
-    </md-card>
+    </md-content>
 
 </div>

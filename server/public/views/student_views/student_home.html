@@ -1,6 +1,6 @@
 <header hide-gt-md ng-include="'/views/partials/header.html'"></header>
 
-<div layout="column" layout-fill ng-cloak>
+<div layout="column" layout-fill>
 
     <section layout="row" flex>
         <!-- Start md-sidenav -->
@@ -16,8 +16,7 @@
                     <span>Home Page</span>
                 </md-button>
                 <br />
-
-                <md-button class="md-raised md-primary" flex ng-click="vm.student">
+                <md-button class="md-raised md-primary" flex ng-click="vm.studentCoach()">
                     <i class="material-icons person">person</i>
                     <span>Your Coach</span>
                 </md-button>
@@ -34,7 +33,7 @@
                 </md-button>
                 <br />
 
-                <md-button class="md-raised md-primary" flex ng-click="vm.getMyCoach()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.studentCoach()">
                     <i class="material-icons person">person</i>
                     <span>Your Coach</span>
                 </md-button>
@@ -68,11 +67,13 @@
                             </md-card-title>
                         </div>
                         <div>
-                            <md-card-content class="bio-text groove" ng-repeat="student in vm.student.list">
+                            <md-card-content ng-hide="vm.editing" class="bio-text groove groove-1" ng-repeat="student in vm.student.list">
                                 <div ng-hide="vm.editing" name="bio">
                                     {{student.student_bio}}
                                 </div>
-                                <md-input-container ng-show="vm.editing">
+                            </md-card-content>
+                            <md-card-content ng-show="vm.editing" class="bio-text groove groove-1" ng-repeat="student in vm.student.list">
+                                <md-input-container>
                                     <textarea md-maxlength="150" rows="3" md-select-on-focus type="text" name="bio" ng-model="vm.newBio" placeholder="Enter a Bio"></textarea>
                                 </md-input-container>
 
@@ -88,7 +89,7 @@
                     <div flex class="profile-div" layout="column" layout-align="center center">
                         <md-card class="card-element md-padding profile-card" layout="column" layout-align="center center">
                             <h2 class="home-title">Your Next Appointment</h2>
-                            <md-card-content class="bio-text groove">
+                            <md-card-content class="bio-text groove groove-1">
                                 <div ng-repeat="date in vm.appointment.list">
                                     {{date.date}} at {{date.available_time}} with {{date.first_name}} {{date.last_name}}
                                 </div>

@@ -1,3 +1,5 @@
+<header hide-gt-md ng-include="'/views/partials/header.html'"></header>
+
 <div layout="column" layout-fill ng-cloak>
 
     <section layout="row" flex>
@@ -14,7 +16,7 @@
                     <span>Home Page</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.getMyCoach()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.studentCoach()">
                     <i class="material-icons person">person</i>
                     <span>Your Coach</span>
                 </md-button>
@@ -30,14 +32,9 @@
                     <span>Home Page</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.getMyCoach()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.studentCoach()">
                     <i class="material-icons person">person</i>
                     <span>Your Coach</span>
-                </md-button>
-                <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.studentSchedule">
-                    <i class="material-icons date-range">date_range</i>
-                    <span>Your Schedule</span>
                 </md-button>
                 <br />
                 <md-button class="md-raised md-warn" flex ng-click="vm.userService.logout()">
@@ -53,16 +50,15 @@
                 <md-card flex class="card-element md-padding" ng-controller="NewController as vm" layout="column" layout-align="center center">
                     <h2 class="home-title">Your Coach</h2>
 
-                    <div layout="column" layout-align="top" ng-repeat="coach in vm.myCoach.list">
-                        <img ng-src="{{coach.coach_photo}}" width="180px"> <br />
-                        {{coach.first_name}} {{coach.last_name}} <br />
-                        {{coach.job_title}} <br />
-                        {{coach.email}} <br />
-                        {{coach.coach_bio}} <br />
+                    <div layout="column" layout-align="start" ng-repeat="coach in vm.myCoach.list">
+                        <img ng-src="{{coach.coach_photo}}" width="180px" class="groove groove-1">
+                        <div class="bio-text groove groove-1">
+                            <h2>{{coach.first_name}} {{coach.last_name}}</h2>
+                            <h3>{{coach.job_title}}</h3>
+                            <h4>{{coach.email}}</h4>
+                            <h5>{{coach.coach_bio}}</h5>
+                        </div>
                     </div>
-                    <!-- <div>
-                        <button ng-click="vm.studentCoach(vm.thisCoach)">Make Appointment</button>
-                    </div> -->
                 </md-card>
             </div>
         </md-content>
