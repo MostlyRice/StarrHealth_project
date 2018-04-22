@@ -10,6 +10,10 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function ($h
     self.allStudents = {
         list: []
     }
+    
+    self.allAppts = {
+        list: []
+    }
 
     self.adminHome = function () {
         $location.path('/admin_Home');
@@ -75,6 +79,19 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function ($h
             console.log('All Students = ', self.allStudents.list);
         }).catch(function (error) {
             console.log('get all students error');
+        })
+    }
+
+    self.getAppts = function() {
+        $http({
+            method: 'GET',
+            url: `/admin/appts`
+        }).then(function (response) {
+            console.log('DATA', response.data);
+            self.allAppts.list = response.data;
+            console.log('All Appts = ', self.allAppts.list);
+        }).catch(function (error) {
+            console.log('get all Appts error');
         })
     }
 
