@@ -184,18 +184,32 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
     }
 
     self.getMyStudents = function() {
+        const id = UserService.userObject.id;
         console.log('HERE');
         $http({
             method: 'GET',
-            url: `/coach/everyone/students`
+            url: `/coach/${id}`
         }).then(function (response) {
             console.log('DATA', response.data);
-            self.coachesStudents.list = response.data;
-            console.log('my students = ', self.coachesStudents.list);
+            self.myself.list = response.data;
+            console.log('thisCoach = ', self.myself.list);
+            coach = response.data[0].coach_id;
+            $http({
+                method: 'GET',
+                url: `/coach/everyone/students/${coach}`
+            }).then(function (response) {
+                console.log('DATA', response.data);
+                self.coachesStudents.list = response.data;
+                console.log('my students = ', self.coachesStudents.list);
+            }).catch(function (error) {
+                console.log('get my students error');
+            })
         }).catch(function (error) {
-            console.log('get my students error');
+            console.log('get coach error');
         })
     }
+       
+    
 
     self.moreInfo = function(id) {
         $http({
