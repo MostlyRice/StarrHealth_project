@@ -16,17 +16,11 @@
                 </div>
                 <div class="md-padding bio-text groove groove-1" layout-align="center center">
                     <h3>{{coach.job_title}}</h3>
-                    <h3>{{coach.email}}</h3>
                 </div>
                 <div class="md-padding bio-text groove groove-1" layout-align="center center">
                     <h3>{{coach.certifications}}</h3>
                     <h3>{{coach.personal_interests}}</h3>
                     <h3>{{coach.coach_bio}}</h3>
-                </div>
-                <div class="md-padding bio-text groove groove-1" layout-align="center center">
-                    <div ng-repeat="thing in vm.specialties.list">
-                        <h3>{{thing.specialty_name}}</h3>
-                    </div>
                 </div>
                 <md-container class="md-padding">
                     <md-button class="md-raised md-primary defaultBtn" ng-click="vm.studentCoach(coach.coach_id)">Make Appointment</md-button>

@@ -37,8 +37,9 @@ router.post('/calendar', (request, response) => {
             if (value != 'date' && value != 'coach_id' && value != 'day' && value != 'weeklyAppointments' && value != 'weekly') {
                 let property = value;
                 let available_time = coachAvailability[value];
-                const sqlText = `INSERT INTO calendar (available_time, date, coach_id, property, selected) VALUES ($1, $2, $3, $4, false);`;
-                pool.query(sqlText, [available_time, date, coachID, property])
+                let notes_status = 'Notes Needed';
+                const sqlText = `INSERT INTO calendar (available_time, date, coach_id, property, selected, notes_status) VALUES ($1, $2, $3, $4, false, $5);`;
+                pool.query(sqlText, [available_time, date, coachID, property, notes_status])
                     .then((result) => {
                         response.sendStatus(201);
                         console.log('post calendar', result);

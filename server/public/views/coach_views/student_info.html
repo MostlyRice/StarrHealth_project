@@ -102,9 +102,31 @@
                 </tr>
             </tbody>
         </table>
+      </br>
+    </br>
+    <md-card ng-repeat="student in vm.myStudent.list" flex class="card-element md-padding" layout="column" layout-align="center center">
+        <h2 class="student-title">{{student.first_name}} {{student.last_name}}'s Past Appointments</h2>
+      </md-card>
+      <table>
+          <thead>
+              <tr>
+                  <th>Appt. Date</th>
+                  <th>Appt. Time</th>
+                  <th>Session Notes</th>
+                  <th>Add Notes</th>
+              </tr>
+          </thead>
+          <tbody ng-repeat="data in vm.studentAppts.list">
+              <tr>
+                  <td>{{data.date}}</td>
+                  <td>{{data.available_time}}</td>
+                  <td>{{data.notes_status}}</td>
+                  <td><button ng-click="vm.addNotes(data.calendar_id, data.student_id)">Add Session Notes</button></td>
+              </tr>
+          </tbody>
+      </table>
       </div>
     </md-content>
     <!-- End Put Content In This Div! -->
-
   </section>
 </div>

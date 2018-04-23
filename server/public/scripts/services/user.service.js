@@ -41,7 +41,7 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
                 } else {
                     console.log('UserService -- getJulia -- failure');
                     // user has no session, bounce them back to the login page
-                    alert("Get out of here n00b");
+                    alert("You are not authorized to view this page");
                     $location.path("/home");
                 }
             }, function (response) {
@@ -66,12 +66,12 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
                 } else {
                     console.log('UserService -- getAdmin -- failure');
                     // user has no session, bounce them back to the login page
-                    alert("Get out of here n00b");
+                    alert("You are not authorized to view this page");
                     $location.path("/home");
                 }
             }, function (response) {
                 console.log('UserService -- getAdmin -- failure: ', response);
-                alert("Get out of here n00b");
+                alert("You are not authorized to view this page");
                 $location.path("/home");
             });
 
@@ -92,12 +92,12 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
                 } else {
                     console.log('UserService -- getCoach -- failure');
                     // user has no session, bounce them back to the login page
-                    alert("Get out of here n00b");
+                    alert("You are not authorized to view this page");
                     $location.path("/home");
                 }
             }, function (response) {
                 console.log('UserService -- getCoach -- failure: ', response);
-                alert("Get out of here n00b");
+                alert("You are not authorized to view this page");
                 $location.path("/home");
             });
 
@@ -118,12 +118,12 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
                 } else {
                     console.log('UserService -- getStudent -- failure');
                     // user has no session, bounce them back to the login page
-                    alert("Get out of here n00b");
+                    alert("You are not authorized to view this page");
                     $location.path("/home");
                 }
             }, function (response) {
                 console.log('UserService -- getStudent -- failure: ', response);
-                alert("Get out of here n00b");
+                alert("You are not authorized to view this page");
                 $location.path("/home");
             });
 

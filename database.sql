@@ -49,7 +49,9 @@ CREATE TABLE "calendar"
         "student_id" int,
         "available_time" varchar(12),
         "date" varchar,
-        "selected" varchar
+        "selected" varchar,
+        "session_notes" VARCHAR(75),
+        "notes_status" char(30)
 )   ;
 
 
@@ -89,7 +91,7 @@ CREATE TABLE "student_bio"
      "other_professionals_explanation" VARCHAR(250), 
      "other_information"               BOOLEAN, 
      "other_information_explanation"   VARCHAR(500), 
-     "student_bio"                     VARCHAR(500) 
+     "student_bio"                     VARCHAR(500)
   ); 
 
 INSERT INTO "public"."specialties"("specialty_id", "specialty_name") VALUES(1, 'Academic Goal Setting');
