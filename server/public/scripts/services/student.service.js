@@ -36,7 +36,14 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function (
                 url: `/student/appointment/${id}`
             }).then(function (response) {
                 console.log('DATA2', response.data);
-                self.appointment.list = response.data;
+                let appointmentArray = response.data.filter(function(res){
+                    let date = moment().format('L');
+                    if(moment(res.date).isSameOrAfter(date)){
+                    return res
+                    }
+                })
+                console.log('appointment array', appointmentArray);
+                self.appointment.list = appointmentArray;
                 console.log('thisApp = ', self.appointment.list);
             }).catch(function (error) {
                 console.log('update get appointment error', error);
