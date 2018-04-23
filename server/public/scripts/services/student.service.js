@@ -10,6 +10,10 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function (
         list = {}
     ];
 
+    self.myAppts = {
+        list: []
+    }
+
     self.studentHome = function () {
         $location.path('/student_home');
     }
@@ -165,5 +169,22 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function (
             console.log('update bio put error', error);
         })
     } // end saveBio
+
+    self.myPastAppts = function() {
+        const id = UserService.userObject.id;
+        $http({
+            method: 'GET',
+            url: `/coach/thisstudent/appts/${id}`
+        }).then(function (response) {
+            console.log('DATA', response.data);
+            self.myAppts.list = response.data;
+            console.log('my students appts = ', self.myAppts.list);
+            $location.path('/past_appointments');
+        }).catch(function (error) {
+            console.log('get my students error');
+        })
+    }
+
+   
 
 }]); // end student service

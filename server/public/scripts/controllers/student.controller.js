@@ -12,6 +12,9 @@ myApp.controller('StudentController', ['$http', 'UserService', '$location', 'Stu
   self.saveBio = StudentService.saveBio;
   self.getMyCoach = SignupService.getMyCoach;
   self.appointment = StudentService.appointment;
+  self.myPastAppts = StudentService.myPastAppts;
+  self.myAppts = StudentService.myAppts;
+  
 
 
   self.studentHome = StudentService.studentHome;
@@ -19,6 +22,7 @@ myApp.controller('StudentController', ['$http', 'UserService', '$location', 'Stu
   self.studentSchedule = StudentService.studentSchedule;
 
   StudentService.getStudent();
+
   console.log('t', self.student);
   console.log('a', self.appointment);
 

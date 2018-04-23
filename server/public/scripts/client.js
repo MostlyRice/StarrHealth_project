@@ -326,6 +326,15 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
         }
       }
     })
+    .when('/past_appointments', {
+      templateUrl: '/views/student_views/past_appointments.html',
+      controller: 'ApptController as vm',
+      resolve: {
+        getStudent: function (UserService) {
+          return UserService.getStudent();
+        }
+      }
+    })
     .when('/match_coach', {
       templateUrl: '/views/student_views/match_coach.html',
       controller: 'MatchController as vm',
