@@ -1,6 +1,8 @@
 myApp.service('SchoolService', ['$http', '$location', 'UserService', function ($http, $location, UserService) {
     console.log('SchoolService Loaded');
     var self = this;
+    self.userService = UserService;
+    self.userObject = UserService.userObject;
 
     self.addSchool = function (school) {
         console.log('school', school);
@@ -20,8 +22,13 @@ myApp.service('SchoolService', ['$http', '$location', 'UserService', function ($
                     entry: entry
                 }
             }).then(function (response) {
-                console.log('schooln created');
-                $location.path('/super_AdminHome');
+                alert('School Created!');
+                let role = UserService.userObject.user_role;
+                if (role === 3) {
+                    $location.path('/admin_Home');
+                } else if (role === 4) {
+                    $location.path('/super_AdminHome');
+                }
             }).catch(function (error) {
                 console.log('disclaimer error');
             })
