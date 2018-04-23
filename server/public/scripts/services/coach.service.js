@@ -17,6 +17,10 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
     self.myStudent = {
         list: []
     };
+    self.studentAppts = {
+        list: []
+    };
+    self.notesBool = '';
 
     self.coachHome = function () {
         $location.path('/coach_Home');
@@ -201,11 +205,59 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
             console.log('DATA', response.data);
             self.myStudent.list = response.data;
             console.log('my Student = ', self.myStudent.list);
-            $location.path('/student_info');
+            $http({
+                method: 'GET',
+                url: `/coach/thisstudent/appts/${id}`
+            }).then(function (response) {
+                console.log('DATA', response.data);
+                self.studentAppts.list = response.data;
+                console.log('my students appts = ', self.studentAppts.list);
+                $location.path('/student_info');
+            }).catch(function (error) {
+                console.log('get my students error');
+            })
         }).catch(function (error) {
             console.log('get my Studen error');
         })
         
     }
+
+    self.addNotes = function(id, student) {
+
+        console.log('in upload');
+        self.typeUrl = false;
+        self.client.pick({
+            accept: '.pdf',
+            maxFiles: 1
+        }).then(function (result) {
+            // self.uploadSuccess.success = true;
+            // console.log(JSON.stringify(result));
+            self.newItem.itemUrl = result.filesUploaded[0].url;
+            console.log('self.newItem.itemUrl', self.newItem.itemUrl);
+            let note = self.newItem.itemUrl;
+            let note_update = 'Notes Complete';
+            entry = {
+                id: id,
+                session_notes: note,
+                notes_status: note_update
+            }
+            console.log('ENTRAY', entry);
+            $http({
+                method: 'PUT',
+                url: `/coach/sessionnotes/${id}`,
+                data: {
+                    entry: entry
+                }
+            }).then(function (response) {
+                alert('Successful Update');
+                console.log('NEXT ID = ', id);
+                self.moreInfo(student);
+            }).catch(function (error) {
+                console.log('notes uplaod error');
+            })
+
+        });
+    }
+
 
 }]); // end coach service

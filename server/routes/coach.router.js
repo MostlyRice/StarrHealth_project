@@ -159,4 +159,33 @@ router.get('/onestudent/:id', (request, response) => {
     })
 });
 
+router.get('/thisstudent/appts/:id', (request, response) => {
+  const id = request.params.id;
+  const sqlText = `SELECT * FROM calendar
+  WHERE student_id=$1 ORDER BY date, property`;
+  pool.query(sqlText, [id])
+    .then(function (result) {
+      //  console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function (error) {
+      //  console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+});
+
+router.put('/sessionnotes/:id', (request, response) => {
+  const id = request.params.id;
+  const entry = request.body.entry;
+  let queryText = `UPDATE calendar 
+  SET session_notes=$2, notes_status=$3 WHERE calendar_id=$1`;
+  pool.query(queryText, [id, entry.session_notes, entry.notes_status])
+    .then((result) => {
+      response.sendStatus(200);
+    })
+    .catch((err) => {
+      response.sendStatus(500);
+    })
+}); // end username update
+
 module.exports = router;

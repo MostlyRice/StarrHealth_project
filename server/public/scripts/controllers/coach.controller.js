@@ -20,13 +20,14 @@ myApp.controller('CoachController', ['$http', 'UserService', '$location', 'Coach
   self.coachesStudents = CoachService.coachesStudents;
   self.moreInfo = CoachService.moreInfo;
   self.myStudent = CoachService.myStudent;
-  
+  self.studentAppts = CoachService.studentAppts;
+  self.addNotes = CoachService.addNotes;
 
   CoachService.getMe();
   CoachService.getTodayAppts();
   CoachService.getMyStudents();
 
-  console.log('myself', self.myStudent);
+  console.log('myself', self.notesBool);
   console.log('today', self.todayAppts);
 
   self.cancelCoach = function (coach) {
