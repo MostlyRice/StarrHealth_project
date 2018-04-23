@@ -1,7 +1,7 @@
 <header class="ng-cloak" hide-gt-md ng-include="'/views/partials/header.html'"></header>
 
 <div class="ng-cloak" layout="column" layout-fill>
-  
+
   <section layout="row" flex>
     <!-- Start md-sidenav -->
     <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
@@ -64,41 +64,34 @@
       </md-content>
     </md-sidenav>
     <!-- End md-sidenav -->
-    <!-- Put Content In This Div! -->
-    <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
-      <div flex class="div-element" layout="column" layout-align="center center">
-        <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
-          <h2 class="student-title">My Students</h2>
+    <!-- Start Student Directory Card -->
+    <div flex >
+    <md-content class="content-element content-element-text" layout="column" layout-align="center center">
+      <div class="div-element" layout="column" layout-align="center center">
+        <md-card class="card-element md-padding" layout="row" layout-align="center center">
+          <h2 class="home-title">My Students</h2>
         </md-card>
-        <table>
-            <thead>
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>School Name</th>
-                    <th>Coaching Goal</th>
-                    <th>Phone Number</th>
-                    <th>Skype ID</th>
-                    <th>Email</th>
-                    <th>More Info</th>
-                </tr>
-            </thead>
-            <tbody ng-repeat="student in vm.coachesStudents.list">
-                <tr>
-                    <td>{{student.first_name}}</td>
-                    <td>{{student.last_name}}</td>
-                    <td>{{student.school_name}}</td>
-                    <td>{{student.specialty_name}}</td>
-                    <td>{{student.phone_number}}</td>
-                    <td>{{student.skype_id}}</td>
-                    <td>{{student.email}}</td>
-                    <td><button ng-click="vm.moreInfo(student.id)">More Info</button></td>
-                </tr>
-            </tbody>
-        </table>
       </div>
     </md-content>
-    <!-- End Put Content In This Div! -->
+
+    <md-content class="content-element content-element-text" layout="row">
+      <div flex class="div-element" layout="row" layout-align="center center" layout-xs="column">
+        <md-card layout-align="center center" flex layout="row" class="card-element md-padding" ng-repeat="student in vm.coachesStudents.list">
+          <div layout-align="center center">
+            <h3>{{student.first_name}} {{student.last_name}}</h3>
+            <h3>{{student.school_name}}</h3>
+            <h3>{{student.specialty_name}}</h3>
+            <h3>{{student.phone_number}}</h3>
+            <h3>{{student.skype_id}}</h3>
+            <h3>{{student.email}}</h3>
+            <md-button class="md-raised md-primary defaultBtn" ng-click="vm.moreInfo(student.id)">More Info</md-button>
+          </div>
+        </md-card>
+      </div>
+    </md-content>
+    </div>
+
+    <!-- End Student Directory Card -->
 
   </section>
 </div>
