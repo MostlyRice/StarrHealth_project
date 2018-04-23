@@ -95,11 +95,12 @@
         </md-sidenav>
         <!-- End md-sidenav -->
         <!-- Put Content In This Div! -->
-        <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
+        <md-container flex class="content-element content-element-text" layout="column" layout-align="center center">
             <div flex class="div-element" layout="column" layout-align="center center">
                 <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
                     <h2 class="coach-directory-title">Admin Coach Directory</h2>
                 </md-card>
+                <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
                 <table>
                         <thead>
                             <tr>
@@ -116,12 +117,13 @@
                                 <td>{{coach.last_name}}</td>
                                 <td>{{coach.job_title}}</td>
                                 <td>{{coach.email}}</td>
-                                <td><button ng-click="vm.deleteCoach(coach.id)">Delete Coach</button></td>
+                                <td><md-button class="md-raised md-primary defaultBtn" ng-click="vm.deleteCoach(coach.id)">Delete Coach</md-button></td>
                             </tr>
                         </tbody>
                     </table>
+                </md-card>
             </div>
-        </md-content>
+        </md-container>
         <!-- Put Content In This Div! -->
     </section>
 </div>
