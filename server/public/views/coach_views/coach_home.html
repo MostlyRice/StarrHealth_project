@@ -169,7 +169,7 @@
               <h2 class="home-title">Your Next Appointment</h2>
               <md-card-content class="bio-text groove groove-1">
                 <div ng-repeat="meeting in vm.todayAppts.list">
-                  {{meeting.available_time}} with {{meeting.first_name}} {{meeting.last_name}}
+                   {{meeting.date}} at {{meeting.available_time}} with {{meeting.first_name}} {{meeting.last_name}}
                 </div>
               </md-card-content>
             </md-card>

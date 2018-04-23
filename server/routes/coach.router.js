@@ -72,8 +72,8 @@ router.get('/today/:id', (request, response) => {
   console.log('ID4', id);
   console.log('date', date);
   const sqlText = `SELECT * FROM calendar
-  JOIN student_bio ON student_bio.id=calendar.student_id WHERE calendar.coach_id=$1 AND calendar.date=$2 ORDER BY calendar.property`;
-  pool.query(sqlText, [id, date])
+  JOIN student_bio ON student_bio.id=calendar.student_id WHERE calendar.coach_id=$1 ORDER BY calendar.date ASC, calendar.property LIMIT 3`;
+  pool.query(sqlText, [id])
     .then(function (result) {
       console.log('Get result:', result);
       response.send(result.rows);
