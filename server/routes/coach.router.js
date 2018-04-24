@@ -36,7 +36,7 @@ router.get('/viewcoach/:id', (request, response) => {
 
 router.get('/getspecialties/:coach', (request, response) => {
   const coach = request.params.coach;
-  console.log('ID2', id);
+  console.log('ID2', coach);
   const sqlText = `SELECT specialties.specialty_name FROM specialties 
   JOIN coach_specialties ON coach_specialties.specialty_id=specialties.specialty_id
   WHERE coach_specialties.coach_id=$1`;

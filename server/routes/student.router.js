@@ -2,6 +2,7 @@ const express = require('express');
 const pool = require('../modules/pool.js');
 const router = express.Router();
 
+
 router.post('/', (request, response) => {
   const entry = request.body.entry;
   let sqlText = `INSERT INTO student_bio
@@ -89,7 +90,7 @@ router.put('/extra/:id', (request, response) => {
 
 router.get('/:id', (request, response) => {
   const id = request.params.id;
-  console.log('ID', id);
+  console.log('ID1', id);
   const sqlText = `SELECT * FROM student_bio WHERE id=$1`;
   pool.query(sqlText, [id])
     .then(function (result) {
@@ -104,7 +105,7 @@ router.get('/:id', (request, response) => {
 
 router.get('/appointment/:id', (request, response) => {
   const id = request.params.id;
-  console.log('ID', id);
+  console.log('ID2', id);
   const sqlText = `SELECT * FROM calendar 
   JOIN coach_bio ON coach_bio.id=calendar.coach_id
   WHERE calendar.student_id=$1`;
@@ -136,7 +137,7 @@ router.get('/sessions/:id', (request, response) => {
 
 router.get('/mycoach/:id', (request, response) => {
   const id = request.params.id;
-  console.log('ID', id);
+  console.log('ID3', id);
   const sqlText = `SELECT coach_id FROM student_bio WHERE id=$1`;
   pool.query(sqlText, [id])
     .then(function (result) {
@@ -190,6 +191,7 @@ router.put('/coach/:id', (request, response) => {
       response.sendStatus(500);
     })
 }); // end coach_id update
+
 
 
 
