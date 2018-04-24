@@ -120,28 +120,30 @@
                 <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
                     <h2 class="student-directory-title">Super Admin Student Directory</h2>
                 </md-card>
+                <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
                 <table>
                         <thead>
                             <tr>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>School Name</th>
-                                <th>Phone Number</th>
-                                <th>Email</th>
-                                <th>Delete Student</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">School Name</th>
+                                <th scope="col">Phone Number</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Delete Student</th>
                             </tr>
                         </thead>
                         <tbody ng-repeat="student in vm.allStudents.list">
                             <tr>
-                                <td>{{student.first_name}}</td>
-                                <td>{{student.last_name}}</td>
-                                <td>{{student.school_name}}</td>
-                                <td>{{student.phone_number}}</td>
-                                <td>{{student.email}}</td>
-                                <td><button ng-click="vm.deleteStudent(student.id)">Delete Student</button></td>
+                                <td scope="row">{{student.first_name}}</td>
+                                <td scope="row">{{student.last_name}}</td>
+                                <td scope="row">{{student.school_name}}</td>
+                                <td scope="row">{{student.phone_number}}</td>
+                                <td scope="row">{{student.email}}</td>
+                                <td scope="row"><md-button class="md-raised md-warn" ng-click="vm.deleteStudent(student.id)">Delete Student</md-button></td>
                             </tr>
                         </tbody>
                     </table>
+                </md-card>
             </div>
         </md-content>
         <!-- End Put Content In This Div! -->

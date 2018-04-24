@@ -104,18 +104,18 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>School Name</th>
-                            <th>School Code</th>
-                            <th>Number of Student Accounts</th>
-                            <th>Number of Sessions per Student</th>
+                            <th scope="col">School Name</th>
+                            <th scope="col">School Code</th>
+                            <th scope="col">Number of Student Accounts</th>
+                            <th scope="col">Number of Sessions per Student</th>
                         </tr>
                     </thead>
                     <tbody ng-repeat="school in vm.allSchools.list">
                         <tr>
-                            <td>{{school.school_name}}</td>
-                            <td>{{school.school_code}}</td>
-                            <td>{{school.total_accounts}}</td>
-                            <td>{{school.student_sessions}}</td>
+                            <td scope="row">{{school.school_name}}</td>
+                            <td scope="row">{{school.school_code}}</td>
+                            <td scope="row">{{school.total_accounts}}</td>
+                            <td scope="row">{{school.student_sessions}}</td>
                         </tr>
                     </tbody>
                 </table>
