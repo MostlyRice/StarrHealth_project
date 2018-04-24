@@ -64,11 +64,13 @@
       </md-content>
     </md-sidenav>
     <!-- End md-sidenav -->
-    <!-- Put Content In This Div! -->
+    <!-- Start Coach Appointments -->
     <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
       <div flex class="div-element" layout="column" layout-align="center center">
         <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
           <h2 class="coach-appointments-title">Coach Appointments</h2>
+          </md-card>
+          <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
           <div ng-controller="ScheduleController as sc">
           <div>
             <div dir-paginate="(key,value) in sc.coachAppointments.list | itemsPerPage:5">
@@ -90,7 +92,7 @@
         </md-card>
       </div>
     </md-content>
-    <!-- End Put Content In This Div! -->
+    <!-- End Coach Appointments  -->
 
   </section>
 </div>

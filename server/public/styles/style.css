@@ -56,56 +56,6 @@ main {
   margin-bottom: 0;
 }
 
-.message {
-  padding: 10px 0;
-}
-
-.message p {
-  margin-left: 10px;
-}
-
-.message:nth-child(odd) {
-  background-color: #eeeeee;
-}
-
-.message:nth-child(even) {
-  background-color: #f8f8f8;
-}
-
-.btn-danger {
-  margin-left: 10px;
-}
-
-.navbar {
-  background-color: #333333;
-  width: 100%;
-  border-radius: 0px;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover {
-  text-decoration: underline;
-  color: #eee;
-}
-
 header {
   background-color: #1686B4;
   color: #FFF;
@@ -371,10 +321,9 @@ a.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple:hover {
   background: rgba(255, 255, 255, 0.9);
 }
 
-.student-barriers-mobile {
-  background: rgba(255, 255, 255, 0.9);
-  overflow: scroll;
-  width: 95%;
+.student-barriers-text {
+  text-align: left;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .student-barriers-title {
@@ -421,7 +370,7 @@ a.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple:hover {
 }
 
 md-datepicker span {
-  color: rgba(0, 0, 0, 0.85);
+  color: rgba(0, 0, 0, 0.85) !important;
 }
 
 .blackLabel {
@@ -600,6 +549,7 @@ button.md-raised.md-primary.defaultBtn.md-button.md-ink-ripple:hover {
 .schedule {
   text-align: left;
 }
+
 .timeSlot {
   width: 85px;
   margin-right: auto;
@@ -713,6 +663,7 @@ button.md-raised.md-primary.defaultBtn.scheduleBtn.md-button.md-ink-ripple {
 .progress-bar-text {
   font-size: 14px;
   vertical-align: middle;
+  color: #fff;
 }
 
 .profile-div {
@@ -764,10 +715,7 @@ button.md-raised.md-primary.defaultBtn.scheduleBtn.md-button.md-ink-ripple {
   display: none !important;
 }
 
-li a {
-  color: black
-
-table {
+table.table {
   border: 1px solid #ccc;
   border-collapse: collapse;
   margin: 0;
@@ -776,39 +724,29 @@ table {
   table-layout: fixed;
 }
 
-table caption {
-  font-size: 1.5em;
-  margin: .5em 0 .75em;
-}
-
-table tr {
+table tr.table-tr {
   background-color: rgba(255, 255, 255, 0.3);
   border: 1px solid #333333;
   padding: .35em;
 }
 
-table th,
-table td {
+table th.table-th,
+table td.table-td {
   padding: .625em;
   text-align: center;
 }
 
-table th {
+table th.table-th {
   font-size: .85em;
   letter-spacing: .1em;
   text-transform: uppercase;
 }
 
 @media screen and (max-width: 600px) {
-  table {
+  table.table {
     border: 0;
   }
-
-  table caption {
-    font-size: 1.3em;
-  }
-  
-  table thead {
+  .table-thead {
     border: none;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -818,28 +756,28 @@ table th {
     position: absolute;
     width: 1px;
   }
-  
-  table tr {
+  table tr.table-tr {
     border-bottom: 3px solid #333333;
     display: block;
     margin-bottom: .625em;
   }
-  
-  table td {
+  table td.table-td {
     border-bottom: 1px solid #ddd;
     display: block;
     font-size: .8em;
     text-align: right;
   }
-  
-  table td::before {
+  table td.table-td::before {
     content: attr(data-label);
     float: left;
     font-weight: bold;
     text-transform: uppercase;
   }
-  
-  table td:last-child {
+  table td.table-td:last-child {
     border-bottom: 0;
   }
 }
+
+li a {
+  color: black
+ }
