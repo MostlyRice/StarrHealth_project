@@ -177,7 +177,7 @@
                   <div name="photo">
                     <img ng-src="{{coach.coach_photo}}" width="180px">
                   </div>
-                  <button ng-click="vm.upload()">Change Photo</button>
+                  <md-button class="md-raised md-primary defaultBtn" ng-click="vm.upload()">Change Photo</md-button>
                 </div>
     
     
@@ -185,9 +185,9 @@
                   <button ng-click="vm.newPassword()">Change Password:</button>
                 </div>
                 <div>
-                  <button ng-hide="coach.editing" ng-click="vm.editCoach(coach)">Update Coach Information</button>
-                  <button ng-show="coach.editing" ng-click="vm.saveCoach(coach.coach_id, coach)">Save Coach Information</button>
-                  <button ng-show="coach.editing" ng-click="vm.cancelCoach(coach)">Cancel Update</button>
+                  <md-button class="md-raised md-primary defaultBtn" ng-hide="coach.editing" ng-click="vm.editCoach(coach)">Update Coach Information</md-button>
+                  <md-button class="md-raised md-primary defaultBtn" ng-show="coach.editing" ng-click="vm.saveCoach(coach.coach_id, coach)">Save Coach Information</md-button>
+                  <md-button class="md-raised md-primary defaultBtn" ng-show="coach.editing" ng-click="vm.cancelCoach(coach)">Cancel Update</md-button>
                 </div>
               </div>
               <div>
@@ -200,9 +200,9 @@
     
     
               <div>
-                <button ng-hide="vm.editing" ng-click="vm.editUserName()">Update User Name</button>
-                <button ng-show="vm.editing" ng-click="vm.saveUserName(vm.id, vm.userName)">Save User Name</button>
-                <button ng-show="vm.editing" ng-click="vm.cancelUserName()">Cancel Update</button>
+                <md-button class="md-raised md-primary defaultBtn" ng-hide="vm.editing" ng-click="vm.editUserName()">Update User Name</md-button>
+                <md-button class="md-raised md-primary defaultBtn" ng-show="vm.editing" ng-click="vm.saveUserName(vm.id, vm.userName)">Save User Name</md-button>
+                <md-button class="md-raised md-primary defaultBtn" ng-show="vm.editing" ng-click="vm.cancelUserName()">Cancel Update</md-button>
               </div>
     
     

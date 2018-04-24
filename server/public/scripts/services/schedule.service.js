@@ -247,7 +247,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                 console.log('thing', thing);
                 total = sessions[0].total_sessions;
                 if(thing >= total) {
-                    alert('You have no more sessions');
+                    swal("You have no more sessions!", "", "warning");
                     $location.path('/student_home');
                 } else if (thing < total) {
                     $http({
@@ -296,7 +296,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                         // console.log('student appointment error', error);
                     })
                 } else {
-                    alert('something went wrong! please try again.')
+                    swal("Something went wrong! Please try again", "", "warning");
                 }
             }).catch(function (error) {
                 console.log('goals put error', error);

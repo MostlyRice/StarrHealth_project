@@ -8,7 +8,7 @@
                         <md-radio-button type="radio" name="{{availability.property}}" ng-repeat="availability in vm.coachTimes.list" ng-value="'{{availability.property}}'">{{availability.time}}</md-radio-button>
                 </md-radio-group>
             </div>
-            <button ng-click="vm.postStudentSchedule(vm.studentAppointment)">Add</button>
+            <md-button class="md-raised md-primary defaultBtn" ng-click="vm.postStudentSchedule(vm.studentAppointment)">Add</md-button>
         </md-card>
     </div>
 </md-content>
