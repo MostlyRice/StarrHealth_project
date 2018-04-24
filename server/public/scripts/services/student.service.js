@@ -1,7 +1,8 @@
-myApp.service('StudentService', ['$http', '$location', 'UserService', function ($http, $location, UserService) {
+myApp.service('StudentService', ['$http', '$location', 'UserService', 'SignupService', function ($http, $location, UserService, SignupService) {
     console.log('StudentService Loaded');
     var self = this;
     self.userService = UserService;
+    self.signupService = SignupService;
     self.userObject = UserService.userObject;
     self.student = [
         list = {}
@@ -185,21 +186,36 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function (
         })
     }
 
-    self.late = function(newmessage) {
+    self.late = function(id, newmessage) {
         console.log('in late', newmessage);
-        const entry = {
-            newmessage: newmessage
-        }
+        console.log('id', id);
         $http({
-            method: 'POST',
-            url: `/sms`,
-            data: {
-                entry: entry
-            }
+            method: 'GET',
+            url: `/sms/coachphone/${id}`,
         }).then(function (response) {
-            console.log('COMPLETE');
+            console.log('COMPLETE', response.data);
+            let firstphone = response.data[0].coach_phone;
+            console.log(firstphone);
+            let phone = '+1' + firstphone;
+            console.log(phone);
+            const entry = {
+                phone: phone,
+                newmessage: newmessage
+            }
+            $http({
+                method: 'POST',
+                url: `/sms/message`,
+                data: {
+                    entry: entry
+                }
+            }).then(function (response) {
+                alert('Message Sent to Coach!');
+                location.reload(true);
+            }).catch(function (error) {
+                console.log('SMS error');
+            })  
         }).catch(function (error) {
-            console.log('get my students error');
+            console.log('SMS error');
         })
     }
 

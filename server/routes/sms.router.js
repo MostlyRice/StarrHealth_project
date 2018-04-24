@@ -10,19 +10,48 @@ const authToken = 'cb4891f3efbc203c92900ef7128c5355';
 const client = require('twilio')(accountSid, authToken);
 
 
-router.post('/', (request, response) => {
+router.get('/coachphone/:id', (request, response) => {
+    const id = request.params.id;
+    const sqlText = `SELECT coach_phone FROM coach_bio WHERE coach_id=$1`;
+    pool.query(sqlText, [id])
+      .then(function (result) {
+      response.send(result.rows);
+      })
+      .catch(function (error) {
+        //  console.log('Error on Get:', error);
+        response.sendStatus(500);
+      })
+  });
+
+  router.get('/studentphone/:id', (request, response) => {
+    const id = request.params.id;
+    const sqlText = `SELECT phone_number FROM student_bio WHERE student_id=$1`;
+    pool.query(sqlText, [id])
+      .then(function (result) {
+      response.send(result.rows);
+      })
+      .catch(function (error) {
+        //  console.log('Error on Get:', error);
+        response.sendStatus(500);
+      })
+  });
+
+  router.post('/message', (request, response) => {
     const entry = request.body.entry;
-    const sqlText = `SELECT * FROM schools`;
+    let phone = entry.phone.toString();
+    console.log('PHONE', phone);
+    const sqlText = `SELECT phone_number FROM student_bio`;
     pool.query(sqlText)
       .then(function (result) {
+        console.log('STUDENT PHONE', result);
         client.messages
-  .create({
-    to: '+16512807757',
+        .create({
+    to: phone,
     from: '+16122550400',
     body: entry.newmessage,
   })
   .then(message => console.log(message.sid));
-  response.sendStatus(200);
+      response.send(result.rows);
       })
       .catch(function (error) {
         //  console.log('Error on Get:', error);

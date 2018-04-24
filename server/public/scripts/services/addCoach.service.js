@@ -57,7 +57,8 @@ myApp.service('AddCoachService', ['$http', '$location', 'UserService', function 
                 last_name: coach.last_name,
                 email: coach.email,
                 job_title: coach.job_title,
-                personal_interests: coach.interests
+                personal_interests: coach.interests,
+                coach_phone: coach.coach_phone
             }
             $http({
                 method: 'POST',

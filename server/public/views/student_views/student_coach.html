@@ -58,9 +58,11 @@
                             <h4>{{coach.email}}</h4>
                             <h5>{{coach.coach_bio}}</h5>
                         </div>
+                        <div ng-repeat="coach in vm.myCoach.list">
                         <label class="text-label" for="message">Message:</label>
                         <input class="text-label" type="text" name="message" ng-model="vm.message" />
-                        <button ng-click="vm.late(vm.message)">Send Message to Coach</button>
+                        <button ng-click="vm.late(coach.coach_id, vm.message)">Send Message to Coach</button>
+                    </div>
                     </div>
                 </md-card>
             </div>

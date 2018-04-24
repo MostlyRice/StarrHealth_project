@@ -22,6 +22,7 @@ myApp.controller('CoachController', ['$http', 'UserService', '$location', 'Coach
   self.myStudent = CoachService.myStudent;
   self.studentAppts = CoachService.studentAppts;
   self.addNotes = CoachService.addNotes;
+  self.late = CoachService.late;
 
   CoachService.getMe();
   CoachService.getTodayAppts();
