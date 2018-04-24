@@ -97,6 +97,7 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
             console.log(response.data);
             self.schools.list = response.data;
             console.log('self.schools = ', self.schools.list);
+            self.letPass();
         }).catch(function (error) {
             console.log('get schools error');
         })
@@ -396,7 +397,6 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
         $location.path('/additional_info');
     } // end primary Barriers
 
-    self.getSchools();
 
     self.findCoach = function () {
         const id = UserService.userObject.id;

@@ -5,7 +5,6 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', 'Signu
   self.signupService = SignupService;
   self.id = UserService.userObject.id;
   self.disclaimer = SignupService.disclaimer;
-  self.letPass = SignupService.letPass;
 
   self.user = {
     username: '',

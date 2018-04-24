@@ -30,7 +30,7 @@ router.post('/school', (request, response) => {
 }); // end POST
 
 router.get('/school', (request, response) => {
-  if (request.isAuthenticated()) {
+ if (request.isAuthenticated()) {
     const sqlText = `SELECT * FROM schools`;
     pool.query(sqlText)
       .then(function (result) {
@@ -315,8 +315,9 @@ router.get('/students', (request, response) => {
 });
 
 router.delete('/remove/student/:id', (req, res) => {
-  if (request.isAuthenticated()) {
+  if (req.isAuthenticated()) {
     const id = req.params.id;
+    console.log('DELETE ME', id)
     let queryText = `DELETE FROM users WHERE id=$1`;
     pool.query(queryText, [id])
     .then((result) => {
@@ -332,7 +333,7 @@ router.delete('/remove/student/:id', (req, res) => {
 });
 
 router.delete('/remove/coach/:id', (req, res) => {
-  if (request.isAuthenticated()) {
+  if (req.isAuthenticated()) {
     const id = req.params.id;
     let queryText = `DELETE FROM users WHERE id=$1`;
     pool.query(queryText, [id])
