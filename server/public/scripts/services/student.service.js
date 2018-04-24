@@ -1,7 +1,8 @@
-myApp.service('StudentService', ['$http', '$location', 'UserService', function ($http, $location, UserService) {
+myApp.service('StudentService', ['$http', '$location', 'UserService', 'SignupService', function ($http, $location, UserService, SignupService) {
     console.log('StudentService Loaded');
     var self = this;
     self.userService = UserService;
+    self.signupService = SignupService;
     self.userObject = UserService.userObject;
     self.student = [
         list = {}
@@ -81,12 +82,12 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function (
                         self.postPassword(auth);
                     } else {
                         console.log('failure error: ', response);
-                        alert('Current Password is Incorrect');
+                        swal("Current password is incorrect!", "", "warning");
                     }
                 },
                 function (response) {
                     console.log('failure error: ', response);
-                    alert('Current Password is Incorrect');
+                    swal("Current password is incorrect!", "", "warning");
                     location.reload(true);
                 });
         }
@@ -96,7 +97,7 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function (
         console.log('HOORAY for ', auth);
         const id = UserService.userObject.id;
         if (auth.newPasswordOne != auth.newPasswordTwo) {
-            alert('New Passwords Do Not Match');
+            swal("New passwords do not match!", "", "warning");
             location.reload(true);
         } else if (auth.newPasswordOne === auth.newPasswordTwo) {
             entry = {
@@ -110,7 +111,7 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function (
                     entry: entry
                 }
             }).then(function (response) {
-                alert('SUCCESS');
+                swal("Success!", "", "success");
                 let role = UserService.userObject.user_role;
                 if (role === 2) {
                     $location.path('/coach_Home');
@@ -122,14 +123,14 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function (
                     $location.path('/super_AdminHome');
                 }
                  else {
-                    alert('What is your role?');
+                    swal("What is your role?", "", "warning");
                 }
                 // $location.path('/student_home');
             }).catch(function (error) {
                 console.log('change password put error', error);
             })
         } else {
-            alert('Something went wrong!');
+            swal("Something went wrong!", "", "warning");
             location.reload(true);
         }
     } // end postPassword
@@ -146,7 +147,7 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function (
             $location.path('/super_AdminHome');
         }
          else {
-            alert('What is your role?');
+            swal("What is your role?", "", "warning");
         }
     }
 
@@ -163,7 +164,7 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function (
                 entry: entry
             }
         }).then(function (response) {
-            alert('SUCCESS');
+            swal("Success!", "", "success");
             location.reload(true);
         }).catch(function (error) {
             console.log('update bio put error', error);
@@ -182,6 +183,39 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function (
             $location.path('/past_appointments');
         }).catch(function (error) {
             console.log('get my students error');
+        })
+    }
+
+    self.late = function(id, newmessage) {
+        console.log('in late', newmessage);
+        console.log('id', id);
+        $http({
+            method: 'GET',
+            url: `/sms/coachphone/${id}`,
+        }).then(function (response) {
+            console.log('COMPLETE', response.data);
+            let firstphone = response.data[0].coach_phone;
+            console.log(firstphone);
+            let phone = '+1' + firstphone;
+            console.log(phone);
+            const entry = {
+                phone: phone,
+                newmessage: newmessage
+            }
+            $http({
+                method: 'POST',
+                url: `/sms/message`,
+                data: {
+                    entry: entry
+                }
+            }).then(function (response) {
+                alert('Message Sent to Coach!');
+                location.reload(true);
+            }).catch(function (error) {
+                console.log('SMS error');
+            })  
+        }).catch(function (error) {
+            console.log('SMS error');
         })
     }
 

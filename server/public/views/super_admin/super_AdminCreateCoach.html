@@ -175,6 +175,12 @@
                             <input type="text" name="interests" ng-model="ac.coachInfo.interests">
                         </md-input-container>
                     </div>
+                    <div layout-align="center center">
+                        <md-input-container flex>
+                            <label class="text-label" for="phone">Phone Number:</label>
+                            <input class="text-label" type="text" name="phone" ng-model="ac.coachInfo.coach_phone" />
+                        </md-input-container>
+                    </div>
                     <md-container>
                         <md-button class="md-raised md-primary defaultBtn" ng-click="ac.addCoach(ac.coachInfo)">Add Coach</md-button>
                     </md-container>

@@ -68,7 +68,7 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
                     entry: entry
                 }
             }).then(function (response) {
-                alert('Successful Update');
+                swal("Successful Update!", "", "success");
                 location.reload(true);
             }).catch(function (error) {
                 console.log('photo change error');
@@ -141,7 +141,7 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
                 entry: entry
             }
         }).then(function (response) {
-            alert('Successful Update');
+            swal("Successful Update!", "", "success");
             location.reload(true);
         }).catch(function (error) {
             console.log('profile change error');
@@ -162,7 +162,7 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
                 entry: entry
             }
         }).then(function (response) {
-            alert('Successful Update');
+            swal("successful Update!", "", "success");
             location.reload(true);
         }).catch(function (error) {
             console.log('username change error');
@@ -263,7 +263,7 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
                     entry: entry
                 }
             }).then(function (response) {
-                alert('Successful Update');
+                swal("Successful Update!", "", "success");
                 console.log('NEXT ID = ', id);
                 self.moreInfo(student);
             }).catch(function (error) {
@@ -271,6 +271,39 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
             })
 
         });
+    }
+
+
+    self.late = function(id, newmessage) {
+        console.log('in late', newmessage);
+        $http({
+            method: 'GET',
+            url: `/sms/studentphone/${id}`,
+        }).then(function (response) {
+            console.log('COMPLETE', response.data);
+            let firstphone = response.data[0].phone_number;
+            console.log(firstphone);
+            let phone = '+1' + firstphone;
+            console.log(phone);
+            const entry = {
+                phone: phone,
+                newmessage: newmessage
+            }
+            $http({
+                method: 'POST',
+                url: `/sms/message`,
+                data: {
+                    entry: entry
+                }
+            }).then(function (response) {
+                alert('Message Sent to Student!');
+                $location.path('/coach_Home');
+            }).catch(function (error) {
+                console.log('SMS error');
+            })  
+        }).catch(function (error) {
+            console.log('SMS error');
+        })
     }
 
 

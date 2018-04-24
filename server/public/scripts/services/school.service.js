@@ -7,7 +7,7 @@ myApp.service('SchoolService', ['$http', '$location', 'UserService', function ($
     self.addSchool = function (school) {
         console.log('school', school);
         if (school.school_codeOne != school.school_codeTwo) {
-            alert('school codes do not match')
+            swal("School codes do not match!", "", "warning");
         } else if (school.school_codeOne === school.school_codeTwo) {
             const entry = {
                 school_name: school.school_name,
@@ -22,7 +22,7 @@ myApp.service('SchoolService', ['$http', '$location', 'UserService', function ($
                     entry: entry
                 }
             }).then(function (response) {
-                alert('School Created!');
+                swal("Added School!", "", "success");
                 let role = UserService.userObject.user_role;
                 if (role === 3) {
                     $location.path('/admin_Home');
@@ -33,7 +33,7 @@ myApp.service('SchoolService', ['$http', '$location', 'UserService', function ($
                 console.log('disclaimer error');
             })
         } else {
-            alert('Something Went Wrong. Please Try Again');
+            swal("Something Went Wrong!", "", "warning");
             location.reload(true);
         }
     }

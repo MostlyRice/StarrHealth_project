@@ -24,6 +24,7 @@ myApp.controller('MatchController', ['UserService', '$location', 'SignupService'
   self.back = SignupService.back;
   self.studentHome = StudentService.studentHome;
   self.studentSchedule = StudentService.studentSchedule;
+  
 
   SignupService.findCoach(); 
 

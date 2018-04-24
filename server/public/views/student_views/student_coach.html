@@ -16,7 +16,7 @@
                     <span>Home Page</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.studentCoach()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.viewMyCoach()">
                     <i class="material-icons person">person</i>
                     <span>Your Coach</span>
                 </md-button>
@@ -32,7 +32,7 @@
                     <span>Home Page</span>
                 </md-button>
                 <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.studentCoach()">
+                <md-button class="md-raised md-primary" flex ng-click="vm.viewMyCoach()">
                     <i class="material-icons person">person</i>
                     <span>Your Coach</span>
                 </md-button>
@@ -58,6 +58,11 @@
                             <h4>{{coach.email}}</h4>
                             <h5>{{coach.coach_bio}}</h5>
                         </div>
+                        <div ng-repeat="coach in vm.myCoach.list">
+                        <label class="text-label" for="message">Message:</label>
+                        <input class="text-label" type="text" name="message" ng-model="vm.message" />
+                        <button ng-click="vm.late(coach.coach_id, vm.message)">Send Message to Coach</button>
+                    </div>
                     </div>
                 </md-card>
             </div>
