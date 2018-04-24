@@ -114,41 +114,43 @@
             </md-content>
         </md-sidenav>
         <!-- End md-sidenav -->
-        <!-- Put Content In This Div! -->
+        <!-- Start Add New School Card -->
         <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
             <div flex class="div-element" layout="column" layout-align="center center">
                 <md-card flex class="card-element md-padding" ng-controller="SchoolController as ss">
                     <h2 class="create-school-title">New School</h2>
-                    <div layout-gt-sm="row">
-                        <md-input-container flex>
-                            <label class="blackLabel" for="schoolName">School Name:</label>
-                            <input type="text" name="schoolName" ng-model="ss.schoolInfo.school_name">
-                        </md-input-container>
-                    </div>
-                    <div layout-gt-sm="row">
-                        <md-input-container flex>
-                            <label class="blackLabel" for="schoolCodeOne">School Code:</label>
-                            <input type="text" name="schoolCodeOne" ng-model="ss.schoolInfo.school_codeOne">
-                        </md-input-container>
-                        <md-input-container flex>
-                            <label class="blackLabel" for="schoolCodeTwo">Confrim School Code:</label>
-                            <input type="text" name="schoolCodeTwo" ng-model="ss.schoolInfo.school_codeTwo">
-                        </md-input-container>
-                    </div>
-                    <div layout-gt-sm="row">
-                        <md-input-container flex>
-                            <label class="blackLabel overflow" for="accounts">Number of Student Accounts:</label>
-                            <input type="text" name="accounts" ng-model="ss.schoolInfo.total_accounts">
-                        </md-input-container>
-                        <md-input-container>
-                            <label class="blackLabel overflow" for="sessions">Number of Sessions per Student:</label>
-                            <input type="text" name="sessions" ng-model="ss.schoolInfo.student_sessions">
-                        </md-input-container>
-                    </div>
-                    <md-container>
-                        <md-button class="md-raised md-primary defaultBtn" ng-click="ss.addSchool(ss.schoolInfo)">Add School</md-button>
-                    </md-container>
                 </md-card>
-                <!-- End Put Content In This Div! -->
+                <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
+                <div layout-gt-sm="row">
+                    <md-input-container flex>
+                        <label class="blackLabel" for="schoolName">School Name:</label>
+                        <input type="text" name="schoolName" ng-model="ss.schoolInfo.school_name">
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container flex>
+                        <label class="blackLabel" for="schoolCodeOne">School Code:</label>
+                        <input type="text" name="schoolCodeOne" ng-model="ss.schoolInfo.school_codeOne">
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label class="blackLabel" for="schoolCodeTwo">Confrim School Code:</label>
+                        <input type="text" name="schoolCodeTwo" ng-model="ss.schoolInfo.school_codeTwo">
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container flex>
+                        <label class="blackLabel overflow" for="accounts">Number of Student Accounts:</label>
+                        <input type="text" name="accounts" ng-model="ss.schoolInfo.total_accounts">
+                    </md-input-container>
+                    <md-input-container>
+                        <label class="blackLabel overflow" for="sessions">Number of Sessions per Student:</label>
+                        <input type="text" name="sessions" ng-model="ss.schoolInfo.student_sessions">
+                    </md-input-container>
+                </div>
+                <md-container>
+                    <md-button class="md-raised md-primary defaultBtn" ng-click="ss.addSchool(ss.schoolInfo)">Add School</md-button>
+                </md-container>
+                </md-card>
+                <!-- End Add New School Card -->
     </section>
     </div>

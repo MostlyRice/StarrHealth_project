@@ -94,35 +94,35 @@
             </md-content>
         </md-sidenav>
         <!-- End md-sidenav -->
-        <!-- Put Content In This Div! -->
+        <!-- Start School Directory Card -->
         <md-container flex class="content-element content-element-text" layout="column" layout-align="center center">
             <div flex class="div-element" layout="column" layout-align="center center">
                 <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
                     <h2 class="school-directory-title">Admin School Directory</h2>
                 </md-card>
                 <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
-                <table>
-                    <thead>
-                        <tr>
-                            <th scope="col">School Name</th>
-                            <th scope="col">School Code</th>
-                            <th scope="col">Number of Student Accounts</th>
-                            <th scope="col">Number of Sessions per Student</th>
+                <table class="table">
+                    <thead class="table-thead">
+                        <tr class="table-tr">
+                            <th class="table-th" scope="col">School Name</th>
+                            <th class="table-th" scope="col">School Code</th>
+                            <th class="table-th" scope="col">Number of Student Accounts</th>
+                            <th class="table-th" scope="col">Number of Sessions per Student</th>
                         </tr>
                     </thead>
                     <tbody ng-repeat="school in vm.allSchools.list">
-                        <tr>
-                            <td scope="row">{{school.school_name}}</td>
-                            <td scope="row">{{school.school_code}}</td>
-                            <td scope="row">{{school.total_accounts}}</td>
-                            <td scope="row">{{school.student_sessions}}</td>
+                        <tr class="table-tr">
+                            <td class="table-td" scope="row" data-label="School Name">{{school.school_name}}</td>
+                            <td class="table-td" scope="row" data-label="School Code">{{school.school_code}}</td>
+                            <td class="table-td" scope="row" data-label="Number of Student Accounts">{{school.total_accounts}}</td>
+                            <td class="table-td" scope="row" data-label="Number of Sessions per Student">{{school.student_sessions}}</td>
                         </tr>
                     </tbody>
                 </table>
             </md-card>
             </div>
         </md-container>
-        <!-- Put Content In This Div! -->
+        <!-- End School Directory Card -->
 
     </section>
 </div>

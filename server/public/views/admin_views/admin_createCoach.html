@@ -94,12 +94,14 @@
             </md-content>
         </md-sidenav>
         <!-- End md-sidenav -->
-        <!-- Put Content In This Div ! -->
+        <!-- Start Add New Coach -->
         <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
             <div flex class="div-element" layout="column" layout-align="center center">
                 <md-card flex class="card-element md-padding" ng-controller="AddCoachController as ac" layout="column" layout-align="center center">
                     <h2 class="create-coach-title">Add Coach</h2>
-                    <div layout-align="center center">
+                    </md-card>
+                    <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
+                    <div layout-gt-sm="row">
                         <md-input-container flex>
                             <label class="blackLabel" for="firstName">First Name:</label>
                             <input type="text" name="firstName" ng-model="ac.coachInfo.first_name">
@@ -109,7 +111,7 @@
                             <input type="text" name="lastName" ng-model="ac.coachInfo.last_name">
                         </md-input-container>
                     </div>
-                    <div layout-align="center center">
+                    <div layout-gt-sm="row">
                         <md-input-container flex>
                             <label class="blackLabel" for="userName">Coach Username:</label>
                             <input type="text" name="userName" ng-model="ac.coachInfo.username">
@@ -119,7 +121,7 @@
                             <input type="email" name="email" ng-model="ac.coachInfo.email" />
                         </md-input-container>
                     </div>
-                    <div layout-align="center center">
+                    <div layout-gt-sm="row">
                         <md-input-container flex>
                             <label class="blackLabel" for="passwordOne">Password:</label>
                             <input type="password" ng-model="ac.coachInfo.passwordOne">
@@ -147,7 +149,7 @@
                             </md-select>
                         </md-input-container>
                     </div>
-                    <div layout-align="center center">
+                    <div layout-gt-sm="row">
                         <md-input-container flex>
                             <label class="blackLabel" for="interests">Personal Interests:</label>
                             <input type="text" name="interests" ng-model="ac.coachInfo.interests">
@@ -159,7 +161,6 @@
                 </md-card>
             </div>
         </md-content>
-        <!-- Put Content In This Div! -->
+        <!-- End Add New Coach -->
     </section>
 </div>
-<div flex></div>
