@@ -764,3 +764,7 @@ button.md-raised.md-primary.defaultBtn.scheduleBtn.md-button.md-ink-ripple {
 .ng-hide.ng-hide-animate {
   display: none !important;
 }
+
+li a {
+  color: black
+}
