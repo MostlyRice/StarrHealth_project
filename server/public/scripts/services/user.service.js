@@ -41,12 +41,12 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
                 } else {
                     console.log('UserService -- getJulia -- failure');
                     // user has no session, bounce them back to the login page
-                    alert("You are not authorized to view this page");
+                    swal("You are not authorized to view this page.", "", "warning");
                     $location.path("/home");
                 }
             }, function (response) {
                 console.log('UserService -- getJulia -- failure: ', response);
-                alert("Get out of here n00b");
+                swal("You are not authorized to view this page.", "", "warning");
                 $location.path("/home");
             });
 
@@ -66,12 +66,12 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
                 } else {
                     console.log('UserService -- getAdmin -- failure');
                     // user has no session, bounce them back to the login page
-                    alert("You are not authorized to view this page");
+                    swal("You are not authorized to view this page.", "", "warning");
                     $location.path("/home");
                 }
             }, function (response) {
                 console.log('UserService -- getAdmin -- failure: ', response);
-                alert("You are not authorized to view this page");
+                swal("You are not authorized to view this page.", "", "warning");
                 $location.path("/home");
             });
 
@@ -92,12 +92,12 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
                 } else {
                     console.log('UserService -- getCoach -- failure');
                     // user has no session, bounce them back to the login page
-                    alert("You are not authorized to view this page");
+                    swal("You are not authorized to view this page.", "", "warning");
                     $location.path("/home");
                 }
             }, function (response) {
                 console.log('UserService -- getCoach -- failure: ', response);
-                alert("You are not authorized to view this page");
+                swal("You are not authorized to view this page.", "", "warning");
                 $location.path("/home");
             });
 
@@ -118,12 +118,12 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
                 } else {
                     console.log('UserService -- getStudent -- failure');
                     // user has no session, bounce them back to the login page
-                    alert("You are not authorized to view this page");
+                    swal("You are not authorized to view this page.", "", "warning");
                     $location.path("/home");
                 }
             }, function (response) {
                 console.log('UserService -- getStudent -- failure: ', response);
-                alert("You are not authorized to view this page");
+                swal("You are not authorized to view this page.", "", "warning");
                 $location.path("/home");
             });
 

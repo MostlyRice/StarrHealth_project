@@ -155,7 +155,7 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
                     console.log('sessions put error', error);
                 })
             }).catch(function (error) {
-                alert('School Code is Incorrect!');
+                swal("School code is incorrect!", "", "warning");
                 info.school_code = '';
             })
         }).catch(function (error) {

@@ -21,11 +21,11 @@ myApp.service('AddCoachService', ['$http', '$location', 'UserService', function 
             user_role: 2
         }
         if (user.username === '') {
-            alert("Choose a username!");
+            swal("Choose a username!", "", "warning");
         } else if (user.passwordOne === '' || user.passwordTwo === '') {
-            alert("Choose a password!");
+            swal("Choose a password!", "", "warning");
         } else if (user.passwordOne != user.passwordTwo) {
-            alert("Passwords do not match!");
+            swal("Passwords do not match!", "", "warning");
         } else if (user.passwordOne === user.passwordTwo) {
             user.password = user.passwordOne;
             console.log('sending to server...', user);
@@ -35,10 +35,10 @@ myApp.service('AddCoachService', ['$http', '$location', 'UserService', function 
                 },
                 function (response) {
                     console.log('error');
-                    alert("Something went wrong. Please try again.")
+                    swal("Something went wrong, please try again!", "", "warning");
                 });
         } else {
-            alert("Something went wrong. Please try again.")
+            swal("Something went wrong, please try again!", "", "warning");
         }
     }
 
@@ -98,7 +98,7 @@ myApp.service('AddCoachService', ['$http', '$location', 'UserService', function 
                             } else if (role === 4) {
                                 $location.path('/super_AdminHome');
                             } else {
-                                alert('What is your role?');
+                                swal("What is your role?", "", "warning");
                             }
                         }).catch(function (error) {
                             console.log('academic post error', error);

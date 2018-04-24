@@ -82,12 +82,12 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', 'SignupSer
                         self.postPassword(auth);
                     } else {
                         console.log('failure error: ', response);
-                        alert('Current Password is Incorrect');
+                        swal("Current password is incorrect!", "", "warning");
                     }
                 },
                 function (response) {
                     console.log('failure error: ', response);
-                    alert('Current Password is Incorrect');
+                    swal("Current password is incorrect!", "", "warning");
                     location.reload(true);
                 });
         }
@@ -97,7 +97,7 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', 'SignupSer
         console.log('HOORAY for ', auth);
         const id = UserService.userObject.id;
         if (auth.newPasswordOne != auth.newPasswordTwo) {
-            alert('New Passwords Do Not Match');
+            swal("New passwords do not match!", "", "warning");
             location.reload(true);
         } else if (auth.newPasswordOne === auth.newPasswordTwo) {
             entry = {
@@ -111,7 +111,7 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', 'SignupSer
                     entry: entry
                 }
             }).then(function (response) {
-                alert('SUCCESS');
+                swal("Success!", "", "success");
                 let role = UserService.userObject.user_role;
                 if (role === 2) {
                     $location.path('/coach_Home');
@@ -123,14 +123,14 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', 'SignupSer
                     $location.path('/super_AdminHome');
                 }
                  else {
-                    alert('What is your role?');
+                    swal("What is your role?", "", "warning");
                 }
                 // $location.path('/student_home');
             }).catch(function (error) {
                 console.log('change password put error', error);
             })
         } else {
-            alert('Something went wrong!');
+            swal("Something went wrong!", "", "warning");
             location.reload(true);
         }
     } // end postPassword
@@ -147,7 +147,7 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', 'SignupSer
             $location.path('/super_AdminHome');
         }
          else {
-            alert('What is your role?');
+            swal("What is your role?", "", "warning");
         }
     }
 
@@ -164,7 +164,7 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', 'SignupSer
                 entry: entry
             }
         }).then(function (response) {
-            alert('SUCCESS');
+            swal("Success!", "", "success");
             location.reload(true);
         }).catch(function (error) {
             console.log('update bio put error', error);
