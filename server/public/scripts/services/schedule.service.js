@@ -196,18 +196,19 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
     self.getCoachAppointments = function () {
         $http.get('/calendar/appointments')
         .then(function(response) {
-            // console.log('appointments get', response.data);
+            console.log('appointments get', response.data);
             let appointmentArray = response.data.filter(function(res){
                 let date = moment().format('L');
                 if(res.student_id != null && moment(res.date).isSameOrAfter(date)){
                 return res
                 }
             })
-            // console.log('appointment array', appointmentArray);
-            self.coachAppointments.list = appointmentArray.map(function(res) {
-                return {time: res.available_time, firstName: res.first_name, lastName: res.last_name,  date: res.date}
-                });
-            // console.log('coach appointments', self.coachAppointments.list)
+            console.log('appointment array', appointmentArray);
+            self.coachAppointments.list = appointmentArray.reduce(function(acc, item) {
+                console.log('new thing', {...acc, b:'foo'});
+                return { ...acc, [item.date]: [...acc[item.date] || [], item]}
+                },{});
+            console.log('coach appointments', self.coachAppointments.list)
         }).catch(function(error){
             // console.log('Error getting times', error);
         })
