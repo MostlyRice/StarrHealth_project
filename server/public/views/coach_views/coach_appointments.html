@@ -71,11 +71,22 @@
           <h2 class="coach-appointments-title">Coach Appointments</h2>
           <div ng-controller="ScheduleController as sc">
           <div>
-            <div ng-repeat="appointment in sc.coachAppointments.list">
-              <p>{{appointment.time}} on {{appointment.date}} with {{appointment.firstName}} {{appointment.lastName}} </p>
+            <div dir-paginate="(key,value) in sc.coachAppointments.list | itemsPerPage:5">
+              {{key}}
+              <div ng-repeat="item in value">
+                {{item.available_time}} with {{item.first_name}} {{item.last_name}}
+              </div>
             </div>
           </div>
         </div>
+        <div>
+          <div class="paginations">
+          <dir-pagination-controls
+            direction-links="true"
+            boundary-links="false">
+          </dir-pagination-controls>  
+          </div>   
+        </div> 
         </md-card>
       </div>
     </md-content>

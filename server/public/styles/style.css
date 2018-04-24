@@ -764,6 +764,9 @@ button.md-raised.md-primary.defaultBtn.scheduleBtn.md-button.md-ink-ripple {
   display: none !important;
 }
 
+li a {
+  color: black
+
 table {
   border: 1px solid #ccc;
   border-collapse: collapse;
