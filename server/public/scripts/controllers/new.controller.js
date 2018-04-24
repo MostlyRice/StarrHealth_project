@@ -1,4 +1,4 @@
-myApp.controller('NewController', ['UserService', '$location', 'SignupService', function (UserService, $location, SignupService) {
+myApp.controller('NewController', ['UserService', '$location', 'SignupService', 'StudentService', function (UserService, $location, SignupService, StudentService) {
     console.log('NewController created');
     var self = this;
     self.userService = UserService;
@@ -21,6 +21,7 @@ myApp.controller('NewController', ['UserService', '$location', 'SignupService', 
     self.thisCoach = SignupService.thisCoach;
     self.studentCoach = SignupService.studentCoach;
     self.back = SignupService.back;
+    self.late = StudentService.late;
   
     SignupService.getMyCoach(); 
     

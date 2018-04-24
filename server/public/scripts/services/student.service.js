@@ -185,6 +185,24 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', function (
         })
     }
 
+    self.late = function(newmessage) {
+        console.log('in late', newmessage);
+        const entry = {
+            newmessage: newmessage
+        }
+        $http({
+            method: 'POST',
+            url: `/sms`,
+            data: {
+                entry: entry
+            }
+        }).then(function (response) {
+            console.log('COMPLETE');
+        }).catch(function (error) {
+            console.log('get my students error');
+        })
+    }
+
    
 
 }]); // end student service
