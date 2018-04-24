@@ -158,6 +158,7 @@ router.put('/photo/:id', (request, response) => {
   }
 }); // end username update
 
+
 router.get('/everyone/students', (request, response) => {
   if (request.isAuthenticated()) {
     console.log('IN ROUTER!!!!!!');

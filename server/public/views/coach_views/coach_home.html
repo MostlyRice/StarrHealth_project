@@ -72,7 +72,10 @@
             <div>
               <h2 class="home-title">Coach Home</h2>
               <div layout="column" layout-align="start center" ng-repeat="coach in vm.myself.list">
-                <img ng-src="{{coach.coach_photo}}" width="180px" class="groove groove-1" ng-click="vm.upload()">
+                <img ng-src="{{coach.coach_photo}}" width="180px" class="groove groove-1">
+                <div>
+                  <md-button class="md-raised md-primary defaultBtn" ng-click="vm.upload()">Change Photo</md-button>
+                </div>
               </div>
               <md-card-title>
                 <md-card-title-text ng-repeat="coach in vm.myself.list">
@@ -95,8 +98,9 @@
                       <md-button class="md-raised md-primary defaultBtn" ng-show="vm.editing" ng-click="vm.cancelUserName()">Cancel Update</md-button>
                     </span>
                     <div>
-                    <md-input-container ng-show="vm.editing">
-                        <input placeholder="User Name" ng-show="vm.editing" class="text-label" type="text" name="userName" ng-model="vm.userName" />
+                      <md-input-container ng-show="vm.editing">
+                        <input placeholder="User Name" ng-show="vm.editing" class="text-label" type="text" name="userName" ng-model="vm.userName"
+                        />
                       </md-input-container>
                     </div>
                   </div>
@@ -165,7 +169,7 @@
               <h2 class="home-title">Your Next Appointment</h2>
               <md-card-content class="bio-text groove groove-1">
                 <div ng-repeat="meeting in vm.todayAppts.list">
-                  {{meeting.available_time}} with {{meeting.first_name}} {{meeting.last_name}}
+                   {{meeting.date}} at {{meeting.available_time}} with {{meeting.first_name}} {{meeting.last_name}}
                 </div>
               </md-card-content>
             </md-card>

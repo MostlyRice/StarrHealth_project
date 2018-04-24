@@ -114,39 +114,41 @@
             </md-content>
         </md-sidenav>
         <!-- End md-sidenav -->
-        <!-- Put Content In This Div! -->
+        <!-- Start Appointment Card -->
         <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
             <div flex class="div-element" layout="column" layout-align="center center">
                 <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
                     <h2 class="all-appointments-title">Super Admin All Appointments</h2>
                 </md-card>
+                <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
                 <table>
                         <thead>
                             <tr>
-                                <th>Appt. Date</th>
-                                <th>Appt. Time</th>
-                                <th>Coach Name</th>
-                                <th>Student Name</th>
-                                <th>School Name</th>
-                                <th>Student Goal</th>
-                                <th>Session Number</th>
+                                <th scope="col">Appt. Date</th>
+                                <th scope="col">Appt. Time</th>
+                                <th scope="col">Coach Name</th>
+                                <th scope="col">Student Name</th>
+                                <th scope="col">School Name</th>
+                                <th scope="col">Student Goal</th>
+                                <th scope="col">Session Number</th>
                             </tr>
                         </thead>
                         <tbody ng-repeat="data in vm.allAppts.list">
                             <tr>
-                                <td>{{data.date}}</td>
-                                <td>{{data.available_time}}</td>
-                                <td>{{data.coach_first}} {{data.coach_last}}</td>
-                                <td>{{data.student_first}} {{data.student_last}}</td>
-                                <td>{{data.school_name}}</td>
-                                <td>{{data.specialty_name}}</td>
-                                <td>{{data.sessions_used}}</td>
+                                <td scope="row">{{data.date}}</td>
+                                <td scope="row">{{data.available_time}}</td>
+                                <td scope="row">{{data.coach_first}} {{data.coach_last}}</td>
+                                <td scope="row">{{data.student_first}} {{data.student_last}}</td>
+                                <td scope="row">{{data.school_name}}</td>
+                                <td scope="row">{{data.specialty_name}}</td>
+                                <td scope="row">{{data.sessions_used}}</td>
                             </tr>
                         </tbody>
                     </table>
+                </md-card>
             </div>
         </md-content>
-        <!-- End Put Content In This Div! -->
+        <!-- End Appointment Card -->
 
     </section>
 </div>

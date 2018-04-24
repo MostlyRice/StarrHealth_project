@@ -1,10 +1,10 @@
 <header class="ng-cloak" hide-gt-md ng-include="'/views/partials/header.html'"></header>
 
 <div class="ng-cloak" layout="column" layout-fill>
-  
+
   <section layout="row" flex>
     <!-- Start md-sidenav -->
-    <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+    <md-sidenav flex class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
       <div class="starr-sidenav">
         <img ng-src="./images/starrhealthlogo.png" />
         <p class="starr-sidenav-text">Starr Health Co.</p>
@@ -65,68 +65,77 @@
     </md-sidenav>
     <!-- End md-sidenav -->
     <!-- Put Content In This Div! -->
-    <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
-      <div flex class="div-element" layout="column" layout-align="center center">
-        <md-card ng-repeat="student in vm.myStudent.list" flex class="card-element md-padding" layout="column" layout-align="center center">
-          <h2 class="student-title">{{student.first_name}} {{student.last_name}}'s Info</h2>
-        </md-card>
-        <table>
-            <thead>
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>School Name</th>
-                    <th>Coaching Goal</th>
-                    <th>Phone Number</th>
-                    <th>Skype ID</th>
-                    <th>Email</th>
-                    <th>Relationship Status</th>
-                    <th>Other Coaching Goals</th>
-                    <th>Working with Other Professionals?</th>
-                    <th>Any Other Information?</th>
-                </tr>
-            </thead>
-            <tbody ng-repeat="student in vm.myStudent.list">
-                <tr>
-                    <td>{{student.first_name}}</td>
-                    <td>{{student.last_name}}</td>
-                    <td>{{student.school_name}}</td>
-                    <td>{{student.specialty_name}}</td>
-                    <td>{{student.phone_number}}</td>
-                    <td>{{student.skype_id}}</td>
-                    <td>{{student.email}}</td>
-                    <td>{{student.relationship_status}}</td>
-                    <td>{{student.other_goals}}</td>
-                    <td>{{student.other_professionals}}</td>
-                    <td>{{student.other_information}}</td>
-                </tr>
-            </tbody>
-        </table>
-      </br>
-    </br>
-    <md-card ng-repeat="student in vm.myStudent.list" flex class="card-element md-padding" layout="column" layout-align="center center">
-        <h2 class="student-title">{{student.first_name}} {{student.last_name}}'s Past Appointments</h2>
-      </md-card>
-      <table>
-          <thead>
-              <tr>
-                  <th>Appt. Date</th>
-                  <th>Appt. Time</th>
-                  <th>Session Notes</th>
-                  <th>Add Notes</th>
-              </tr>
-          </thead>
-          <tbody ng-repeat="data in vm.studentAppts.list">
-              <tr>
-                  <td>{{data.date}}</td>
-                  <td>{{data.available_time}}</td>
-                  <td>{{data.notes_status}}</td>
-                  <td><button ng-click="vm.addNotes(data.calendar_id, data.student_id)">Add Session Notes</button></td>
-              </tr>
-          </tbody>
-      </table>
+    <div flex>
+      <md-content class="content-element content-element-text" layout="column" layout-align="center center">
+        <div class="div-element" layout="column" layout-align="center center">
+          <md-card class="card-element md-padding" layout="row" layout-align="center center" ng-repeat="student in vm.myStudent.list">
+            <h2 class="home-title">{{student.first_name}} {{student.last_name}}'s Info</h2>
+          </md-card>
+        </div>
+      </md-content>
+
+      <md-content class="content-element content-element-text" layout="row" layout-align="center center">
+        <div class="div-element" layout="row" layout-align="center center" layout-xs="column">
+          <md-card layout-align="center center" flex layout="row" class="card-element md-padding" ng-repeat="student in vm.myStudent.list">
+            <div layout-align="center center" class="groove groove-1 md-padding">
+              <h3><u>Full Name</u></h3>
+              <h4>{{student.first_name}} {{student.last_name}}</h4>
+              <h3><u>Attending School</u></h3>
+              <h4>{{student.school_name}}</h4>
+              <h3><u>Set Goal</u></h3>
+              <h4>{{student.specialty_name}}</h4>
+              <h3><u>Phone Number</u></h3>
+              <h4>{{student.phone_number}}</h4>
+              <h3><u>Skype ID</u></h3>
+              <h4>{{student.skype_id}}</h4>
+              <h3><u>Email Address</u></h3>
+              <h4>{{student.email}}</h4>
+              <h3><u>Relationship Status</u></h3>
+              <h4>{{student.relationship_status}}</h4>
+              <h3><u>Other Goals</u></h3>
+              <h4>{{student.other_goals}}</h4>
+              <h3><u>Working With Other Professionals</u></h3>
+              <h4>{{student.other_professionals}}</h4>
+              <h3><u>Any Other Information</u></h3>
+              <h4>{{student.other_information}}</h4>
+            </div>
+          </md-card>
+        </div>
+      </md-content>
+
+      <md-content class="content-element content-element-text" layout="row">
+        <div flex class="div-element" layout="row" layout-align="center center" layout-xs="column">
+          <md-card layout-align="center center" flex layout="row" class="card-element md-padding" ng-repeat="student in vm.myStudent.list">
+            <h2 class="student-title">{{student.first_name}} {{student.last_name}}'s Past Appointments</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Appt. Date</th>
+                    <th>Appt. Time</th>
+                    <th>Session Notes</th>
+                    <th>Add Notes</th>
+                  </tr>
+                </thead>
+                <tbody ng-repeat="data in vm.studentAppts.list">
+                  <tr>
+                    <td>{{data.date}}</td>
+                    <td>{{data.available_time}}</td>
+                    <td>{{data.notes_status}}</td>
+                    <td>
+                      <button ng-click="vm.addNotes(data.calendar_id, data.student_id)">Add Session Notes</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+          </md-card>
+          <div ng-repeat="student in vm.myStudent.list">
+          <label class="text-label" for="message">Message:</label>
+          <input class="text-label" type="text" name="message" ng-model="vm.message" />
+          <button ng-click="vm.late(student.student_id, vm.message)">Send Message to Student</button>
+        </div>
+          </div>
+      </md-content>
       </div>
-    </md-content>
-    <!-- End Put Content In This Div! -->
+      <!-- End Put Content In This Div! -->
   </section>
-</div>
+  </div>

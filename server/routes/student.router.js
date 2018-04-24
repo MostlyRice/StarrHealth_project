@@ -2,6 +2,7 @@ const express = require('express');
 const pool = require('../modules/pool.js');
 const router = express.Router();
 
+
 router.post('/', (request, response) => {
   if (request.isAuthenticated()) {
     const entry = request.body.entry;
@@ -150,6 +151,7 @@ router.get('/appointment/:id', (request, response) => {
       response.sendStatus(403);
   }
 });
+
 router.get('/sessions/:id', (request, response) => {
   if (request.isAuthenticated()) {
     const id = request.params.id;
@@ -242,6 +244,7 @@ router.put('/coach/:id', (request, response) => {
       response.sendStatus(403);
   }
 }); // end coach_id update
+
 
 
 
