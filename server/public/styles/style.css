@@ -240,8 +240,17 @@ button.md-raised.md-warn.md-button.md-ink-ripple.flex {
   background-color: #d3394b;
 }
 
+button.md-raised.md-warn.md-button.md-ink-ripple {
+  background-color: #d3394b;
+}
+
 button.md-raised.md-warn.md-button.md-ink-ripple.flex:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+button.md-raised.md-warn.md-button.md-ink-ripple:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  background-color: #d3394b;
 }
 
 button.md-raised.md-primary.md-button.md-ink-ripple.flex {
@@ -583,29 +592,19 @@ button.md-raised.md-primary.defaultBtn.md-button.md-ink-ripple:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-.create-schedule {
-  font-size: 20px;
-  height: 700px;
-  width: 1100px;
-  background: rgba(255, 255, 255, 0.9);
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
-  margin-bottom: auto;
-  padding: 10px;
-  text-align: center;
-  color: black;
-}
-
 .schedule-title {
   color: #1686B4;
   font-size: 30px;
 }
 
+.schedule {
+  text-align: left;
+}
 .timeSlot {
   width: 85px;
   margin-right: auto;
   margin-left: auto;
+  text-align: left;
 }
 
 .cardBack {
@@ -763,4 +762,81 @@ button.md-raised.md-primary.defaultBtn.scheduleBtn.md-button.md-ink-ripple {
 
 .ng-hide.ng-hide-animate {
   display: none !important;
+}
+
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid #333333;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #333333;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
 }
