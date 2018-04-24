@@ -159,13 +159,15 @@ router.put('/photo/:id', (request, response) => {
 }); // end username update
 
 
-router.get('/everyone/students', (request, response) => {
+router.get('/everyone/students/:coach', (request, response) => {
   if (request.isAuthenticated()) {
+    const coach = request.params.coach;
     console.log('IN ROUTER!!!!!!');
     const sqlText = `SELECT * FROM student_bio
     JOIN schools ON schools.school_id=student_bio.school_id
-    JOIN specialties ON specialties.specialty_id=student_bio.specialty_id`;
-    pool.query(sqlText)
+    JOIN specialties ON specialties.specialty_id=student_bio.specialty_id
+    WHERE student_bio.coach_id=$1`;
+    pool.query(sqlText, [coach])
       .then(function (result) {
         //  console.log('Get result:', result);
         response.send(result.rows);

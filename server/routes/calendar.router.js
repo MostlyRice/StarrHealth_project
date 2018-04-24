@@ -19,7 +19,7 @@ router.get('/coach/:day', (request, response) => {
         })
         .catch(error => {
             response.sendStatus(500);
-            console.log('get coach times error', error); 
+            console.log('get coach times er ror', error); 
         })
     } else {
         response.sendStatus(403);
@@ -180,7 +180,7 @@ router.get('/availability/:date', (request, response) => {
         const SQLtext = `SELECT users.id FROM users
         JOIN coach_bio ON coach_bio.id=users.id
         JOIN student_bio ON student_bio.coach_id=coach_bio.coach_id
-        WHERE student_bio.id=$1;`;
+        WHERE student_bio.id=$1`;
         const studentID = request.user.id;
         pool.query(SQLtext, [studentID])
             .then(result => {

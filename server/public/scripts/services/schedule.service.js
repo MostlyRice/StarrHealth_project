@@ -35,7 +35,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                 data: schedule
             })
             .then(function (response) {
-                // console.log('calendar added', response);
+                // console.log('calendar ad ded', response);
                 schedule.a = '';
                 schedule.b = '';
                 schedule.c = '';
