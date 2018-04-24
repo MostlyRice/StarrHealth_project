@@ -195,13 +195,18 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', 'SignupSer
         }).then(function (response) {
             console.log('COMPLETE', response.data);
             let firstphone = response.data[0].coach_phone;
+            let first_name = response.data[0].first_name.trim();
+            let last_name = response.data[0].last_name.trim();
             console.log(firstphone);
             let phone = '+1' + firstphone;
             console.log(phone);
             const entry = {
                 phone: phone,
-                newmessage: newmessage
+                newmessage: newmessage,
+                first_name: first_name,
+                last_name: last_name
             }
+            console.log('entry ', entry);
             $http({
                 method: 'POST',
                 url: `/sms/message`,
