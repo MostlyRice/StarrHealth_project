@@ -12,7 +12,7 @@ const client = require('twilio')(accountSid, authToken);
 
 router.get('/coachphone/:id', (request, response) => {
     const id = request.params.id;
-    const sqlText = `SELECT coach_phone FROM coach_bio WHERE coach_id=$1`;
+    const sqlText = `SELECT first_name, last_name, coach_phone FROM coach_bio WHERE coach_id=$1`;
     pool.query(sqlText, [id])
       .then(function (result) {
       response.send(result.rows);
@@ -25,7 +25,7 @@ router.get('/coachphone/:id', (request, response) => {
 
   router.get('/studentphone/:id', (request, response) => {
     const id = request.params.id;
-    const sqlText = `SELECT phone_number FROM student_bio WHERE student_id=$1`;
+    const sqlText = `SELECT first_name, last_name, phone_number FROM student_bio WHERE student_id=$1`;
     pool.query(sqlText, [id])
       .then(function (result) {
       response.send(result.rows);
@@ -39,16 +39,16 @@ router.get('/coachphone/:id', (request, response) => {
   router.post('/message', (request, response) => {
     const entry = request.body.entry;
     let phone = entry.phone.toString();
-    console.log('PHONE', phone);
+    console.log('PHONE', entry);
     const sqlText = `SELECT phone_number FROM student_bio`;
     pool.query(sqlText)
       .then(function (result) {
-        console.log('STUDENT PHONE', result);
+        console.log('STUDENT PHONE', entry);
         client.messages
         .create({
     to: phone,
     from: '+16122550400',
-    body: entry.newmessage,
+    body: entry.first_name + ' ' + entry.last_name + ':  ' + entry.newmessage,
   })
   .then(message => console.log(message.sid));
       response.send(result.rows);
