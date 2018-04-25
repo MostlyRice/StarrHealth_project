@@ -44,34 +44,40 @@
             </md-content>
         </md-sidenav>
         <!-- End md-sidenav -->
-        <!-- Start Past Appointments Card -->
-        <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
-            <div flex class="div-element" layout="column" layout-align="center center">
-                <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
-                    <h2 class="home-title">Your Past Appointments</h2>
-                </md-card>
-                <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
-                <table class="table">
-                        <thead class="table-thead">
-                            <tr class="table-tr">
-                                <th class="table-th" scope="col">Appt. Date</th>
-                                <th class="table-th" scope="col">Appt. Time</th>
-                                <th class="table-th" scope="col">Session Notes</th>
-                                <th class="table-th" scope="col">View Notes</th>
-                            </tr>
-                        </thead>
-                        <tbody ng-repeat="data in vm.myAppts.list">
-                            <tr class="table-tr">
-                                <td class="table-td" scope="row" data-label="Appt. Date">{{data.date}}</td>
-                                <td class="table-td" scope="row" data-label="Appt. Time">{{data.available_time}}</td>
-                                <td class="table-td" scope="row" data-label="Session Notes">{{data.notes_status}}</td>
-                                <td class="table-td" scope="row" data-label="View Notes"><md-button class="md-raised md-primary defaultBtn" ng-href="{{data.session_notes}}" download>Download Session Notes</md-button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </md-card>
-            </div>
-        </md-content>
-        <!-- End Past Appointments Card -->
+        <div class="overflow-1" flex>
+            <!-- Start Past Appointments Card -->
+            <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
+                <div flex class="div-element" layout="column" layout-align="center center">
+                    <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
+                        <h2 class="home-title">Your Past Appointments</h2>
+                    </md-card>
+                    <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
+                        <table class="table">
+                            <thead class="table-thead">
+                                <tr class="table-tr">
+                                    <th class="table-th" scope="col">Appt. Date</th>
+                                    <th class="table-th" scope="col">Appt. Time</th>
+                                    <th class="table-th" scope="col">Session Notes</th>
+                                    <th class="table-th" scope="col">View Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="data in vm.myAppts.list">
+                                <tr class="table-tr">
+                                    <td class="table-td" scope="row" data-label="Appt. Date">{{data.date}}</td>
+                                    <td class="table-td" scope="row" data-label="Appt. Time">{{data.available_time}}</td>
+                                    <td class="table-td" scope="row" data-label="Session Notes">{{data.notes_status}}</td>
+                                    <td class="table-td" scope="row" data-label="View Notes">
+                                        <md-button class="md-raised md-primary defaultBtn" ng-href="{{data.session_notes}}" download>Download Session Notes</md-button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </md-card>
+                </div>
+            </md-content>
+            <!-- End Past Appointments Card -->
+        </div>
+
     </section>
+
 </div>

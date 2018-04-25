@@ -173,6 +173,12 @@ md-sidenav md-content {
   background-color: rgba(0, 0, 0, 0.3);
   text-align: center;
   height: 100%;
+
+}
+
+.overflow {
+  overflow: scroll;
+  height: 100%;
 }
 
 .layout-fill {
@@ -244,6 +250,10 @@ a.md-raised.md-primary.LandingBtns.md-button.md-ink-ripple:hover {
   overflow: visible !important;
   font-size: 13px;
   color: rgba(0, 0, 0, 0.85);
+}
+
+.overflow-1 {
+  overflow: scroll !important;
 }
 
 .label-items2 {

@@ -114,8 +114,9 @@
       </md-content>
     </md-sidenav>
     <!-- End md-sidenav -->
-    <!-- Start Schedule Card -->
-    <md-content flex class="content-element content-element-text" layout="column" layout-align="center center" ng-controller="ScheduleController as sc">
+    <div class="overflow-1" flex>
+      <!-- Start Schedule Card -->
+      <md-content flex class="content-element content-element-text" layout="column" layout-align="center center" ng-controller="ScheduleController as sc">
         <div flex class="div-element" layout="column" layout-align="center center">
           <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
             <h2 class="coach-schedule-title">Set Coach Schedule</h2>
@@ -139,7 +140,7 @@
                 <md-checkbox class="timeSlot" layout="column" ng-true-value="6" ng-model="sc.schedule.k">6pm</md-checkbox>
               </md-input-container>
             </div>
-  
+
             <div layout-align="center center">
               <md-input-container>
                 <md-checkbox layout="column" class="label-items" ng-model="sc.schedule.weekly"> Make Appointments Weekly
@@ -149,9 +150,12 @@
             <div layout-align="center center">
               <md-button class="md-raised md-primary defaultBtn scheduleBtn" ng-click="sc.postAvailability(sc.schedule)">Add</md-button>
             </div>
-            </md-card>
+          </md-card>
         </div>
       </md-content>
       <!-- End Schedule Card -->
+    </div>
+
   </section>
+
 </div>

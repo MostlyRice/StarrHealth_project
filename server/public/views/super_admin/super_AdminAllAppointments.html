@@ -114,41 +114,43 @@
             </md-content>
         </md-sidenav>
         <!-- End md-sidenav -->
-        <!-- Start Appointment Card -->
-        <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
-            <div flex class="div-element" layout="column" layout-align="center center">
-                <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
-                    <h2 class="all-appointments-title">Super Admin All Appointments</h2>
-                </md-card>
-                <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
-                    <table class="table">
-                        <thead class="table-thead">
-                            <tr class="table-tr">
-                                <th class="table-th" scope="col">Appt. Date</th>
-                                <th class="table-th" scope="col">Appt. Time</th>
-                                <th class="table-th" scope="col">Coach Name</th>
-                                <th class="table-th" scope="col">Student Name</th>
-                                <th class="table-th" scope="col">School Name</th>
-                                <th class="table-th" scope="col">Student Goal</th>
-                                <th class="table-th" scope="col">Session Number</th>
-                            </tr>
-                        </thead>
-                        <tbody ng-repeat="data in vm.allAppts.list">
-                            <tr class="table-tr">
-                                <td class="table-td" scope="row" data-label="Appt. Date">{{data.date}}</td>
-                                <td class="table-td" scope="row" data-label="Appt. Time">{{data.available_time}}</td>
-                                <td class="table-td" scope="row" data-label="Coach Name">{{data.coach_first}} {{data.coach_last}}</td>
-                                <td class="table-td" scope="row" data-label="Student Name">{{data.student_first}} {{data.student_last}}</td>
-                                <td class="table-td" scope="row" data-label="School Name">{{data.school_name}}</td>
-                                <td class="table-td" scope="row" data-label="Student Goal">{{data.specialty_name}}</td>
-                                <td class="table-td" scope="row" data-label="Session Number">{{data.sessions_used}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </md-card>
-            </div>
-        </md-content>
-        <!-- End Appointment Card -->
+        <div class="overflow-1" flex>
+            <!-- Start Appointment Card -->
+            <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
+                <div flex class="div-element" layout="column" layout-align="center center">
+                    <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
+                        <h2 class="all-appointments-title">Super Admin All Appointments</h2>
+                    </md-card>
+                    <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
+                        <table class="table">
+                            <thead class="table-thead">
+                                <tr class="table-tr">
+                                    <th class="table-th" scope="col">Appt. Date</th>
+                                    <th class="table-th" scope="col">Appt. Time</th>
+                                    <th class="table-th" scope="col">Coach Name</th>
+                                    <th class="table-th" scope="col">Student Name</th>
+                                    <th class="table-th" scope="col">School Name</th>
+                                    <th class="table-th" scope="col">Student Goal</th>
+                                    <th class="table-th" scope="col">Session Number</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="data in vm.allAppts.list">
+                                <tr class="table-tr">
+                                    <td class="table-td" scope="row" data-label="Appt. Date">{{data.date}}</td>
+                                    <td class="table-td" scope="row" data-label="Appt. Time">{{data.available_time}}</td>
+                                    <td class="table-td" scope="row" data-label="Coach Name">{{data.coach_first}} {{data.coach_last}}</td>
+                                    <td class="table-td" scope="row" data-label="Student Name">{{data.student_first}} {{data.student_last}}</td>
+                                    <td class="table-td" scope="row" data-label="School Name">{{data.school_name}}</td>
+                                    <td class="table-td" scope="row" data-label="Student Goal">{{data.specialty_name}}</td>
+                                    <td class="table-td" scope="row" data-label="Session Number">{{data.sessions_used}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </md-card>
+                </div>
+            </md-content>
+            <!-- End Appointment Card -->
+        </div>
 
     </section>
 </div>
