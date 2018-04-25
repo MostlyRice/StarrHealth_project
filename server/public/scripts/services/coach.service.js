@@ -20,7 +20,10 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
     self.studentAppts = {
         list: []
     };
-    self.notesBool = '';
+
+    self.othergoals = '';
+    self.professionals = '';
+    self.otherinfo = '';
 
     self.coachHome = function () {
         $location.path('/coach_Home');
@@ -217,9 +220,28 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
             method: 'GET',
             url: `/coach/onestudent/${id}`
         }).then(function (response) {
-            console.log('DATA', response.data);
+            console.log('DATA10', response.data);
             self.myStudent.list = response.data;
             console.log('my Student = ', self.myStudent.list);
+            self.othergoals = response.data[0].other_goals;
+            self.professionals = response.data[0].other_professionals;
+            self.otherinfo = response.data[0].other_information;
+            console.log('other gioasl', self.othergoals);
+            if (self.othergoals === null) {
+                self.othergoals = "N/A";
+            } else {
+                self.othergoals = response.data[0].other_goals;
+            }
+            if (self.professionals === false) {
+                self.professionals = 'No';
+            } else {
+                self.professionals = 'Yes';
+            }
+            if (self.otherinfo === false) {
+                self.otherinfo = 'No';
+            } else {
+                self.otherinfo = 'Yes';
+            }
             $http({
                 method: 'GET',
                 url: `/coach/thisstudent/appts/${id}`
