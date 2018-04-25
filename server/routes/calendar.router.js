@@ -85,11 +85,12 @@ router.post('/weekly', (request, response) => {
                     weekly.j = "5:00 PM";
                     weekly.k = "6:00 PM";
                 if(result.rows.length < 1){
-                    sqlText = `INSERT INTO calendar (available_time, date, coach_id, property, selected) VALUES ($1, $2, $3, $4, false);`
+                    sqlText = `INSERT INTO calendar (available_time, date, coach_id, property, selected, notes_status) VALUES ($1, $2, $3, $4, false, $5);`
                     for (let input in weekly){
                         let property = input;
                         let available_time = weekly[input];
-                    pool.query(sqlText, [available_time, appointment, coachID, property])
+                        let notes_status = 'Notes Needed';
+                    pool.query(sqlText, [available_time, appointment, coachID, property, notes_status])
                     .then((result) => {
                         response.sendStatus(201);
                         console.log('post weekly', result);
