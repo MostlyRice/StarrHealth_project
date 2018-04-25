@@ -5,7 +5,6 @@ myApp.controller('SignupController', ['UserService', '$location', 'SignupService
   self.signupService = SignupService;
   self.userObject = UserService.userObject;
   self.id = UserService.userObject.id;
-  self.letPass = SignupService.letPass;
   self.disclaimer = SignupService.disclaimer;
   self.collectGeneral = SignupService.collectGeneral;
   self.collectGoals = SignupService.collectGoals;
@@ -13,6 +12,7 @@ myApp.controller('SignupController', ['UserService', '$location', 'SignupService
   self.collectBarriers = SignupService.collectBarriers;
   self.goals = SignupService.goals;
   self.collectExtraInfo = SignupService.collectExtraInfo;
+  self.getSchools = SignupService.getSchools;
 
   console.log(self.userObject);
   console.log(self.id);

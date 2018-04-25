@@ -20,7 +20,7 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', 'SignupSer
     }
 
     self.studentSchedule = function () {
-        $location.path('/student_Appointments');
+        $location.path('/student_appointments');
     }
 
     self.studentCoach = function () {
@@ -29,6 +29,7 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', 'SignupSer
 
     self.getStudent = function () {
         const id = UserService.userObject.id;
+        console.log('ID8', id);
         $http({
             method: 'GET',
             url: `/student/${id}`

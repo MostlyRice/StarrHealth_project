@@ -8,9 +8,9 @@ router.post('/', (request, response) => {
   if (request.isAuthenticated()) {
     const entry = request.body.entry;
     let sqlText = `INSERT INTO coach_bio
-      (id, first_name, last_name, email, job_title, personal_interests)
-      VALUES ($1, $2, $3, $4, $5, $6)`;
-    pool.query(sqlText, [entry.id, entry.first_name, entry.last_name, entry.email, entry.job_title, entry.personal_interests])
+      (id, first_name, last_name, email, job_title, personal_interests, coach_phone)
+      VALUES ($1, $2, $3, $4, $5, $6, $7)`;
+    pool.query(sqlText, [entry.id, entry.first_name, entry.last_name, entry.email, entry.job_title, entry.personal_interests, entry.coach_phone])
       .then((result) => {
         // console.log('Added entry:', result);
         response.sendStatus(201);

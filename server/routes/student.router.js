@@ -115,7 +115,7 @@ router.put('/extra/:id', (request, response) => {
 router.get('/:id', (request, response) => {
   if (request.isAuthenticated()) {
     const id = request.params.id;
-    console.log('ID', id);
+    console.log('ID2000', id);
     const sqlText = `SELECT * FROM student_bio WHERE id=$1`;
     pool.query(sqlText, [id])
       .then(function (result) {
