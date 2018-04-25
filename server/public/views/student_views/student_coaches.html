@@ -13,8 +13,9 @@
             <md-card flex layout="row" class="card-element md-padding" ng-repeat="coach in vm.allCoaches.list">
                 <div layout-align="center center">
                     <h3>{{coach.first_name}} {{coach.last_name}}</h3>
+                    <img src="{{coach.coach_photo}}">
                     <h3>{{coach.job_title}}</h3>
-                    <h3>{{coach.specialty_name}}</h3>
+                    <h3>{{coach.coach_bio}}</h3>
                 </div>
                 <md-input-container layout-align="center center"></md-input-container>
                 <md-button class="md-raised md-primary defaultBtn md-padding" ng-click="vm.viewCoach(coach.coach_id)">View Coach</md-button>
