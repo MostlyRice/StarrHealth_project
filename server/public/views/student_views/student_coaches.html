@@ -5,21 +5,37 @@
             <md-card class="card-element md-padding" layout="row" layout-align="center center">
                 <h2 class="home-title">Recommended Coaches</h2>
             </md-card>
-        </div>
-    </md-content>
-
-    <md-content class="content-element content-element-text" layout="row">
-        <div flex class="div-element" layout="row" layout-align="center center" layout-xs="column">
-            <md-card flex layout="row" class="card-element md-padding" ng-repeat="coach in vm.allCoaches.list">
-                <div layout-align="center center">
-                    <h3>{{coach.first_name}} {{coach.last_name}}</h3>
-                    <img src="{{coach.coach_photo}}">
-                    <h3>{{coach.job_title}}</h3>
-                    <h3>{{coach.coach_bio}}</h3>
-                </div>
-                <md-input-container layout-align="center center"></md-input-container>
-                <md-button class="md-raised md-primary defaultBtn md-padding" ng-click="vm.viewCoach(coach.coach_id)">View Coach</md-button>
-                </md-input-container>
+            <md-card flex layout="row" class="card-element md-padding">
+                <table class="table">
+                    <thead class="table-thead">
+                        <tr class="table-tr">
+                            <th class="table-th" scope="col">Photo</th>
+                            <th class="table-th" scope="col">First Name</th>
+                            <th class="table-th" scope="col">Last Name</th>
+                            <th class="table-th" scope="col">Job Title</th>
+                            <th class="table-th" scope="col">Specialty</th>
+                            <th class="table-th" scope="col">Certifications</th>
+                            <th class="table-th" scope="col">Biography</th>
+                            <th class="table-th" scope="col">Make Appointment</th>
+                        </tr>
+                    </thead>
+                    <tbody ng-repeat="coach in vm.allCoaches.list">
+                        <tr class="table-tr">
+                            <td class="table-td" scope="row" data-label="Photo">
+                                <img ng-src="{{coach.coach_photo}}" width="180px" />
+                            </td>
+                            <td class="table-td" scope="row" data-label="First Name">{{coach.first_name}}</td>
+                            <td class="table-td" scope="row" data-label="Last Name">{{coach.last_name}}</td>
+                            <td class="table-td" scope="row" data-label="Job Title">{{coach.job_title}}</td>
+                            <td class="table-td" scope="row" data-label="Specialty">{{coach.specialty_name}}</td>
+                            <td class="table-td" scope="row" data-label="Certifications">{{coach.certifications}}</td>
+                            <td class="table-td" scope="row" data-label="Biography">{{coach.coach_bio}}</td>
+                            <td class="table-td" scope="row" data-label="Make Appointment">
+                                <md-button class="md-raised md-primary defaultBtn" ng-click="vm.studentCoach(coach.coach_id)">Make Appointment</md-button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </md-card>
         </div>
     </md-content>
