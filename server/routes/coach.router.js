@@ -87,12 +87,11 @@ router.get('/today/:id', (request, response) => {
     const id = request.params.id;
     let date = moment().format('L');
     console.log('ID4', id);
-    console.log('date', date);
     const sqlText = `SELECT * FROM calendar
-    JOIN student_bio ON student_bio.id=calendar.student_id WHERE calendar.coach_id=$1 AND calendar.date=$2 ORDER BY calendar.property`;
-    pool.query(sqlText, [id, date])
+    JOIN student_bio ON student_bio.id=calendar.student_id 
+    WHERE calendar.coach_id=$1 ORDER BY calendar.property LIMIT 3`;
+    pool.query(sqlText, [id])
       .then(function (result) {
-        console.log('Get result:', result);
         response.send(result.rows);
       })
       .catch(function (error) {
@@ -162,7 +161,7 @@ router.put('/photo/:id', (request, response) => {
 router.get('/everyone/students/:coach', (request, response) => {
   if (request.isAuthenticated()) {
     const coach = request.params.coach;
-    console.log('IN ROUTER!!!!!!');
+    console.log('IN ROUTER!!!!!!', coach);
     const sqlText = `SELECT * FROM student_bio
     JOIN schools ON schools.school_id=student_bio.school_id
     JOIN specialties ON specialties.specialty_id=student_bio.specialty_id

@@ -2,6 +2,7 @@ myApp.controller('CoachController', ['$http', 'UserService', '$location', 'Coach
   console.log('CoachController created');
   var self = this;
   self.userService = UserService;
+  self.coachService = CoachService;
   self.userObject = UserService.userObject;
   self.id = UserService.userObject.id;
   self.userName = UserService.userObject.userName;
@@ -28,7 +29,6 @@ myApp.controller('CoachController', ['$http', 'UserService', '$location', 'Coach
   CoachService.getTodayAppts();
   CoachService.getMyStudents();
 
-  console.log('myself', self.notesBool);
   console.log('today', self.todayAppts);
 
   self.cancelCoach = function (coach) {

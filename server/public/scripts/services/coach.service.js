@@ -171,6 +171,7 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
 
     self.getTodayAppts = function() {
         const id = UserService.userObject.id;
+        console.log('IN TODAY APPTS FUNC');
         $http({
             method: 'GET',
             url: `/coach/today/${id}`
@@ -179,7 +180,7 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
             self.todayAppts.list = response.data;
             console.log('TODAYS APPTS = ', self.todayAppts.list);
         }).catch(function (error) {
-            console.log('get coach error');
+            console.log('get  coach error');
         })
     }
 
