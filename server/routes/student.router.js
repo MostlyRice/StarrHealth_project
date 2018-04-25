@@ -115,7 +115,6 @@ router.put('/extra/:id', (request, response) => {
 router.get('/:id', (request, response) => {
   if (request.isAuthenticated()) {
     const id = request.params.id;
-    console.log('ID2000', id);
     const sqlText = `SELECT * FROM student_bio WHERE id=$1`;
     pool.query(sqlText, [id])
       .then(function (result) {
@@ -134,7 +133,6 @@ router.get('/:id', (request, response) => {
 router.get('/numappt/:id', (request, response) => {
   if (request.isAuthenticated()) {
     const id = request.params.id;
-    console.log('ID3000', id);
     const sqlText = `SELECT COUNT(calendar_id) as appt_count FROM calendar WHERE student_id=$1`;
     pool.query(sqlText, [id])
       .then(function (result) {
@@ -153,7 +151,6 @@ router.get('/numappt/:id', (request, response) => {
 router.get('/appointment/:id', (request, response) => {
   if (request.isAuthenticated()) {
     const id = request.params.id;
-    console.log('ID', id);
     const sqlText = `SELECT * FROM calendar 
     JOIN coach_bio ON coach_bio.id=calendar.coach_id
     WHERE calendar.student_id=$1`;
@@ -174,7 +171,6 @@ router.get('/appointment/:id', (request, response) => {
 router.get('/sessions/:id', (request, response) => {
   if (request.isAuthenticated()) {
     const id = request.params.id;
-    console.log('SESSIONS ID', id);
     const sqlText = `SELECT student_id, id, sessions_used, total_sessions FROM student_bio
     WHERE id=$1`;
     pool.query(sqlText, [id])
@@ -194,7 +190,6 @@ router.get('/sessions/:id', (request, response) => {
 router.get('/mycoach/:id', (request, response) => {
   if (request.isAuthenticated()) {
     const id = request.params.id;
-    console.log('ID', id);
     const sqlText = `SELECT coach_id FROM student_bio WHERE id=$1`;
     pool.query(sqlText, [id])
       .then(function (result) {
