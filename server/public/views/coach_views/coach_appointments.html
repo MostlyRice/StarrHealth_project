@@ -4,7 +4,8 @@
 
   <section layout="row" flex>
     <!-- Start md-sidenav -->
-    <md-sidenav class="md-sidenav-left" class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+    <md-sidenav class="md-sidenav-left" class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')"
+      md-whiteframe="4">
       <div class="starr-sidenav">
         <img ng-src="./images/starrhealthlogo.png" />
         <p class="starr-sidenav-text">Starr Health Co.</p>
@@ -69,26 +70,30 @@
       <div flex class="div-element" layout="column" layout-align="center center">
         <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
           <h2 class="coach-appointments-title">Coach Appointments</h2>
-          </md-card>
-          <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
-          <div ng-controller="ScheduleController as sc">
+        </md-card>
+        <md-card flex class="card-element md-padding" layout="column" layout-align="center center" ng-controller="ScheduleController as sc">
+          <div dir-paginate="(key,value) in sc.coachAppointments.list | itemsPerPage:5">
+            <table class="table">
+              <thead class="table-thead">
+                <tr class="table-tr">
+                  <th class="table-th" scope="col">Date And Time</th>
+                  <th class="table-th" scope="col">With Student</th>
+                </tr>
+              </thead>
+              <tbody >
+                <tr class="table-tr" ng-repeat="item in value">
+                  <td class="table-td" scope="row" data-label="Date and Time">{{key}} {{item.available_time}}</td>
+                  <td class="table-td" scope="row" data-label="With Student">{{item.first_name}} {{item.last_name}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <div>
-            <div dir-paginate="(key,value) in sc.coachAppointments.list | itemsPerPage:5">
-              {{key}}
-              <div ng-repeat="item in value">
-                {{item.available_time}} with {{item.first_name}} {{item.last_name}}
-              </div>
+            <div class="paginations">
+              <dir-pagination-controls direction-links="true" boundary-links="false">
+              </dir-pagination-controls>
             </div>
           </div>
-        </div>
-        <div>
-          <div class="paginations">
-          <dir-pagination-controls
-            direction-links="true"
-            boundary-links="false">
-          </dir-pagination-controls>  
-          </div>   
-        </div> 
         </md-card>
       </div>
     </md-content>
