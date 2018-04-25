@@ -65,39 +65,42 @@
       </md-content>
     </md-sidenav>
     <!-- End md-sidenav -->
-    <!-- Start Coach Appointments -->
-    <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
-      <div flex class="div-element" layout="column" layout-align="center center">
-        <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
-          <h2 class="coach-appointments-title">Coach Appointments</h2>
-        </md-card>
-        <md-card flex class="card-element md-padding" layout="column" layout-align="center center" ng-controller="ScheduleController as sc">
-          <div dir-paginate="(key,value) in sc.coachAppointments.list | itemsPerPage:5">
-            <table class="table">
-              <thead class="table-thead">
-                <tr class="table-tr">
-                  <th class="table-th" scope="col">Date And Time</th>
-                  <th class="table-th" scope="col">With Student</th>
-                </tr>
-              </thead>
-              <tbody >
-                <tr class="table-tr" ng-repeat="item in value">
-                  <td class="table-td" scope="row" data-label="Date and Time">{{key}} {{item.available_time}}</td>
-                  <td class="table-td" scope="row" data-label="With Student">{{item.first_name}} {{item.last_name}}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div>
-            <div class="paginations">
-              <dir-pagination-controls direction-links="true" boundary-links="false">
-              </dir-pagination-controls>
+    <div class="overflow-1" flex>
+      <!-- Start Coach Appointments -->
+      <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
+        <div flex class="div-element" layout="column" layout-align="center center">
+          <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
+            <h2 class="coach-appointments-title">Coach Appointments</h2>
+          </md-card>
+          <md-card flex class="card-element md-padding" layout="column" layout-align="center center" ng-controller="ScheduleController as sc">
+            <div dir-paginate="(key,value) in sc.coachAppointments.list | itemsPerPage:5">
+              <table class="table">
+                <thead class="table-thead">
+                  <tr class="table-tr">
+                    <th class="table-th" scope="col">Date And Time</th>
+                    <th class="table-th" scope="col">With Student</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-tr" ng-repeat="item in value">
+                    <td class="table-td" scope="row" data-label="Date and Time">{{key}} {{item.available_time}}</td>
+                    <td class="table-td" scope="row" data-label="With Student">{{item.first_name}} {{item.last_name}}</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-          </div>
-        </md-card>
-      </div>
-    </md-content>
-    <!-- End Coach Appointments  -->
+            <div>
+              <div class="paginations">
+                <dir-pagination-controls direction-links="true" boundary-links="false">
+                </dir-pagination-controls>
+              </div>
+            </div>
+          </md-card>
+        </div>
+      </md-content>
+      <!-- End Coach Appointments  -->
+    </div>
 
   </section>
+
 </div>

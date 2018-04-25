@@ -94,38 +94,42 @@
             </md-content>
         </md-sidenav>
         <!-- End md-sidenav -->
-        <!-- Start Coach Directory Card -->
-        <md-container flex class="content-element content-element-text" layout="column" layout-align="center center">
-            <div flex class="div-element" layout="column" layout-align="center center">
-                <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
-                    <h2 class="coach-directory-title">Admin Coach Directory</h2>
-                </md-card>
-                <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
-                    <table class="table">
-                        <thead class="table-thead">
-                            <tr class="table-tr">
-                                <th class="table-th" scope="col">First Name</th>
-                                <th class="table-th" scope="col">Last Name</th>
-                                <th class="table-th" scope="col">Job Title</th>
-                                <th class="table-th" scope="col">Email</th>
-                                <th class="table-th" scope="col">Delete Coach</th>
-                            </tr>
-                        </thead>
-                        <tbody ng-repeat="coach in vm.allCoaches.list">
-                            <tr class="table-tr">
-                                <td class="table-td" scope="row" data-label="First Name">{{coach.first_name}}</td>
-                                <td class="table-td" scope="row" data-label="Last Name">{{coach.last_name}}</td>
-                                <td class="table-td" scope="row" data-label="Job Title">{{coach.job_title}}</td>
-                                <td class="table-td" scope="row" data-label="Email">{{coach.email}}</td>
-                                <td class="table-td" scope="row" data-label="Delete Coach">
-                                    <md-button class="md-raised md-warn" ng-click="vm.deleteCoach(coach.id)">Delete Coach</md-button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </md-card>
-            </div>
-        </md-container>
-        <!-- End Coach Directory Card -->
+        <div class="overflow-1" flex>
+            <!-- Start Coach Directory Card -->
+            <md-container flex class="content-element content-element-text" layout="column" layout-align="center center">
+                <div flex class="div-element" layout="column" layout-align="center center">
+                    <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
+                        <h2 class="coach-directory-title">Admin Coach Directory</h2>
+                    </md-card>
+                    <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
+                        <table class="table">
+                            <thead class="table-thead">
+                                <tr class="table-tr">
+                                    <th class="table-th" scope="col">First Name</th>
+                                    <th class="table-th" scope="col">Last Name</th>
+                                    <th class="table-th" scope="col">Job Title</th>
+                                    <th class="table-th" scope="col">Email</th>
+                                    <th class="table-th" scope="col">Delete Coach</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="coach in vm.allCoaches.list">
+                                <tr class="table-tr">
+                                    <td class="table-td" scope="row" data-label="First Name">{{coach.first_name}}</td>
+                                    <td class="table-td" scope="row" data-label="Last Name">{{coach.last_name}}</td>
+                                    <td class="table-td" scope="row" data-label="Job Title">{{coach.job_title}}</td>
+                                    <td class="table-td" scope="row" data-label="Email">{{coach.email}}</td>
+                                    <td class="table-td" scope="row" data-label="Delete Coach">
+                                        <md-button class="md-raised md-warn" ng-click="vm.deleteCoach(coach.id)">Delete Coach</md-button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </md-card>
+                </div>
+            </md-container>
+            <!-- End Coach Directory Card -->
+        </div>
+
     </section>
+
 </div>

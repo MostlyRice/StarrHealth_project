@@ -64,8 +64,8 @@
       </md-content>
     </md-sidenav>
     <!-- End md-sidenav -->
-    <!-- Profile Card -->
-    <div flex>
+    <div class="overflow-1"  flex>
+      <!-- Start Profile Card -->
       <md-content class="element-content content-element-text md-padding" layout-xs="column" layout="row">
         <div flex class="profile-div" layout="column" layout-align="center center">
           <md-card flex class="card-element profile-card md-padding">
@@ -169,14 +169,15 @@
               <h2 class="home-title">Your Next Appointment</h2>
               <md-card-content class="bio-text groove groove-1">
                 <div ng-repeat="meeting in vm.todayAppts.list">
-                   {{meeting.date}} at {{meeting.available_time}} with {{meeting.first_name}} {{meeting.last_name}}
+                  {{meeting.date}} at {{meeting.available_time}} with {{meeting.first_name}} {{meeting.last_name}}
                 </div>
               </md-card-content>
             </md-card>
           </div>
       </md-content>
-      </div>
       <!-- End Next Appointment Card -->
+      </div>
 
   </section>
+
   </div>
