@@ -290,7 +290,10 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
                     entry: entry
                 }
             }).then(function (response) {
-                alert('Message Sent to Student!');
+                swal({
+                    title: "Your message has been sent!",
+                    icon: "success",
+                });
                 $location.path('/coach_Home');
             }).catch(function (error) {
               //  console.log('SMS error');
