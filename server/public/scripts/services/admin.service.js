@@ -1,5 +1,5 @@
 myApp.service('AdminService', ['$http', '$location', 'UserService', function ($http, $location, UserService) {
-    console.log('AdminService Loaded');
+  //  console.log('AdminService Loaded');
     var self = this;
     self.allSchools = {
         list: []
@@ -48,11 +48,9 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function ($h
             method: 'GET',
             url: `/admin/schools`
         }).then(function (response) {
-            console.log('DATA', response.data);
             self.allSchools.list = response.data;
-            console.log('All Schools = ', self.allSchools.list);
         }).catch(function (error) {
-            console.log('get schools error');
+          //  console.log('get schools error');
         })
     }
 
@@ -61,11 +59,8 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function ($h
             method: 'GET',
             url: `/admin/coaches`
         }).then(function (response) {
-            console.log('DATA', response.data);
             self.allCoaches.list = response.data;
-            console.log('All Coaches = ', self.allCoaches.list);
         }).catch(function (error) {
-            console.log('get all coaches error');
         })
     }
 
@@ -74,11 +69,9 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function ($h
             method: 'GET',
             url: `/admin/students`
         }).then(function (response) {
-            console.log('DATA', response.data);
             self.allStudents.list = response.data;
-            console.log('All Students = ', self.allStudents.list);
         }).catch(function (error) {
-            console.log('get all students error');
+          //  console.log('get all students error');
         })
     }
 
@@ -87,11 +80,9 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function ($h
             method: 'GET',
             url: `/admin/appts`
         }).then(function (response) {
-            console.log('DATA', response.data);
             self.allAppts.list = response.data;
-            console.log('All Appts = ', self.allAppts.list);
         }).catch(function (error) {
-            console.log('get all Appts error');
+           // console.log('get all Appts error');
         })
     }
 
@@ -100,10 +91,9 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function ($h
             method: 'DELETE',
             url: `/admin/remove/coach/${id}`
         }).then(function (response) {
-            console.log('DATA', response.data);
             self.getCoaches();
         }).catch(function (error) {
-            console.log('delete error');
+          //  console.log('delete error');
         })
     }
 
@@ -112,10 +102,9 @@ myApp.service('AdminService', ['$http', '$location', 'UserService', function ($h
             method: 'DELETE',
             url: `/admin/remove/student/${id}`
         }).then(function (response) {
-            console.log('DATA', response.data);
             self.getStudents();
         }).catch(function (error) {
-            console.log('delete error');
+          //  console.log('delete error');
         })
     }
 

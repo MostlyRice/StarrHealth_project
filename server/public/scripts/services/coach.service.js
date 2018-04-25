@@ -1,5 +1,5 @@
 myApp.service('CoachService', ['$http', '$location', 'UserService', function ($http, $location, UserService) {
-    console.log('CoachService Loaded');
+  //  console.log('CoachService Loaded');
     var self = this;
     self.userService = UserService;
     self.userObject = UserService.userObject;
@@ -48,7 +48,6 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
     //Filestack API method 'pick()' that opens the file picker
     self.upload = function () {
         const id = UserService.userObject.id;
-        console.log('in upload');
         self.typeUrl = false;
         self.client.pick({
             accept: 'image/*',
@@ -57,13 +56,11 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
             // self.uploadSuccess.success = true;
             // console.log(JSON.stringify(result));
             self.newItem.itemUrl = result.filesUploaded[0].url;
-            console.log('self.newItem.itemUrl', self.newItem.itemUrl);
             let photo = self.newItem.itemUrl;
             entry = {
                 id: id,
                 coach_photo: photo
             }
-            console.log('ENTRAY', entry);
             $http({
                 method: 'PUT',
                 url: `/coach/photo/${id}`,
@@ -74,7 +71,7 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
                 swal("Successful Update!", "", "success");
                 location.reload(true);
             }).catch(function (error) {
-                console.log('photo change error');
+            //    console.log('photo change error');
             })
 
         });
@@ -87,12 +84,11 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
         }).then(function (response) {
             self.coachBio.list = response.data;
         }).catch(function (error) {
-            console.log('get error', error);
+        //    console.log('get error', error);
         })
     }
 
     self.addPicture = function () {
-        console.log();
         $http({
             method: 'POST',
             url: '/picture',
@@ -101,7 +97,7 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
             self.getCoachBio();
             $location.path('/coach_Home');
         }).catch(function (error) {
-            console.log('post error', error);
+         //   console.log('post error', error);
         })
     }
 
@@ -111,22 +107,17 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
 
     self.getMe = function () {
         const id = UserService.userObject.id;
-        console.log('myID', id);
         $http({
             method: 'GET',
             url: `/coach/${id}`
         }).then(function (response) {
-            console.log('DATA', response.data);
             self.myself.list = response.data;
-            console.log('thisCoach = ', self.myself.list);
         }).catch(function (error) {
-            console.log('get coach error');
+          //  console.log('get coach error');
         })
     }
 
     self.saveCoach = function (id, coach) {
-        console.log('This ID', id);
-        console.log('This Coach', coach);
         entry = {
             coach_id: id,
             first_name: coach.first_name,
@@ -147,13 +138,11 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
             swal("Successful Update!", "", "success");
             location.reload(true);
         }).catch(function (error) {
-            console.log('profile change error');
+         //   console.log('profile change error');
         })
     }
 
     self.saveUserName = function (id, name) {
-        console.log('id', id);
-        console.log('username', name)
         entry = {
             id: id,
             username: name
@@ -168,48 +157,40 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
             swal("successful Update!", "", "success");
             location.reload(true);
         }).catch(function (error) {
-            console.log('username change error');
+         //   console.log('username change error');
         })
     }
 
     self.getTodayAppts = function() {
         const id = UserService.userObject.id;
-        console.log('IN TODAY APPTS FUNC');
         $http({
             method: 'GET',
             url: `/coach/today/${id}`
         }).then(function (response) {
-            console.log('DATA', response.data);
             self.todayAppts.list = response.data;
-            console.log('TODAYS APPTS = ', self.todayAppts.list);
         }).catch(function (error) {
-            console.log('get  coach error');
+          //  console.log('get  coach error');
         })
     }
 
     self.getMyStudents = function() {
         const id = UserService.userObject.id;
-        console.log('HERE');
         $http({
             method: 'GET',
             url: `/coach/${id}`
         }).then(function (response) {
-            console.log('DATA', response.data);
             self.myself.list = response.data;
-            console.log('thisCoach = ', self.myself.list);
             coach = response.data[0].coach_id;
             $http({
                 method: 'GET',
                 url: `/coach/everyone/students/${coach}`
             }).then(function (response) {
-                console.log('DATA', response.data);
                 self.coachesStudents.list = response.data;
-                console.log('my students = ', self.coachesStudents.list);
             }).catch(function (error) {
-                console.log('get my students error');
+             //   console.log('get my students error');
             })
         }).catch(function (error) {
-            console.log('get coach error');
+         //   console.log('get coach error');
         })
     }
        
@@ -220,13 +201,10 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
             method: 'GET',
             url: `/coach/onestudent/${id}`
         }).then(function (response) {
-            console.log('DATA10', response.data);
             self.myStudent.list = response.data;
-            console.log('my Student = ', self.myStudent.list);
             self.othergoals = response.data[0].other_goals;
             self.professionals = response.data[0].other_professionals;
             self.otherinfo = response.data[0].other_information;
-            console.log('other gioasl', self.othergoals);
             if (self.othergoals === null) {
                 self.othergoals = "N/A";
             } else {
@@ -246,22 +224,18 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
                 method: 'GET',
                 url: `/coach/thisstudent/appts/${id}`
             }).then(function (response) {
-                console.log('DATA', response.data);
                 self.studentAppts.list = response.data;
-                console.log('my students appts = ', self.studentAppts.list);
                 $location.path('/student_info');
             }).catch(function (error) {
-                console.log('get my students error');
+             //   console.log('get my students error');
             })
         }).catch(function (error) {
-            console.log('get my Studen error');
+          //  console.log('get my Studen error');
         })
         
     }
 
     self.addNotes = function(id, student) {
-
-        console.log('in upload');
         self.typeUrl = false;
         self.client.pick({
             accept: '.pdf',
@@ -270,7 +244,6 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
             // self.uploadSuccess.success = true;
             // console.log(JSON.stringify(result));
             self.newItem.itemUrl = result.filesUploaded[0].url;
-            console.log('self.newItem.itemUrl', self.newItem.itemUrl);
             let note = self.newItem.itemUrl;
             let note_update = 'Notes Complete';
             entry = {
@@ -278,7 +251,6 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
                 session_notes: note,
                 notes_status: note_update
             }
-            console.log('ENTRAY', entry);
             $http({
                 method: 'PUT',
                 url: `/coach/sessionnotes/${id}`,
@@ -287,10 +259,9 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
                 }
             }).then(function (response) {
                 swal("Successful Update!", "", "success");
-                console.log('NEXT ID = ', id);
                 self.moreInfo(student);
             }).catch(function (error) {
-                console.log('notes uplaod error');
+            //    console.log('notes uplaod error');
             })
 
         });
@@ -298,25 +269,20 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
 
 
     self.late = function(id, newmessage) {
-        console.log('in late', newmessage);
         $http({
             method: 'GET',
             url: `/sms/studentphone/${id}`,
         }).then(function (response) {
-            console.log('COMPLETE', response.data);
             let firstphone = response.data[0].phone_number;
-            console.log(firstphone);
             let phone = '+1' + firstphone;
             let first_name = response.data[0].first_name.trim();
             let last_name = response.data[0].last_name.trim();
-            console.log(phone);
             const entry = {
                 phone: phone,
                 newmessage: newmessage,
                 first_name: first_name,
                 last_name: last_name
             }
-            console.log('entry ', entry);
             $http({
                 method: 'POST',
                 url: `/sms/message`,
@@ -327,10 +293,10 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
                 alert('Message Sent to Student!');
                 $location.path('/coach_Home');
             }).catch(function (error) {
-                console.log('SMS error');
+              //  console.log('SMS error');
             })  
         }).catch(function (error) {
-            console.log('SMS error');
+          //  console.log('SMS error');
         })
     }
 

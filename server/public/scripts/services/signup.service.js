@@ -1,5 +1,5 @@
 myApp.service('SignupService', ['$http', '$location', 'UserService', function ($http, $location, UserService) {
-    console.log('SignupService Loaded');
+  //  console.log('SignupService Loaded');
     var self = this;
     self.newStudent = {};
     self.userService = UserService;
@@ -43,26 +43,21 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
     } // end goals
 
     self.viewCoach = function (coach) {
-        console.log('coach', coach);
         $http({
             method: 'GET',
             url: `/coach/viewcoach/${coach}`
         }).then(function (response) {
-            console.log(response.data);
             self.myCoach.list = response.data;
-            console.log('myCoach = ', self.myCoach.list);
             $http({
                 method: 'GET',
                 url: `/coach/getspecialties/${coach}`
             }).then(function (response) {
-                console.log(response.data);
                 self.specialties.list = response.data;
-                console.log('self.specialties = ', self.specialties.list);
             }).catch(function (error) {
-                console.log('get specialties error');
+            //    console.log('get specialties error');
             })
         }).catch(function (error) {
-            console.log('get myCoach error');
+        //    console.log('get myCoach error');
         })
         $location.path('/match_coach');
     } // end viewCoach
@@ -71,7 +66,6 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
     self.letPass = function () {
         const disclaimer = true;
         const user = UserService.userObject;
-        console.log('user is ', user, disclaimer);
         const entry = {
             id: user.id,
             disclaimer: disclaimer
@@ -85,7 +79,7 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
         }).then(function (response) {
             $location.path('/general_info');
         }).catch(function (error) {
-            console.log('disclaimer error');
+          //  console.log('disclaimer error');
         })
     } // end letPass
 
@@ -94,17 +88,14 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
             method: 'GET',
             url: '/admin/school'
         }).then(function (response) {
-            console.log(response.data);
             self.schools.list = response.data;
-            console.log('self.schools = ', self.schools.list);
             self.letPass();
         }).catch(function (error) {
-            console.log('get schools error');
+        //    console.log('get schools error');
         })
     }
 
     self.collectGeneral = function (info) {
-        console.log('general info', info);
         const id = UserService.userObject.id;
         const sessions_used = 0;
         const entry = {
@@ -153,19 +144,18 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
                 }).then(function (response) {
                     $location.path('/student_goals');
                 }).catch(function (error) {
-                    console.log('sessions put error', error);
+                //    console.log('sessions put error', error);
                 })
             }).catch(function (error) {
                 swal("School code is incorrect!", "", "warning");
                 info.school_code = '';
             })
         }).catch(function (error) {
-            console.log('general put error', error);
+         //   console.log('general put error', error);
         })
     } // end collectGeneral
 
     self.collectGoals = function (goal) {
-        console.log('goal', goal);
         const id = UserService.userObject.id;
         const entry = {
             id: id,
@@ -181,13 +171,12 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
         }).then(function (response) {
             $location.path('/student_barriers');
         }).catch(function (error) {
-            console.log('goals put error', error);
+         //   console.log('goals put error', error);
         })
 
     }
 
     self.collectBarriers = function (barriers) {
-        console.log('barriers', barriers);
         const id = UserService.userObject.id;
         const entry = {
             id: id,
@@ -200,15 +189,13 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
                 entry: entry
             }
         }).then(function (response) {
-            console.log('done');
             self.primaryBarriers(barriers);
         }).catch(function (error) {
-            console.log('barriers put error', error);
+        //    console.log('barriers put error', error);
         })
     } // end collectBarriers
 
     self.collectExtraInfo = function (info) {
-        console.log('info', info);
         const id = UserService.userObject.id;
         let other_professionals_explain = 'N/A';
         let other_information_explain = 'N/A';
@@ -238,13 +225,12 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
         }).then(function (response) {
             $location.path('/student_coaches');
         }).catch(function (error) {
-            console.log('extra info put error', error);
+          //  console.log('extra info put error', error);
         })
 
     } // end collect extra info
 
     self.primaryBarriers = function (barriers) {
-        console.log(barriers);
         const id = UserService.userObject.id;
         stress = 0;
         support = 0;
@@ -267,9 +253,8 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
                     entry: entry
                 }
             }).then(function (response) {
-                console.log('stress posted');
             }).catch(function (error) {
-                console.log('stress post error', error);
+             //   console.log('stress post error', error);
             })
         } else {
             stress = 0;
@@ -287,9 +272,8 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
                     entry: entry
                 }
             }).then(function (response) {
-                console.log('support posted');
             }).catch(function (error) {
-                console.log('support post error', error);
+            //    console.log('support post error', error);
             })
         } else {
             support = 0;
@@ -307,9 +291,8 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
                     entry: entry
                 }
             }).then(function (response) {
-                console.log('confidence posted');
             }).catch(function (error) {
-                console.log('confidence post error', error);
+             //   console.log('confidence post error', error);
             })
         } else {
             confidence = 0;
@@ -327,9 +310,8 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
                     entry: entry
                 }
             }).then(function (response) {
-                console.log('knowledge posted');
             }).catch(function (error) {
-                console.log('knowledge post error', error);
+            //    console.log('knowledge post error', error);
             })
         } else {
             knowledge = 0;
@@ -347,9 +329,8 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
                     entry: entry
                 }
             }).then(function (response) {
-                console.log('resources posted');
             }).catch(function (error) {
-                console.log('resources post error', error);
+            //    console.log('resources post error', error);
             })
         } else {
             resources = 0;
@@ -367,9 +348,8 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
                     entry: entry
                 }
             }).then(function (response) {
-                console.log('health posted');
             }).catch(function (error) {
-                console.log('health post error', error);
+             //   console.log('health post error', error);
             })
         } else {
             health = 0;
@@ -387,9 +367,8 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
                     entry: entry
                 }
             }).then(function (response) {
-                console.log('time posted');
             }).catch(function (error) {
-                console.log('time post error', error);
+             //   console.log('time post error', error);
             })
         } else {
             time = 0;
@@ -400,35 +379,27 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
 
     self.findCoach = function () {
         const id = UserService.userObject.id;
-        console.log('find coach', id);
         $http({
             method: 'GET',
             url: `/match/student/${id}`
         }).then(function (response) {
-            console.log(response.data);
             const thisStudent = response.data[0].specialty_id;
-            console.log('thisStudent ', thisStudent);
             $http({
                 method: 'GET',
                 url: `/match/coaches/${thisStudent}`
             }).then(function (response) {
-                console.log(response.data);
                 self.allCoaches.list = response.data;
                 self.thisCoach = response.data[0].coach_id;
-                console.log('All Coaches = ', self.allCoaches.list);
-                console.log('thisStudent = ', self.thisCoach);
-
             }).catch(function (error) {
-                console.log('coach match error');
+            //    console.log('coach match error');
             })
         }).catch(function (error) {
-            console.log('find student goal error');
+          //  console.log('find student goal error');
         })
     }
 
     self.studentCoach = function(coach) {
         const id = UserService.userObject.id;
-        console.log('sC ID', id);
         const entry = {
             id: id,
             coach_id: coach
@@ -442,33 +413,28 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
         }).then(function (response) {
             $location.path('/student_appointments');
         }).catch(function (error) {
-            console.log('coach_id put error', error);
+        //    console.log('coach_id put error', error);
         })
     } // end student coach
 
 
     self.viewMyCoach = function (coach) {
-        console.log('coach', coach);
         $http({
             method: 'GET',
             url: `/coach/viewcoach/${coach}`
         }).then(function (response) {
-            console.log(response.data);
             self.myCoach.list = response.data;
-            console.log('myCoach = ', self.myCoach.list);
             $http({
                 method: 'GET',
                 url: `/coach/getspecialties/${coach}`
             }).then(function (response) {
-                console.log(response.data);
                 self.specialties.list = response.data;
-                console.log('self.specialties = ', self.specialties.list);
                 $location.path('/student_coach');
             }).catch(function (error) {
-                console.log('get specialties error');
+             //   console.log('get specialties error');
             })
         }).catch(function (error) {
-            console.log('get myCoach error');
+         //   console.log('get myCoach error');
         })
     } // end viewCoach
 
@@ -481,11 +447,10 @@ myApp.service('SignupService', ['$http', '$location', 'UserService', function ($
             method: 'GET',
             url: `/student/mycoach/${id}`
         }).then(function (response) {
-            console.log(response.data);
             coach = response.data[0].coach_id;
             self.viewMyCoach(coach);
         }).catch(function (error) {
-            console.log('coach match error');
+          //  console.log('coach match error');
         })
     } // end getMyCoach
 
