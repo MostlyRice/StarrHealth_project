@@ -1,16 +1,19 @@
 <md-content flex class="content-element content-element-text ng-cloak" layout="column" layout-align="center center">
     <div flex class="div-element" layout="column" layout-align="center center">
         <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
-            <h3>Schedule</h3>
+            <h2 class="coach-directory-title">Schedule</h2>
+        </md-card>
+        <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
             <md-datepicker ng-model="vm.studentAppointment.date" md-placeholder="Enter date" ng-change="vm.getCoachTimes(vm.studentAppointment.date)"></md-datepicker>
             <div class="form-group">
                 <md-radio-group class="radio" ng-model="vm.studentAppointment.time">
-                        <md-radio-button type="radio" name="{{availability.property}}" ng-repeat="availability in vm.coachTimes.list" ng-value="'{{availability.property}}'">{{availability.time}}</md-radio-button>
+                    <md-radio-button type="radio" name="{{availability.property}}" ng-repeat="availability in vm.coachTimes.list" ng-value="'{{availability.property}}'">{{availability.time}}</md-radio-button>
                 </md-radio-group>
             </div>
-            <md-button class="md-raised md-primary defaultBtn" ng-click="vm.postStudentSchedule(vm.studentAppointment)">Add</md-button>
+            <md-container class="md-padding">
+                <md-button class="md-raised md-primary defaultBtn" ng-click="vm.back()">Back</md-button>
+                <md-button class="md-raised md-primary defaultBtn" ng-click="vm.postStudentSchedule(vm.studentAppointment)">Add</md-button>
+            </md-container>
         </md-card>
     </div>
 </md-content>
-
-

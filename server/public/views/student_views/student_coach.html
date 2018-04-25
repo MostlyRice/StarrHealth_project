@@ -44,29 +44,48 @@
             </md-content>
         </md-sidenav>
         <!-- End md-sidenav -->
-        <!-- Put Content In This Div! -->
+        <!-- Start Your Coach Card -->
         <md-content flex class="content-element content-element-text" layout="column" layout-align="center center">
             <div flex class="div-element" layout="column" layout-align="center center">
                 <md-card flex class="card-element md-padding" ng-controller="NewController as vm" layout="column" layout-align="center center">
                     <h2 class="home-title">Your Coach</h2>
+                </md-card>
+                <md-card flex class="card-element md-padding" layout="column" layout-align="center center">
+                    <table class="table" ng-repeat="coach in vm.myCoach.list">
+                        <thead class="table-thead">
+                            <tr class="table-tr">
+                                <th class="table-th" scope="col">Photo</th>
+                                <th class="table-th" scope="col">First Name</th>
+                                <th class="table-th" scope="col">Last Name</th>
+                                <th class="table-th" scope="col">Job Title</th>
+                                <th class="table-th" scope="col">Specialty</th>
+                                <th class="table-th" scope="col">Certifications</th>
+                                <th class="table-th" scope="col">Biography</th>
+                            </tr>
+                        </thead>
+                        <tbody ng-repeat="coach in vm.myCoach.list">
+                            <tr class="table-tr">
+                                <td class="table-td" scope="row" data-label="Photo">
+                                    <img ng-src="{{coach.coach_photo}}" width="180px" />
+                                </td>
+                                <td class="table-td" scope="row" data-label="First Name">{{coach.first_name}}</td>
+                                <td class="table-td" scope="row" data-label="Last Name">{{coach.last_name}}</td>
+                                <td class="table-td" scope="row" data-label="Job Title">{{coach.job_title}}</td>
+                                <td class="table-td" scope="row" data-label="Specialty">{{coach.specialty_name}}</td>
+                                <td class="table-td" scope="row" data-label="Certifications">{{coach.certifications}}</td>
+                                <td class="table-td" scope="row" data-label="Biography">{{coach.coach_bio}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                    <div layout="column" layout-align="start" ng-repeat="coach in vm.myCoach.list">
-                        <img ng-src="{{coach.coach_photo}}" width="180px" class="groove groove-1">
-                        <div class="bio-text groove groove-1">
-                            <h2>{{coach.first_name}} {{coach.last_name}}</h2>
-                            <h3>{{coach.job_title}}</h3>
-                            <h4>{{coach.email}}</h4>
-                            <h5>{{coach.coach_bio}}</h5>
-                        </div>
-                        <div ng-repeat="coach in vm.myCoach.list">
+                    <md-input-container class="md-padding" ng-repeat="coach in vm.myCoach.list">
                         <label class="text-label" for="message">Message:</label>
                         <input class="text-label" type="text" name="message" ng-model="vm.message" />
-                        <button ng-click="vm.late(coach.coach_id, vm.message)">Send Message to Coach</button>
-                    </div>
-                    </div>
+                        <md-button class="md-raised md-primary defaultBtn" ng-click="vm.late(coach.coach_id, vm.message)">Send Message to Coach</md-button>
+                    </md-input-container>
                 </md-card>
             </div>
         </md-content>
-        <!-- End Put Content In This Div! -->
+        <!-- End Your Coach Card -->
     </section>
 </div>

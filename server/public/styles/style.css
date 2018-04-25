@@ -410,6 +410,7 @@ md-input-container.other-barriers {
   background: rgba(255, 255, 255, 0.0);
   text-align: center;
   margin: auto;
+  overflow-y: scroll;
 }
 
 .content-element-text {
@@ -423,6 +424,7 @@ md-input-container.other-barriers {
 }
 
 .div-element {
+  overflow-y: scroll;
   background: rgba(255, 255, 255, 0.0);
 }
 

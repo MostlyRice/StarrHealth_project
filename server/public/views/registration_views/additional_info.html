@@ -23,10 +23,10 @@
                 <input class="label-items" type="text" name="medical_explain" ng-model="vm.info.medical_explain" />
             </md-input-container>
         </div>
+        <label class="label-items">Do you have anything else you would like us to know?</label>
         <br />
-        <div layout-align="center center">
-            <label class="label-items">Do you have anything else you would like us to know?</label>
-            <md-radio-group layout="row" layout-align="center center" layout-padding ng-model="vm.info.other_bool">
+        <div>
+            <md-radio-group layout="row" layout-align="center center" ng-model="vm.info.other_bool">
                 <md-radio-button class="label-items radio-value" value="false">No</md-radio-button>
                 <md-radio-button class="label-items radio-value" value="true">Yes</md-radio-button>
             </md-radio-group>
