@@ -1,5 +1,5 @@
 myApp.controller('SignupController', ['UserService', '$location', 'SignupService', function (UserService, $location, SignupService) {
-  console.log('SignupController created');
+//  console.log('SignupController created');
   var self = this;
   self.userService = UserService;
   self.signupService = SignupService;
@@ -13,10 +13,6 @@ myApp.controller('SignupController', ['UserService', '$location', 'SignupService
   self.goals = SignupService.goals;
   self.collectExtraInfo = SignupService.collectExtraInfo;
   self.getSchools = SignupService.getSchools;
-
-  console.log(self.userObject);
-  console.log(self.id);
-
 
   function move() {
     var elem = document.getElementById("myBar"); 

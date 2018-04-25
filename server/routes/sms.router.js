@@ -39,11 +39,9 @@ router.get('/coachphone/:id', (request, response) => {
   router.post('/message', (request, response) => {
     const entry = request.body.entry;
     let phone = entry.phone.toString();
-    console.log('PHONE', entry);
     const sqlText = `SELECT phone_number FROM student_bio`;
     pool.query(sqlText)
       .then(function (result) {
-        console.log('STUDENT PHONE', entry);
         client.messages
         .create({
     to: phone,

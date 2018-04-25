@@ -1,5 +1,5 @@
 myApp.controller('AddCoachController', ['$http', 'UserService', '$location', 'AddCoachService', function ($http, UserService, $location, AddCoachService) {
-    console.log('AddCoachController created');
+   // console.log('AddCoachController created');
     var self = this;
     self.userService = UserService;
     self.addCoachService = AddCoachService;
@@ -12,7 +12,6 @@ myApp.controller('AddCoachController', ['$http', 'UserService', '$location', 'Ad
 
     AddCoachService.getSpecialties();
     AddCoachService.getJobs();
-    console.log('specialties', self.specialties);
-    console.log('jobs', self.jobs);
+
 
 }]);

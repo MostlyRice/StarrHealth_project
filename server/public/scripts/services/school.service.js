@@ -1,11 +1,10 @@
 myApp.service('SchoolService', ['$http', '$location', 'UserService', function ($http, $location, UserService) {
-    console.log('SchoolService Loaded');
+ //   console.log('SchoolService Loaded');
     var self = this;
     self.userService = UserService;
     self.userObject = UserService.userObject;
 
     self.addSchool = function (school) {
-        console.log('school', school);
         if (school.school_codeOne != school.school_codeTwo) {
             swal("School codes do not match!", "", "warning");
         } else if (school.school_codeOne === school.school_codeTwo) {
@@ -30,7 +29,7 @@ myApp.service('SchoolService', ['$http', '$location', 'UserService', function ($
                     $location.path('/super_AdminHome');
                 }
             }).catch(function (error) {
-                console.log('disclaimer error');
+             //   console.log('disclaimer error');
             })
         } else {
             swal("Something Went Wrong!", "", "warning");

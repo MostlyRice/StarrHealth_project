@@ -54,7 +54,6 @@ router.post('/school/:school_id', (request, response) => {
     pool.query(sqlText, [school_id])
       .then(function (result) {
         user = result.rows[0];
-        console.log(user);
         if (secret === user.school_code) {
           // all good!
           response.send(result.rows);
@@ -73,7 +72,6 @@ router.post('/school/:school_id', (request, response) => {
 router.get('/finduser/:name', (request, response) => {
   if (request.isAuthenticated()) {
     const name = request.params.name;
-    console.log('my name is', name);
     const sqlText = `SELECT id, username FROM users WHERE username=$1`;
     pool.query(sqlText, [name])
       .then(function (result) {
@@ -92,7 +90,6 @@ router.get('/finduser/:name', (request, response) => {
 router.get('/findcoach/:id', (request, response) => {
   if (request.isAuthenticated()) {
     const id = request.params.id;
-    console.log('my ID is', id);
     const sqlText = `SELECT id, coach_id FROM coach_bio WHERE id=$1`;
     pool.query(sqlText, [id])
       .then(function (result) {
@@ -317,14 +314,12 @@ router.get('/students', (request, response) => {
 router.delete('/remove/student/:id', (req, res) => {
   if (req.isAuthenticated()) {
     const id = req.params.id;
-    console.log('DELETE ME', id)
     let queryText = `DELETE FROM users WHERE id=$1`;
     pool.query(queryText, [id])
     .then((result) => {
       res.sendStatus(200);
     })
     .catch((error) => {
-      console.log('Error on delete', error);
       res.sendStatus(500);
     }) 
   } else {
@@ -341,7 +336,6 @@ router.delete('/remove/coach/:id', (req, res) => {
       res.sendStatus(200);
     })
     .catch((error) => {
-      console.log('Error on delete', error);
       res.sendStatus(500);
     })
   } else {

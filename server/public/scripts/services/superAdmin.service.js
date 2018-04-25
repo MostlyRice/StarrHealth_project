@@ -1,5 +1,5 @@
 myApp.service('SuperAdminService', ['$http', '$location', 'UserService', function ($http, $location, UserService) {
-    console.log('SuperAdminService Loaded');
+ //   console.log('SuperAdminService Loaded');
     var self = this;
 
     self.superAdminHome = function () {
@@ -31,7 +31,6 @@ myApp.service('SuperAdminService', ['$http', '$location', 'UserService', functio
     }
 
     self.addSchool = function (school) {
-        console.log('school', school);
         const entry = {
             school_name: school.school_name,
             school_code: school.school_code,
@@ -45,9 +44,8 @@ myApp.service('SuperAdminService', ['$http', '$location', 'UserService', functio
                 entry: entry
             }
         }).then(function (response) {
-            console.log('schooln created');
         }).catch(function (error) {
-            console.log('disclaimer error');
+           // console.log('disclaimer error');
         })
     }
 

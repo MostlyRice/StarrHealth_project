@@ -1,5 +1,5 @@
 myApp.controller('GeneralController', ['$http', 'UserService', 'SignupService', '$location', 'SchoolService', function ($http, UserService, SignupService, $location, SchoolService) {
-    console.log('GeneralController created');
+  //  console.log('GeneralController created');
     var self = this;
     self.userService = UserService;
     self.signupService = SignupService;
@@ -16,8 +16,6 @@ myApp.controller('GeneralController', ['$http', 'UserService', 'SignupService', 
     self.collectExtraInfo = SignupService.collectExtraInfo;
     self.schools = SignupService.schools;
 
-    console.log(self.userObject);
-    console.log('schools in controller', self.schools.list);
 
     function move() {
         var elem = document.getElementById("myBar"); 

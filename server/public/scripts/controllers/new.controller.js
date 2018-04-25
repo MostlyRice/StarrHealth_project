@@ -1,5 +1,5 @@
 myApp.controller('NewController', ['UserService', '$location', 'SignupService', 'StudentService', function (UserService, $location, SignupService, StudentService) {
-    console.log('NewController created');
+  //  console.log('NewController created');
     var self = this;
     self.userService = UserService;
     self.signupService = SignupService;
@@ -25,8 +25,5 @@ myApp.controller('NewController', ['UserService', '$location', 'SignupService', 
   
     SignupService.getMyCoach(); 
     
-  
-    console.log(self.allCoaches.list);
-    console.log(self.thisCoach);
-  
+
   }]);

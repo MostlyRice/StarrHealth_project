@@ -29,10 +29,9 @@ router.post('/register', (req, res, next) => {
     password: encryptLib.encryptPassword(req.body.password),
     user_role: req.body.user_role
   };
-  console.log('new user:', saveUser);
   pool.query('INSERT INTO users (username, password, user_role) VALUES ($1, $2, $3) RETURNING id', [saveUser.username, saveUser.password, saveUser.user_role], (err, result) => {
     if (err) {
-      console.log("Error inserting data: ", err);
+      // console.log("Error inserting data: ", err);
       res.sendStatus(500);
     } else {
       res.sendStatus(201);
@@ -65,10 +64,10 @@ router.put('/changePassword/:id', (req, res, next) => {
     username: entry.username,
     password: encryptLib.encryptPassword(entry.password),
   };
-  console.log('PASS USER:', saveUser);
+ // console.log('PASS USER:', saveUser);
   pool.query('UPDATE users SET password=$2 WHERE username=$1', [saveUser.username, saveUser.password], (err, result) => {
     if (err) {
-      console.log("Error inserting data: ", err);
+    //  console.log("Error inserting data: ", err);
       res.sendStatus(500);
     } else {
       res.sendStatus(201);

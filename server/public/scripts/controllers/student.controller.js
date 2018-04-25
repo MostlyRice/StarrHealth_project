@@ -1,5 +1,5 @@
 myApp.controller('StudentController', ['$http', 'UserService', '$location', 'StudentService', 'SignupService', function ($http, UserService, $location, StudentService, SignupService) {
-  console.log('StudentController created');
+//  console.log('StudentController created');
   var self = this;
   self.userService = UserService;
   self.studentService = StudentService;
@@ -22,9 +22,6 @@ myApp.controller('StudentController', ['$http', 'UserService', '$location', 'Stu
   self.studentSchedule = StudentService.studentSchedule;
 
   StudentService.getStudent();
-
-  console.log('t', self.student);
-  console.log('a', self.appointment);
 
   self.cancelBio = function () {
     self.editing = false;

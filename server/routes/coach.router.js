@@ -7,7 +7,6 @@ const moment = require('moment');
 router.post('/', (request, response) => {
   if (request.isAuthenticated()) {
     const entry = request.body.entry;
-    console.log('ENTRY', entry);
     let sqlText = `INSERT INTO coach_bio
       (id, first_name, last_name, email, job_title, personal_interests, coach_phone)
       VALUES ($1, $2, $3, $4, $5, $6, $7)`;
@@ -27,7 +26,6 @@ router.post('/', (request, response) => {
 router.get('/viewcoach/:id', (request, response) => {
   if (request.isAuthenticated()) {
     const id = request.params.id;
-    console.log('ID1', id);
     const sqlText = `SELECT * FROM coach_bio WHERE coach_id=$1`;
     pool.query(sqlText, [id])
       .then(function (result) {
@@ -46,7 +44,6 @@ router.get('/viewcoach/:id', (request, response) => {
 router.get('/getspecialties/:id', (request, response) => {
   if (request.isAuthenticated()) {
     const id = request.params.id;
-    console.log('ID2', id);
     const sqlText = `SELECT specialties.specialty_name FROM specialties 
     JOIN coach_specialties ON coach_specialties.specialty_id=specialties.specialty_id
     WHERE coach_specialties.coach_id=$1`;
@@ -67,7 +64,6 @@ router.get('/getspecialties/:id', (request, response) => {
 router.get('/:id', (request, response) => {
   if (request.isAuthenticated()) {
     const id = request.params.id;
-    console.log('ID3', id);
     const sqlText = `SELECT * FROM coach_bio WHERE id=$1`;
     pool.query(sqlText, [id])
       .then(function (result) {
@@ -87,7 +83,6 @@ router.get('/today/:id', (request, response) => {
   if (request.isAuthenticated()) {
     const id = request.params.id;
     let date = moment().format('L');
-    console.log('ID4', id);
     const sqlText = `SELECT * FROM calendar
     JOIN student_bio ON student_bio.id=calendar.student_id 
     WHERE calendar.coach_id=$1 ORDER BY calendar.property LIMIT 3`;
@@ -162,7 +157,6 @@ router.put('/photo/:id', (request, response) => {
 router.get('/everyone/students/:coach', (request, response) => {
   if (request.isAuthenticated()) {
     const coach = request.params.coach;
-    console.log('IN ROUTER!!!!!!', coach);
     const sqlText = `SELECT * FROM student_bio
     JOIN schools ON schools.school_id=student_bio.school_id
     JOIN specialties ON specialties.specialty_id=student_bio.specialty_id

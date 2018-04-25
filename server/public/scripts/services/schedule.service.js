@@ -1,5 +1,5 @@
 myApp.service('ScheduleService', ['$http', 'UserService', '$location', function ($http, UserService, $location) {
-    console.log('ScheduleService Loaded');
+//    console.log('ScheduleService Loaded');
     let self = this;
     self.userService = UserService;
     self.userObject = UserService.userObject;
@@ -48,35 +48,29 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                 schedule.j = '';
                 schedule.k = '';
             }).catch(function (error) {
-                console.log('add calendar error', error);
+             //   console.log('add calendar error', error);
             })
     }
 
     self.getCoachSchedule = function (schedule) {
         day = schedule.date
-        console.log('getting coach day schedule', day)
         $http.get(`/calendar/coach/${day}`)
             .then(function (response) {
-                console.log('get coach day times', response.data);
                 if (response.data.length < 1) {
-                    console.log('do the post here');
                     self.postCalendar(schedule);
                 } else {
                 let responseArray = response.data;
-                console.log(responseArray);
                 for (let response of responseArray) {
                     let key = response.property;
                     schedule[key] = 0;
                 }
                 for (let response of responseArray) {
                     if (response.selected == 'true') {
-                        console.log('getting chosen times', response.available_time);
                         let key = response.property;
                         // schedule[key] = response.available_time;
                         if (response.available_time === "8:00 AM") {
                             schedule[key] = 8;
                         }
-                        console.log('schedule key', schedule[key]);
                         if (response.available_time === "9:00 AM") {
                             schedule[key] = 9;
                         }
@@ -111,7 +105,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                 }
                 }
             }).catch(function (error) {
-                console.log('get coach day times error', error);
+              //  console.log('get coach day times error', error);
             })
     }
 
@@ -119,8 +113,6 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
 
     self.postAvailability = function (schedule) {
         schedule.day = moment(schedule.date).format('L');
-        console.log('date', schedule.day);
-        console.log('post availability', schedule);
         if (schedule.a === 8) {
             schedule.a = "8:00 AM";
         }
@@ -154,14 +146,12 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
         if (schedule.k === 6) {
             schedule.k = "6:00 PM";
         }
-        console.log('weekly appointment', schedule.weekly);
         $http({
             method: 'PUT',
             url: '/calendar/coach',
             data: schedule
         })
     .then(function(response) {
-        console.log('times added', response);
         if(schedule.weekly == true){
             let newDate = moment(schedule.date);
             let recurrence = moment().recur({
@@ -170,7 +160,6 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
             schedule.weeklyAppointments = recurrence.next(24, "L");
             // let recurrence = moment(schedule.date).format('MMMM Do YYYY').recur().every(7).days();
             // schedule.weeklyAppointments = recurrence.next(24);
-            console.log('new weekly appointments', schedule);
             $http({
 
                 method: 'POST',
@@ -196,19 +185,15 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
     self.getCoachAppointments = function () {
         $http.get('/calendar/appointments')
         .then(function(response) {
-            console.log('appointments get', response.data);
             let appointmentArray = response.data.filter(function(res){
                 let date = moment().format('L');
                 if(res.student_id != null && moment(res.date).isSameOrAfter(date)){
                 return res
                 }
             })
-            console.log('appointment array', appointmentArray);
             self.coachAppointments.list = appointmentArray.reduce(function(acc, item) {
-                console.log('new thing', {...acc, b:'foo'});
                 return { ...acc, [item.date]: [...acc[item.date] || [], item]}
                 },{});
-            console.log('coach appointments', self.coachAppointments.list)
         }).catch(function(error){
             // console.log('Error getting times', error);
         })
@@ -235,17 +220,13 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
 
         self.postStudentSchedule = function(studentAppointment){
             studentAppointment.day = moment(studentAppointment.date).format('L');
-            console.log('student appointment', studentAppointment);
             const id = UserService.userObject.id;
             $http({
                 method: 'GET',
                 url: `/student/sessions/${id}`
             }).then(function (response) {
-                console.log('DATA', response.data);
                 sessions = response.data;
-                console.log('Sessions = ', sessions);
                 thing = sessions[0].sessions_used;
-                console.log('thing', thing);
                 total = sessions[0].total_sessions;
                 if(thing >= total) {
                     swal("You have no more sessions!", "", "warning");
@@ -258,19 +239,14 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                         data: studentAppointment
                     })
                     .then(function (response) {
-                        console.log('studend appointment added', response);
                         const id = UserService.userObject.id;
                         $http({
                             method: 'GET',
                             url: `/student/sessions/${id}`
                         }).then(function (response) {
-                            console.log('DATA', response.data);
                             sessions = response.data;
-                            console.log('Sessions = ', sessions);
                             thing = sessions[0].sessions_used;
-                            console.log('thing', thing);
                             used = thing + 1;
-                            console.log('used', used);
                             entry = {
                                 id: id,
                                 sessions_used: used
@@ -285,11 +261,11 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                                 swal("Appointment added!", "", "success");
                                 $location.path('/student_home');
                             }).catch(function (error) {
-                                console.log('goals put error', error);
+                             //   console.log('goals put error', error);
                             })
                             
                         }).catch(function (error) {
-                            console.log('get my Studen error');
+                          //  console.log('get my Studen error');
                         })
                       
                     }).catch(function (error) {
@@ -300,7 +276,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                     swal("Something went wrong! Please try again", "", "warning");
                 }
             }).catch(function (error) {
-                console.log('goals put error', error);
+            //    console.log('goals put error', error);
             })
    
     }
@@ -311,9 +287,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
             method: 'GET',
             url: `/student/numappt/${id}`
         }).then(function (response) {
-            console.log('DATA', response.data);
             let data = response.data[0].appt_count;
-            console.log('REAL DATA', data);
             if (data <= 0) {
                 $location.path('/student_coaches');
                 $http({
@@ -322,7 +296,7 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                 }).then(function (response) {
                     location.reload(true);
             }).catch(function (error) {
-                console.log('get student error', error);
+             //   console.log('get student error', error);
             })
             }
             else if (data > 0) {
@@ -333,11 +307,11 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                 }).then(function (response) {
                     location.reload(true);
             }).catch(function (error) {
-                console.log('get student error', error);
+             //   console.log('get student error', error);
             })
             }
     }).catch(function (error) {
-        console.log('get student error', error);
+      //  console.log('get student error', error);
     })
 }
 

@@ -1,5 +1,5 @@
 myApp.controller('ScheduleController', ['$http', 'ScheduleService', 'UserService', function ($http, ScheduleService, UserService) {
-  console.log('ScheduleController created');
+ // console.log('ScheduleController created');
   let self = this;
   self.postAvailability = ScheduleService.postAvailability;
 
