@@ -197,7 +197,7 @@ myApp.service('StudentService', ['$http', '$location', 'UserService', 'SignupSer
                     entry: entry
                 }
             }).then(function (response) {
-                alert("Message Sent to Coach!");
+                alert('Message Sent to coach!');
                 location.reload(true);
             }).catch(function (error) {
              //   console.log('SMS error');
