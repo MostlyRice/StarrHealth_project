@@ -19,6 +19,7 @@ myApp.controller('ScheduleController', ['$http', 'ScheduleService', 'UserService
   self.getCoachTimes(self.studentAppointment.date);
 
   self.postStudentSchedule = ScheduleService.postStudentSchedule;
+  self.back = ScheduleService.back;
 
   // self.getCoachTimes();
   self.getCoachAppointments();

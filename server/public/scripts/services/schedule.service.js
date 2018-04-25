@@ -305,4 +305,40 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
    
     }
 
+    self.back = function() {
+        const id = UserService.userObject.id;
+        $http({
+            method: 'GET',
+            url: `/student/numappt/${id}`
+        }).then(function (response) {
+            console.log('DATA', response.data);
+            let data = response.data[0].appt_count;
+            console.log('REAL DATA', data);
+            if (data <= 0) {
+                $location.path('/student_coaches');
+                $http({
+                    method: 'GET',
+                    url: `/student/${id}`
+                }).then(function (response) {
+                    location.reload(true);
+            }).catch(function (error) {
+                console.log('get student error', error);
+            })
+            }
+            else if (data > 0) {
+                $location.path('/student_home');
+                $http({
+                    method: 'GET',
+                    url: `/student/${id}`
+                }).then(function (response) {
+                    location.reload(true);
+            }).catch(function (error) {
+                console.log('get student error', error);
+            })
+            }
+    }).catch(function (error) {
+        console.log('get student error', error);
+    })
+}
+
 }]); // end schedule service

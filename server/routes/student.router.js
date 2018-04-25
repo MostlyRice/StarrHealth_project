@@ -131,6 +131,25 @@ router.get('/:id', (request, response) => {
   }
 });
 
+router.get('/numappt/:id', (request, response) => {
+  if (request.isAuthenticated()) {
+    const id = request.params.id;
+    console.log('ID3000', id);
+    const sqlText = `SELECT COUNT(calendar_id) as appt_count FROM calendar WHERE student_id=$1`;
+    pool.query(sqlText, [id])
+      .then(function (result) {
+        //  console.log('Get result:', result);
+        response.send(result.rows);
+      })
+      .catch(function (error) {
+        //  console.log('Error on Get:', error);
+        response.sendStatus(500);
+      })
+  } else {
+      response.sendStatus(403);
+  }
+});
+
 router.get('/appointment/:id', (request, response) => {
   if (request.isAuthenticated()) {
     const id = request.params.id;

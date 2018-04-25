@@ -7,6 +7,7 @@ const moment = require('moment');
 router.post('/', (request, response) => {
   if (request.isAuthenticated()) {
     const entry = request.body.entry;
+    console.log('ENTRY', entry);
     let sqlText = `INSERT INTO coach_bio
       (id, first_name, last_name, email, job_title, personal_interests, coach_phone)
       VALUES ($1, $2, $3, $4, $5, $6, $7)`;
