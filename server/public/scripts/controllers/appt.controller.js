@@ -1,5 +1,5 @@
 myApp.controller('ApptController', ['$http', 'UserService', '$location', 'StudentService', 'SignupService', function ($http, UserService, $location, StudentService, SignupService) {
-    console.log('ApptController created');
+  //  console.log('ApptController created');
     var self = this;
     self.userService = UserService;
     self.studentService = StudentService;

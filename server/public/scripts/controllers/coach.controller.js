@@ -32,8 +32,6 @@ myApp.controller('CoachController', ['$http', 'UserService', '$location', 'Coach
   CoachService.getTodayAppts();
   CoachService.getMyStudents();
 
-  console.log('today', self.todayAppts);
-
   self.cancelCoach = function (coach) {
     coach.editing = false;
   }

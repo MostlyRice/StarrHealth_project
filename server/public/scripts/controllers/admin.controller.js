@@ -1,5 +1,5 @@
 myApp.controller('AdminController', ['$http', 'UserService', '$location', 'AdminService', function ($http, UserService, $location, AdminService) {
-    console.log('AdminController created');
+  //  console.log('AdminController created');
     var self = this;
     self.userService = UserService;
     self.adminService = AdminService;
