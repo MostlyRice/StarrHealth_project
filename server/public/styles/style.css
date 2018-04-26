@@ -432,7 +432,7 @@ md-input-container.other-barriers {
   text-align: center;
 }
 
-.div-element {
+f .div-element {
   overflow-y: scroll;
   background: rgba(255, 255, 255, 0.0);
 }
@@ -791,4 +791,4 @@ table th.table-th {
 
 li a {
   color: black
-  }
+}
