@@ -2,232 +2,247 @@
 
 <div class="ng-cloak" layout="column" layout-fill>
 
-    <section layout="row" flex>
-        <!-- Start md-sidenav -->
-        <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
-            <div class="starr-sidenav">
-                <img ng-src="./images/starrhealthlogo.png" />
-                <p class="starr-sidenav-text">Starr Health Co.</p>
-                <h1 class="lead">Welcome {{vm.userObject.userName}}!</h1>
-            </div>
-            <md-content layout-padding hide show-gt-md flex>
-                <md-button class="md-raised md-primary selectedBtn" flex ng-click="vm.superAdminHome()">
-                    <i class="material-icons home">home</i>
-                    <span>Home Page</span>
-                </md-button>
-                <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminCreateCoach()">
-                    <i class="material-icons note-add">note_add</i>
-                    <span>Admin - Add Coach</span>
-                </md-button>
-                <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminNewSchool()">
-                    <i class="material-icons note-add">note_add</i>
-                    <span>Admin - Add School</span>
-                </md-button>
-                <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminStudentDirectory()">
-                    <i class="material-icons list">list</i>
-                    <span>Admin - Student Directory</span>
-                </md-button>
-                <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superCoachDirectory()">
-                    <i class="material-icons list">list</i>
-                    <span>Admin - Coach Directory</span>
-                </md-button>
-                <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminSchoolDirectory()">
-                    <i class="material-icons list">list</i>
-                    <span>Admin - School Directory</span>
-                </md-button>
-                <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminAllAppointments()">
-                    <i class="material-icons date-range">date_range</i>
-                    <span>Admin - All Appointments</span>
-                </md-button>
-                <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminCoachSchedule()">
-                    <i class="material-icons date-range">date_range</i>
-                    <span>Coach - Schedule</span>
-                </md-button>
-                <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminCoachAllAppointments()">
-                    <i class="material-icons date-range">date_range</i>
-                    <span>Coach - All Appointments</span>
-                </md-button>
-                <br />
-                <md-button class="md-raised md-warn" flex ng-click="vm.userService.logout()">
-                    <i class="material-icons exit-app">exit_to_app</i>
-                    <span>Log Out</span>
-                </md-button>
-            </md-content>
-            <md-content layout-padding hide-gt-md flex>
-                <md-button class="md-raised md-primary selectedBtn" flex ng-click="vm.superAdminHome()">
-                    <i class="material-icons home">home</i>
-                    <span>Home Page</span>
-                </md-button>
-                <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminCreateCoach()">
-                    <i class="material-icons note-add">note_add</i>
-                    <span>Admin - Add Coach</span>
-                </md-button>
-                <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminNewSchool()">
-                    <i class="material-icons note-add">note_add</i>
-                    <span>Admin - Add School</span>
-                </md-button>
-                <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminStudentDirectory()">
-                    <i class="material-icons list">list</i>
-                    <span>Admin - Student Directory</span>
-                </md-button>
-                <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superCoachDirectory()">
-                    <i class="material-icons list">list</i>
-                    <span>Admin - Coach Directory</span>
-                </md-button>
-                <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminSchoolDirectory()">
-                    <i class="material-icons list">list</i>
-                    <span>Admin - School Directory</span>
-                </md-button>
-                <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminAllAppointments()">
-                    <i class="material-icons date-range">date_range</i>
-                    <span>Admin - All Appointments</span>
-                </md-button>
-                <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminCoachSchedule()">
-                    <i class="material-icons date-range">date_range</i>
-                    <span>Coach - Schedule</span>
-                </md-button>
-                <br />
-                <md-button class="md-raised md-primary" flex ng-click="vm.superAdminCoachAllAppointments()">
-                    <i class="material-icons date-range">date_range</i>
-                    <span>Coach - All Appointments</span>
-                </md-button>
-                <br />
-                <md-button class="md-raised md-warn" flex ng-click="vm.userService.logout()">
-                    <i class="material-icons exit-app">exit_to_app</i>
-                    <span>Log Out</span>
-                </md-button>
-            </md-content>
-        </md-sidenav>
-        <!-- End md-sidenav -->
-        <div class="overflow-1" flex>
-                <!-- Start Profile Card -->
-                <md-content class="element-content content-element-text md-padding" layout-xs="column" layout="row">
-                  <div flex class="profile-div" layout="column" layout-align="center center">
-                    <md-card flex class="card-element profile-card md-padding" ng-controller="CoachController as vm">
-                      <div>
-                        <h2 class="home-title">Coach Home</h2>
-                        <div layout="column" layout-align="start center" ng-repeat="coach in vm.myself.list">
-                          <img ng-src="{{coach.coach_photo}}" width="180px" class="groove groove-1">
-                          <div>
-                            <md-button class="md-raised md-primary defaultBtn" ng-click="vm.upload()">Change Photo</md-button>
-                          </div>
-                        </div>
-                        <md-card-title>
-                          <md-card-title-text ng-repeat="coach in vm.myself.list">
-                            <div>
-                              <span class="md-headline">{{coach.first_name}} {{coach.last_name}}</span>
-                              <br />
-                              <span class="md-headline" ng-hide="coach.editing">Username: {{vm.userName}}</span>
-                              <br />
-                              <div ng-repeat="coach in vm.myself.list" layout-xs="column">
-                                <md-button class="md-raised md-primary defaultBtn" ng-hide="coach.editing" ng-click="vm.editCoach(coach)">Update Your Information</md-button>
-                                <md-button class="md-raised md-primary defaultBtn" ng-show="coach.editing" ng-click="vm.saveCoach(coach.coach_id, coach)">Save Your Information</md-button>
-                                <md-button class="md-raised md-primary defaultBtn" ng-show="coach.editing" ng-click="vm.cancelCoach(coach)">Cancel Update</md-button>
-                                <md-button class="md-raised md-primary defaultBtn" ng-click="vm.newPassword()">Change Password</md-button>
-                              </div>
-                            </div>
-                            <div>
-                              <span ng-repeat="coach in vm.myself.list" layout-xs="column">
-                                <md-button class="md-raised md-primary defaultBtn" ng-hide="vm.editing" ng-click="vm.editUserName()">Update User Name</md-button>
-                                <md-button class="md-raised md-primary defaultBtn" ng-show="vm.editing" ng-click="vm.saveUserName(vm.id, vm.userName)">Save User Name</md-button>
-                                <md-button class="md-raised md-primary defaultBtn" ng-show="vm.editing" ng-click="vm.cancelUserName()">Cancel Update</md-button>
-                              </span>
-                              <div>
-                                <md-input-container ng-show="vm.editing">
-                                  <input placeholder="User Name" ng-show="vm.editing" class="text-label" type="text" name="userName" ng-model="vm.userName"
-                                  />
-                                </md-input-container>
-                              </div>
-                            </div>
-                          </md-card-title-text>
-                        </md-card-title>
-                      </div>
-                      <div>
-                        <md-card-content ng-hide="coach.editing" class="bio-text groove groove-1" ng-repeat="coach in vm.myself.list">
-                          <div ng-hide="coach.editing" name="bio">
-                            {{coach.coach_bio}}
-                          </div>
-                        </md-card-content>
-                        <md-card-content ng-show="coach.editing" class="bio-text groove groove-1" ng-repeat="coach in vm.myself.list">
-                          <md-input-container>
-                            <textarea md-maxlength="150" rows="3" md-select-on-focus type="text" name="bio" ng-model="coach.coach_bio" placeholder="Bio"></textarea>
-                          </md-input-container>
-                        </md-card-content>
-                      </div>
-                      <div>
-                        <md-card-content ng-hide="coach.editing" class="bio-text groove groove-1" ng-repeat="coach in vm.myself.list">
-                          <div ng-hide="coach.editing" class="text-label" name="email">
-                            {{coach.email}}
-                          </div>
-                          <div ng-hide="coach.editing" class="text-label" name="jobTitle">
-                            {{coach.job_title}}
-                          </div>
-                          <div ng-hide="coach.editing" class="text-label" name="certs">
-                            {{coach.certifications}}
-                          </div>
-                          <div ng-hide="coach.editing" class="text-label" name="personalInterests">
-                            {{coach.personal_interests}}
-                          </div>
-                        </md-card-content>
-                        <md-card-content ng-show="coach.editing" class="bio-text groove groove-1" ng-repeat="coach in vm.myself.list">
-                          <md-input-container>
-                            <input placeholder="First Name" class="text-label" type="text" name="firstName" ng-model="coach.first_name" />
-                          </md-input-container>
-                          <md-input-container>
-                            <input placeholder="Last Name" class="text-label" type="text" name="lastName" ng-model="coach.last_name" />
-                          </md-input-container>
-                          <md-input-container>
-                            <input placeholder="E-Mail" class="text-label" type="text" name="email" ng-model="coach.email" />
-                          </md-input-container>
-                          <md-input-container>
-                            <input placeholder="Job Title" class="text-label" type="email" name="jobTitle" ng-model="coach.job_title" />
-                          </md-input-container>
-                          <md-input-container>
-                            <input placeholder="Certitications" class="text-label" type="text" name="certs" ng-model="coach.certifications" />
-                          </md-input-container>
-                          <md-input-container>
-                            <input placeholder="Personal Interests" class="text-label" type="text" name="personalInterests" ng-model="coach.personal_interests"
-                            />
-                          </md-input-container>
-                        </md-card-content>
-          
-                      </div>
-                    </md-card>
-                  </div>
-                </md-content>
-                <!-- End Profile Card -->
-                <!-- Start Next Appointment Card -->
-                <md-content class="element-content content-element-text md-padding" layout-xs="column" layout="row" layout-align="center none" ng-controller="CoachController as vm">
-                  <div flex-xs flex-gt-xs="50" layout="row" layout-align="center none">
-                    <div flex class="profile-div" layout="column" layout-align="center center">
-                      <md-card class="card-element md-padding profile-card" layout="column" layout-align="center center">
-                        <h2 class="home-title">Your Next Appointment</h2>
-                        <md-card-content class="bio-text groove groove-1">
-                          <div ng-repeat="meeting in vm.todayAppts.list">
-                            {{meeting.date}} at {{meeting.available_time}} with {{meeting.first_name}} {{meeting.last_name}}
-                          </div>
-                        </md-card-content>
-                      </md-card>
-                    </div>
-                </md-content>
-                <!-- End Next Appointment Card -->
+  <section layout="row" flex>
+    <!-- Start md-sidenav -->
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+      <div class="starr-sidenav">
+        <img ng-src="./images/starrhealthlogo.png" />
+        <p class="starr-sidenav-text">Starr Health Co.</p>
+        <h1 class="lead">Welcome {{vm.userObject.userName}}!</h1>
+      </div>
+      <md-content layout-padding hide show-gt-md flex>
+        <md-button class="md-raised md-primary selectedBtn" flex ng-click="vm.superAdminHome()">
+          <i class="material-icons home">home</i>
+          <span>Home Page</span>
+        </md-button>
+        <br />
+        <md-button class="md-raised md-primary" flex ng-click="vm.superAdminCreateCoach()">
+          <i class="material-icons note-add">note_add</i>
+          <span>Admin - Add Coach</span>
+        </md-button>
+        <br />
+        <md-button class="md-raised md-primary" flex ng-click="vm.superAdminNewSchool()">
+          <i class="material-icons note-add">note_add</i>
+          <span>Admin - Add School</span>
+        </md-button>
+        <br />
+        <md-button class="md-raised md-primary" flex ng-click="vm.superAdminStudentDirectory()">
+          <i class="material-icons list">list</i>
+          <span>Admin - Student Directory</span>
+        </md-button>
+        <br />
+        <md-button class="md-raised md-primary" flex ng-click="vm.superCoachDirectory()">
+          <i class="material-icons list">list</i>
+          <span>Admin - Coach Directory</span>
+        </md-button>
+        <br />
+        <md-button class="md-raised md-primary" flex ng-click="vm.superAdminSchoolDirectory()">
+          <i class="material-icons list">list</i>
+          <span>Admin - School Directory</span>
+        </md-button>
+        <br />
+        <md-button class="md-raised md-primary" flex ng-click="vm.superAdminAllAppointments()">
+          <i class="material-icons date-range">date_range</i>
+          <span>Admin - All Appointments</span>
+        </md-button>
+        <br />
+        <md-button class="md-raised md-primary" flex ng-click="vm.superAdminCoachSchedule()">
+          <i class="material-icons date-range">date_range</i>
+          <span>Coach - Schedule</span>
+        </md-button>
+        <br />
+        <md-button class="md-raised md-primary" flex ng-click="vm.superAdminCoachAllAppointments()">
+          <i class="material-icons date-range">date_range</i>
+          <span>Coach - All Appointments</span>
+        </md-button>
+        <br />
+        <md-button class="md-raised md-warn" flex ng-click="vm.userService.logout()">
+          <i class="material-icons exit-app">exit_to_app</i>
+          <span>Log Out</span>
+        </md-button>
+      </md-content>
+      <md-content layout-padding hide-gt-md flex>
+        <md-button class="md-raised md-primary selectedBtn" flex ng-click="vm.superAdminHome()">
+          <i class="material-icons home">home</i>
+          <span>Home Page</span>
+        </md-button>
+        <br />
+        <md-button class="md-raised md-primary" flex ng-click="vm.superAdminCreateCoach()">
+          <i class="material-icons note-add">note_add</i>
+          <span>Admin - Add Coach</span>
+        </md-button>
+        <br />
+        <md-button class="md-raised md-primary" flex ng-click="vm.superAdminNewSchool()">
+          <i class="material-icons note-add">note_add</i>
+          <span>Admin - Add School</span>
+        </md-button>
+        <br />
+        <md-button class="md-raised md-primary" flex ng-click="vm.superAdminStudentDirectory()">
+          <i class="material-icons list">list</i>
+          <span>Admin - Student Directory</span>
+        </md-button>
+        <br />
+        <md-button class="md-raised md-primary" flex ng-click="vm.superCoachDirectory()">
+          <i class="material-icons list">list</i>
+          <span>Admin - Coach Directory</span>
+        </md-button>
+        <br />
+        <md-button class="md-raised md-primary" flex ng-click="vm.superAdminSchoolDirectory()">
+          <i class="material-icons list">list</i>
+          <span>Admin - School Directory</span>
+        </md-button>
+        <br />
+        <md-button class="md-raised md-primary" flex ng-click="vm.superAdminAllAppointments()">
+          <i class="material-icons date-range">date_range</i>
+          <span>Admin - All Appointments</span>
+        </md-button>
+        <br />
+        <md-button class="md-raised md-primary" flex ng-click="vm.superAdminCoachSchedule()">
+          <i class="material-icons date-range">date_range</i>
+          <span>Coach - Schedule</span>
+        </md-button>
+        <br />
+        <md-button class="md-raised md-primary" flex ng-click="vm.superAdminCoachAllAppointments()">
+          <i class="material-icons date-range">date_range</i>
+          <span>Coach - All Appointments</span>
+        </md-button>
+        <br />
+        <md-button class="md-raised md-warn" flex ng-click="vm.userService.logout()">
+          <i class="material-icons exit-app">exit_to_app</i>
+          <span>Log Out</span>
+        </md-button>
+      </md-content>
+    </md-sidenav>
+    <!-- End md-sidenav -->
+    <div class="overflow-1" flex layout-align="center center">
+      <!-- Start Profile Card -->
+      <md-content class="element-content content-element-text md-padding" layout-xs="column" layout="row" layout-align="center center">
+        <div flex class="profile-div" layout="column" layout-align="center center">
+          <md-card class="card-element profile-card md-padding" layout-align="center center">
+            <h2 class="home-title">Coach Home</h2>
+          </md-card>
+          <md-card class="card-element profile-card md-padding" ng-controller="CoachController as vm">
+            <div>
+
+              <div layout="column" layout-align="start center" ng-repeat="coach in vm.myself.list">
+                <img ng-src="{{coach.coach_photo}}" width="180px" class="groove groove-1">
+                <div>
+                  <md-button class="md-raised md-primary defaultBtn" ng-click="vm.upload()">Change Photo</md-button>
                 </div>
+              </div>
+              <md-card-title>
+                <md-card-title-text ng-repeat="coach in vm.myself.list">
+                  <div>
+                    <span class="md-headline">{{coach.first_name}} {{coach.last_name}}</span>
+                    <br />
+                    <span class="md-headline" ng-hide="coach.editing">Username: {{vm.userName}}</span>
+                    <br />
+                    <div ng-repeat="coach in vm.myself.list" layout-xs="column">
+                      <md-button class="md-raised md-primary defaultBtn" ng-hide="coach.editing" ng-click="vm.editCoach(coach)">Update Your Information</md-button>
+                      <md-button class="md-raised md-primary defaultBtn" ng-show="coach.editing" ng-click="vm.saveCoach(coach.coach_id, coach)">Save Your Information</md-button>
+                      <md-button class="md-raised md-primary defaultBtn" ng-show="coach.editing" ng-click="vm.cancelCoach(coach)">Cancel Update</md-button>
+                      <md-button class="md-raised md-primary defaultBtn" ng-click="vm.newPassword()">Change Password</md-button>
+                    </div>
+                  </div>
+                  <div>
+                    <span ng-repeat="coach in vm.myself.list" layout-xs="column">
+                      <md-button class="md-raised md-primary defaultBtn" ng-hide="vm.editing" ng-click="vm.editUserName()">Update User Name</md-button>
+                      <md-button class="md-raised md-primary defaultBtn" ng-show="vm.editing" ng-click="vm.saveUserName(vm.id, vm.userName)">Save User Name</md-button>
+                      <md-button class="md-raised md-primary defaultBtn" ng-show="vm.editing" ng-click="vm.cancelUserName()">Cancel Update</md-button>
+                    </span>
+                    <div>
+                      <md-input-container ng-show="vm.editing">
+                        <input placeholder="User Name" ng-show="vm.editing" class="text-label" type="text" name="userName" ng-model="vm.userName"
+                        />
+                      </md-input-container>
+                    </div>
+                  </div>
+                </md-card-title-text>
+              </md-card-title>
+            </div>
+            <div>
+              <md-card-content ng-hide="coach.editing" class="bio-text groove groove-1" ng-repeat="coach in vm.myself.list">
+                <div ng-hide="coach.editing" name="bio">
+                  {{coach.coach_bio}}
+                </div>
+              </md-card-content>
+              <md-card-content ng-show="coach.editing" class="bio-text groove groove-1" ng-repeat="coach in vm.myself.list">
+                <md-input-container>
+                  <textarea md-maxlength="150" rows="3" md-select-on-focus type="text" name="bio" ng-model="coach.coach_bio" placeholder="Bio"></textarea>
+                </md-input-container>
+              </md-card-content>
+            </div>
+            <div>
+              <md-card-content ng-hide="coach.editing" class="bio-text groove groove-1" ng-repeat="coach in vm.myself.list">
+                <div ng-hide="coach.editing" class="text-label" name="email">
+                  {{coach.email}}
+                </div>
+                <div ng-hide="coach.editing" class="text-label" name="jobTitle">
+                  {{coach.job_title}}
+                </div>
+                <div ng-hide="coach.editing" class="text-label" name="certs">
+                  {{coach.certifications}}
+                </div>
+                <div ng-hide="coach.editing" class="text-label" name="personalInterests">
+                  {{coach.personal_interests}}
+                </div>
+              </md-card-content>
+              <md-card-content ng-show="coach.editing" class="bio-text groove groove-1" ng-repeat="coach in vm.myself.list">
+                <md-input-container>
+                  <input placeholder="First Name" class="text-label" type="text" name="firstName" ng-model="coach.first_name" />
+                </md-input-container>
+                <md-input-container>
+                  <input placeholder="Last Name" class="text-label" type="text" name="lastName" ng-model="coach.last_name" />
+                </md-input-container>
+                <md-input-container>
+                  <input placeholder="E-Mail" class="text-label" type="text" name="email" ng-model="coach.email" />
+                </md-input-container>
+                <md-input-container>
+                  <input placeholder="Job Title" class="text-label" type="email" name="jobTitle" ng-model="coach.job_title" />
+                </md-input-container>
+                <md-input-container>
+                  <input placeholder="Certitications" class="text-label" type="text" name="certs" ng-model="coach.certifications" />
+                </md-input-container>
+                <md-input-container>
+                  <input placeholder="Personal Interests" class="text-label" type="text" name="personalInterests" ng-model="coach.personal_interests"
+                  />
+                </md-input-container>
+              </md-card-content>
 
-    </section>
+            </div>
+          </md-card>
+        </div>
+      </md-content>
+      <!-- End Profile Card -->
+      <!-- Start Next Appointment Card -->
+      <md-content class="element-content content-element-text md-padding" layout-xs="column" layout="row" layout-align="center none"
+        ng-controller="CoachController as vm">
+        <div flex-xs flex-gt-xs="50" layout="row" layout-align="center none">
+          <div flex class="profile-div" layout="column" layout-align="center center">
+            <md-card class="card-element md-padding profile-card" layout="column" layout-align="center center">
+              <h2 class="home-title">Your Next Appointment</h2>
+            </md-card>
+            <md-card class="card-element md-padding profile-card" layout="column" layout-align="center center">
+              <table class="table">
+                <thead class="table-thead">
+                  <tr class="table-tr">
+                    <th class="table-th" scope="col">Date And Time</th>
+                    <th class="table-th" scope="col">With Student</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-tr" ng-repeat="meeting in vm.todayAppts.list">
+                    <td class="table-td" scope="row" data-label="Date and Time">{{meeting.date}} {{meeting.available_time}}</td>
+                    <td class="table-td" scope="row" data-label="With Student">{{meeting.first_name}} {{meeting.last_name}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </md-card>
+          </div>
+      </md-content>
+      <!-- End Next Appointment Card -->
+      </div>
 
-</div>
+  </section>
+
+  </div>

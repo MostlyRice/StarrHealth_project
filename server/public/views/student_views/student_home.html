@@ -45,27 +45,27 @@
             </md-content>
         </md-sidenav>
         <!-- End md-sidenav -->
-        <div class="overflow-1" flex>
+        <div class="overflow-1" flex layout-align="center center">
             <!-- Start Profile Card -->
             <md-content class="element-content content-element-text md-padding" layout-xs="column" layout="row">
                 <div flex class="profile-div" layout="column" layout-align="center center">
-                    <md-card flex class="card-element profile-card md-padding">
-                        <div>
-                            <h2 class="home-title">Student Home</h2>
-                            <md-card-title>
-                                <md-card-title-text ng-repeat="student in vm.student.list">
-                                    <div class="ng-cloak">
-                                        <span class="md-headline">{{student.first_name}} {{student.last_name}}</span>
-                                        <span ng-repeat="student in vm.student.list" layout-xs="column">
-                                            <md-button class="md-raised md-primary defaultBtn" ng-hide="vm.editing" ng-click="vm.editBio()">Update Bio</md-button>
-                                            <md-button class="md-raised md-primary defaultBtn" ng-show="vm.editing" ng-click="vm.saveBio(student.student_id, vm.newBio)">Save Bio</md-button>
-                                            <md-button class="md-raised md-primary defaultBtn" ng-show="vm.editing" ng-click="vm.cancelBio()">Cancel Update</md-button>
-                                            <md-button class="md-raised md-primary defaultBtn" ng-click="vm.newPassword()">Change Password</md-button>
-                                        </span>
-                                    </div>
-                                </md-card-title-text>
-                            </md-card-title>
-                        </div>
+                    <md-card class="card-element profile-card md-padding">
+                        <h2 class="home-title">Student Home</h2>
+                    </md-card>
+                    <md-card class="card-element profile-card md-padding">
+                        <md-card-title>
+                            <md-card-title-text ng-repeat="student in vm.student.list">
+                                <div class="ng-cloak">
+                                    <span class="md-headline">{{student.first_name}} {{student.last_name}}</span>
+                                    <span ng-repeat="student in vm.student.list" layout-xs="column">
+                                        <md-button class="md-raised md-primary defaultBtn" ng-hide="vm.editing" ng-click="vm.editBio()">Update Bio</md-button>
+                                        <md-button class="md-raised md-primary defaultBtn" ng-show="vm.editing" ng-click="vm.saveBio(student.student_id, vm.newBio)">Save Bio</md-button>
+                                        <md-button class="md-raised md-primary defaultBtn" ng-show="vm.editing" ng-click="vm.cancelBio()">Cancel Update</md-button>
+                                        <md-button class="md-raised md-primary defaultBtn" ng-click="vm.newPassword()">Change Password</md-button>
+                                    </span>
+                                </div>
+                            </md-card-title-text>
+                        </md-card-title>
                         <div class="ng-cloak">
                             <md-card-content ng-hide="vm.editing" class="bio-text groove groove-1 ng-cloak" ng-repeat="student in vm.student.list">
                                 <div ng-hide="vm.editing" name="bio">
@@ -87,10 +87,23 @@
                 <div flex class="profile-div" layout="column" layout-align="center center">
                     <md-card class="card-element md-padding profile-card" layout="column" layout-align="center center">
                         <h2 class="home-title">Your Next Appointment</h2>
+                    </md-card>
+                    <md-card class="card-element md-padding profile-card" layout="column" layout-align="center center">
                         <md-card-content class="bio-text groove groove-1">
-                            <div ng-repeat="date in vm.appointment.list">
-                                {{date.date}} at {{date.available_time}} with {{date.first_name}} {{date.last_name}}
-                            </div>
+                            <table class="table">
+                                <thead class="table-thead">
+                                    <tr class="table-tr">
+                                        <th class="table-th" scope="col">Date And Time</th>
+                                        <th class="table-th" scope="col">With Student</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="table-tr" ng-repeat="date in vm.appointment.list">
+                                        <td class="table-td" scope="row" data-label="Date and Time">{{date.date}} {{date.available_time}}</td>
+                                        <td class="table-td" scope="row" data-label="With Student">{{date.first_name}} {{date.last_name}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                             <br/>
                             <div>
                                 <md-button class="md-raised md-primary" flex ng-click="vm.studentSchedule()">
