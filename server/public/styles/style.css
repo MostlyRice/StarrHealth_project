@@ -11,7 +11,7 @@ html {
   margin: 0;
   padding: 0;
   font-family: CallunaSans !important;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 body {
@@ -423,7 +423,7 @@ md-input-container.other-barriers {
 }
 
 .content-element-text {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .card-element {
@@ -522,20 +522,6 @@ f .div-element {
   overflow: scroll;
 }
 
-.create-school {
-  font-size: 13px;
-  height: 700px;
-  width: 350px;
-  background: rgba(255, 255, 255, 0.9);
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
-  margin-bottom: auto;
-  padding: 15px;
-  text-align: center;
-  color: black;
-}
-
 .blackLabel {
   color: rgba(0, 0, 0, 0.85);
 }
@@ -578,20 +564,6 @@ button.md-raised.md-primary.defaultBtn.scheduleBtn.md-button.md-ink-ripple {
   width: 125px;
   margin-right: auto;
   margin-left: auto;
-}
-
-.changePasswordCard {
-  font-size: 20px;
-  height: 500px;
-  width: 400px;
-  background: rgba(255, 255, 255, 0.9);
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
-  margin-bottom: auto;
-  padding: 10px;
-  text-align: center;
-  color: black;
 }
 
 .radio-value {
@@ -672,7 +644,7 @@ button.md-raised.md-primary.defaultBtn.scheduleBtn.md-button.md-ink-ripple {
 }
 
 .progress-bar-text {
-  font-size: 14px;
+  font-size: 16px;
   vertical-align: middle;
   color: #fff;
 }
@@ -775,7 +747,8 @@ table th.table-th {
   table td.table-td {
     border-bottom: 1px solid #ddd;
     display: block;
-    font-size: .8em;
+    font-size: .9em;
+    font-weight: bold;
     text-align: right;
   }
   table td.table-td::before {
