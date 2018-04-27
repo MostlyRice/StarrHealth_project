@@ -27,7 +27,6 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
         schedule.i = "4:00 PM";
         schedule.j = "5:00 PM";
         schedule.k = "6:00 PM";
-        // console.log('post calendar', schedule);
         schedule.day = moment(schedule.date).format('L');
         $http({
                 method: 'POST',
@@ -35,7 +34,6 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                 data: schedule
             })
             .then(function (response) {
-                // console.log('calendar ad ded', response);
                 schedule.a = '';
                 schedule.b = '';
                 schedule.c = '';
@@ -48,7 +46,6 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                 schedule.j = '';
                 schedule.k = '';
             }).catch(function (error) {
-             //   console.log('add calendar error', error);
             })
     }
 
@@ -67,7 +64,6 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                 for (let response of responseArray) {
                     if (response.selected == 'true') {
                         let key = response.property;
-                        // schedule[key] = response.available_time;
                         if (response.available_time === "8:00 AM") {
                             schedule[key] = 8;
                         }
@@ -105,11 +101,12 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                 }
                 }
             }).catch(function (error) {
-              //  console.log('get coach day times error', error);
             })
     }
 
     self.getCoachSchedule(self.schedule);
+    // connects to self.schedule.date 
+    // runs function on page load to get coach availability on today's date
 
     self.postAvailability = function (schedule) {
         schedule.day = moment(schedule.date).format('L');
@@ -153,13 +150,13 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
         })
     .then(function(response) {
         if(schedule.weekly == true){
+            // uses moment recur
+            // throws yellow error, not a huge problem
             let newDate = moment(schedule.date);
             let recurrence = moment().recur({
                 start: schedule.day
             }).every(7).days();
             schedule.weeklyAppointments = recurrence.next(24, "L");
-            // let recurrence = moment(schedule.date).format('MMMM Do YYYY').recur().every(7).days();
-            // schedule.weeklyAppointments = recurrence.next(24);
             $http({
 
                 method: 'POST',
@@ -168,16 +165,12 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
             })
         .then(function(response) {
             schedule.weekly = "";
-            // console.log('weekly times added', response);
-            // swal("Schedule update!", "", "success");
         }).catch(function(error) {
-            // console.log('add weekly error', error);
         })
         }
         swal("Schedule update!", "", "success");
         self.getCoachSchedule(schedule);
     }).catch(function(error) {
-        // console.log('add times error', error);
     })
     
     }
@@ -192,29 +185,28 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                 }
             })
             self.coachAppointments.list = appointmentArray.reduce(function(acc, item) {
+                // creates coach appointment objects by date with all the appointments a coach has that day
                 return { ...acc, [item.date]: [...acc[item.date] || [], item]}
                 },{});
         }).catch(function(error){
-            // console.log('Error getting times', error);
         })
     }
 
     self.getCoachTimes = function (input) {
+        // getCoachTimes gets the times that coaches are available for a session
+        // as opposed to getCoachAppointments which gets times where students have
+        // made appointments
         let date = input;
         $http.get(`/calendar/availability/${date}`)
         .then(function(response) {
-            // console.log('times get', response.data);
             let responseArray = response.data.filter(function(res){ 
             if(res.selected == 'true' && res.student_id == null){
                 return res}
             });
-            // console.log('times', responseArray);
             self.coachTimes.list = responseArray.map(res => {
                 return {time: res.available_time, property: res.property}
             });
-            // console.log('available time', self.coachTimes.list);
         }).catch(function(error){
-            // console.log('Error getting times', error);
         })
     }
 
@@ -261,22 +253,17 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                                 swal("Appointment added!", "", "success");
                                 $location.path('/student_home');
                             }).catch(function (error) {
-                             //   console.log('goals put error', error);
                             })
                             
                         }).catch(function (error) {
-                          //  console.log('get my Studen error');
                         })
                       
                     }).catch(function (error) {
-        
-                        // console.log('student appointment error', error);
                     })
                 } else {
                     swal("Something went wrong! Please try again", "", "warning");
                 }
             }).catch(function (error) {
-            //    console.log('goals put error', error);
             })
    
     }
@@ -296,7 +283,6 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                 }).then(function (response) {
                     location.reload(true);
             }).catch(function (error) {
-             //   console.log('get student error', error);
             })
             }
             else if (data > 0) {
@@ -307,11 +293,9 @@ myApp.service('ScheduleService', ['$http', 'UserService', '$location', function 
                 }).then(function (response) {
                     location.reload(true);
             }).catch(function (error) {
-             //   console.log('get student error', error);
             })
             }
     }).catch(function (error) {
-      //  console.log('get student error', error);
     })
 }
 
