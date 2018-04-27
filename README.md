@@ -16,7 +16,7 @@ Starr Health Scheduling Web App is a full-stack web application with the purpose
 |           |      | Moment    | |      |      |            | |      |            |
 |           |      | Twilio    | ;   <- | <-   |            | ;      | ~--------~ |
 |___________|      |___________|'   Response   |____________|'       `.__________.'
-   Client           Client Logic            Server & Framework         Database
+   Client           Client Logic             Server & Middleware        Database
            *Front End*                                       *Back End*    
 ```
 
