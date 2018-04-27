@@ -35,7 +35,7 @@ These instructions will get you a copy of the project up and running on your loc
 - [Filestack](https://www.filestack.com/)
   - You will need to have a Filestack account and a Filestack API Key. We use Filestack for uploading documents and photos.
 - [Twilio](https://www.twilio.com/)
-  - You will need to have a Twilio account and a Twilio API Key. We use Twilio for uploading documents and photos.
+  - You will need to have a Twilio account and a Twilio API Key. We use Twilio for messaging between coaches and students.
 
 ### Installing
 
