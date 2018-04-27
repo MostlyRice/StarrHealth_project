@@ -38,8 +38,10 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
         $location.path('/coach_Students');
     }
 
-    //Instantiating dialog with Filestack
-    self.client = filestack.init("ASYgNuRdqTkmiELkrSnfIz");
+    // Instantiating dialog with Filestack
+    // API Key left blank, please insert your Filestack API Key 
+    // or Filestack will not function in this application
+    self.client = filestack.init("");
 
     self.coachBio = {
         list: []
