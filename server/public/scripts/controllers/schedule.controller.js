@@ -17,11 +17,11 @@ myApp.controller('ScheduleController', ['$http', 'ScheduleService', 'UserService
   self.studentAppointment = {};
   self.studentAppointment.date = new Date();
   self.getCoachTimes(self.studentAppointment.date);
+ //runs function that gets coaches' availability on today's date on page load
 
   self.postStudentSchedule = ScheduleService.postStudentSchedule;
   self.back = ScheduleService.back;
 
-  // self.getCoachTimes();
   self.getCoachAppointments();
-
+  //runs function on page load to get coaches appointments that students have scheduled
 }]);
