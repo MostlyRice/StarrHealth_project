@@ -41,7 +41,7 @@ myApp.service('CoachService', ['$http', '$location', 'UserService', function ($h
     // Instantiating dialog with Filestack
     // API Key left blank, please insert your Filestack API Key 
     // or Filestack will not function in this application
-    self.client = filestack.init("");
+    self.client = filestack.init("AYpvE9ArwS6eQkUSqQxtLz");
 
     self.coachBio = {
         list: []
