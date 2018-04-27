@@ -6,17 +6,18 @@ Starr Health Scheduling Web App is a full-stack web application with the purpose
 ## Built With
 
 ```
-,___________,         .----------,  _Request_    .------------,         .----------.
-|___________|       ,'_________,'|   -> | ->   ,'___________,'|        ( ~--------~ )
-| HTML5     |      | AngularJS | |      |      | Node.js    | |        | PostgreSQL |
-| CSS3      |      | SweetAlert| |      |      | Express.js | |        |            |
-| Angular   | <--  | Angular   | |      |      |            | | <--    |            |        
-|  Material |      |  Material | |      |      |            | |        |            |
-|           |      | Filestack | |      |      |            | |        |            |
-|           |      | Moment.js | ;   <- | <-   |            | ;        | ~--------~ |
-|___________|      |___________|'  _Response_  |____________|'         `.__________.'
+,___________,         .----------,   Request     .------------,       .----------.
+|___________|       ,'_________,'|   -> | ->   ,'___________,'|      ( ~--------~ )
+| HTML5     |      | AngularJS | |      |      | Node       | |      | PostgreSQL |
+| CSS3      |      | SweetAlert| |      |      | Express    | |      |            |
+| Angular   |      | Angular   | |      |      |            | |      |            |        
+|  Material | <--- |  Material | |      |      |            | | <--- |            |
+|           |      | Filestack | |      |      |            | |      |            |
+|           |      | Moment    | |      |      |            | |      |            |
+|           |      | Twilio    | ;   <- | <-   |            | ;      | ~--------~ |
+|___________|      |___________|'   Response   |____________|'       `.__________.'
    Client           Client Logic            Server & Framework         Database
-           *Front End*                                     *Back End*    
+           *Front End*                                       *Back End*    
 ```
 
 ## Getting Started
@@ -35,7 +36,6 @@ These instructions will get you a copy of the project up and running on your loc
   - You will need to have a Filestack account and a Filestack API Key. We use Filestack for uploading documents and photos.
 - [Twilio](https://www.twilio.com/)
   - You will need to have a Twilio account and a Twilio API Key. We use Twilio for uploading documents and photos.
-
 
 ### Installing
 
