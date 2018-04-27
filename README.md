@@ -31,6 +31,8 @@ These instructions will get you a copy of the project up and running on your loc
   - The database name will have to be called "StarrHealth".
 - [Postico](https://eggerapps.at/postico/)
   - We recommend this PostgreSQL GUI client as it was the one we used.
+- [Filestack](https://www.filestack.com/)
+  - You will need to have a Filestack account and a Filestack API Key.
 
 
 ### Installing
@@ -45,11 +47,13 @@ These instructions will get you a copy of the project up and running on your loc
   * User Role 3: Admin (Only has access Admin features)
   * User Role 4: Super Admin (This is an Admin that is also a Coach)
 
-- To create your first Admin, you'll need to register as a new student registering for the application for the first time. Once you are on the disclaimer page, you can go back to the home page. There is no need to continue with registration.
+  - To create your first Admin, you'll need to register as a new student registering for the application for the first time. Once you are on the disclaimer page, you can go back to the home page. There is no need to continue with registration.
 
-- Once on the home page, you will want to use PostgreSQL or PostgreSQL GUI client of your choice to change your new registered users' `user_role` number to 3 (for Admin).
+  - Once on the home page, you will want to use PostgreSQL or PostgreSQL GUI client of your choice to change your new registered users' `user_role` number to 3 (for Admin).
 
-- To create a Super Admin, which serves as an Admin and a Coach, you will need to create a Coach via the Admin features and then you will want to use PostgreSQL or PostgreSQL GUI client of your choice to change your new registered users' `user_role` number to 4 (for Super Admin).
+  - To create a Super Admin, which serves as an Admin and a Coach, you will need to create a Coach via the Admin features and then you will want to use PostgreSQL or PostgreSQL GUI client of your choice to change your new registered users' `user_role` number to 4 (for Super Admin).
+
+- To utilize Filestack, you will need to open file `StarrHealth_project/server/public/scripts/services/coach.service.js` and add the Filestack API Key for your account on line 44 `self.client = filestack.init("");` inserting the API Key between the `""`.
 
 ### Completed Features
 
