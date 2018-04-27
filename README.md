@@ -32,7 +32,9 @@ These instructions will get you a copy of the project up and running on your loc
 - [Postico](https://eggerapps.at/postico/)
   - We recommend this PostgreSQL GUI client as it was the one we used.
 - [Filestack](https://www.filestack.com/)
-  - You will need to have a Filestack account and a Filestack API Key.
+  - You will need to have a Filestack account and a Filestack API Key. We use Filestack for uploading documents and photos.
+- [Twilio](https://www.twilio.com/)
+  - You will need to have a Twilio account and a Twilio API Key. We use Twilio for uploading documents and photos.
 
 
 ### Installing
@@ -54,6 +56,8 @@ These instructions will get you a copy of the project up and running on your loc
   - To create a Super Admin, which serves as an Admin and a Coach, you will need to create a Coach via the Admin features and then you will want to use PostgreSQL or PostgreSQL GUI client of your choice to change your new registered users' `user_role` number to 4 (for Super Admin).
 
 - To utilize Filestack, you will need to open file `StarrHealth_project/server/public/scripts/services/coach.service.js` and add the Filestack API Key for your account on line 44 `self.client = filestack.init("");` inserting the API Key between the `""`.
+
+- To utilize Twilio, you will need to open file `StarrHealth_project/server/public/scripts/routes/sms.router.js` and add the Twilio accountSid API key for the account on line 8 `const accountSid = '';` inserting the API Key between the `''` as well as add the Twilio authToken API key for the account on line 9 `const authToken = '';` inserting the API key between the `''`.
 
 ### Completed Features
 
@@ -83,6 +87,10 @@ Features that you would like to add at some point in the future.
 
 - [x] The ability for coaches communicate notes from sessions to the students. These notes could be text posted onto the students’ profile or pdfs sent to the students through the site
 - [x] A messaging function that allows students and coaches to send messages back and forth.
+
+### Bugs & Issues
+
+- All known bugs have been resolved.
 
 ## Authors
 
