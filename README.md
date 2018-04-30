@@ -67,7 +67,7 @@ These instructions will get you a copy of the project up and running on your loc
 - [x] **Appointment scheduler:** Displays a two week period of chosen therapist's availability. Prospective patient may click to request an appointment, add information, and an email will be sent to the therapist with the requested date, time and contact information.
 
 **Coach User Features:**
-- [x] **Coach profile dashboard:** Logged in coaches have access to an editable profile page where they can view edit any information including their photo, adding new areas of interest or certifications, and being able to change their password
+- [x] **Coach profile dashboard:** Logged in coaches have access to an editable profile page where they can view and edit any information including their photo, adding new areas of interest or certifications, and being able to change their password
 - [x] **Coach schedule view:** The Coach will also be able to navigate to their appointments page. This will be specific
 to the Coach and will serve just as a snapshot of their upcoming schedule. The Coach will be able to navigate to the schedule page to set their availability.
 
@@ -77,7 +77,7 @@ to the Coach and will serve just as a snapshot of their upcoming schedule. The C
 - [x] **Add new school:** Ability for the Admin creates a new school, they will have to enter the name of the school and the number of Student accounts.
 - [x] **School directory view:** The schools directory will give the Admin access to all schools that have accounts with
 Starr Health. It will list each school by name, show the total number of Student accounts for that school and how many are currently assigned to Students. 
-- [x] **School directory view:** The Students directory will show the Admin a list of all Students that currently have
+- [x] **Student directory view:** The Students directory will show the Admin a list of all Students that currently have
 accounts with Starr Health. The Admin will have the option to delete a Student Account if necessary.
 
 
