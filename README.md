@@ -28,20 +28,19 @@ These instructions will get you a copy of the project up and running on your loc
 
 - [Node.js](https://nodejs.org/en/)
 - [PostgreSQL](https://www.postgresql.org/)
-  - Please see the database.sql file, it will give you the queries you need to create the database.
   - The database name will have to be called "StarrHealth".
+  - Please see the database.sql file, it will give you the queries you need to create the database tables. If you select all the tables at once, you should be able to execute all of them at once.
+  - Please see the database_data.sql file once the database tables are created. If you select all of the inserts at once, you should be able to execute all of them at once.
 - [Postico](https://eggerapps.at/postico/)
   - We recommend this PostgreSQL GUI client as it was the one we used.
 - [Filestack](https://www.filestack.com/)
-  - You will need to have a Filestack account and a Filestack API Key. We use Filestack for uploading documents and photos.
+  - You will need to have a Filestack account and a Filestack API Key. We use Filestack for uploading documents and photos. The server will not function if you *do not* have your Filestack API Key in the code. Please see Installing documentation.
 - [Twilio](https://www.twilio.com/)
-  - You will need to have a Twilio account and a Twilio API Key. We use Twilio for messaging between coaches and students.
+  - You will need to have a Twilio account and a Twilio API Key. We use Twilio for messaging between coaches and students. The server will not function if you *do not* have your Twilio API Key in the code. Please see Installing documentation.
 
 ### Installing
 
 - Once you clone the repo, you will want to run `npm i` to install all the modules so that the repo should function properly.
-
-- Then it will be as simple as typing `npm start` to start up the application and you can access it on your browser at `http://localhost:5000/`
 
 - The database utilizes user roles.
   * User Role 1: Student (These users register as normal)
@@ -58,6 +57,8 @@ These instructions will get you a copy of the project up and running on your loc
 - To utilize Filestack, you will need to open file `StarrHealth_project/server/public/scripts/services/coach.service.js` and add the Filestack API Key for your account on line 44 `self.client = filestack.init("");` inserting the API Key between the `""`.
 
 - To utilize Twilio, you will need to open file `StarrHealth_project/server/routes/sms.router.js` and add the Twilio accountSid API key for the account on line 8 `const accountSid = '';` inserting the API Key between the `''` as well as add the Twilio authToken API key for the account on line 9 `const authToken = '';` inserting the API key between the `''`.
+
+- Then it will be as simple as typing `npm start` to start up the application and you can access it on your browser at `http://localhost:5000/`
 
 ### Completed Features
 
