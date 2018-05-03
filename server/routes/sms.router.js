@@ -1,12 +1,14 @@
 const express = require('express');
 const pool = require('../modules/pool.js');
 const router = express.Router();
+let env = require('dotenv');
+env.config();
 
 // Instantiating dialog with Twilio
 // API Keys left blank, please insert your Twilio API Key 
 // or Twilio will not function in this application
-const accountSid = '';
-const authToken = '';
+const accountSid = process.env.ACCOUNT_SID;
+const authToken = process.env.AUTH_TOKEN;
 
 // require the Twilio module and create a REST client
 const client = require('twilio')(accountSid, authToken);
@@ -47,7 +49,7 @@ router.get('/coachphone/:id', (request, response) => {
         client.messages
         .create({
     to: phone,
-    from: '+16122550400',
+    from: '+16123241751',
     body: entry.first_name + ' ' + entry.last_name + ':  ' + entry.newmessage,
   })
   .then(message => console.log(message.sid));
