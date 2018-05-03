@@ -7,6 +7,7 @@ env.config();
 // Instantiating dialog with Twilio
 // API Keys left blank, please insert your Twilio API Key 
 // or Twilio will not function in this application
+
 const accountSid = process.env.ACCOUNT_SID;
 const authToken = process.env.AUTH_TOKEN;
 

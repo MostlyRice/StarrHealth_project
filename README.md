@@ -16,32 +16,31 @@ Starr Health Scheduling Web App is a full-stack web application with the purpose
 |           |      | Moment    | |      |      |            | |      |            |
 |           |      | Twilio    | ;   <- | <-   |            | ;      | ~--------~ |
 |___________|      |___________|'   Response   |____________|'       `.__________.'
-   Client           Client Logic            Server & Framework         Database
+   Client           Client Logic             Server & Middleware        Database
            *Front End*                                       *Back End*    
 ```
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. You can either fork this repoistory and then clone it from your computer or you can download the zip file.
 
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/en/)
 - [PostgreSQL](https://www.postgresql.org/)
-  - Please see the database.sql file, it will give you the queries you need to create the database.
   - The database name will have to be called "StarrHealth".
+  - Please see the database.sql file, it will give you the queries you need to create the database tables. If you select all the tables at once, you should be able to execute all of them at once.
+  - Please see the database_data.sql file once the database tables are created. If you select all of the inserts at once, you should be able to execute all of them at once.
 - [Postico](https://eggerapps.at/postico/)
   - We recommend this PostgreSQL GUI client as it was the one we used.
 - [Filestack](https://www.filestack.com/)
-  - You will need to have a Filestack account and a Filestack API Key. We use Filestack for uploading documents and photos.
+  - You will need to have a Filestack account and a Filestack API Key. We use Filestack for uploading documents and photos. The server will not function if you *do not* have your Filestack API Key in the code. Please see Installing documentation.
 - [Twilio](https://www.twilio.com/)
-  - You will need to have a Twilio account and a Twilio API Key. We use Twilio for uploading documents and photos.
+  - You will need to have a Twilio account and a Twilio API Key. We use Twilio for messaging between coaches and students. The server will not function if you *do not* have your Twilio API Key in the code. Please see Installing documentation.
 
 ### Installing
 
 - Once you clone the repo, you will want to run `npm i` to install all the modules so that the repo should function properly.
-
-- Then it will be as simple as typing `npm start` to start up the application and you can access it on your browser at `http://localhost:5000/`
 
 - The database utilizes user roles.
   * User Role 1: Student (These users register as normal)
@@ -59,6 +58,8 @@ These instructions will get you a copy of the project up and running on your loc
 
 - To utilize Twilio, you will need to open file `StarrHealth_project/server/routes/sms.router.js` and add the Twilio accountSid API key for the account on line 8 `const accountSid = '';` inserting the API Key between the `''` as well as add the Twilio authToken API key for the account on line 9 `const authToken = '';` inserting the API key between the `''`.
 
+- Then it will be as simple as typing `npm start` to start up the application and you can access it on your browser at `http://localhost:5000/`
+
 ### Completed Features
 
 **Student User Features:**
@@ -67,7 +68,7 @@ These instructions will get you a copy of the project up and running on your loc
 - [x] **Appointment scheduler:** Displays a two week period of chosen therapist's availability. Prospective patient may click to request an appointment, add information, and an email will be sent to the therapist with the requested date, time and contact information.
 
 **Coach User Features:**
-- [x] **Coach profile dashboard:** Logged in coaches have access to an editable profile page where they can view edit any information including their photo, adding new areas of interest or certifications, and being able to change their password
+- [x] **Coach profile dashboard:** Logged in coaches have access to an editable profile page where they can view and edit any information including their photo, adding new areas of interest or certifications, and being able to change their password
 - [x] **Coach schedule view:** The Coach will also be able to navigate to their appointments page. This will be specific
 to the Coach and will serve just as a snapshot of their upcoming schedule. The Coach will be able to navigate to the schedule page to set their availability.
 
@@ -77,7 +78,7 @@ to the Coach and will serve just as a snapshot of their upcoming schedule. The C
 - [x] **Add new school:** Ability for the Admin creates a new school, they will have to enter the name of the school and the number of Student accounts.
 - [x] **School directory view:** The schools directory will give the Admin access to all schools that have accounts with
 Starr Health. It will list each school by name, show the total number of Student accounts for that school and how many are currently assigned to Students. 
-- [x] **School directory view:** The Students directory will show the Admin a list of all Students that currently have
+- [x] **Student directory view:** The Students directory will show the Admin a list of all Students that currently have
 accounts with Starr Health. The Admin will have the option to delete a Student Account if necessary.
 
 

@@ -76,6 +76,7 @@
               <md-datepicker ng-model="sc.schedule.date" md-placeholder="Enter date" ng-change="sc.getCoachSchedule(sc.schedule)"></md-datepicker>
             </div>
             <div layout-align="center center">
+              <!-- Available times are hard coded. To add/remove times, a whole line must be added/removed here. It also must be added/removed in schedule.service and calendar.router-->
               <md-input-container>
                 <md-checkbox class="timeSlot" layout="column" ng-true-value="8" ng-model="sc.schedule.a">8am</md-checkbox>
                 <md-checkbox class="timeSlot" layout="column" ng-true-value="9" ng-model="sc.schedule.b">9am</md-checkbox>
