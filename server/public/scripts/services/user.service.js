@@ -54,15 +54,15 @@ myApp.service('UserService', ['$http', '$location', function ($http, $location) 
                     // user has a curret session on the server
                     self.userObject.userName = response.data.username;
                     self.userObject.user_role = response.data.user_role;
-                 //   console.log('UserService -- getAdmin -- User Data: ', self.userObject.userName);
+                   console.log('UserService -- getAdmin -- User Data: ', self.userObject.userName);
                 } else {
-                  //  console.log('UserService -- getAdmin -- failure');
+                 console.log('UserService -- getAdmin -- failure');
                     // user has no session, bounce them back to the login page
                     swal("You are not authorized to view this page.", "", "warning");
                     $location.path("/home");
                 }
             }, function (response) {
-             //   console.log('UserService -- getAdmin -- failure: ', response);
+                console.log('UserService -- getAdmin -- failure: ', response);
                 swal("You are not authorized to view this page.", "", "warning");
                 $location.path("/home");
             });
