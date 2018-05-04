@@ -64,7 +64,7 @@ FILESTACK_KEY = 'INSERT FILESTACK_KEY KEY HERE'
 
 ```
 
-- To finalize and be able to use Twilio, you will need to open file `StarrHealth_project/server/routes/sms.router.js` and add the Twilio account phone number on line 55 `from : '+1';` inserting the phone number between the `''` it should look like this `i.e. from: '+15555555555',`
+- To finalize and be able to use Twilio, you will need to open file `StarrHealth_project/server/routes/sms.router.js` and add the Twilio account phone number on line 55 `from : '+1';` inserting the phone number between the `''` it should look like this `from: '+15555555555',`
 
 - Then it will be as simple as typing `npm start` to start up the application and you can access it on your browser at `http://localhost:5000/`
 
