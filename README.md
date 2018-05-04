@@ -54,6 +54,16 @@ These instructions will get you a copy of the project up and running on your loc
 
   - To create a Super Admin, which serves as an Admin and a Coach, you will need to create a Coach via the Admin features and then you will want to use PostgreSQL or PostgreSQL GUI client of your choice to change your new registered users' `user_role` number to 4 (for Super Admin).
 
+- To utilize Filestack and Twilio, you will need to create a .env file in your main directory. You will not be able to upload it to this repo as most .gitignore will ignore the file. This is for security reasons as you do not want to post your API Keys to these services out in the open. When you are done creating the .env file, insert your respective keys into the text below and then save the .env file.
+
+```
+
+ACCOUNT_SID = 'INSERT TWILIO ACCOUNT_SID KEY HERE'
+AUTH_TOKEN = 'INSERT TWILIO AUTH_TOKEN KEY HERE'
+FILESTACK_KEY = 'INSERT FILESTACK_KEY KEY HERE'
+
+```
+
 - To utilize Filestack, you will need to open file `StarrHealth_project/server/public/scripts/services/coach.service.js` and add the Filestack API Key for your account on line 44 `self.client = filestack.init("");` inserting the API Key between the `""`.
 
 - To utilize Twilio, you will need to open file `StarrHealth_project/server/routes/sms.router.js` and add the Twilio accountSid API key for the account on line 8 `const accountSid = '';` inserting the API Key between the `''` as well as add the Twilio authToken API key for the account on line 9 `const authToken = '';` inserting the API key between the `''`.
