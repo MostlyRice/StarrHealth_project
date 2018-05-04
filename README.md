@@ -64,9 +64,7 @@ FILESTACK_KEY = 'INSERT FILESTACK_KEY KEY HERE'
 
 ```
 
-- To utilize Filestack, you will need to open file `StarrHealth_project/server/public/scripts/services/coach.service.js` and add the Filestack API Key for your account on line 44 `self.client = filestack.init("");` inserting the API Key between the `""`.
-
-- To utilize Twilio, you will need to open file `StarrHealth_project/server/routes/sms.router.js` and add the Twilio accountSid API key for the account on line 8 `const accountSid = '';` inserting the API Key between the `''` as well as add the Twilio authToken API key for the account on line 9 `const authToken = '';` inserting the API key between the `''`.
+- To finalize and be able to use Twilio, you will need to open file `StarrHealth_project/server/routes/sms.router.js` and add the Twilio account phone number on line 55 `from : '+1';` inserting the phone number between the `''` it should look like this `i.e. from: '+15555555555',`
 
 - Then it will be as simple as typing `npm start` to start up the application and you can access it on your browser at `http://localhost:5000/`
 
