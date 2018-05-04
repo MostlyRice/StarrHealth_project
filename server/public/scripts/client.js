@@ -27,7 +27,7 @@ const myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngAria', 'ngMes
     }
   })
 
-/// Routes ///
+/// Routes     ///
 myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
   console.log('myApp -- config')
 
