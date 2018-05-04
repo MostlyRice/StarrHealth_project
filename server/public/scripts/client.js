@@ -356,4 +356,5 @@ myApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $
     .otherwise({
       template: '<h1>404</h1>'
     });
+    
 }]);
